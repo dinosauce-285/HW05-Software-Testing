@@ -23,7 +23,7 @@
 | Định dạng test data | **CSV** - `data/*.csv`, nạp bằng CSV Data Set Config của JMeter |
 | YouTube Task 1 (demo ≥6 phút) | `<điền>` (unlisted) |
 | YouTube Agent Skill | `<điền>` (unlisted) |
-| Self-assessed grade | `<điền>` -> file nộp `23127262_HW05_AI_Performance_<grade>.zip` |
+| Self-assessed grade | `100` -> file nộp `23127262_HW05_AI_Performance_100.zip` |
 
 Khi còn `<điền>` mà cần dùng -> **hỏi**, không tự suy ra, không dùng giá trị ví dụ.
 
@@ -322,7 +322,68 @@ Không làm hộ, không tự nhắc mỗi phiên. Chỉ trả lời khi đượ
 
 ---
 
-## 5. Tra cứu
+## 5. Bản đồ ăn điểm - 100/100
+
+Mỗi dòng dưới đây là điều kiện đủ để không mất điểm ở mục tương ứng của thang điểm mục 15:183-191. Thiếu một gạch đầu dòng là mất điểm ở đó.
+
+### 20đ - Load (read-heavy, `GET /api/products` + `?search=`)
+- [ ] Prompt AI **chia bước**, không gộp (mục 2:20) - log đủ vào AI Audit
+- [ ] Giải thích **vì sao ghép Load với read-heavy** trong báo cáo chính (mục 6:88)
+- [ ] `data/products.csv` - từ khoá tìm kiếm + id, **file riêng**, không dùng chung (mục 6:89)
+- [ ] Listener **Summary Report**, không trùng 2 plan kia (mục 6:90)
+- [ ] Tên file `23127262_Load_YYYYMMDD.jmx` (mục 6:91 / 11:148)
+- [ ] Assertion kiểm **JSON**, không chỉ kiểm HTTP 200 - vì `?search=` lỗi trả HTML (khảo sát #6)
+- [ ] Ghi rõ think-time / ramp-up / thread count **và lý do từng số** (R8)
+- [ ] Nhật ký AI review-fix có dòng cho plan này (mục 6:92 / R4)
+- [ ] `.jtl` thô + thư mục HTML + screenshot JMeter&htop cùng khung + hardware report (mục 6:93 / R5)
+- [ ] **Endurance 10-15 phút chạy trên chính endpoint này**, kết luận bằng số: max stable RPS + trần RSS của process node (mục 6:94)
+
+### 20đ - Stress (auth-heavy, `POST /api/login`)
+- [ ] Bốn gạch đầu dòng đầu như trên, đổi: `data/credentials.csv`, listener **Aggregate Report**, tên `23127262_Stress_YYYYMMDD.jmx`
+- [ ] **Sinh sẵn nhiều tài khoản** qua `POST /api/register` trước khi chạy - 2 user seed không đủ (khảo sát #4)
+- [ ] Nêu sai lệch **khoá sau 2 lần sai chứ không phải 3** như đề ghi (khảo sát #1) -> đồng thời là 1 bug ở R6
+- [ ] Ghi **chính xác lệnh reset lockout** giữa các lượt, không viết chung chung (mục 6:93 / R13)
+- [ ] Tách bạch tài khoản hợp lệ / sai mật khẩu trong CSV, nếu không throughput sẽ đẹp giả tạo do 403 trả rất nhanh
+- [ ] Bộ bằng chứng 4 món như Load
+
+### 20đ - Spike (transactional, `POST /api/cart` -> `POST /api/checkout`)
+- [ ] Như trên, đổi: `data/orders.csv`, listener **View Results Tree**, tên `23127262_Spike_YYYYMMDD.jmx`
+- [ ] setUp Thread Group login lấy token bằng JSON Extractor `$.token` - cả 2 endpoint đều cần `Authorization: Bearer`
+- [ ] Hình dạng spike rõ ràng: nền thấp -> vọt -> rút, và đo **thời gian hồi phục**
+- [ ] Reset DB giữa các lượt vì checkout tạo đơn rác không kiểm gì (khảo sát #8)
+- [ ] Ghi nhận bộ nhớ phình do `userCarts` không bao giờ dọn (khảo sát #5) - đây là bằng chứng memory ceiling
+- [ ] Bộ bằng chứng 4 món như Load
+
+### 10đ - Task 2 (AI analysis + săn lỗi diễn giải)
+- [ ] Cho AI phân tích `.jtl` và đề xuất ngưỡng (mục 6:102)
+- [ ] **Mỗi lỗi diễn giải phải kèm giá trị đúng lấy từ `.jtl` thô** (mục 6:103 / R11) - đây là chỗ chấm chặt nhất
+- [ ] Mồi có sẵn: mật khẩu là plaintext, AI sẽ đổ latency cho bcrypt (khảo sát #3)
+- [ ] Phân loại từng đề xuất tối ưu thành **feasible / hallucinated** kèm lý do (mục 6:104)
+
+### 10đ - Task 3 (Continuous Performance Testing, G9.6)
+- [ ] **Flow chart** bắt buộc (mục 6:108)
+- [ ] Đủ 3 khâu: theo dõi commit SUT -> quyết định có chạy test không -> cảnh báo p95 xấu đi
+- [ ] Bàn **trade-off**: chi phí và báo động giả
+
+### 10đ - Agent Skill
+- [ ] `.claude/skills/` bồi dần từ scenario Load, không gom cuối bài (R12)
+- [ ] **Video demo riêng**, quay end-to-end dùng skill trên một endpoint group hoàn chỉnh (mục 7:113)
+
+### Điều kiện chặn - thiếu là 0 điểm toàn bài (mục 17:204)
+- [ ] Báo cáo chính (md + pdf)
+- [ ] AI Audit Report theo mẫu 6 mục (md + pdf) + AI Critique **200-300 chữ**
+- [ ] 3 `.jtl` thô nộp **nguyên vẹn**, không phải bản tóm tắt (mục 11:149)
+- [ ] 3 thư mục HTML report
+- [ ] Screenshot resource monitor + hardware, **hostname khớp HW04** (mục 11:151)
+- [ ] Video Task 1 **tổng >= 6 phút**, JMeter và htop **chung một khung hình**, giọng mình, tiếng Việt
+- [ ] `git-log.txt`
+- [ ] Bug report + screenshot, số bug khớp số GitHub Issue
+- [ ] `README.md` có bảng tự đánh giá + test summary (mục 14:177)
+- [ ] Zip đúng tên `23127262_HW05_AI_Performance_100.zip`
+
+---
+
+## 6. Tra cứu
 
 | Cần gì | Ở đâu |
 |---|---|
