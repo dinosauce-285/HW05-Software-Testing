@@ -1,0 +1,15 @@
+search_term,expect_min_count,expect_code,note
+iPhone,22,200,tu khoa khop
+Samsung,22,200,tu khoa khop
+Xiaomi,21,200,tu khoa khop
+MacBook,22,200,tu khoa khop
+ThinkPad,21,200,tu khoa khop
+AirPods,22,200,tu khoa khop
+Keychron,22,200,tu khoa khop
+Pro Max,22,200,tu khoa khop
+Ultra,22,200,tu khoa khop
+Plus,21,200,tu khoa khop
+Air,40,200,tu khoa khop
+Lite,21,200,tu khoa khop
+KhongTonTaiXYZ,0,200,khong khop - phai tra mang rong
+O'Neill,0,200,dau nhay don - du kien lo loi SQL injection
