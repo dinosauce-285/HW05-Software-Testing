@@ -1,4 +1,4 @@
 sut/
+tools/
 node_modules/
-results/
 *.log
