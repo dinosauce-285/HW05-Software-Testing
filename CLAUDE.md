@@ -31,18 +31,34 @@ Khi còn `<điền>` mà cần dùng -> **hỏi**, không tự suy ra, không d�
 
 Đề mục 6:88 bắt ghép 1-1: mỗi scenario bắn đúng một nhóm, ba nhóm phủ hết, không trùng.
 
-| Scenario | Endpoint group | Endpoint dự kiến [!] | Lý do ghép (phải viết vào báo cáo chính) |
+| Scenario | Endpoint group | Endpoint (đã verify 11/08/2026) | Lý do ghép (phải viết vào báo cáo chính) |
 |---|---|---|---|
-| **Load** | Read-heavy | `GET /api/products` (list + search) | API chỉ đọc, nhẹ, giữ tải đều lâu được -> đo ra ngưỡng chịu đựng bằng số cụ thể cho mục 6:94 |
-| **Stress** | Auth-heavy | `POST /api/auth/login` | Ép tới gãy sẽ kích hoạt khoá tài khoản 3-lần-sai - đúng thứ mục 6:93 đòi mô tả quy trình reset |
-| **Spike** | Transactional | `POST /api/orders` (add-to-cart -> checkout) | Burst đột ngột mô phỏng flash-sale; nhánh ghi DB dễ lộ bug thật cho mục 6:96 |
+| **Load** | Read-heavy | `GET /api/products` + `GET /api/products?search=` | API chỉ đọc, nhẹ, giữ tải đều lâu được -> đo ra ngưỡng chịu đựng bằng số cụ thể cho mục 6:94 |
+| **Stress** | Auth-heavy | `POST /api/login` | Ép tới gãy sẽ kích hoạt khoá tài khoản - đúng thứ mục 6:93 đòi mô tả quy trình reset |
+| **Spike** | Transactional | `POST /api/cart` -> `POST /api/checkout` | Burst đột ngột mô phỏng flash-sale; nhánh ghi DB dễ lộ bug thật cho mục 6:96 |
 
-**[!] Đường dẫn endpoint và payload ở bảng trên CHƯA đối chiếu với mã nguồn SUT** - `sut/` chưa clone về máy tại thời điểm viết file này.
-- [ ] Clone SUT, đọc `backend/routes/*` xác nhận path, method, body, mã lỗi
-- [ ] Sửa lại bảng trên nếu lệch, rồi mới viết `.jmx` đầu tiên
+Cả 3 đã gọi thật bằng `curl` trên backend đang chạy, không phải đọc code suy ra.
+**`/api/cart` và `/api/checkout` cần header `Authorization: Bearer <token>`** - plan Spike phải có bước login lấy token trước, hoặc nạp token dựng sẵn qua CSV.
 
 **Không trùng với thành viên nhóm** (đề mục 5:78 - *"no two members may test the same endpoint / workflow"*):
 - [ ] Đối chiếu với nhóm và ghi kết quả vào báo cáo chính
+
+### Hành vi thật của SUT - đã khảo sát 11/08/2026
+
+Đọc hết mục này trước khi viết `.jmx` hoặc sinh CSV. Mọi dòng đều verify bằng `curl` thật.
+
+| # | Phát hiện | Ảnh hưởng tới bài |
+|---|---|---|
+| 1 | **Khoá tài khoản sau 2 lần sai, không phải 3.** `server.js:54` cộng `login_attempts + 2` mỗi lần sai, ngưỡng khoá là `>= 3` -> lần sai thứ 2 đã đạt 4 | Bug thật, **mâu thuẫn với chính đề** (mục 6:93 ghi "3-fail login lockout"). Vào `Bug-Report.md` + GitHub Issue. Plan Stress phải tính theo mốc 2 |
+| 2 | **Khoá 180 giây** (`server.js:57`), và check khoá đặt **trước** khi so mật khẩu (`server.js:40`) -> đang khoá thì mật khẩu đúng vẫn trả **403** | Chạy Stress xong phải chờ 3 phút hoặc reset DB mới đo lại được (R13) |
+| 3 | **Mật khẩu lưu và so sánh dạng plaintext** (`server.js:46`), không bcrypt | AI sẽ mặc định login chậm vì hash - **sai**. Đây là mồi ngon cho phần "AI đọc sai" của Task 2 (mục 6:103) |
+| 4 | **Chỉ seed 5 sản phẩm (id 1-5) và 2 user** | Không đủ cho CSV data-driven. Phải tự sinh thêm dữ liệu qua `POST /api/register` và `POST /api/products` trước khi chạy |
+| 5 | **Giỏ hàng nằm trong RAM** - biến `userCarts = {}` (`server.js:14`), không bao giờ dọn | Bắn tải vào `POST /api/cart` là bộ nhớ phình đơn điệu -> đúng bằng chứng cho "memory ceiling" của endurance test (mục 6:94) |
+| 6 | **`?search=` nối chuỗi thẳng vào SQL** (`server.js:144`), lỗi thì trả **HTML** `<h1>Database Error</h1>` kèm 500 | Assertion của plan Load phải kiểm **Content-Type/JSON**, không chỉ kiểm mã 200 |
+| 7 | **`GET /api/products/:id` trả `price` kiểu string khi id chẵn** (`server.js:162`); id không tồn tại trả **200 `{}`** thay vì 404 | Bug thật. Assertion đừng dựa vào kiểu dữ liệu của `price` |
+| 8 | **`POST /api/checkout` không kiểm giỏ hàng, không kiểm tồn kho** - insert thẳng vào `orders` | Spike sẽ tạo ra đơn rác rất nhanh; phải reset DB giữa các lượt |
+
+Tài khoản seed: `admin@eshop.com` / `Admin123!` (role admin), `test@eshop.com` / `Test1234!` (role user). Coupon seed: `SAVE10`, `BIGBUY`, `VIP100`, `EXPIRED`.
 
 ### Ba report view - mỗi plan một loại, không lặp
 
@@ -247,10 +263,20 @@ Làm xong scenario Load -> chắt quy trình vừa dùng (sinh plan -> nạp CSV
 
 *"When Stress/Spike runs trigger the 3-fail login lockout, reset it between runs and document the steps."*
 
+**Đề ghi "3-fail" nhưng SUT khoá sau 2 lần sai** (xem bảng khảo sát mục 1, dòng #1). Nêu sai lệch này trong báo cáo chính, đừng chép lại con số của đề.
+
 Plan auth-heavy sẽ tự làm khoá tài khoản. Mỗi lần chạy xong:
-1. Reset trạng thái khoá (qua `node backend/database.js` hoặc thao tác DB - **ghi lại chính xác lệnh đã dùng**)
+1. Reset trạng thái khoá - **ghi lại chính xác lệnh đã dùng**, một trong hai:
+   ```bash
+   # sạch hoàn toàn, mất luôn đơn hàng rác do Spike sinh ra
+   rm sut/backend/database.sqlite && node sut/backend/database.js
+
+   # chỉ mở khoá, giữ dữ liệu
+   sqlite3 sut/backend/database.sqlite "UPDATE users SET login_attempts=0, locked_until=NULL"
+   ```
+   Hoặc chờ hết 180 giây - nhưng chờ thì phải ghi rõ đã chờ, vì nó ăn vào thời lượng chạy.
 2. Chép các bước đó vào báo cáo chính, không viết chung chung "đã reset"
-3. Chạy lượt sau từ trạng thái sạch - nếu không, số liệu lượt sau là số của tài khoản đã bị khoá, vô nghĩa
+3. Chạy lượt sau từ trạng thái sạch - nếu không, số liệu lượt sau là số của tài khoản đã bị khoá (toàn 403, phản hồi rất nhanh vì không phải so mật khẩu), **throughput trông đẹp một cách giả tạo**
 
 Đây là điểm chấm riêng, không phải chi tiết vặt.
 
@@ -303,7 +329,12 @@ Không làm hộ, không tự nhắc mỗi phiên. Chỉ trả lời khi đượ
 | Yêu cầu chính thức | `2026.HW05.Performance Testing_En.md` |
 | Chính sách môn học | `___2026.Homework.Policies.md` |
 | Mẫu AI Audit Report (6 mục) | `[AI-02] - FIT@HCMUS - AI Audit Report_Vn.docx.md` |
-| SUT (source, endpoint, cách chạy) | `https://github.com/ttbhanh/eshop-sut` -> clone vào `sut/` |
+| Danh sách endpoint chính thức | `sut/api_specification.md` |
+| Mã nguồn backend (nguồn sự thật) | `sut/backend/server.js` - 572 dòng, toàn bộ route nằm trong 1 file |
+| Seed dữ liệu + schema | `sut/backend/database.js` |
 | Cấu trúc thư mục, trạng thái, self-assessment | `submission/README.md` |
+
+`sut/` đã clone (`--depth 1`), đã **xoá `.git`** và **gitignore** - không commit vào repo bài làm.
+Chạy backend: `cd sut/backend && node server.js` (cổng 3000, `npm install` đã chạy).
 
 **Repo bài làm:** `https://github.com/dinosauce-285/HW05-Software-Testing` (public, remote `origin`, branch `main`)
