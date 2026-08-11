@@ -29,11 +29,33 @@ if [ "$RSS_KB" -lt 30000 ]; then
   exit 1
 fi
 
-echo "iso_time,pid,cpu_percent,mem_percent,rss_kb,threads" > "$OUT"
+CLK_TCK=$(getconf CLK_TCK)
+
+# CPU tuc thoi, khong dung 'ps %cpu'.
+# 'ps %cpu' la trung binh cong don tu luc tien trinh khoi dong, nen trong mot
+# dot ban tai 5 phut no bi pha loang boi khoang thoi gian nhan roi truoc do va
+# bao con so thap hon thuc te rat nhieu. Doc truc tiep utime+stime tu
+# /proc/<pid>/stat roi lay hieu giua hai lan lay mau moi ra muc chiem CPU
+# trong dung khoang thoi gian do.
+cpu_ticks() {
+  awk '{print $14 + $15}' "/proc/$1/stat"
+}
+
+echo "iso_time,pid,cpu_percent,rss_kb,vsz_kb,threads,open_fds" > "$OUT"
 echo "Dang theo doi PID $PID -> $OUT (chu ky ${INTERVAL}s). Ctrl-C de dung." >&2
 
+prev_ticks=$(cpu_ticks "$PID")
+sleep "$INTERVAL"
+
 while kill -0 "$PID" 2>/dev/null; do
-  read -r cpu mem rss thr < <(ps -p "$PID" -o %cpu=,%mem=,rss=,nlwp= | tr -s ' ')
-  echo "$(date -Iseconds),$PID,$cpu,$mem,$rss,$thr" >> "$OUT"
+  now_ticks=$(cpu_ticks "$PID" 2>/dev/null) || break
+  delta=$((now_ticks - prev_ticks))
+  prev_ticks=$now_ticks
+  cpu=$(awk -v d="$delta" -v t="$CLK_TCK" -v i="$INTERVAL" 'BEGIN{printf "%.1f", (d/t)/i*100}')
+
+  read -r rss vsz thr < <(ps -p "$PID" -o rss=,vsz=,nlwp= | tr -s ' ' | sed 's/^ *//')
+  fds=$(ls "/proc/$PID/fd" 2>/dev/null | wc -l)
+
+  echo "$(date -Iseconds),$PID,$cpu,$rss,$vsz,$thr,$fds" >> "$OUT"
   sleep "$INTERVAL"
 done
