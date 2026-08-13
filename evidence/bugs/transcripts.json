@@ -1,0 +1,162 @@
+{
+  "host": "qt-ThinkBook-14-G5-IRH",
+  "user": "qt",
+  "at": "2026-08-13T01:23:57.964Z",
+  "results": [
+    {
+      "id": "BUG-01",
+      "title": "SQL injection ở ?search= — dấu nháy đơn làm vỡ câu lệnh, trả HTTP 500 kèm HTML",
+      "cmds": [
+        "curl -s -o /dev/null -w 'tu khoa binh thuong  -> HTTP %{http_code}\\n' \"http://localhost:3000/api/products?search=iPhone\"",
+        "curl -s -w '\\n<- HTTP %{http_code}  Content-Type: %{content_type}\\n' \"http://localhost:3000/api/products?search=O%27Neill\""
+      ],
+      "parts": [
+        {
+          "cmd": "curl -s -o /dev/null -w 'tu khoa binh thuong  -> HTTP %{http_code}\\n' \"http://localhost:3000/api/products?search=iPhone\"",
+          "out": "tu khoa binh thuong  -> HTTP 200\n"
+        },
+        {
+          "cmd": "curl -s -w '\\n<- HTTP %{http_code}  Content-Type: %{content_type}\\n' \"http://localhost:3000/api/products?search=O%27Neill\"",
+          "out": "<h1>Database Error</h1><p>SQLITE_ERROR: near \"Neill\": syntax error</p>\n<- HTTP 500  Content-Type: text/html; charset=utf-8\n"
+        }
+      ]
+    },
+    {
+      "id": "BUG-02",
+      "title": "Khoá tài khoản sau 2 lần sai chứ không phải 3",
+      "cmds": [
+        "for i in 1 2 3; do printf 'lan sai #%s -> HTTP ' \"$i\"; curl -s -o /dev/null -w '%{http_code}\\n' -X POST http://localhost:3000/api/login -H 'Content-Type: application/json' -d '{\"email\":\"lockprobe002@eshop.test\",\"password\":\"SaiMatKhau\"}'; done"
+      ],
+      "parts": [
+        {
+          "cmd": "for i in 1 2 3; do printf 'lan sai #%s -> HTTP ' \"$i\"; curl -s -o /dev/null -w '%{http_code}\\n' -X POST http://localhost:3000/api/login -H 'Content-Type: application/json' -d '{\"email\":\"lockprobe002@eshop.test\",\"password\":\"SaiMatKhau\"}'; done",
+          "out": "lan sai #1 -> HTTP 401\nlan sai #2 -> HTTP 401\nlan sai #3 -> HTTP 403\n"
+        }
+      ]
+    },
+    {
+      "id": "BUG-03",
+      "title": "Đang bị khoá thì mật khẩu ĐÚNG vẫn trả 403",
+      "cmds": [
+        "echo 'tai khoan lockprobe002 vua bi khoa o BUG-02, gio dang nhap bang mat khau DUNG:'",
+        "curl -s -w '\\n<- HTTP %{http_code}\\n' -X POST http://localhost:3000/api/login -H 'Content-Type: application/json' -d '{\"email\":\"lockprobe002@eshop.test\",\"password\":\"Perf1234!\"}'"
+      ],
+      "parts": [
+        {
+          "cmd": "echo 'tai khoan lockprobe002 vua bi khoa o BUG-02, gio dang nhap bang mat khau DUNG:'",
+          "out": "tai khoan lockprobe002 vua bi khoa o BUG-02, gio dang nhap bang mat khau DUNG:\n"
+        },
+        {
+          "cmd": "curl -s -w '\\n<- HTTP %{http_code}\\n' -X POST http://localhost:3000/api/login -H 'Content-Type: application/json' -d '{\"email\":\"lockprobe002@eshop.test\",\"password\":\"Perf1234!\"}'",
+          "out": "{\"error\":\"Tài khoản đã bị khóa. Vui lòng thử lại sau.\"}\n<- HTTP 403\n"
+        }
+      ]
+    },
+    {
+      "id": "BUG-05",
+      "title": "POST /api/checkout không kiểm giỏ hàng — đặt được đơn với giỏ rỗng",
+      "cmds": [
+        "TOKEN=$(curl -s -X POST http://localhost:3000/api/login -H 'Content-Type: application/json' -d '{\"email\":\"perfuser199@eshop.test\",\"password\":\"Perf1234!\"}' | python3 -c 'import sys,json;print(json.load(sys.stdin)[\"token\"])');        echo 'gio hang cua nguoi dung nay:'; curl -s -H \"Authorization: Bearer $TOKEN\" http://localhost:3000/api/cart;        echo; echo 'dat hang ngay voi gio RONG:';        curl -s -w '\\n<- HTTP %{http_code}\\n' -X POST http://localhost:3000/api/checkout -H \"Authorization: Bearer $TOKEN\" -H 'Content-Type: application/json' -d '{\"total_amount\":999999999,\"shipping_address\":\"Khong he them gi vao gio\"}'"
+      ],
+      "parts": [
+        {
+          "cmd": "TOKEN=$(curl -s -X POST http://localhost:3000/api/login -H 'Content-Type: application/json' -d '{\"email\":\"perfuser199@eshop.test\",\"password\":\"Perf1234!\"}' | python3 -c 'import sys,json;print(json.load(sys.stdin)[\"token\"])');        echo 'gio hang cua nguoi dung nay:'; curl -s -H \"Authorization: Bearer $TOKEN\" http://localhost:3000/api/cart;        echo; echo 'dat hang ngay voi gio RONG:';        curl -s -w '\\n<- HTTP %{http_code}\\n' -X POST http://localhost:3000/api/checkout -H \"Authorization: Bearer $TOKEN\" -H 'Content-Type: application/json' -d '{\"total_amount\":999999999,\"shipping_address\":\"Khong he them gi vao gio\"}'",
+          "out": "gio hang cua nguoi dung nay:\n[]\ndat hang ngay voi gio RONG:\n{\"message\":\"Checkout successful\",\"orderId\":1}\n<- HTTP 200\n"
+        }
+      ]
+    },
+    {
+      "id": "BUG-06",
+      "title": "POST /api/products không yêu cầu xác thực — ai cũng tạo được sản phẩm",
+      "cmds": [
+        "echo 'KHONG gui header Authorization:'",
+        "curl -s -w '\\n<- HTTP %{http_code}\\n' -X POST http://localhost:3000/api/products -H 'Content-Type: application/json' -d '{\"name\":\"SAN PHAM TAO BOI NGUOI LA\",\"price\":1,\"description\":\"khong can token\",\"imageUrl\":\"\",\"category_id\":1}'"
+      ],
+      "parts": [
+        {
+          "cmd": "echo 'KHONG gui header Authorization:'",
+          "out": "KHONG gui header Authorization:\n"
+        },
+        {
+          "cmd": "curl -s -w '\\n<- HTTP %{http_code}\\n' -X POST http://localhost:3000/api/products -H 'Content-Type: application/json' -d '{\"name\":\"SAN PHAM TAO BOI NGUOI LA\",\"price\":1,\"description\":\"khong can token\",\"imageUrl\":\"\",\"category_id\":1}'",
+          "out": "{\"message\":\"Product created\",\"id\":153}\n<- HTTP 200\n"
+        }
+      ]
+    },
+    {
+      "id": "BUG-07",
+      "title": "GET /api/orders/:id không xác thực — đọc được đơn của người khác (IDOR)",
+      "cmds": [
+        "TOKEN=$(curl -s -X POST http://localhost:3000/api/login -H 'Content-Type: application/json' -d '{\"email\":\"perfuser001@eshop.test\",\"password\":\"Perf1234!\"}' | python3 -c 'import sys,json;print(json.load(sys.stdin)[\"token\"])');        ID=$(curl -s -X POST http://localhost:3000/api/checkout -H \"Authorization: Bearer $TOKEN\" -H 'Content-Type: application/json' -d '{\"total_amount\":12345,\"shipping_address\":\"Don rieng tu cua perfuser001\"}' | python3 -c 'import sys,json;print(json.load(sys.stdin)[\"orderId\"])');        echo \"perfuser001 vua tao don #$ID\"; echo; echo 'nguoi la doc don do, KHONG gui token:';        curl -s -w '\\n<- HTTP %{http_code}\\n' \"http://localhost:3000/api/orders/$ID\""
+      ],
+      "parts": [
+        {
+          "cmd": "TOKEN=$(curl -s -X POST http://localhost:3000/api/login -H 'Content-Type: application/json' -d '{\"email\":\"perfuser001@eshop.test\",\"password\":\"Perf1234!\"}' | python3 -c 'import sys,json;print(json.load(sys.stdin)[\"token\"])');        ID=$(curl -s -X POST http://localhost:3000/api/checkout -H \"Authorization: Bearer $TOKEN\" -H 'Content-Type: application/json' -d '{\"total_amount\":12345,\"shipping_address\":\"Don rieng tu cua perfuser001\"}' | python3 -c 'import sys,json;print(json.load(sys.stdin)[\"orderId\"])');        echo \"perfuser001 vua tao don #$ID\"; echo; echo 'nguoi la doc don do, KHONG gui token:';        curl -s -w '\\n<- HTTP %{http_code}\\n' \"http://localhost:3000/api/orders/$ID\"",
+          "out": "perfuser001 vua tao don #2\n\nnguoi la doc don do, KHONG gui token:\n{\"id\":2,\"user_id\":3,\"total_amount\":12345,\"status\":\"pending\",\"shipping_address\":\"Don rieng tu cua perfuser001\",\"created_at\":\"2026-08-13 01:23:57\"}\n<- HTTP 200\n"
+        }
+      ]
+    },
+    {
+      "id": "BUG-08",
+      "title": "GET /api/products/:id trả price kiểu string khi id chẵn, number khi id lẻ",
+      "cmds": [
+        "for id in 1 2 3 4; do printf 'id=%s -> ' \"$id\"; curl -s \"http://localhost:3000/api/products/$id\" | python3 -c 'import sys,json;d=json.load(sys.stdin);print(\"price =\",repr(d[\"price\"]),\"| kieu:\",type(d[\"price\"]).__name__)'; done"
+      ],
+      "parts": [
+        {
+          "cmd": "for id in 1 2 3 4; do printf 'id=%s -> ' \"$id\"; curl -s \"http://localhost:3000/api/products/$id\" | python3 -c 'import sys,json;d=json.load(sys.stdin);print(\"price =\",repr(d[\"price\"]),\"| kieu:\",type(d[\"price\"]).__name__)'; done",
+          "out": "id=1 -> price = 30000000 | kieu: int\nid=2 -> price = '28000000' | kieu: str\nid=3 -> price = 45000000 | kieu: int\nid=4 -> price = '6000000' | kieu: str\n"
+        }
+      ]
+    },
+    {
+      "id": "BUG-09",
+      "title": "GET /api/products/:id với id không tồn tại trả 200 {} thay vì 404",
+      "cmds": [
+        "curl -s -w '\\n<- HTTP %{http_code}\\n' http://localhost:3000/api/products/999999"
+      ],
+      "parts": [
+        {
+          "cmd": "curl -s -w '\\n<- HTTP %{http_code}\\n' http://localhost:3000/api/products/999999",
+          "out": "{}\n<- HTTP 200\n"
+        }
+      ]
+    },
+    {
+      "id": "BUG-10",
+      "title": "Mật khẩu lưu dạng plaintext trong CSDL",
+      "cmds": [
+        "node -e \"\nconst p=require('path'),B=p.resolve('sut/backend');\nconst s=require(p.join(B,'node_modules/sqlite3'));\nconst db=new s.Database(p.join(B,'database.sqlite'));\ndb.all(\\\"SELECT id,email,password,role FROM users LIMIT 4\\\",(e,r)=>{\n  console.log('doc truc tiep bang users trong database.sqlite:');\n  console.table(r); db.close();});\n\""
+      ],
+      "parts": [
+        {
+          "cmd": "node -e \"\nconst p=require('path'),B=p.resolve('sut/backend');\nconst s=require(p.join(B,'node_modules/sqlite3'));\nconst db=new s.Database(p.join(B,'database.sqlite'));\ndb.all(\\\"SELECT id,email,password,role FROM users LIMIT 4\\\",(e,r)=>{\n  console.log('doc truc tiep bang users trong database.sqlite:');\n  console.table(r); db.close();});\n\"",
+          "out": "doc truc tiep bang users trong database.sqlite:\n┌─────────┬────┬──────────────────────────┬─────────────┬─────────┐\n│ (index) │ id │ email                    │ password    │ role    │\n├─────────┼────┼──────────────────────────┼─────────────┼─────────┤\n│ 0       │ 1  │ 'admin@eshop.com'        │ 'Admin123!' │ 'admin' │\n│ 1       │ 2  │ 'test@eshop.com'         │ 'Test1234!' │ 'user'  │\n│ 2       │ 3  │ 'perfuser001@eshop.test' │ 'Perf1234!' │ 'user'  │\n│ 3       │ 4  │ 'perfuser002@eshop.test' │ 'Perf1234!' │ 'user'  │\n└─────────┴────┴──────────────────────────┴─────────────┴─────────┘\n"
+        }
+      ]
+    },
+    {
+      "id": "BUG-04",
+      "title": "Khởi động lại backend là xoá sạch toàn bộ CSDL",
+      "cmds": [
+        "echo 'so ban ghi TRUOC khi restart:'; node scripts/count-orders.js | sed 's/^/  don hang: /'; curl -s http://localhost:3000/api/products | grep -o '\"id\"' | wc -l | sed 's/^/  san pham: /'",
+        "echo; echo 'doan ma gay ra - sut/backend/database.js:'; sed -n '13,21p' sut/backend/database.js",
+        "echo; echo 'va no duoc goi ngay khi file duoc import:'; sed -n '115,118p' sut/backend/database.js"
+      ],
+      "parts": [
+        {
+          "cmd": "echo 'so ban ghi TRUOC khi restart:'; node scripts/count-orders.js | sed 's/^/  don hang: /'; curl -s http://localhost:3000/api/products | grep -o '\"id\"' | wc -l | sed 's/^/  san pham: /'",
+          "out": "so ban ghi TRUOC khi restart:\n  don hang: 2\n  san pham: 153\n"
+        },
+        {
+          "cmd": "echo; echo 'doan ma gay ra - sut/backend/database.js:'; sed -n '13,21p' sut/backend/database.js",
+          "out": "\ndoan ma gay ra - sut/backend/database.js:\nfunction initDatabase() {\n    db.serialize(() => {\n        db.run('DROP TABLE IF EXISTS coupon_usage');\n        db.run('DROP TABLE IF EXISTS coupons');\n        db.run('DROP TABLE IF EXISTS users');\n        db.run('DROP TABLE IF EXISTS products');\n        db.run('DROP TABLE IF EXISTS categories');\n        db.run('DROP TABLE IF EXISTS orders');\n\n"
+        },
+        {
+          "cmd": "echo; echo 'va no duoc goi ngay khi file duoc import:'; sed -n '115,118p' sut/backend/database.js",
+          "out": "\nva no duoc goi ngay khi file duoc import:\n}\n\ninitDatabase();\n\n"
+        }
+      ]
+    }
+  ]
+}
