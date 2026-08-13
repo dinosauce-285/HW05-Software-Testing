@@ -101,9 +101,11 @@ hw05/
 ├── evidence/
 │   ├── monitor/    CSV lấy mẫu CPU/RSS của tiến trình backend
 │   ├── bugs/       14 ảnh bằng chứng đính vào GitHub Issue
+│   ├── diagrams/   flow chart Task 3 (PNG)
 │   └── hardware/   ⬜ screenfetch + bảng spec
 └── submission/
     ├── report/     Main-Report | Bug-Report | AI-Review-Fix-Log | Not-Run
+    │                Task2-Misinterpretation-Hunt | Task3-Continuous-Performance-Testing
     └── appendix/   ⬜ AI-Audit-Report | AI-Prompt-Log | AI-Critique | git-log.txt
 ```
 
@@ -134,8 +136,9 @@ tài khoản giữa các lượt chạy Stress.
 | Screenshot JMeter + htop cùng khung hình | ⬜ phải chạy lại một lượt để chụp |
 | Hardware report + hostname khớp HW04 | ⬜ |
 | GitHub Issues cho 13 lỗi + ảnh bằng chứng | ✅ |
-| Task 2 — AI analysis + săn lỗi diễn giải | ⬜ |
-| Task 3 — Continuous Performance Testing + flow chart | ⬜ |
+| Task 2 — bước 1 (AI phân tích) | ✅ |
+| Task 2 — bước 2, 3 (săn lỗi + phân loại) | ⬜ sinh viên tự làm |
+| Task 3 — Continuous Performance Testing + flow chart | ✅ |
 | Agent Skill + video demo | ⬜ |
 | Main-Report (Task 1) | ✅ — Task 2/3 bổ sung sau |
 | AI Audit Report + AI Critique | ⬜ |
