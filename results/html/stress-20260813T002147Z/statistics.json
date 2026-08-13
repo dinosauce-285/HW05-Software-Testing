@@ -1,0 +1,50 @@
+{
+  "Total" : {
+    "transaction" : "Total",
+    "sampleCount" : 127938,
+    "errorCount" : 0,
+    "errorPct" : 0.0,
+    "meanResTime" : 1.428598227266349,
+    "medianResTime" : 1.0,
+    "minResTime" : 0.0,
+    "maxResTime" : 22.0,
+    "pct1ResTime" : 3.0,
+    "pct2ResTime" : 3.0,
+    "pct3ResTime" : 5.0,
+    "throughput" : 388.4914369002794,
+    "receivedKBytesPerSec" : 241.37219545199198,
+    "sentKBytesPerSec" : 99.45333613582534
+  },
+  "POST dang nhap hop le" : {
+    "transaction" : "POST dang nhap hop le",
+    "sampleCount" : 121850,
+    "errorCount" : 0,
+    "errorPct" : 0.0,
+    "meanResTime" : 1.4359868691013553,
+    "medianResTime" : 1.0,
+    "minResTime" : 0.0,
+    "maxResTime" : 22.0,
+    "pct1ResTime" : 3.0,
+    "pct2ResTime" : 3.0,
+    "pct3ResTime" : 5.0,
+    "throughput" : 370.0048584962954,
+    "receivedKBytesPerSec" : 235.20045804612536,
+    "sentKBytesPerSec" : 94.66921184182559
+  },
+  "POST dang nhap sai mat khau - tham do lockout" : {
+    "transaction" : "POST dang nhap sai mat khau - tham do lockout",
+    "sampleCount" : 6088,
+    "errorCount" : 0,
+    "errorPct" : 0.0,
+    "meanResTime" : 1.2807161629434964,
+    "medianResTime" : 1.0,
+    "minResTime" : 0.0,
+    "maxResTime" : 10.0,
+    "pct1ResTime" : 2.0,
+    "pct2ResTime" : 3.0,
+    "pct3ResTime" : 5.0,
+    "throughput" : 19.16291309014564,
+    "receivedKBytesPerSec" : 6.397531492270938,
+    "sentKBytesPerSec" : 4.959152313367769
+  }
+}

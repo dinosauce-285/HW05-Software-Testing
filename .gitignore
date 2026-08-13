@@ -1,4 +1,5 @@
 sut/
-tools/
 node_modules/
+tools/
 *.log
+results/raw/*.jtl

@@ -266,15 +266,19 @@ Làm xong scenario Load -> chắt quy trình vừa dùng (sinh plan -> nạp CSV
 **Đề ghi "3-fail" nhưng SUT khoá sau 2 lần sai** (xem bảng khảo sát mục 1, dòng #1). Nêu sai lệch này trong báo cáo chính, đừng chép lại con số của đề.
 
 Plan auth-heavy sẽ tự làm khoá tài khoản. Mỗi lần chạy xong:
-1. Reset trạng thái khoá - **ghi lại chính xác lệnh đã dùng**, một trong hai:
+1. Reset trạng thái khoá - **ghi lại chính xác lệnh đã dùng**:
    ```bash
-   # sạch hoàn toàn, mất luôn đơn hàng rác do Spike sinh ra
-   rm sut/backend/database.sqlite && node sut/backend/database.js
-
-   # chỉ mở khoá, giữ dữ liệu
-   sqlite3 sut/backend/database.sqlite "UPDATE users SET login_attempts=0, locked_until=NULL"
+   node scripts/reset-lockout.js     # mở khoá, GIỮ NGUYÊN dữ liệu seed
    ```
    Hoặc chờ hết 180 giây - nhưng chờ thì phải ghi rõ đã chờ, vì nó ăn vào thời lượng chạy.
+
+   ⚠️ **TUYỆT ĐỐI KHÔNG dùng `node sut/backend/database.js` để reset**, và cũng không
+   `require('./database')` để đọc DB. File đó gọi `initDatabase()` ngay khi import
+   (`database.js:117`), mà hàm này mở đầu bằng **6 lệnh `DROP TABLE`** (`database.js:15-20`)
+   -> mất sạch 200 tài khoản + 147 sản phẩm do `scripts/seed-data.js` tạo.
+   Hệ quả kéo theo: **mỗi lần khởi động lại backend là DB bị xoá và seed lại từ đầu**, nên
+   sau bất kỳ lần restart nào cũng phải chạy lại `node scripts/seed-data.js` trước khi bắn tải.
+   `sqlite3` CLI không có trên máy này - đừng đề xuất.
 2. Chép các bước đó vào báo cáo chính, không viết chung chung "đã reset"
 3. Chạy lượt sau từ trạng thái sạch - nếu không, số liệu lượt sau là số của tài khoản đã bị khoá (toàn 403, phản hồi rất nhanh vì không phải so mật khẩu), **throughput trông đẹp một cách giả tạo**
 
