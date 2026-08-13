@@ -42,7 +42,7 @@ Soak **11 phút** ở 1 000 người dùng đồng thời trên nhóm read-heavy
 
 | Chỉ số | Giá trị đo được |
 |---|---|
-| **Max stable RPS** | **997 req/s**, giữ đều suốt 10 phút (dao động 996,1 – 997,8 — biên độ dưới 0,2%) |
+| **Max stable RPS** | **997 req/s** ở trạng thái ổn định, giữ đều suốt 10 phút (dao động 996,1 – 997,8, biên độ dưới 0,2%). Tính cả 60 s ramp thì trung bình toàn lượt là 952,6 req/s |
 | **Trần bộ nhớ (memory ceiling)** | **161 MB RSS** — tăng từ 122 MB rồi **chững hẳn** từ phút thứ 8 |
 | Trần CPU | ~100–109% của **một** nhân — Node đơn luồng bão hoà, máy 16 nhân còn thừa |
 | p95 theo thời gian | 5 ms (phút 1) → 11 ms (phút 5) → ổn định 8–9 ms |
@@ -103,7 +103,7 @@ hw05/
 │   ├── bugs/       14 ảnh bằng chứng đính vào GitHub Issue
 │   └── hardware/   ⬜ screenfetch + bảng spec
 └── submission/
-    ├── report/     Bug-Report | AI-Review-Fix-Log | Not-Run | ⬜ Main-Report
+    ├── report/     Main-Report | Bug-Report | AI-Review-Fix-Log | Not-Run
     └── appendix/   ⬜ AI-Audit-Report | AI-Prompt-Log | AI-Critique | git-log.txt
 ```
 
@@ -137,5 +137,6 @@ tài khoản giữa các lượt chạy Stress.
 | Task 2 — AI analysis + săn lỗi diễn giải | ⬜ |
 | Task 3 — Continuous Performance Testing + flow chart | ⬜ |
 | Agent Skill + video demo | ⬜ |
-| Main-Report, AI Audit Report, AI Critique | ⬜ |
+| Main-Report (Task 1) | ✅ — Task 2/3 bổ sung sau |
+| AI Audit Report + AI Critique | ⬜ |
 | Video Task 1 ≥ 6 phút | ⬜ |

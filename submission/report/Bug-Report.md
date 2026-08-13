@@ -35,7 +35,7 @@ Mọi con số đều trích được từ `.jtl` thô bằng lệnh (R11), cộ
 
 | # | Tiêu đề | Bằng chứng đo được | Nguồn | Issue |
 |---|---|---|---|---|
-| PERF-01 | Giỏ hàng nằm trong RAM và **không bao giờ được dọn** | `userCarts = {}` chỉ ghi thêm, không có đường xoá. Lượt Spike thêm 12 767 mục vào giỏ; RSS backend đi từ **75 MB → 103,6 MB** và sau khi tải rút đi chỉ về **92–94 MB**, không trở lại mốc ban đầu | `server.js:14,293` | [#11](https://github.com/dinosauce-285/HW05-Software-Testing/issues/11) |
+| PERF-01 | Giỏ hàng nằm trong RAM và **không bao giờ được dọn** | `userCarts = {}` chỉ ghi thêm, không có đường xoá. Lượt Spike thêm 8 767 mục vào giỏ; RSS backend đi từ **75,0 MB → đỉnh 119,7 MB**, sau khi tải rút chỉ về **94,0 MB** — **19,0 MB không bao giờ nhả lại** | `server.js:14,293` | [#11](https://github.com/dinosauce-285/HW05-Software-Testing/issues/11) |
 | PERF-02 | `/api/login` sập độ trễ khi vượt ~1 626 người dùng đồng thời | p95 nhảy từ **3 ms** (250 luồng) → **10 ms** (800 luồng) → **1 671 ms** (2 000 luồng). Throughput đạt đỉnh **2 681 req/s** rồi *giảm* xuống 2 443 req/s dù tải tiếp tục tăng — dấu hiệu kinh điển của quá tải | `stress-20260813T003655Z.jtl` | [#12](https://github.com/dinosauce-285/HW05-Software-Testing/issues/12) |
 | PERF-03 | Toàn hệ thống nghẽn ở **một nhân CPU** vì Node đơn luồng | Tại điểm gãy: tiến trình `node` chiếm **102% CPU trung bình, đỉnh 132%**, trong khi `loadavg` toàn máy chỉ **1,53–1,93 trên 16 nhân** (≈12%). Máy còn thừa rất nhiều, nút thắt là tiến trình | `evidence/monitor/stress-*-resource.csv` | [#13](https://github.com/dinosauce-285/HW05-Software-Testing/issues/13) |
 
