@@ -54,7 +54,7 @@ Bốn mục dưới đây đề bắt buộc nhưng **không thể tự động 
 | Screenshot JMeter **+ htop cùng một khung hình** | 6:93, 11:150 | ⬜ Phải chạy lại một lượt để chụp — các lượt đã chạy không dựng lại ảnh được |
 | Hardware report (screenfetch/dxdiag + bảng spec), **hostname khớp HW04** | 6:93, 11:151 | ⬜ Hostname máy này: `qt-ThinkBook-14-G5-IRH`, user `qt` |
 | Video demo ≥ 6 phút, giọng tiếng Việt của sinh viên | 6:95 | ⬜ |
-| Tạo GitHub Issue + đính screenshot cho 13 lỗi đã ghi | 6:96 | ⬜ Nội dung đã soạn sẵn ở `Bug-Report.md` |
+| Tạo GitHub Issue + đính ảnh bằng chứng cho 13 lỗi | 6:96 | ✅ **đã xong** — issue `#1`…`#13` |
 
 ## 5. Không làm — có cân nhắc và quyết định bỏ
 

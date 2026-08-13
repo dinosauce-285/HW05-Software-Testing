@@ -58,7 +58,7 @@ không bao giờ được dọn (PERF-01).
 |---|---|---|
 | Lỗi chức năng / bảo mật (BUG) | **10** | `submission/report/Bug-Report.md` mục A |
 | Vấn đề hiệu năng (PERF) | **3** | `submission/report/Bug-Report.md` mục B |
-| GitHub Issue đã tạo | **0** ⬜ | chưa làm — cần screenshot |
+| GitHub Issue đã tạo | **13** ✅ | [`#1` … `#13`](https://github.com/dinosauce-285/HW05-Software-Testing/issues) — mỗi issue có ảnh bằng chứng |
 
 ### Video demo
 
@@ -100,6 +100,7 @@ hw05/
 │   └── html/       dashboard HTML mỗi lượt chạy
 ├── evidence/
 │   ├── monitor/    CSV lấy mẫu CPU/RSS của tiến trình backend
+│   ├── bugs/       14 ảnh bằng chứng đính vào GitHub Issue
 │   └── hardware/   ⬜ screenfetch + bảng spec
 └── submission/
     ├── report/     Bug-Report | AI-Review-Fix-Log | Not-Run | ⬜ Main-Report
@@ -132,7 +133,7 @@ tài khoản giữa các lượt chạy Stress.
 | Task 1 — 3 kịch bản + endurance | ✅ |
 | Screenshot JMeter + htop cùng khung hình | ⬜ phải chạy lại một lượt để chụp |
 | Hardware report + hostname khớp HW04 | ⬜ |
-| GitHub Issues cho 13 lỗi + screenshot | ⬜ |
+| GitHub Issues cho 13 lỗi + ảnh bằng chứng | ✅ |
 | Task 2 — AI analysis + săn lỗi diễn giải | ⬜ |
 | Task 3 — Continuous Performance Testing + flow chart | ⬜ |
 | Agent Skill + video demo | ⬜ |
