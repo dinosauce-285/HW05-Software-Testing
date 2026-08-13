@@ -10,7 +10,7 @@
 
 | Bước | Việc | Ai làm | Trạng thái |
 |---|---|---|---|
-| 1 | Cho AI phân tích `.jtl` và đề xuất ngưỡng (mục 6:102) | AI | ✅ **xong** — `submission/appendix/AI-Analysis-Raw.md` (bản 13/08/2026, ~5 200 từ) |
+| 1 | Cho AI phân tích `.jtl` và đề xuất ngưỡng (mục 6:102) | AI | ✅ **xong** — `submission/appendix/AI-Analysis-Raw.md` (bản 13/08/2026 — 7 715 từ, đã gồm phần ghi xuất xứ và prompt nguyên văn) |
 | 2 | **Săn chỗ AI đọc sai, kèm giá trị đúng từ `.jtl` thô** (mục 6:103) | **Sinh viên** | ⬜ bảng bên dưới |
 | 3 | Phân loại đề xuất tối ưu: feasible / hallucinated (mục 6:104) | **Sinh viên** | ⬜ bảng bên dưới |
 
