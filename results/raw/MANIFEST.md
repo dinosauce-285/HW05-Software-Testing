@@ -15,6 +15,9 @@ Bảng `sha256` dưới đây để TA đối chiếu file trong zip đúng là 
 | Stress — leo thang | `stress-20260813T002811Z.jtl` | 71 MB | `bedc5b21a8442bc4670209d86780fd17fae569033d081a5c61cd9fcd0ce511eb` |
 | **Stress — chính thức** | `stress-20260813T003655Z.jtl` | 106 MB | `36b0efbe2d98e0708d7dcba45953a412aabb8d7919e91d22238a55bf54a92d06` |
 | Stress — quy trách nút thắt | `stress-bottleneck-check-20260813T004442Z.jtl` | 38 MB | `c186b67e9780c84c307630007570c577e31051152f49260351e9bba4b66de39b` |
+| **Spike — chính thức** | `spike-20260813T005423Z.jtl` | 2,5 MB | `dd861a70209a306acbf4e205f368e6c0b2bdcc7af59d9bbcf9a3cbb1d6239f55` |
+| Endurance — dò trần read-heavy | `load-ramp-20260813T010033Z.jtl` | 29 MB | `388d827d076d883cb57c6c844f6c97945833e1e6a15a0ac2f8756c29c4a695e7` |
+| **Endurance — soak 11 phút** | `soak-20260813T010601Z.jtl` | 95 MB | `255af8494dc19772de9ecd6e33b1ce3fecc1d7afa75305eb32b72891501c52e2` |
 
 ## Vì sao kịch bản Stress có 4 file
 
