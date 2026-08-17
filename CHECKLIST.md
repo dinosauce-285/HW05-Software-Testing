@@ -1,35 +1,68 @@
 # CHECKLIST — HW05 Performance Testing
 
-> **Đây là nguồn sự thật duy nhất về tiến độ.** Xong việc nào tick ngay việc đó.
+> **Nguồn sự thật duy nhất về tiến độ.** Xong việc nào tick ngay việc đó.
 > Không tick = chưa xong, bất kể đã nói gì trong hội thoại.
 
 **Ký hiệu:** 🔴 thiếu là **0 điểm toàn bài** (mục 17:204) · 🟡 mất điểm ở mục tương ứng · ⚪ hoàn thiện
 
-**Cập nhật lần cuối:** 17/08/2026
-
----
-
-## Tiến độ
-
-| Nhóm | Xong | Còn |
-|---|---|---|
-| Đã hoàn thành | **34** | — |
-| Nhóm A — làm ngay | Claude ✅ xong | sinh viên còn **2** (video) |
-| Nhóm B — làm cuối | Claude **2** | sinh viên **4** |
-| Kiểm tra lần cuối trước khi nộp | — | **12** |
-| **TỔNG** | **34** | **20** |
+**Cập nhật:** 17/08/2026 · **34 xong / 20 còn**
 
 ```bash
-# đếm lại, không tin trí nhớ (R14)
 grep -c '^- \[x\]' CHECKLIST.md && grep -c '^- \[ \]' CHECKLIST.md
 ```
 
-**Điểm còn treo:** Task 2 bước 2-4 (10đ, sinh viên) · video demo Agent Skill (sinh viên).
-Phần Claude ở nhóm A đã xong.
+---
+
+# 🔴 CÒN THIẾU
+
+## ① Sinh viên — 6 việc
+
+**Quay video — gộp một buổi được:**
+
+- [ ] **Video Task 1 ≥ 6 phút**, giọng tiếng Việt của mình 🔴 *(mục 6:95)*
+      → JMeter và htop phải **chung một khung hình** trên màn hình thật
+      → được cắt thành nhiều clip, mỗi kịch bản một clip
+- [ ] **Video demo Agent Skill**, quay end-to-end trên một endpoint group 🟡 *(mục 7:113)*
+      → skill đã sẵn ở `.claude/skills/perf-test-endpoint/`
+
+**Sau khi Claude xong phần ②:**
+
+- [ ] Điền **bảng tự đánh giá** vào `submission/README.md` 🔴 *(mục 14:177)*
+- [ ] Điền **2 link YouTube** vào `submission/README.md` và bảng biến `CLAUDE.md` 🔴
+- [ ] **Xuất PDF**: `Main-Report`, `AI-Audit-Report`, `AI-Critique` 🔴 *(mục 2:23)*
+- [ ] **Đóng gói** `23127262_HW05_AI_Performance_100.zip` 🔴 *(mục 14:164)*
+      → file `.jtl` lớn nhất 106 MB → Policies:41 cho phép split-and-zip
+
+## ② Claude — 2 việc, buộc phải làm cuối cùng
+
+- [ ] **`AI-Prompt-Log.md`** — trích transcript phiên làm việc 🔴 *(mục 9:130-134)*
+      → phiên vẫn dài ra mỗi lượt, trích sớm là thiếu
+- [ ] **`git-log.txt`** 🔴 *(mục 12:156)*
+      → **lệnh cuối cùng**, chạy sau commit cuối
 
 ---
 
-# ĐÃ XONG
+# ✅ SOÁT LẦN CUỐI — 12 điều kiện chặn
+
+Mỗi dòng là một điều kiện ở mục 17:204. Chạy hết rồi mới nộp.
+
+- [ ] Báo cáo chính có cả `.md` lẫn `.pdf`
+- [ ] AI Audit Report có cả `.md` lẫn `.pdf`, đúng mẫu 6 mục, **đã xoá hàng mẫu in nghiêng**
+- [ ] AI Critique đếm được **200–300 chữ** *(hiện 297 — đếm lại nếu sửa)*
+- [ ] 3 file `.jtl` thô nộp **nguyên vẹn**, không phải bản tóm tắt
+- [ ] 3 thư mục HTML report
+- [ ] Screenshot resource monitor + hardware, **hostname khớp HW04**
+- [ ] Video Task 1 **tổng ≥ 6 phút**, JMeter và htop **chung khung hình**, giọng mình
+- [ ] `git-log.txt` xuất **sau** commit cuối cùng
+- [ ] Số bug trong Markdown **khớp** số GitHub Issue *(hiện 13 = 13)*
+- [ ] README có bảng tự đánh giá + test summary đủ 5 mục *(mục 14:177)*
+- [ ] Tên file zip đúng `23127262_HW05_AI_Performance_100.zip`
+- [ ] Mọi con số trong báo cáo **truy ngược được về `.jtl`** bằng lệnh *(R11)*
+
+---
+
+<details>
+<summary><b>ĐÃ XONG — 34 mục (bấm để mở)</b></summary>
 
 ## Task 1 — Kiểm thử (60đ)
 
@@ -45,11 +78,17 @@ Phần Claude ở nhóm A đã xong.
 - [x] 6 thư mục HTML dashboard *(mục 14:171)*
 - [x] Endurance 11 phút → **997 req/s**, trần **161 MB RSS** *(mục 6:94)*
 - [x] Quy trình reset lockout ghi lệnh chính xác *(mục 6:93)*
-- [x] Nhật ký review-fix AI — 5 dòng, ghi tại thời điểm sửa *(mục 6:92)*
+- [x] Nhật ký review-fix AI — ghi tại thời điểm sửa *(mục 6:92)*
+- [x] **Screenshot JMeter + htop chung một khung hình** — 3 ảnh *(mục 6:93, 11:150)*
+- [x] **Ảnh hardware** — `hostname-whoami.png` + `fastfetch.png` + `spec.md` *(mục 11:151)*
 
 ## Task 2 — Phân tích AI (10đ)
 
 - [x] Bước 1: AI phân tích `.jtl` trong phiên cô lập *(mục 6:102)*
+- [x] Bước 2: săn lỗi diễn giải — 5 lỗi của AI + 4 lỗi của chính báo cáo mình *(mục 6:103)*
+- [x] Bước 3: phân loại 10 đề xuất — 9 feasible, 1 hallucinated *(mục 6:104)*
+- [x] Bước 4: tổng kết — AI đúng 80%, đề xuất feasible 90%
+- [x] Sửa 4 con số sai trong Main-Report / README / Bug-Report / Issue #12 *(R11)*
 
 ## Task 3 — CPT (10đ)
 
@@ -58,79 +97,21 @@ Phần Claude ở nhóm A đã xong.
 - [x] Đủ 3 khâu: theo dõi commit → quyết định chạy → cảnh báo p95
 - [x] Bàn trade-off: chi phí (~25 USD/tháng) + báo động giả
 
+## Agent Skill (10đ)
+
+- [x] `.claude/skills/perf-test-endpoint/` — SKILL.md + 2 file tham chiếu, 3 598 từ *(mục 7:112)*
+
 ## Tài liệu
 
-- [x] `Main-Report.md` — phần Task 1
+- [x] `Main-Report.md` — 7 821 từ, phủ trọn Task 1 + 2 + 3
 - [x] `Bug-Report.md` — 10 BUG + 3 PERF
 - [x] 13 GitHub Issue kèm ảnh bằng chứng *(mục 6:96)*
 - [x] `Not-Run.md` — phần không chạy được kèm lý do
+- [x] `Task2-Misinterpretation-Hunt.md`
+- [x] `Task3-Continuous-Performance-Testing.md`
+- [x] `AI-Analysis-Raw.md` — output AI nguyên văn, 7 715 từ
+- [x] **AI Audit Report** — 12 artifact, mẫu 6 mục, kết luận **149 từ** *(mục 9:127)*
+- [x] **AI Critique** — **297 từ** *(mục 10:138)*
+- [x] Xác nhận không trùng endpoint với nhóm, ghi vào báo cáo chính *(mục 5:78)*
 
----
-
-# NHÓM A — LÀM NGAY
-
-## A1 · Claude làm
-
-- [x] **Agent Skill** — `.claude/skills/perf-test-endpoint/` 🟡 **10đ** *(mục 7:112)*
-      → SKILL.md + 2 file tham chiếu, 3 598 từ. Video demo vẫn còn nợ (A2)
-- [x] Bảng spec phần cứng `evidence/hardware/spec.md` ⚪
-      → hostname `qt-ThinkBook-14-G5-IRH` để đối chiếu HW04
-
-## A2 · Sinh viên làm
-
-- [x] **Task 2 — bước 2**: săn lỗi diễn giải 🟡 *(mục 6:103)*
-      → 5 lỗi của AI (bảng A) + 4 lỗi của chính báo cáo mình (bảng B), mỗi lỗi kèm lệnh kiểm chứng
-- [x] **Task 2 — bước 3**: phân loại 10 đề xuất — 9 feasible, 1 hallucinated 🟡 *(mục 6:104)*
-- [x] **Task 2 — bước 4**: tổng kết — AI đúng 80%, đề xuất feasible 90% 🟡
-- [x] Sửa 4 con số sai trong Main-Report / README / Bug-Report / Issue #12 *(R11)*
-- [x] **Screenshot JMeter + htop CHUNG MỘT KHUNG HÌNH** 🔴 *(mục 6:93, 11:150)*
-      → 3 ảnh trong `evidence/monitor/`, chụp trên màn hình X ảo (Wayland chặn chụp thường)
-      → cách chụp ghi rõ ở `Not-Run.md` mục 6; bằng chứng màn hình thật vẫn nằm ở video
-- [x] **Ảnh hardware** 🔴 *(mục 6:93, 11:151)*
-      → `hostname-whoami.png` + `fastfetch.png` + `spec.md`, hostname `qt-ThinkBook-14-G5-IRH`
-- [ ] **Video Task 1 ≥ 6 phút**, giọng tiếng Việt của mình 🔴 *(mục 6:95)*
-      → gộp chung buổi với 2 việc trên
-- [ ] **Video demo Agent Skill** 🟡 *(mục 7:113)*
-      → chờ A1 xong
-
----
-
-# NHÓM B — LÀM CUỐI
-
-## B1 · Claude làm — chỉ còn 2 việc thật sự phải đợi tới cuối
-
-- [ ] 1. **AI-Prompt-Log** — trích transcript phiên làm việc 🔴 *(mục 9:130-134)*
-      → phiên còn chạy, trích sớm là thiếu
-- [x] 2. **AI Audit Report** — 12 artifact, mẫu 6 mục, kết luận **149 từ** (yêu cầu 80-150) 🔴
-- [x] 3. **AI Critique** — **297 từ** (yêu cầu 200-300), đếm bằng lệnh 🔴
-- [x] 4. Gộp Task 2 + Task 3 vào `Main-Report.md` — thành mục 12 và 13 ⚪
-- [x] 5. Ghi xác nhận không trùng endpoint với nhóm ⚪ *(mục 5:78)*
-- [ ] 6. **`git-log.txt`** 🔴 *(mục 12:156)*
-      → **lệnh cuối cùng**, mỗi commit mới là file này lỗi thời
-
-## B2 · Sinh viên làm — sau khi B1 xong
-
-- [ ] Điền **bảng tự đánh giá** vào `submission/README.md` 🔴 *(mục 14:177)*
-- [ ] Điền **2 link YouTube** vào README và bảng biến trong `CLAUDE.md` 🔴
-- [ ] **Xuất PDF**: `Main-Report`, `AI-Audit-Report`, `AI-Critique` 🔴 *(mục 2:23)*
-- [ ] **Đóng gói** `23127262_HW05_AI_Performance_100.zip` 🔴 *(mục 14:164)*
-      → file `.jtl` lớn nhất 106 MB, Policies:41 cho phép split-and-zip
-
----
-
-# Kiểm tra lần cuối trước khi nộp
-
-Chạy hết bảng này rồi mới nộp. Mỗi dòng là một điều kiện chặn ở mục 17:204.
-
-- [ ] Báo cáo chính có cả `.md` lẫn `.pdf`
-- [ ] AI Audit Report có cả `.md` lẫn `.pdf`, đúng mẫu 5 mục, **đã xoá hàng mẫu in nghiêng**
-- [ ] AI Critique đếm được **200–300 chữ** (đếm bằng lệnh, không ước lượng)
-- [ ] 3 file `.jtl` thô nộp **nguyên vẹn**, không phải bản tóm tắt
-- [ ] 3 thư mục HTML report
-- [ ] Screenshot resource monitor + hardware, **hostname khớp HW04**
-- [ ] Video Task 1 **tổng ≥ 6 phút**, JMeter và htop **chung khung hình**, giọng mình
-- [ ] `git-log.txt` xuất **sau** commit cuối cùng
-- [ ] Số bug trong Markdown **khớp** số GitHub Issue (hiện: 13 = 13)
-- [ ] README có bảng tự đánh giá + test summary đủ 5 mục *(mục 14:177)*
-- [ ] Tên file zip đúng `23127262_HW05_AI_Performance_100.zip`
-- [ ] Mọi con số trong báo cáo **truy ngược được về `.jtl`** bằng lệnh *(R11)*
+</details>
