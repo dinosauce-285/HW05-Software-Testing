@@ -13,11 +13,11 @@
 
 | Nhóm | Xong | Còn |
 |---|---|---|
-| Đã hoàn thành | **29** | — |
-| Nhóm A — làm ngay (Claude ✅ · sinh viên 4) | 6 | 4 |
-| Nhóm B — làm cuối (Claude 6 · sinh viên 4) | 0 | 10 |
-| Kiểm tra lần cuối trước khi nộp | 0 | 12 |
-| **TỔNG** | **29** | **24** |
+| Đã hoàn thành | **28** | — |
+| Nhóm A — làm ngay | Claude ✅ xong | sinh viên còn **4** |
+| Nhóm B — làm cuối | Claude **6** | sinh viên **4** |
+| Kiểm tra lần cuối trước khi nộp | — | **12** |
+| **TỔNG** | **28** | **26** |
 
 ```bash
 # đếm lại, không tin trí nhớ (R14)
