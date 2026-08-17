@@ -98,7 +98,23 @@ phát từ lỗi thật đã mắc phải và đã sửa (chi tiết ở mục 9
    khoảng thời gian rảnh trước đó. Kiểm chứng: khi bắn 300 request liên tiếp, cột CPU đo bằng
    `/proc` nhảy `0% → 29% → 17% → 0%` trong khi `ps %cpu` đứng yên ở `2,1%` suốt cả lượt.
 
-### 2.4 Nguyên tắc về số liệu
+### 2.4 Cảnh báo: phân vị trên dashboard HTML **không phải** phân vị toàn lượt
+
+JMeter đặt `jmeter.reportgenerator.statistic_window = 20000` làm mặc định. Dashboard HTML vì thế
+**chỉ tính phân vị trên 20 000 mẫu cuối cùng** — với một lượt stress thì đó đúng là phần đuôi quá
+tải nhất, nên con số bị thổi lên rất nhiều.
+
+| Lượt | Mẫu | Vượt 20 000? | p95 tính từ `.jtl` thô | p95 trên dashboard |
+|---|---|---|---|---|
+| Load | 13 483 | không | 2 ms | 2 ms |
+| Spike | 17 376 | không | 6 ms | 6 ms |
+| Soak | 627 943 | **có** | **8 ms** | 12 ms |
+| Stress | 770 065 | **có** | **237 ms** | 1 671 ms — **sai 7,1 lần** |
+
+Mọi phân vị trong báo cáo này đều tính từ `.jtl` thô bằng `scripts/jtl-stats.py`. Cách phát hiện và
+kiểm chứng nằm ở `Task2-Misinterpretation-Hunt.md` mục B1.
+
+### 2.5 Nguyên tắc về số liệu
 
 Mọi con số trong báo cáo này đều **trích được từ `.jtl` thô hoặc file CSV tài nguyên bằng lệnh**.
 Không có con số nào lấy từ trí nhớ hay từ tóm tắt trung gian. Danh mục `.jtl` kèm checksum SHA-256
@@ -290,7 +306,7 @@ bốn `.jtl` để chứng minh quá trình tìm ngưỡng chứ không phải c
 |---|---|---|---|---|---|---|
 | 1 | 250 | 127 938 | 3 ms | 0 (0,00%) | 388,5 req/s | 72% |
 | 2 | 800 | 537 511 | 10 ms | 0 (0,00%) | 1 145,3 req/s | 115% |
-| **3 (chính thức)** | **2 000** | **770 065** | **1 671 ms** | **9 971 (1,29%)** | **1 976,6 req/s** | **132%** |
+| **3 (chính thức)** | **2 000** | **770 065** | **237 ms** | **9 971 (1,29%)** | **1 976,6 req/s** | **132%** |
 | 4 | 1 800 | — | — | — | — | đo song song CPU của JMeter |
 
 Lượt 1 và 2 **không phải thất bại cần giấu** — chúng là bằng chứng cho kết luận quan trọng nhất của
@@ -301,22 +317,35 @@ phải của server.
 
 ### 6.4 Đường cong gãy
 
-Trích từ các mốc 30 giây của lượt chính thức:
+Phân tách toàn bộ 770 065 mẫu theo **mức đồng thời thực tại thời điểm gửi** (cột `allThreads` trong
+`.jtl`), không dùng dòng summary 30 giây — cách này cho ánh xạ tải ↔ độ trễ chính xác hơn:
 
-| Luồng đồng thời | Độ trễ trung bình | Tỉ lệ lỗi | Throughput |
-|---|---|---|---|
-| 1 026 | 12 ms | 0,00% | 2 240 req/s |
-| 1 226 | 53 ms | 0,00% | 2 484 req/s |
-| 1 426 | 116 ms | 0,00% | 2 568 req/s |
-| **1 626** | **179 ms** | **0,03%** ← lỗi đầu tiên | 2 627 req/s |
-| 1 826 | 239 ms | 0,68% | **2 682 req/s** ← đỉnh |
-| 2 000 | 377–421 ms | 3,19–4,01% | 2 444–2 555 req/s ← **giảm dù tải tăng** |
+| Luồng đồng thời | p50 | p95 | p99 | Tỉ lệ lỗi | `Connect` p95 |
+|---|---|---|---|---|---|
+| 1 000–1 099 | 21 ms | 136 ms | 196 ms | 0,00% | 1 ms |
+| 1 200–1 299 | 77 ms | 107 ms | 129 ms | 0,00% | 0 ms |
+| 1 400–1 499 | 142 ms | 209 ms | 213 ms | 0,01% | 1 ms |
+| 1 600–1 699 | 183 ms | 199 ms | 1 222 ms | 0,24% | 1 ms |
+| 1 700–1 799 | 188 ms | 399 ms | 1 443 ms | 0,63% | 1 ms |
+| **1 800–1 899** | 196 ms | **1 228 ms** | 2 677 ms | **1,94%** | **1 020 ms** ← gãy |
+| 1 900–1 999 | 205 ms | 1 634 ms | 4 461 ms | 4,13% | 1 051 ms |
+
+Throughput theo mốc 30 giây: 2 627 req/s tại ~1 626 luồng → đỉnh **2 682 req/s** tại ~1 826 luồng →
+tụt còn **2 444–2 555 req/s** ở 2 000 luồng.
 
 Đây là dấu hiệu quá tải kinh điển: **throughput đạt đỉnh rồi đi xuống** trong khi độ trễ và tỉ lệ
 lỗi tăng vọt. Độ trễ tối đa chạm **34 158 ms**.
 
-**Ngưỡng gãy: khoảng 1 626 người dùng đồng thời** — mốc xuất hiện lỗi đầu tiên.
+**Ngưỡng gãy: 1 800 người dùng đồng thời.** Tại đúng mốc này **ba** chỉ báo vỡ cùng lúc — p95 nhảy
+từ 399 ms lên 1 228 ms, tỉ lệ lỗi từ 0,63% lên 1,94%, và `Connect` p95 nhảy từ **1 ms lên 1 020 ms**.
+Chỉ báo thứ ba là sạch nhất: nó giữ nguyên 0–1 ms suốt từ 0 đến 1 799 luồng rồi nhảy bậc, cho thấy
+hàng đợi accept của socket đã tràn chứ không phải xử lý chậm đi.
 **Throughput đỉnh: 2 682 req/s** tại khoảng 1 826 luồng.
+
+> **Đính chính.** Bản đầu của báo cáo này ghi ngưỡng gãy là "~1 626 luồng", lấy từ mốc xuất hiện lỗi
+> đầu tiên trên dòng summary 30 giây. Con số đó không đứng vững: tỉ lệ lỗi đã dao động 0,01–0,24%
+> ngay từ mức 400 luồng, nên "lỗi đầu tiên" không phải tín hiệu sạch. Chi tiết ở
+> `Task2-Misinterpretation-Hunt.md` mục B2.
 
 ### 6.5 Phân rã 9 971 lỗi
 
@@ -403,16 +432,21 @@ bạch.
 | Ngay sau cú vọt | giây 165–180 | 3,32 ms | 10 ms |
 | Đã ổn định lại | giây 180–300 | 2,76 – 3,10 ms | 8 ms |
 
-**Thời gian hồi phục dưới 15 giây** — khung 15 giây đầu tiên sau khi cú vọt kết thúc đã trở về mức
-nền, khung thứ hai trở đi ổn định hoàn toàn.
+**Thời gian hồi phục dưới 1 giây.** Cắt lại dữ liệu ở độ phân giải 1 giây: cú vọt kết thúc ở giây
+165, và ngay giây 166 độ trễ nhánh nền đã là 3,18 ms — bằng đúng mức trước khi bị vọt (3,38 ms).
+
+> **Đính chính.** Bản đầu ghi "dưới 15 giây" vì tôi cắt dữ liệu theo cửa sổ 15 giây, nên độ phân giải
+> chỉ tới đó. Con số cũ không sai nhưng kém chính xác 15 lần so với mức dữ liệu cho phép.
 
 ### 7.5 Một kết quả trái trực giác
 
 Trong lúc bị vọt gấp 20 lần, độ trễ của nhánh nền **giảm** từ ~3,0 ms xuống 1,84 ms thay vì tăng.
-Giải thích hợp lý nhất: tải cao giữ cho vòng lặp sự kiện của Node luôn bận nên không phải "đánh
-thức" lại giữa các request, đồng thời CPU chuyển sang chế độ tần số cao. Ở mức tải này SUT còn rất
-xa điểm bão hoà (so với 2 682 req/s ở kịch bản Stress), nên phần chi phí cố định mới là thứ chi
-phối chứ không phải tranh chấp tài nguyên.
+**Nguyên nhân thì chưa xác định được.** Một giả thuyết là tải cao giữ cho vòng lặp sự kiện của Node
+luôn bận nên không phải "đánh thức" lại giữa các request, đồng thời CPU chuyển sang tần số cao —
+nhưng `.jtl` **không chứa dữ liệu nào kiểm chứng được điều đó**, nên đây vẫn chỉ là suy đoán và
+được ghi rõ là suy đoán. Điều duy nhất khẳng định được từ số liệu: ở mức tải này SUT còn rất xa
+điểm bão hoà (2 682 req/s ở kịch bản Stress), và **cả hai nhánh đều nhanh lên** trong cửa sổ vọt —
+nhánh nền cũng đi từ 4,84 ms xuống 3,03 ms, chứ không riêng nhánh spike.
 
 **Kết luận:** SUT hấp thụ trọn cú vọt gấp 20 lần mà không mất một request nào. Nhánh transactional
 khoẻ hơn nhiều so với dự đoán ban đầu — nhưng lý do một phần là vì `POST /api/checkout` **không
@@ -489,7 +523,7 @@ chạy ở khoảng 85% trần, đúng nghĩa "tải giữ đều ổn định".
 | **Max stable RPS** | **997 req/s** ở trạng thái ổn định — dao động 996,1 đến 997,8 trong 10 phút liên tục, **biên độ dưới 0,2%**. Tính cả 60 giây ramp thì trung bình toàn lượt là 952,6 req/s |
 | **Trần bộ nhớ (memory ceiling)** | **161 MB RSS** — tăng từ 122 MB ở phút đầu rồi **chững hẳn** từ phút thứ 8 (160,9 → 160,9 → 161,0) |
 | **Trần CPU** | 100 – 109% của **một** nhân; máy 16 luồng còn thừa khoảng 88% |
-| Độ trễ | p95 toàn lượt 12 ms; theo phút đi từ 5 ms lên 11 ms rồi ổn định ở 8–9 ms |
+| Độ trễ | p95 toàn lượt 8 ms; theo phút đi từ 5 ms lên 11 ms rồi ổn định ở 8–9 ms |
 | Tỉ lệ lỗi | 3,51 – 3,58%, **không thay đổi theo thời gian** |
 
 ### 8.4 Diễn giải
@@ -583,7 +617,7 @@ hiện trạng ghi ở `Not-Run.md` mục 4.
 | Chỉ số | Giá trị | Nguồn |
 |---|---|---|
 | **Ngưỡng chịu đựng ổn định** | **997 req/s** giữ đều 10 phút, trần bộ nhớ **161 MB** | soak 11 phút, 627 943 mẫu |
-| **Điểm gãy** | **~1 626 người dùng đồng thời**, throughput đỉnh **2 682 req/s** | stress 2 000 luồng, 770 065 mẫu |
+| **Điểm gãy** | **1 800 người dùng đồng thời**, throughput đỉnh **2 682 req/s** | stress 2 000 luồng, 770 065 mẫu |
 | **Khả năng chịu sốc** | Hấp thụ cú vọt **gấp 20 lần**, 0 lỗi, hồi phục **dưới 15 giây** | spike, 17 376 mẫu |
 
 ### Nút thắt thật sự

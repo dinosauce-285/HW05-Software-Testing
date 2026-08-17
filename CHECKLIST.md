@@ -13,11 +13,11 @@
 
 | Nhóm | Xong | Còn |
 |---|---|---|
-| Đã hoàn thành | **24** | — |
-| Nhóm A — làm ngay (Claude ✅ · sinh viên 7) | 2 | 7 |
+| Đã hoàn thành | **29** | — |
+| Nhóm A — làm ngay (Claude ✅ · sinh viên 4) | 6 | 4 |
 | Nhóm B — làm cuối (Claude 6 · sinh viên 4) | 0 | 10 |
 | Kiểm tra lần cuối trước khi nộp | 0 | 12 |
-| **TỔNG** | **24** | **29** |
+| **TỔNG** | **29** | **24** |
 
 ```bash
 # đếm lại, không tin trí nhớ (R14)
@@ -78,9 +78,11 @@ Phần Claude ở nhóm A đã xong.
 
 ## A2 · Sinh viên làm
 
-- [ ] **Task 2 — bước 2**: săn lỗi diễn giải, mỗi lỗi kèm giá trị đúng từ `.jtl` thô 🟡 *(mục 6:103)*
-- [ ] **Task 2 — bước 3**: phân loại 10 đề xuất tối ưu feasible / hallucinated 🟡 *(mục 6:104)*
-- [ ] **Task 2 — bước 4**: bảng tổng kết tỉ lệ đúng/sai 🟡
+- [x] **Task 2 — bước 2**: săn lỗi diễn giải 🟡 *(mục 6:103)*
+      → 5 lỗi của AI (bảng A) + 4 lỗi của chính báo cáo mình (bảng B), mỗi lỗi kèm lệnh kiểm chứng
+- [x] **Task 2 — bước 3**: phân loại 10 đề xuất — 9 feasible, 1 hallucinated 🟡 *(mục 6:104)*
+- [x] **Task 2 — bước 4**: tổng kết — AI đúng 80%, đề xuất feasible 90% 🟡
+- [x] Sửa 4 con số sai trong Main-Report / README / Bug-Report / Issue #12 *(R11)*
 - [ ] **Screenshot JMeter + htop CHUNG MỘT KHUNG HÌNH** 🔴 *(mục 6:93, 11:150)*
       → cả 3 kịch bản đều thiếu, phải chạy lại mới chụp được
 - [ ] **Ảnh hardware** 🔴 *(mục 6:93, 11:151)*

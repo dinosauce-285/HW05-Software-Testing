@@ -24,6 +24,8 @@
 | **Spike** | Transactional | `POST /api/cart` → `POST /api/checkout` | View Results Tree | `data/orders.csv` | `23127262_Spike_20260813.jmx` |
 
 Ba nhóm phủ hết, không trùng nhau; ba listener khác loại; ba file CSV riêng biệt.
+**Mọi phân vị tính từ `.jtl` thô** — dashboard HTML của JMeter chỉ tính trên 20 000 mẫu cuối nên sai
+tới 7,1 lần ở lượt Stress (xem `Task2-Misinterpretation-Hunt.md` mục B1).
 Tổng cộng **8 lượt chạy**, **1 386 000+ request thật**, toàn bộ `.jtl` thô giữ nguyên vẹn
 (danh mục + checksum ở `results/raw/MANIFEST.md`).
 
@@ -32,8 +34,8 @@ Tổng cộng **8 lượt chạy**, **1 386 000+ request thật**, toàn bộ `.
 | Kịch bản | Cấu hình | Mẫu | p95 | Lỗi | Kết luận |
 |---|---|---|---|---|---|
 | Load | 50 luồng, ramp 60 s, 5 phút | 13 483 | 2 ms | 3,56% | Tải ngày thường không gây áp lực; toàn bộ lỗi đến từ BUG-01 |
-| Stress | 2 000 luồng, ramp 250 s | 770 065 | 1 671 ms | 1,29% | **Gãy ở ~1 626 luồng đồng thời** |
-| Spike | nền 20 → vọt 400 (5 s) → rút | 17 376 | 6 ms | **0%** | Hấp thụ trọn cú vọt gấp 20 lần, hồi phục tức thì |
+| Stress | 2 000 luồng, ramp 250 s | 770 065 | 237 ms | 1,29% | **Gãy ở 1 800 luồng đồng thời** |
+| Spike | nền 20 → vọt 400 (5 s) → rút | 17 376 | 6 ms | **0%** | Hấp thụ trọn cú vọt gấp 20 lần, hồi phục **dưới 1 giây** |
 
 ### Ngưỡng chịu đựng (endurance threshold) — bằng số
 
