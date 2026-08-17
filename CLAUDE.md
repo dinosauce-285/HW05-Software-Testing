@@ -16,7 +16,8 @@
 | Resource monitor | `htop` (đề mục 8:121) |
 | SUT - mã nguồn | `sut/` - clone từ `https://github.com/ttbhanh/eshop-sut`, gitignore, **không commit** |
 | SUT - backend API | `http://localhost:3000` / `node backend/server.js` - đây là đối tượng bắn tải (đề mục 5:72) |
-| Reset dữ liệu | `node backend/database.js` |
+| Reset lockout (giữ dữ liệu) | `node scripts/reset-lockout.js` |
+| Reset DB sạch + seed lại | `./scripts/reset-db.sh` - **KHÔNG dùng `node backend/database.js`**, xem R13 |
 | Tài khoản admin | `admin@eshop.com` / `Admin123!` - **không phải** `admin123` như `setup_guide.md` ghi |
 | Tài khoản user | `test@eshop.com` / `Test1234!` |
 | Ngôn ngữ báo cáo | Tiếng Việt; tên test plan / file theo quy ước tiếng Anh của đề |
@@ -284,6 +285,28 @@ Plan auth-heavy sẽ tự làm khoá tài khoản. Mỗi lần chạy xong:
 
 Đây là điểm chấm riêng, không phải chi tiết vặt.
 
+### R14 - `CHECKLIST.md` là nguồn sự thật duy nhất về tiến độ
+*(quy tắc vận hành - hỗ trợ mục 14:167-178 và mục 17:204)*
+
+`CHECKLIST.md` ở thư mục gốc liệt kê **mọi** việc của bài, chia hai nhóm (làm ngay / làm cuối),
+mỗi nhóm tách rõ **Claude làm** và **sinh viên làm**.
+
+Ba việc bắt buộc, tự động, không cần được nhắc:
+
+1. **Xong một mục -> tick ngay `[x]` trong cùng phiên**, cùng lúc với commit. Không gom cuối buổi.
+2. **Phát sinh việc mới -> thêm dòng vào checklist ngay lúc phát hiện**, kèm ký hiệu mức độ
+   (🔴 thiếu là 0 điểm toàn bài / 🟡 mất điểm mục đó / ⚪ hoàn thiện) và trích dẫn mục:dòng của đề.
+3. **Cập nhật bảng Tiến độ ở đầu file** mỗi lần tick - đếm lại bằng lệnh, không tin trí nhớ:
+   ```bash
+   grep -c '^- \[x\]' CHECKLIST.md && grep -c '^- \[ \]' CHECKLIST.md
+   ```
+
+**Khi người dùng hỏi "còn gì phải làm" -> đọc `CHECKLIST.md` rồi trả lời, không liệt kê từ trí nhớ.**
+Trạng thái trong hội thoại không tính; chỉ ô tick trong file mới tính.
+
+Không tick khống: một mục chỉ được `[x]` khi **file thật đã tồn tại** hoặc **lệnh đã chạy thật**.
+Artifact do AI sinh mà chưa bắn thật vào backend thì vẫn để `[ ]` kèm dấu [!] theo R10.
+
 ---
 
 ## 3. Việc người dùng tự làm - không đụng vào
@@ -397,7 +420,8 @@ Mỗi dòng dưới đây là điều kiện đủ để không mất điểm �
 | Danh sách endpoint chính thức | `sut/api_specification.md` |
 | Mã nguồn backend (nguồn sự thật) | `sut/backend/server.js` - 572 dòng, toàn bộ route nằm trong 1 file |
 | Seed dữ liệu + schema | `sut/backend/database.js` |
-| Cấu trúc thư mục, trạng thái, self-assessment | `submission/README.md` |
+| **Tiến độ - việc còn phải làm** | **`CHECKLIST.md`** (R14 - nguồn sự thật duy nhất) |
+| Cấu trúc thư mục, self-assessment | `submission/README.md` |
 
 `sut/` đã clone (`--depth 1`), đã **xoá `.git`** và **gitignore** - không commit vào repo bài làm.
 Chạy backend: `cd sut/backend && node server.js` (cổng 3000, `npm install` đã chạy).
