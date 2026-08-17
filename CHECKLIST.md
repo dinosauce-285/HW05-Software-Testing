@@ -5,7 +5,7 @@
 
 **Ký hiệu:** 🔴 thiếu là **0 điểm toàn bài** (mục 17:204) · 🟡 mất điểm ở mục tương ứng · ⚪ hoàn thiện
 
-**Cập nhật:** 17/08/2026 · **34 xong / 20 còn**
+**Cập nhật:** 17/08/2026 · **35 xong / 20 còn**
 
 ```bash
 grep -c '^- \[x\]' CHECKLIST.md && grep -c '^- \[ \]' CHECKLIST.md
@@ -62,7 +62,7 @@ Mỗi dòng là một điều kiện ở mục 17:204. Chạy hết rồi mới 
 ---
 
 <details>
-<summary><b>ĐÃ XONG — 34 mục (bấm để mở)</b></summary>
+<summary><b>ĐÃ XONG — 35 mục (bấm để mở)</b></summary>
 
 ## Task 1 — Kiểm thử (60đ)
 
