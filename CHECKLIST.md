@@ -83,8 +83,10 @@ Phần Claude ở nhóm A đã xong.
 - [ ] **Task 2 — bước 4**: bảng tổng kết tỉ lệ đúng/sai 🟡
 - [ ] **Screenshot JMeter + htop CHUNG MỘT KHUNG HÌNH** 🔴 *(mục 6:93, 11:150)*
       → cả 3 kịch bản đều thiếu, phải chạy lại mới chụp được
-- [ ] **Ảnh hardware**: screenfetch + `hostname` + `whoami` 🔴 *(mục 6:93, 11:151)*
-      → hostname phải là `qt-ThinkBook-14-G5-IRH` để khớp HW04
+- [ ] **Ảnh hardware** 🔴 *(mục 6:93, 11:151)*
+      → ✅ `hostname` + `whoami` đã có: `evidence/hardware/hostname-whoami.png`
+      → ⬜ còn thiếu ảnh `fastfetch` (máy không có screenfetch/neofetch), lưu thành
+        `evidence/hardware/fastfetch.png`
 - [ ] **Video Task 1 ≥ 6 phút**, giọng tiếng Việt của mình 🔴 *(mục 6:95)*
       → gộp chung buổi với 2 việc trên
 - [ ] **Video demo Agent Skill** 🟡 *(mục 7:113)*

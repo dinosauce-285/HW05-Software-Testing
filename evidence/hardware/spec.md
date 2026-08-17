@@ -6,8 +6,23 @@
 **Sinh viên:** Lý Quốc Thạnh — 23127262
 **Xuất lúc:** 2026-08-17T09:29:31+07:00
 
-> ⚠️ Bảng này là **phần số liệu**. Đề còn đòi **ảnh chụp màn hình** `screenfetch`/`neofetch`
-> — phần đó sinh viên tự chụp, lưu vào chính thư mục này. Ảnh bắt buộc thấy rõ **hostname**.
+## Ảnh chụp màn hình
+
+| Ảnh | File | Trạng thái |
+|---|---|---|
+| `hostname` + `whoami` | `hostname-whoami.png` | ✅ |
+| Thông tin hệ thống (`fastfetch`) | `fastfetch.png` | ⬜ chưa chụp |
+
+### Định danh máy — ảnh chụp trực tiếp
+
+![hostname và whoami](hostname-whoami.png)
+
+Máy này không có `screenfetch` hay `neofetch`; dùng **`fastfetch`** (bản thay thế hiện đại, cùng
+công dụng) để chụp ảnh thông tin hệ thống:
+
+```bash
+fastfetch
+```
 
 ## Định danh máy — dùng để đối chiếu với HW04
 
