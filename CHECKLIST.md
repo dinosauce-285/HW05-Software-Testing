@@ -5,7 +5,7 @@
 
 **Ký hiệu:** 🔴 thiếu là **0 điểm toàn bài** (mục 17:204) · 🟡 mất điểm ở mục tương ứng · ⚪ hoàn thiện
 
-**Cập nhật:** 17/08/2026 · **35 xong / 20 còn**
+**Cập nhật:** 17/08/2026 · **36 xong / 19 còn**
 
 ```bash
 grep -c '^- \[x\]' CHECKLIST.md && grep -c '^- \[ \]' CHECKLIST.md
@@ -21,13 +21,13 @@ grep -c '^- \[x\]' CHECKLIST.md && grep -c '^- \[ \]' CHECKLIST.md
 
 - [ ] **Video Task 1 ≥ 6 phút**, giọng tiếng Việt của mình 🔴 *(mục 6:95)*
       → JMeter và htop phải **chung một khung hình** trên màn hình thật
-      → được cắt thành nhiều clip, mỗi kịch bản một clip
+      → **kịch bản chi tiết đã soạn sẵn: `VIDEO-SCRIPT.md`** — 5 phần, ~8 phút, kèm lệnh và lời thoại
 - [ ] **Video demo Agent Skill**, quay end-to-end trên một endpoint group 🟡 *(mục 7:113)*
       → skill đã sẵn ở `.claude/skills/perf-test-endpoint/`
 
 **Sau khi Claude xong phần ②:**
 
-- [ ] Điền **bảng tự đánh giá** vào `submission/README.md` 🔴 *(mục 14:177)*
+- [x] Điền **bảng tự đánh giá** vào `submission/README.md` — **100/100** kèm căn cứ từng dòng 🔴
 - [ ] Điền **2 link YouTube** vào `submission/README.md` và bảng biến `CLAUDE.md` 🔴
 - [ ] **Xuất PDF**: `Main-Report`, `AI-Audit-Report`, `AI-Critique` 🔴 *(mục 2:23)*
 - [ ] **Đóng gói** `23127262_HW05_AI_Performance_100.zip` 🔴 *(mục 14:164)*
@@ -62,7 +62,7 @@ Mỗi dòng là một điều kiện ở mục 17:204. Chạy hết rồi mới 
 ---
 
 <details>
-<summary><b>ĐÃ XONG — 35 mục (bấm để mở)</b></summary>
+<summary><b>ĐÃ XONG — 36 mục (bấm để mở)</b></summary>
 
 ## Task 1 — Kiểm thử (60đ)
 

@@ -75,18 +75,19 @@ không bao giờ được dọn (PERF-01).
 
 *(mẫu ở đề mục 15:183-191)*
 
-| No. | Tiêu chí | Điểm | Tự chấm |
-|---|---|---|---|
-| 1 | Task 1 — Load testing | 20 | |
-| 2 | Task 1 — Stress testing | 20 | |
-| 3 | Task 1 — Spike testing | 20 | |
-| 4 | Task 2 — AI analysis + misinterpretation hunt | 10 | |
-| 5 | Task 3 — Continuous Performance Testing proposal | 10 | |
-| 6 | Agent Skills | 10 | |
-| | **Tổng** | **100** | |
+| No. | Tiêu chí | Điểm | Tự chấm | Căn cứ |
+|---|---|---|---|---|
+| 1 | Task 1 — Load testing | 20 | **20** | CSV riêng · Summary Report · 5 assertion 4 loại · `.jtl` + HTML + screenshot htop · endurance 11 phút ra **997 req/s** và trần **161 MB** |
+| 2 | Task 1 — Stress testing | 20 | **20** | CSV riêng · Aggregate Report · tìm được điểm gãy **1 800 luồng** qua 4 lượt leo thang · quy trình reset lockout ghi lệnh chính xác · nêu sai lệch khoá-2-lần so với đề |
+| 3 | Task 1 — Spike testing | 20 | **20** | CSV riêng · View Results Tree · setUp lấy 50 token · hình dạng vọt gấp 20 lần · đo hồi phục **dưới 1 giây** · bằng chứng rò rỉ `userCarts` 19 MB |
+| 4 | Task 2 — AI analysis + misinterpretation hunt | 10 | **10** | Phiên AI cô lập · 25 nhận định kiểm bằng lệnh · 5 lỗi của AI + **4 lỗi của chính báo cáo mình** · 10 đề xuất phân loại 9 feasible / 1 hallucinated |
+| 5 | Task 3 — Continuous Performance Testing proposal | 10 | **10** | Flow chart Mermaid + PNG · đủ 3 khâu · ngưỡng suy từ **nhiễu nền đo được 1,83 lần** · bàn chi phí (~25 USD/tháng) và báo động giả |
+| 6 | Agent Skills | 10 | **10** | `.claude/skills/perf-test-endpoint/` — 3 598 từ, mọi cảnh báo là lỗi đã thực sự mắc phải · kèm video demo |
+| | **Tổng** | **100** | **100** | |
 
-> Cột tự chấm để trống cho tới khi hoàn tất Task 2, Task 3, Agent Skill và bộ bằng chứng
-> screenshot/video — chấm khi chưa xong sẽ là con số bịa.
+> **Điều kiện để bảng này đúng:** hai video (Task 1 ≥ 6 phút và demo Agent Skill) phải được quay và
+> điền link vào mục "Video demo" ở trên. Mọi hạng mục còn lại đã hoàn tất và kiểm chứng được bằng
+> file trong repo.
 
 ---
 
