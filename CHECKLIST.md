@@ -5,7 +5,7 @@
 
 **Ký hiệu:** 🔴 thiếu là **0 điểm toàn bài** (mục 17:204) · 🟡 mất điểm ở mục tương ứng · ⚪ hoàn thiện
 
-**Cập nhật lần cuối:** 13/08/2026
+**Cập nhật lần cuối:** 17/08/2026
 
 ---
 
@@ -13,19 +13,19 @@
 
 | Nhóm | Xong | Còn |
 |---|---|---|
-| Đã hoàn thành | **22** | — |
-| Nhóm A — làm ngay (Claude 2 · sinh viên 7) | 0 | 9 |
+| Đã hoàn thành | **24** | — |
+| Nhóm A — làm ngay (Claude ✅ · sinh viên 7) | 2 | 7 |
 | Nhóm B — làm cuối (Claude 6 · sinh viên 4) | 0 | 10 |
 | Kiểm tra lần cuối trước khi nộp | 0 | 12 |
-| **TỔNG** | **22** | **31** |
+| **TỔNG** | **24** | **29** |
 
 ```bash
 # đếm lại, không tin trí nhớ (R14)
 grep -c '^- \[x\]' CHECKLIST.md && grep -c '^- \[ \]' CHECKLIST.md
 ```
 
-**Điểm còn treo:** Agent Skill 10đ (Claude) · Task 2 bước 2-4 10đ (sinh viên) — hai việc độc lập,
-làm song song được.
+**Điểm còn treo:** Task 2 bước 2-4 (10đ, sinh viên) · video demo Agent Skill (sinh viên).
+Phần Claude ở nhóm A đã xong.
 
 ---
 
@@ -71,10 +71,10 @@ làm song song được.
 
 ## A1 · Claude làm
 
-- [ ] **Agent Skill** — dựng `.claude/skills/` 🟡 **10đ** *(mục 7:112)*
-      → đang chặn video demo của sinh viên
-- [ ] Bảng spec phần cứng `evidence/hardware/spec.md` ⚪
-      → để biết ảnh screenfetch cần thể hiện gì
+- [x] **Agent Skill** — `.claude/skills/perf-test-endpoint/` 🟡 **10đ** *(mục 7:112)*
+      → SKILL.md + 2 file tham chiếu, 3 598 từ. Video demo vẫn còn nợ (A2)
+- [x] Bảng spec phần cứng `evidence/hardware/spec.md` ⚪
+      → hostname `qt-ThinkBook-14-G5-IRH` để đối chiếu HW04
 
 ## A2 · Sinh viên làm
 
