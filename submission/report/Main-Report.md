@@ -22,7 +22,9 @@
 9. [Review và sửa những gì AI làm sai](#9-review-và-sửa-những-gì-ai-làm-sai)
 10. [Lỗi phát hiện được](#10-lỗi-phát-hiện-được)
 11. [Tổng hợp bằng chứng](#11-tổng-hợp-bằng-chứng)
-12. [Kết luận](#12-kết-luận)
+12. [Task 2 — Phân tích bằng AI và săn lỗi diễn giải](#12-task-2--phân-tích-bằng-ai-và-săn-lỗi-diễn-giải)
+13. [Task 3 — Mô hình kiểm thử hiệu năng liên tục](#13-task-3--mô-hình-kiểm-thử-hiệu-năng-liên-tục)
+14. [Kết luận](#14-kết-luận)
 
 ---
 
@@ -40,8 +42,13 @@ backend đang chạy, tôi chốt cách ghép sau:
 | **Stress** | Auth-heavy | `POST /api/login` | Ép tới điểm gãy sẽ kích hoạt cơ chế **khoá tài khoản**, đúng thứ mục 6:93 yêu cầu mô tả quy trình reset. Ngoài ra đây là endpoint duy nhất có logic trạng thái (đếm số lần sai, thời hạn khoá), nên hành vi dưới tải cao lộ ra nhiều thứ hơn một endpoint không trạng thái |
 | **Spike** | Transactional | `POST /api/cart` → `POST /api/checkout` | Cú vọt đột ngột mô phỏng đúng tình huống flash-sale trong thương mại điện tử. Nhánh ghi CSDL cũng là nơi dễ lộ lỗi thật nhất khi nhiều luồng cùng ghi — phù hợp với yêu cầu log bug ở mục 6:96 |
 
-**Không trùng lặp trong nhóm** (đề mục 5:78): ba endpoint trên đã được thông báo và chốt với nhóm
-trước khi bắt đầu thực hiện.
+**Không trùng lặp trong nhóm** — đề mục 5:78: *"no two members may test the same endpoint / workflow"*.
+
+Ba endpoint trên đã được thông báo lên nhóm kèm phương án dự phòng (`GET /api/products/:id`,
+`POST /api/forgot-password` → `reset-password`, `POST /api/apply-coupon`) phòng khi trùng.
+**Kết quả đối chiếu: không thành viên nào trùng**, nên giữ nguyên bộ chính, không phải dùng dự phòng.
+Việc trao đổi chỉ giới hạn ở phạm vi "ai lấy endpoint nào" — không chia sẻ test plan, CSV hay prompt,
+theo mục 17:205 (*copying, including prompts, → 0 điểm cả hai bên*).
 
 ### Vì sao không chọn phương án dễ hơn
 
@@ -601,16 +608,85 @@ Bốn lỗi nghiêm trọng nhất, đều **chỉ phát hiện được khi g�
 | CSV lấy mẫu tài nguyên cho mỗi lượt | ✅ | `evidence/monitor/` |
 | 14 ảnh bằng chứng lỗi | ✅ | `evidence/bugs/` |
 | 13 GitHub Issue | ✅ | repo bài làm |
-| Screenshot JMeter + `htop` **cùng một khung hình** | ⬜ **chưa có** | `evidence/monitor/` |
-| Hardware report (ảnh chụp + bảng spec) | ⬜ **chưa có** | `evidence/hardware/` |
+| Screenshot JMeter + `htop` **cùng một khung hình** | ✅ 3 ảnh | `evidence/monitor/*-jmeter-htop.png` |
+| Hardware report (2 ảnh + bảng spec) | ✅ | `evidence/hardware/` |
+| Flow chart mô hình CPT | ✅ | `evidence/diagrams/` |
 | Video demo ≥ 6 phút | ⬜ **chưa có** | — |
 
-Ba mục còn thiếu đều thuộc phần sinh viên trực tiếp thực hiện, không tự động hoá được. Lý do và
-hiện trạng ghi ở `Not-Run.md` mục 4.
+Ảnh chụp màn hình được tạo trên một **màn hình X ảo** vì phiên desktop chạy Wayland chặn mọi đường
+chụp thông thường — tiến trình và số liệu trong ảnh là thật, chi tiết và giới hạn ghi ở `Not-Run.md`
+mục 6. Video demo là phần sinh viên trực tiếp thực hiện.
 
 ---
 
-## 12. Kết luận
+## 12. Task 2 — Phân tích bằng AI và săn lỗi diễn giải
+
+*(chi tiết đầy đủ ở `Task2-Misinterpretation-Hunt.md`)*
+
+### Cách làm
+
+Bản phân tích do một phiên AI **độc lập** sinh ra, cô lập có chủ đích: chỉ được cấp 4 file `.jtl`
+thô và một mô tả trung lập về hệ thống — **không** mã nguồn, **không** báo cáo này, **không** biết
+gì về 13 lỗi đã phát hiện. Mục đích: chỗ đọc sai phải là lỗi phát sinh tự nhiên, không phải lỗi dàn
+dựng. Output giữ nguyên văn ở `submission/appendix/AI-Analysis-Raw.md` (7 715 từ).
+
+### Kết quả
+
+| Chỉ số | Số lượng | Tỉ lệ |
+|---|---|---|
+| Nhận định định lượng đã kiểm bằng lệnh | 25 | — |
+| Đúng hoàn toàn | 20 | **80%** |
+| Kết luận đúng nhưng suy luận sai | 3 | 12% |
+| Sai / không kiểm chứng được | 2 | 8% |
+| Đề xuất tối ưu **feasible** | 9 | **90%** |
+| Đề xuất tối ưu **hallucinated** | 1 | 10% |
+
+Năm chỗ AI đọc sai: suy luận về ngưỡng khoá không giải thích được phân bố 20/10/10 · nhầm trung vị
+với trung bình · bịa cơ chế nhân quả cho hiện tượng spike · suy vị trí lưu giỏ hàng từ kích thước
+phản hồi · số liệu trong phần diễn giải không khớp bảng của chính nó.
+
+Đề xuất **hallucinated** duy nhất là B4: AI khuyên *"mở kết nối DB bền vững thay vì mở/đóng theo
+request"* — nhưng `database.js:5` mở **một** kết nối lúc nạp module và `server.js` có **0** lần gọi
+`new sqlite3.Database`. Nó tối ưu một vấn đề không tồn tại.
+
+### Phát hiện đắt giá nhất lại không phải lỗi của AI
+
+Việc rà soát lộ ra **bốn con số sai trong chính báo cáo này**, và nguyên nhân gốc là một cái bẫy hệ
+thống: JMeter đặt `jmeter.reportgenerator.statistic_window = 20000`, nên dashboard HTML **chỉ tính
+phân vị trên 20 000 mẫu cuối cùng**. Với lượt Stress 770 065 mẫu, nó báo p95 = 1 671 ms trong khi
+p95 toàn lượt thật là **237 ms** — sai 7,1 lần. Chi tiết ở mục 2.4 và `Task2-...` mục B1.
+
+Phiên AI kia tránh được bẫy này **chỉ vì nó không được cấp thư mục HTML**, buộc phải tự tính từ log
+thô. Bốn con số đã sửa, kèm khối "Đính chính" ghi rõ sai ở đâu thay vì lặng lẽ thay số.
+
+---
+
+## 13. Task 3 — Mô hình kiểm thử hiệu năng liên tục
+
+*(chi tiết đầy đủ và flow chart ở `Task3-Continuous-Performance-Testing.md`)*
+
+Mô hình gồm ba khâu theo đúng mục 6:108 — theo dõi commit → quyết định chạy bộ nào → cảnh báo khi
+p95 xấu đi — và được thiết kế **bắt đầu từ việc đo nhiễu nền**, không phải từ việc chọn ngưỡng.
+
+**Nhiễu nền đo được:** trên lượt soak, cùng một commit, cùng máy, cùng mức tải, **p95 dao động
+6 → 11 ms, tỉ lệ 1,83 lần**, trong khi **p50 bất biến ở 2 ms** suốt 10 phút.
+
+Con số đó quyết định toàn bộ thiết kế:
+
+| Hệ quả | Vì sao |
+|---|---|
+| p50 làm tín hiệu chính, không phải p95 | p95 nhiễu 1,83 lần, p50 gần như không nhiễu |
+| Ngưỡng p95 không được thấp hơn 2,0 lần | Thấp hơn nhiễu đo được là báo động giả có bảo đảm |
+| Bắt buộc xác nhận bằng lần chạy thứ hai | Đưa xác suất báo động giả từ *p* xuống *p²* |
+| Tầng smoke không có quyền chặn merge | 2 phút không đủ mẫu để phân biệt hồi quy với dao động |
+| Tỉ lệ lỗi phải so **tương đối** với baseline | Ngưỡng tuyệt đối kiểu "lỗi > 1%" sẽ chặn mọi commit vĩnh viễn, vì SUT có sẵn 3,57% lỗi nền từ BUG-01 |
+
+**Chi phí ước tính:** ~105 phút máy/ngày với đội 20 commit — khoảng 25 USD/tháng trên GitHub Actions.
+Con số 45 phút cho full suite lấy từ tổng thời lượng thật của 8 lượt chạy ở Task 1 (47,3 phút).
+
+---
+
+## 14. Kết luận
 
 ### Ba con số quan trọng nhất
 
@@ -618,7 +694,7 @@ hiện trạng ghi ở `Not-Run.md` mục 4.
 |---|---|---|
 | **Ngưỡng chịu đựng ổn định** | **997 req/s** giữ đều 10 phút, trần bộ nhớ **161 MB** | soak 11 phút, 627 943 mẫu |
 | **Điểm gãy** | **1 800 người dùng đồng thời**, throughput đỉnh **2 682 req/s** | stress 2 000 luồng, 770 065 mẫu |
-| **Khả năng chịu sốc** | Hấp thụ cú vọt **gấp 20 lần**, 0 lỗi, hồi phục **dưới 15 giây** | spike, 17 376 mẫu |
+| **Khả năng chịu sốc** | Hấp thụ cú vọt **gấp 20 lần**, 0 lỗi, hồi phục **dưới 1 giây** | spike, 17 376 mẫu |
 
 ### Nút thắt thật sự
 
@@ -645,5 +721,5 @@ lệnh, và phải giải thích được **vì sao nó là con số đó**.
 
 ---
 
-*Các mục Task 2 (phân tích bằng AI và săn lỗi diễn giải) và Task 3 (mô hình kiểm thử hiệu năng liên
-tục) sẽ được bổ sung vào báo cáo này khi hoàn thành.*
+*Báo cáo này phủ trọn Task 1, Task 2 và Task 3. Phần còn thiếu duy nhất là video demo — thuộc phần
+sinh viên trực tiếp thực hiện, xem `Not-Run.md` mục 4.*

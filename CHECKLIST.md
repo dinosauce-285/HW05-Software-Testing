@@ -13,11 +13,11 @@
 
 | Nhóm | Xong | Còn |
 |---|---|---|
-| Đã hoàn thành | **30** | — |
+| Đã hoàn thành | **34** | — |
 | Nhóm A — làm ngay | Claude ✅ xong | sinh viên còn **2** (video) |
-| Nhóm B — làm cuối | Claude **6** | sinh viên **4** |
+| Nhóm B — làm cuối | Claude **2** | sinh viên **4** |
 | Kiểm tra lần cuối trước khi nộp | — | **12** |
-| **TỔNG** | **30** | **24** |
+| **TỔNG** | **34** | **20** |
 
 ```bash
 # đếm lại, không tin trí nhớ (R14)
@@ -97,16 +97,14 @@ Phần Claude ở nhóm A đã xong.
 
 # NHÓM B — LÀM CUỐI
 
-## B1 · Claude làm — đúng thứ tự này, cái sau ăn dữ liệu cái trước
+## B1 · Claude làm — chỉ còn 2 việc thật sự phải đợi tới cuối
 
 - [ ] 1. **AI-Prompt-Log** — trích transcript phiên làm việc 🔴 *(mục 9:130-134)*
       → phiên còn chạy, trích sớm là thiếu
-- [ ] 2. **AI Audit Report** theo mẫu 5 mục 🔴 *(mục 9:127)*
-      → 1 hàng/artifact, cần đủ Agent Skill + kết quả Task 2
-- [ ] 3. **AI Critique 200–300 chữ** 🔴 *(mục 10:138)*
-      → phải dẫn được chỗ AI sai mà **sinh viên** tìm ra
-- [ ] 4. Gộp Task 2 + Task 3 vào `Main-Report.md` ⚪
-- [ ] 5. Ghi xác nhận không trùng endpoint với nhóm vào báo cáo chính ⚪ *(mục 5:78)*
+- [x] 2. **AI Audit Report** — 12 artifact, mẫu 6 mục, kết luận **149 từ** (yêu cầu 80-150) 🔴
+- [x] 3. **AI Critique** — **297 từ** (yêu cầu 200-300), đếm bằng lệnh 🔴
+- [x] 4. Gộp Task 2 + Task 3 vào `Main-Report.md` — thành mục 12 và 13 ⚪
+- [x] 5. Ghi xác nhận không trùng endpoint với nhóm ⚪ *(mục 5:78)*
 - [ ] 6. **`git-log.txt`** 🔴 *(mục 12:156)*
       → **lệnh cuối cùng**, mỗi commit mới là file này lỗi thời
 
