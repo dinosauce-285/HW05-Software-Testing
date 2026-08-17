@@ -1,0 +1,50 @@
+{
+  "GET tim kiem san pham" : {
+    "transaction" : "GET tim kiem san pham",
+    "sampleCount" : 313718,
+    "errorCount" : 22406,
+    "errorPct" : 7.142083,
+    "meanResTime" : 2.6944198292734525,
+    "medianResTime" : 2.0,
+    "minResTime" : 0.0,
+    "maxResTime" : 172.0,
+    "pct1ResTime" : 7.0,
+    "pct2ResTime" : 9.0,
+    "pct3ResTime" : 25.0,
+    "throughput" : 476.68379611199066,
+    "receivedKBytesPerSec" : 1469.7601391346413,
+    "sentKBytesPerSec" : 79.03719145583445
+  },
+  "Total" : {
+    "transaction" : "Total",
+    "sampleCount" : 627943,
+    "errorCount" : 22406,
+    "errorPct" : 3.5681581,
+    "meanResTime" : 2.995552144064147,
+    "medianResTime" : 2.0,
+    "minResTime" : 0.0,
+    "maxResTime" : 182.0,
+    "pct1ResTime" : 8.0,
+    "pct2ResTime" : 12.0,
+    "pct3ResTime" : 40.0,
+    "throughput" : 952.6036657331921,
+    "receivedKBytesPerSec" : 11840.44651311665,
+    "sentKBytesPerSec" : 151.06477558117132
+  },
+  "GET danh sach san pham" : {
+    "transaction" : "GET danh sach san pham",
+    "sampleCount" : 314225,
+    "errorCount" : 0,
+    "errorPct" : 0.0,
+    "meanResTime" : 3.2961985838173624,
+    "medianResTime" : 2.0,
+    "minResTime" : 0.0,
+    "maxResTime" : 182.0,
+    "pct1ResTime" : 7.0,
+    "pct2ResTime" : 10.0,
+    "pct3ResTime" : 27.0,
+    "throughput" : 476.68639807277464,
+    "receivedKBytesPerSec" : 10373.049812749645,
+    "sentKBytesPerSec" : 72.15467939578132
+  }
+}

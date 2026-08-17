@@ -10,25 +10,36 @@
 
 Mười một dòng dưới đây là đúng danh mục mục 14:167-178. Cột cuối là đường dẫn thật trong repo.
 
-| # | Đề yêu cầu | Trạng thái | Nằm ở đâu |
-|---|---|---|---|
-| 1 | Báo cáo chính (**Markdown + PDF**) | md ✅ · pdf ⬜ | `submission/report/Main-Report.md` |
-| 2 | Link repo GitHub công khai | ✅ | ghi trong `submission/README.md` |
-| 3 | **Ba test plan** đúng quy ước tên | ✅ | `plans/23127262_{Load,Stress,Spike}_*.jmx` |
-| 4 | **Ba `.jtl` thô** + **ba thư mục HTML** | ✅ *(8 `.jtl`, 6 thư mục)* | `results/raw/` · `results/html/` |
-| 5 | Screenshot resource monitor + phần cứng | ✅ | `evidence/monitor/` · `evidence/hardware/` |
-| 6 | Link video demo YouTube (unlisted) | ⬜ | điền vào `submission/README.md` |
-| 7 | AI Critique + AI Audit Report (**md + pdf**) | md ✅ · pdf ⬜ | `submission/appendix/` |
-| 8 | Git commit log (file text) | ⬜ | `submission/appendix/git-log.txt` |
-| 9 | Bug report + screenshot | ✅ | `submission/report/Bug-Report.md` · `evidence/bugs/` |
-| 10 | `README.md` — bảng tự đánh giá + test summary | ✅ | `submission/README.md` |
-| 11 | Tài liệu hỗ trợ khác | ✅ | `data/` · `scripts/` · `.claude/skills/` |
+Thư mục `submission/` giờ **tự chứa đủ**, chỉ cần nén đúng nó. Dựng lại bất cứ lúc nào:
 
-**Còn thiếu 4 mục** — 3 mục do sinh viên (PDF, link video), 1 mục do Claude (`git-log.txt`, chạy cuối cùng).
+```bash
+./scripts/assemble-submission.sh
+```
+
+| # | Đề yêu cầu | Trạng thái | Nằm ở đâu trong `submission/` |
+|---|---|---|---|
+| 1 | Báo cáo chính (**Markdown + PDF**) | md ✅ · **pdf ⬜** | `report/Main-Report.md` |
+| 2 | Link repo GitHub công khai | ✅ | trong `README.md` |
+| 3 | **Ba test plan** đúng quy ước tên | ✅ 3 file | `plans/` |
+| 4 | **`.jtl` thô** + **thư mục HTML** | ✅ 8 file · 6 thư mục | `results/raw/` · `results/html/` |
+| 5 | Screenshot resource monitor + phần cứng | ✅ 3 + 2 ảnh | `evidence/monitor/` · `evidence/hardware/` |
+| 6 | Link video demo YouTube (unlisted) | **⬜** | điền vào `README.md` |
+| 7 | AI Critique + AI Audit Report (**md + pdf**) | md ✅ · **pdf ⬜** | `appendix/` |
+| 8 | Git commit log (file text) | **⬜** Claude chạy cuối | `appendix/git-log.txt` |
+| 9 | Bug report + screenshot | ✅ + 14 ảnh | `report/Bug-Report.md` · `evidence/bugs/` |
+| 10 | `README.md` — bảng tự đánh giá + test summary | ✅ | `README.md` |
+| 11 | Tài liệu hỗ trợ khác | ✅ | `data/` 3 CSV · `scripts/` 16 script · `skills/` |
+
+**Còn thiếu 4 mục:** 3 file PDF + link video (sinh viên) · `git-log.txt` (Claude, chạy cuối cùng).
+
+Nộp nhiều hơn mức tối thiểu ở hai chỗ, đều có lý do: **8 file `.jtl`** thay vì 3 vì kịch bản Stress
+phải leo thang 4 lượt mới tìm được điểm gãy, và lượt soak là nguồn của ngưỡng chịu đựng — giữ đủ để
+chứng minh quá trình chứ không phải chọn sẵn con số đẹp (giải thích ở `results/raw/MANIFEST.md`).
+**6 thư mục HTML** tương ứng 6 lượt có sinh dashboard.
 
 ---
 
-## 2. Vấn đề dung lượng — phải xử lý, không bỏ qua
+## 2. Dung lượng — chỉ là chuyện đóng gói, không bớt file
 
 Policies:41 ghi rõ: *"The submission link accepts a maximum of **20 files**, with each file limited
 to **20 MB**. Students should proactively use the split-and-zip feature."*
@@ -42,73 +53,57 @@ Dung lượng thật hiện tại:
 | `evidence/` | 3,8 MB | 30 file ảnh + CSV |
 | `plans/` `data/` `submission/` | < 1 MB | |
 
-Một file `.jtl` đơn lẻ đã 106 MB, gấp **5 lần** giới hạn 20 MB mỗi file. Bắt buộc dùng **split-and-zip**.
-
-### Cách làm
-
-Nén toàn bộ rồi chia thành các phần 19 MB:
+Một file `.jtl` đơn lẻ đã 106 MB, gấp **5 lần** giới hạn 20 MB mỗi file. Đây là lý do Policies:41
+khuyên dùng **split-and-zip** — chia nhỏ khi nén, **không phải** bớt file khi nộp.
 
 ```bash
 cd ~/projects/hw05
-zip -r -s 19m 23127262_HW05_AI_Performance_100.zip \
-    submission/ plans/ data/ results/ evidence/ scripts/ .claude/ \
-    -x "*/jmeter.log" "*/node_modules/*"
+zip -r -s 19m 23127262_HW05_AI_Performance_100.zip submission/
 ```
 
-Lệnh trên sinh ra `...z01`, `...z02`, ..., và file `.zip` cuối. **Nộp tất cả các phần**, thiếu một
-phần là không giải nén được.
+Lệnh sinh ra `...z01`, `...z02`, … và file `.zip` cuối. **Nộp tất cả các phần** — thiếu một phần là
+không giải nén được.
 
-Nếu tổng số phần vượt 20 file, cách giảm hợp lệ nhất là **chỉ giữ 4 file `.jtl` chính thức** thay
-vì cả 8:
-
-| Giữ lại | Vì sao |
-|---|---|
-| `load-20260811T023204Z.jtl` | Lượt Load chính thức |
-| `stress-20260813T003655Z.jtl` | Lượt Stress chính thức — tìm ra điểm gãy |
-| `spike-20260813T005423Z.jtl` | Lượt Spike chính thức |
-| `soak-20260813T010601Z.jtl` | Lượt endurance — nguồn của ngưỡng 997 req/s |
-
-Bốn file còn lại (`stress` mức 250 và 800 luồng, `bottleneck-check`, `load-ramp`) là **quá trình
-leo thang tìm ngưỡng**, không bắt buộc nộp. Nếu bỏ thì phải ghi rõ trong `results/raw/MANIFEST.md`
-là đã lược bớt và vì sao — bảng checksum SHA-256 vẫn giữ đủ 8 dòng để TA đối chiếu.
-
-⚠️ **Không được cắt ngắn nội dung file `.jtl`.** Mục 11:149 đòi *"attached in full — not only the
-summary"*. Bỏ bớt **số lượng file** thì được, cắt **nội dung bên trong** một file thì là gian lận.
+⚠️ **Không cắt nội dung bất kỳ file `.jtl` nào.** Mục 11:149 đòi *"attached in full — not only the
+summary"*, và mục 11 ghi rõ TA verify trực tiếp phần này.
 
 ---
 
-## 3. Cấu trúc bên trong zip
+## 3. Cấu trúc `submission/` — nén đúng thư mục này là đủ
 
 ```
-23127262_HW05_AI_Performance_100.zip
-├── submission/
-│   ├── README.md                     ← bảng tự đánh giá + test summary
-│   ├── report/
-│   │   ├── Main-Report.md  + .pdf    ⬜ cần xuất PDF
-│   │   ├── Bug-Report.md
-│   │   ├── AI-Review-Fix-Log.md
-│   │   ├── Not-Run.md
-│   │   ├── Task2-Misinterpretation-Hunt.md
-│   │   └── Task3-Continuous-Performance-Testing.md
-│   └── appendix/
-│       ├── AI-Audit-Report.md  + .pdf    ⬜ cần xuất PDF
-│       ├── AI-Critique.md      + .pdf    ⬜ cần xuất PDF
-│       ├── AI-Analysis-Raw.md
-│       ├── AI-Prompt-Log.md              ⬜ Claude chạy cuối
-│       └── git-log.txt                   ⬜ Claude chạy cuối
-├── plans/          3 file .jmx
-├── data/           3 file .csv
+submission/                            384 MB
+├── README.md                          bảng tự đánh giá 100/100 + test summary
+├── PACKAGING.md                       file này
+├── report/
+│   ├── Main-Report.md  + .pdf         ⬜ cần xuất PDF
+│   ├── Bug-Report.md                  10 BUG + 3 PERF, khớp 13 GitHub Issue
+│   ├── AI-Review-Fix-Log.md           nhật ký sửa output AI
+│   ├── Not-Run.md                     phần không chạy được + lý do
+│   ├── Task2-Misinterpretation-Hunt.md
+│   └── Task3-Continuous-Performance-Testing.md
+├── appendix/
+│   ├── AI-Audit-Report.md  + .pdf     ⬜ cần xuất PDF
+│   ├── AI-Critique.md      + .pdf     ⬜ cần xuất PDF
+│   ├── AI-Analysis-Raw.md             output AI nguyên văn
+│   ├── AI-Prompt-Log.md               ⬜ Claude chạy cuối
+│   └── git-log.txt                    ⬜ Claude chạy cuối
+├── plans/          3 file .jmx đúng quy ước {MSSV}_{Scenario}_{YYYYMMDD}
+├── data/           3 file .csv — mỗi endpoint group một file
 ├── results/
-│   ├── raw/        .jtl thô + MANIFEST.md (checksum)
-│   └── html/       6 thư mục dashboard
+│   ├── raw/        8 file .jtl thô + MANIFEST.md (checksum SHA-256)
+│   └── html/       6 thư mục dashboard JMeter
 ├── evidence/
-│   ├── monitor/    3 ảnh JMeter+htop · 8 CSV tài nguyên
+│   ├── monitor/    3 ảnh JMeter+htop chung khung · 8 CSV tài nguyên
 │   ├── hardware/   spec.md · hostname-whoami.png · fastfetch.png
 │   ├── bugs/       14 ảnh bằng chứng lỗi
-│   └── diagrams/   flow chart Task 3
-├── scripts/        11 script
-└── .claude/skills/ Agent Skill
+│   └── diagrams/   flow chart Task 3 (PNG)
+├── scripts/        16 script tái lập + env.sh
+└── skills/         Agent Skill perf-test-endpoint
 ```
+
+`results/` và `evidence/` dùng **hard link** trỏ về bản gốc trong repo, nên không tốn thêm dung
+lượng đĩa (chỉ 468 KB tăng thêm), nhưng khi nén thì zip đóng gói đầy đủ nội dung.
 
 ---
 

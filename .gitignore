@@ -3,3 +3,4 @@ node_modules/
 tools/
 *.log
 results/raw/*.jtl
+submission/results/raw/*.jtl
