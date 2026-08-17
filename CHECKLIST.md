@@ -21,7 +21,7 @@ grep -c '^- \[x\]' CHECKLIST.md && grep -c '^- \[ \]' CHECKLIST.md
 
 - [ ] **Video Task 1 ≥ 6 phút**, giọng tiếng Việt của mình 🔴 *(mục 6:95)*
       → JMeter và htop phải **chung một khung hình** trên màn hình thật
-      → **kịch bản chi tiết đã soạn sẵn: `VIDEO-SCRIPT.md`** — 5 phần, ~8 phút, kèm lệnh và lời thoại
+      → **`VIDEO-SCRIPT.md`** — lời thoại nguyên văn 1 745 từ (11-13 phút), kèm bản rút gọn ~7 phút
 - [ ] **Video demo Agent Skill**, quay end-to-end trên một endpoint group 🟡 *(mục 7:113)*
       → skill đã sẵn ở `.claude/skills/perf-test-endpoint/`
 
@@ -31,7 +31,8 @@ grep -c '^- \[x\]' CHECKLIST.md && grep -c '^- \[ \]' CHECKLIST.md
 - [ ] Điền **2 link YouTube** vào `submission/README.md` và bảng biến `CLAUDE.md` 🔴
 - [ ] **Xuất PDF**: `Main-Report`, `AI-Audit-Report`, `AI-Critique` 🔴 *(mục 2:23)*
 - [ ] **Đóng gói** `23127262_HW05_AI_Performance_100.zip` 🔴 *(mục 14:164)*
-      → file `.jtl` lớn nhất 106 MB → Policies:41 cho phép split-and-zip
+      → **hướng dẫn đầy đủ: `submission/PACKAGING.md`** — lệnh split-and-zip, cấu trúc, thứ tự thao tác
+      → Policies:41 giới hạn **20 file, mỗi file 20 MB** mà `results/raw/` nặng 360 MB
 
 ## ② Claude — 2 việc, buộc phải làm cuối cùng
 
