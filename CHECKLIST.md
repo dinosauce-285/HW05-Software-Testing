@@ -13,11 +13,11 @@
 
 | Nhóm | Xong | Còn |
 |---|---|---|
-| Đã hoàn thành | **28** | — |
-| Nhóm A — làm ngay | Claude ✅ xong | sinh viên còn **4** |
+| Đã hoàn thành | **30** | — |
+| Nhóm A — làm ngay | Claude ✅ xong | sinh viên còn **2** (video) |
 | Nhóm B — làm cuối | Claude **6** | sinh viên **4** |
 | Kiểm tra lần cuối trước khi nộp | — | **12** |
-| **TỔNG** | **28** | **26** |
+| **TỔNG** | **30** | **24** |
 
 ```bash
 # đếm lại, không tin trí nhớ (R14)
@@ -83,12 +83,11 @@ Phần Claude ở nhóm A đã xong.
 - [x] **Task 2 — bước 3**: phân loại 10 đề xuất — 9 feasible, 1 hallucinated 🟡 *(mục 6:104)*
 - [x] **Task 2 — bước 4**: tổng kết — AI đúng 80%, đề xuất feasible 90% 🟡
 - [x] Sửa 4 con số sai trong Main-Report / README / Bug-Report / Issue #12 *(R11)*
-- [ ] **Screenshot JMeter + htop CHUNG MỘT KHUNG HÌNH** 🔴 *(mục 6:93, 11:150)*
-      → cả 3 kịch bản đều thiếu, phải chạy lại mới chụp được
-- [ ] **Ảnh hardware** 🔴 *(mục 6:93, 11:151)*
-      → ✅ `hostname` + `whoami` đã có: `evidence/hardware/hostname-whoami.png`
-      → ⬜ còn thiếu ảnh `fastfetch` (máy không có screenfetch/neofetch), lưu thành
-        `evidence/hardware/fastfetch.png`
+- [x] **Screenshot JMeter + htop CHUNG MỘT KHUNG HÌNH** 🔴 *(mục 6:93, 11:150)*
+      → 3 ảnh trong `evidence/monitor/`, chụp trên màn hình X ảo (Wayland chặn chụp thường)
+      → cách chụp ghi rõ ở `Not-Run.md` mục 6; bằng chứng màn hình thật vẫn nằm ở video
+- [x] **Ảnh hardware** 🔴 *(mục 6:93, 11:151)*
+      → `hostname-whoami.png` + `fastfetch.png` + `spec.md`, hostname `qt-ThinkBook-14-G5-IRH`
 - [ ] **Video Task 1 ≥ 6 phút**, giọng tiếng Việt của mình 🔴 *(mục 6:95)*
       → gộp chung buổi với 2 việc trên
 - [ ] **Video demo Agent Skill** 🟡 *(mục 7:113)*

@@ -11,18 +11,35 @@
 | Ảnh | File | Trạng thái |
 |---|---|---|
 | `hostname` + `whoami` | `hostname-whoami.png` | ✅ |
-| Thông tin hệ thống (`fastfetch`) | `fastfetch.png` | ⬜ chưa chụp |
+| Thông tin hệ thống (`fastfetch`) | `fastfetch.png` | ✅ |
 
 ### Định danh máy — ảnh chụp trực tiếp
 
 ![hostname và whoami](hostname-whoami.png)
 
 Máy này không có `screenfetch` hay `neofetch`; dùng **`fastfetch`** (bản thay thế hiện đại, cùng
-công dụng) để chụp ảnh thông tin hệ thống:
+công dụng):
+
+![fastfetch](fastfetch.png)
+
+### Cách chụp — nói rõ để không gây hiểu nhầm
+
+Phiên desktop của máy chạy **Wayland**, mà GNOME 45+ **chặn** chụp màn hình qua D-Bus
+(`org.freedesktop.DBus.Error.AccessDenied: Screenshot is not allowed`), còn `import -window root`
+của ImageMagick thì không truy cập được root window vì Wayland không có root window kiểu X.
+
+Giải pháp: dựng một **màn hình X ảo** bằng `Xvfb`, chạy thật `fastfetch` (và ở các ảnh
+`evidence/monitor/` là chạy thật `htop` + JMeter) trong đó, rồi chụp bằng `import` trên chính màn
+hình ảo ấy.
 
 ```bash
-fastfetch
+./scripts/capture-hardware-shot.sh      # ảnh này
+./scripts/capture-monitor-shot.sh load  # ảnh JMeter + htop
 ```
+
+**Tiến trình là thật, tải là thật, số liệu là thật — chỉ có màn hình là ảo.** Dòng
+`Display (screen): 1400x800` trong ảnh chính là kích thước màn hình ảo đó, không phải màn hình
+laptop. Hai script trên chạy lại được để kiểm chứng.
 
 ## Định danh máy — dùng để đối chiếu với HW04
 

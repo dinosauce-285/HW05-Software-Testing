@@ -51,12 +51,33 @@ Bốn mục dưới đây đề bắt buộc nhưng **không thể tự động 
 
 | Mục | Trích đề | Trạng thái |
 |---|---|---|
-| Screenshot JMeter **+ htop cùng một khung hình** | 6:93, 11:150 | ⬜ Phải chạy lại một lượt để chụp — các lượt đã chạy không dựng lại ảnh được |
-| Hardware report (screenfetch/dxdiag + bảng spec), **hostname khớp HW04** | 6:93, 11:151 | ⬜ Hostname máy này: `qt-ThinkBook-14-G5-IRH`, user `qt` |
+| Screenshot JMeter **+ htop cùng một khung hình** | 6:93, 11:150 | ✅ 3 ảnh — chụp trên màn hình X ảo, xem mục 6 |
+| Hardware report (screenfetch/dxdiag + bảng spec), **hostname khớp HW04** | 6:93, 11:151 | ✅ `spec.md` + 2 ảnh, hostname `qt-ThinkBook-14-G5-IRH` |
 | Video demo ≥ 6 phút, giọng tiếng Việt của sinh viên | 6:95 | ⬜ |
 | Tạo GitHub Issue + đính ảnh bằng chứng cho 13 lỗi | 6:96 | ✅ **đã xong** — issue `#1`…`#13` |
 
-## 5. Không làm — có cân nhắc và quyết định bỏ
+## 6. Ảnh chụp màn hình phải dựng màn hình X ảo
+
+**Ràng buộc:** phiên desktop chạy Wayland. Ba đường chụp màn hình thông thường đều bị chặn:
+
+| Cách | Kết quả |
+|---|---|
+| GNOME Shell qua D-Bus | `AccessDenied: Screenshot is not allowed` — GNOME 45+ chặn |
+| `import -window root` (ImageMagick) | Thất bại: Wayland không có root window kiểu X |
+| `gnome-screenshot`, `grim`, `scrot`, `spectacle` | Không cài, và không có quyền `sudo` để cài |
+
+**Cách xử lý:** dựng màn hình X ảo bằng `Xvfb`, chạy `gnome-terminal` với `GDK_BACKEND=x11` trong
+đó (bắt buộc ép X11, nếu không gnome-terminal vẫn bám Wayland và ảnh ra đen sì), dùng `screen` chia
+đôi khung — `htop` ở trên, JMeter ở dưới — rồi chụp bằng `import` trên màn hình ảo.
+
+Hai script chạy lại được: `scripts/capture-monitor-shot.sh` và `scripts/capture-hardware-shot.sh`.
+
+**Điều cần nói thẳng:** tiến trình, tải và số liệu trong ảnh đều là thật — nhưng đây **không phải
+ảnh chụp màn hình laptop của sinh viên**. Dòng `Display (screen): 1400x800` trong ảnh `fastfetch`
+chính là màn hình ảo. Bằng chứng "cùng một khung hình" theo đúng tinh thần mục 11:150 (màn hình thật
+của sinh viên, giọng thật) nằm ở **video demo**, nơi không dùng màn hình ảo.
+
+## 7. Không làm — có cân nhắc và quyết định bỏ
 
 | Mục | Lý do bỏ |
 |---|---|
