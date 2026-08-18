@@ -93,22 +93,33 @@ không bao giờ được dọn (PERF-01).
 ## 3. Cấu trúc thư mục
 
 ```
-hw05/
+submission/
+|-- README.md       file này - test summary + bảng tự đánh giá
+|-- report/
+|   |-- Main-Report.md                        báo cáo chính, phủ Task 1 + 2 + 3
+|   |-- Bug-Report.md                         10 lỗi chức năng + 3 vấn đề hiệu năng
+|   |-- AI-Review-Fix-Log.md                  nhật ký sửa output AI, ghi tại thời điểm sửa
+|   |-- Not-Run.md                            phần không chạy được kèm lý do kỹ thuật
+|   |-- Task2-Misinterpretation-Hunt.md       săn lỗi diễn giải, kèm lệnh kiểm chứng
+|   `-- Task3-Continuous-Performance-Testing.md   mô hình CPT + flow chart
+|-- appendix/
+|   |-- AI-Audit-Report.md                    mẫu 6 mục của Khoa, 12 artifact
+|   |-- AI-Critique.md                        297 từ
+|   |-- AI-Analysis-Raw.md                    output AI nguyên văn, chưa review
+|   |-- AI-Prompt-Log.md                      147 lượt tương tác, prompt nguyên văn
+|   `-- git-log.txt                           41 commit + đồ thị nhánh
 |-- plans/          3 test plan .jmx đúng quy ước {MSSV}_{Scenario}_{YYYYMMDD}
 |-- data/           products.csv | credentials.csv | orders.csv - mỗi nhóm một file
-|-- scripts/        seed-data | gen-csv | monitor | reset-lockout | reset-db | count-orders
 |-- results/
-|   |-- raw/        *.jtl thô + MANIFEST.md (checksum sha256)
-|   `-- html/       dashboard HTML mỗi lượt chạy
+|   |-- raw/        8 file .jtl thô + MANIFEST.md (checksum sha256)
+|   `-- html/       6 thư mục dashboard JMeter
 |-- evidence/
-|   |-- monitor/    CSV lấy mẫu CPU/RSS + 3 screenshot JMeter&htop cùng khung hình
+|   |-- monitor/    3 screenshot JMeter&htop cùng khung hình + 8 CSV tài nguyên
+|   |-- hardware/   fastfetch + hostname-whoami + bảng spec
 |   |-- bugs/       14 ảnh bằng chứng đính vào GitHub Issue
-|   |-- diagrams/   flow chart Task 3 (PNG)
-|   `-- hardware/   fastfetch + hostname-whoami + bảng spec
-`-- submission/
-    |-- report/     Main-Report | Bug-Report | AI-Review-Fix-Log | Not-Run
-    |                Task2-Misinterpretation-Hunt | Task3-Continuous-Performance-Testing
-    `-- appendix/   AI-Audit-Report | AI-Critique done - [ ] AI-Prompt-Log | git-log.txt (trích cuối cùng)
+|   `-- diagrams/   flow chart Task 3 (PNG)
+|-- scripts/        15 script tái lập - mọi con số trong báo cáo đều chạy lại được
+`-- skills/         Agent Skill perf-test-endpoint
 ```
 
 ---
@@ -128,25 +139,3 @@ cd plans && jmeter -n -t 23127262_Load_20260811.jmx \
 được import (BUG-04), mất sạch dữ liệu seed. Dùng `scripts/reset-lockout.js` nếu chỉ cần mở khoá
 tài khoản giữa các lượt chạy Stress.
 
----
-
-## 5. Còn phải làm
-
-*(nguồn đầy đủ và cập nhật nhất: `CHECKLIST.md` ở gốc repo - R14)*
-
-| Hạng mục | Trạng thái |
-|---|---|
-| Task 1 - 3 kịch bản + endurance | [x] |
-| Screenshot JMeter + htop cùng khung hình | [x] |
-| Hardware report + hostname khớp HW04 | [x] |
-| GitHub Issues cho 13 lỗi + ảnh bằng chứng | [x] |
-| Task 2 - bước 1, 2, 3 (AI phân tích + săn lỗi + phân loại) | [x] |
-| Task 3 - Continuous Performance Testing + flow chart | [x] |
-| Agent Skill + video demo | [x] |
-| Main-Report (Task 1 + 2 + 3) | [x] |
-| AI Audit Report + AI Critique | [x] |
-| Video Task 1 >= 6 phút | [x] |
-| `AI-Prompt-Log.md` (trích transcript) | [ ] - làm ở cuối phiên (R1) |
-| `git-log.txt` | [ ] - xuất sau commit cuối cùng (R3) |
-| Xuất PDF (Main-Report / AI-Audit-Report / AI-Critique) | [ ] sinh viên tự làm |
-| Đóng gói zip `23127262_HW05_AI_Performance_100.zip` | [ ] sinh viên tự làm - xem `PACKAGING.md` |
