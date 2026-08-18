@@ -1,7 +1,5 @@
 # Nhật ký review & fix output của AI
 
-*(HW05 mục 6:92 - "Report what the AI got wrong or missed... and explain **why** it missed them")*
-
 Mỗi dòng được ghi **ngay tại thời điểm phát hiện và sửa**, không dựng lại vào cuối bài - cột "Vì sao AI trượt" không tái tạo được sau khi đã quên bối cảnh.
 
 Công cụ AI: **Claude Opus 5** (Claude Code CLI).

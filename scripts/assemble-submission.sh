@@ -38,7 +38,16 @@ cp -al evidence "$S/evidence"
 
 echo "[6/7] Script tái lập + Agent Skill (đề mục 7:112, 14:178)"
 mkdir -p "$S/scripts"
-cp scripts/*.js scripts/*.sh scripts/*.py "$S/scripts/" 2>/dev/null || true
+# Chi chep script co lien quan toi bai nop. Hai script duoi day la cong cu quy trinh
+# rieng cua may lam bai, khong tai lieu nao trich dan va khong script nao goi:
+#   assemble-submission.sh - chinh script nay, chi de gom thu muc submission
+#   create-issues.js       - tao 13 GitHub Issue, noi dung da nam trong Bug-Report.md
+for f in scripts/*.js scripts/*.sh scripts/*.py; do
+  case "$(basename "$f")" in
+    assemble-submission.sh|create-issues.js) continue ;;
+  esac
+  cp "$f" "$S/scripts/"
+done
 mkdir -p "$S/skills"
 cp -r .claude/skills/* "$S/skills/"
 cp env.sh "$S/scripts/env.sh"

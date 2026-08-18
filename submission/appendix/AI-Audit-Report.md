@@ -120,8 +120,8 @@ mục bị cấm."*
 | **Lớp / Khoá:** | CS423 / CSC13003 - 2026 |
 | **Môn học:** | CS423 / CSC13003 - Kiểm chứng Phần mềm |
 | **Giảng viên:** | Dr. Lâm Quang Vũ / Dr. Trần Duy Hoàng / MSc. Trần Thị Bích Hạnh / MSc. Trương Phước Lộc / MSc. Hồ Tuấn Thanh |
-| **Ngày:** | ..... / ..... / 2026 |
-| **Chữ ký:** | |
+| **Ngày:** | 18 / 8 / 2026 |
+| **Chữ ký:** | Thanh |
 
 ---
 

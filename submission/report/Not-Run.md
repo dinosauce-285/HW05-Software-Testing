@@ -1,7 +1,5 @@
 # Những phần không chạy được / phải điều chỉnh - và lý do
 
-*(HW05 mục 2:24 "Quality over completion" / mục 6:93 "Run as completely as possible")*
-
 Ghi tại thời điểm phát sinh, không dựng lại cuối bài.
 
 ---

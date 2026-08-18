@@ -1,7 +1,5 @@
 # Task 3 - Mô hình Kiểm thử Hiệu năng Liên tục
 
-*(HW05 mục 6:106-108 - Bloom-AI **G9.6 Disrupt** - thang điểm mục 15:189 - 10 điểm)*
-
 **Sinh viên:** Lý Quốc Thạnh - 23127262
 **SUT:** EShop backend API - https://github.com/ttbhanh/eshop-sut
 

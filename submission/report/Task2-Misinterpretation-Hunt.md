@@ -1,7 +1,5 @@
 # Task 2 - Phân tích bằng AI và săn lỗi diễn giải
 
-*(HW05 mục 6:98-104 - thang điểm mục 15:188 - 10 điểm)*
-
 **Sinh viên:** Lý Quốc Thạnh - 23127262
 
 ---

@@ -1,9 +1,4 @@
-# Bản phân tích do AI sinh — NGUYÊN VĂN, CHƯA QUA REVIEW
-
-> ⚠️ **Đây là output thô của AI, giữ nguyên văn, kể cả những chỗ sai.**
-> Không được trích dẫn tài liệu này như một nguồn số liệu. Việc kiểm chứng và
-> đối chiếu với `.jtl` thô nằm ở `submission/report/Task2-Misinterpretation-Hunt.md`.
-
+# Bản phân tích do AI sinh 
 ## Xuất xứ
 
 | Mục | Giá trị |

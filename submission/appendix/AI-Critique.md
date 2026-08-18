@@ -1,7 +1,5 @@
 # AI Critique - HW05 Performance Testing
 
-*(HW05 mục 10:138-142 - bắt buộc 200-300 chữ, trả lời đủ ba câu hỏi)*
-
 **Sinh viên:** Lý Quốc Thạnh - 23127262
 **Công cụ AI:** Claude Opus 5 (Claude Code CLI)
 

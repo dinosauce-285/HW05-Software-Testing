@@ -1,7 +1,5 @@
 # Bug Report - HW05 Performance Testing
 
-*(HW05 mục 6:96 - "Log any genuine bugs or performance issues... on your GitHub Issues page with screenshots")*
-
 **SUT:** EShop - `https://github.com/ttbhanh/eshop-sut`
 **Sinh viên:** Lý Quốc Thạnh - 23127262
 **Repo bài làm:** `https://github.com/dinosauce-285/HW05-Software-Testing`
