@@ -12,7 +12,7 @@
 | :---- | :---- |
 | **Họ tên sinh viên (in hoa):** | **LÝ QUỐC THẠNH** |
 | **MSSV:** | 23127262 |
-| **Lớp / Khoá:** | CS423 / CSC13003 - Kiểm chứng Phần mềm, 2026 |
+| **Lớp / Khoá:** | 23KTPM2 / Khoá 2023 |
 | **Mã bài tập:** | HW#05 - Performance Testing |
 | **Ngày làm bài:** | 11/08/2026 - 17/08/2026 |
 | **Công cụ AI đã dùng:** | **Claude Opus 5** (Claude Code CLI) - thiết kế test plan, sinh dữ liệu, phân tích `.jtl`, soạn tài liệu |
@@ -117,9 +117,9 @@ mục bị cấm."*
 | :---- | :---- |
 | **Họ tên sinh viên (in hoa):** | **LÝ QUỐC THẠNH** |
 | **MSSV:** | 23127262 |
-| **Lớp / Khoá:** | CS423 / CSC13003 - 2026 |
+| **Lớp / Khoá:** | 23KTPM2 / Khoá 2023 |
 | **Môn học:** | CS423 / CSC13003 - Kiểm chứng Phần mềm |
-| **Giảng viên:** | Dr. Lâm Quang Vũ / Dr. Trần Duy Hoàng / MSc. Trần Thị Bích Hạnh / MSc. Trương Phước Lộc / MSc. Hồ Tuấn Thanh |
+| **Giảng viên:** | TS. Lâm Quang Vũ - ThS. Trương Phước Lộc - ThS. Hồ Tuấn Thanh |
 | **Ngày:** | 18 / 8 / 2026 |
 | **Chữ ký:** | Thanh |
 

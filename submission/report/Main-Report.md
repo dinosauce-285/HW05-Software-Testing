@@ -3,6 +3,7 @@
 **Môn:** CS423 / CSC13003 - Kiểm chứng Phần mềm (AI-augmented - 2026)
 **Bài tập:** HW05 - Performance Testing
 **Sinh viên:** Lý Quốc Thạnh - **23127262** - 23127262@student.hcmus.edu.vn
+**Lớp:** 23KTPM2 - Khoá 2023
 **Repo:** https://github.com/dinosauce-285/HW05-Software-Testing
 **SUT:** EShop backend API - https://github.com/ttbhanh/eshop-sut
 **Ngày thực hiện:** 11/08/2026 - 13/08/2026

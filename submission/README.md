@@ -4,6 +4,7 @@
 |---|---|
 | **Sinh viên** | Lý Quốc Thạnh |
 | **MSSV** | 23127262 |
+| **Lớp** | 23KTPM2 - Khoá 2023 |
 | **Repo** | https://github.com/dinosauce-285/HW05-Software-Testing |
 | **SUT** | EShop backend API - `http://localhost:3000` |
 | **Công cụ** | Apache JMeter 5.6.3 (non-GUI) + `htop` / `/proc` sampling |
