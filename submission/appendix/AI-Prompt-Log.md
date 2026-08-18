@@ -1,38 +1,38 @@
-# AI Prompt Log — nhật ký tương tác nguyên văn
+# AI Prompt Log - nhat ky tuong tac nguyen van
 
-*(HW05 mục 9:130-134 — "include the following information for each interaction: Name of the AI tool · Date and time · Your prompt · The AI output")*
+*(HW05 muc 9:130-134 - "include the following information for each interaction: Name of the AI tool / Date and time / Your prompt / The AI output")*
 
 | Mục | Giá trị |
 |---|---|
-| **Công cụ AI** | Claude Opus 5 (`claude-opus-5`) qua Claude Code CLI |
-| **Sinh viên** | Lý Quốc Thạnh — 23127262 |
-| **Bài tập** | HW05 — Performance Testing |
-| **Tổng số lượt tương tác** | **100** |
-| **Số phiên làm việc** | 4 |
-| **Múi giờ** | UTC+7 (giờ Việt Nam) |
+| **Cong cu AI** | Claude Opus 5 (`claude-opus-5`) qua Claude Code CLI |
+| **Sinh vien** | Ly Quoc Thanh - 23127262 |
+| **Bai tap** | HW05 - Performance Testing |
+| **Tong so luot tuong tac** | **147** |
+| **So phien lam viec** | 5 |
+| **Mui gio** | UTC+7 (gio Viet Nam) |
 
-**Nguồn:** trích tự động bằng `scripts/extract-prompt-log.py` từ transcript
+**Nguon:** trich tu dong bang `scripts/extract-prompt-log.py` tu transcript
 `~/.claude/projects/-home-qt-projects-hw05/*.jsonl`.
 
-**Prompt giữ nguyên văn 100%**, không sửa, không paraphrase — kể cả lỗi chính tả và câu cụt.
-Output của AI cắt ở 2500 ký tự mỗi lượt cho gọn; chỗ nào bị cắt đều ghi rõ. Bản đầy đủ nằm
-trong transcript gốc và trong chính các artifact đã nộp.
+**Prompt giu nguyen van 100%**, khong sua, khong paraphrase - ke ca loi chinh ta va cau cut.
+Output cua AI cat o 2500 ky tu moi luot cho gon; cho nao bi cat deu ghi ro. Ban day du nam
+trong transcript goc va trong chinh cac artifact da nop.
 
-Bảng audit theo mẫu của Khoa — có verdict và phần sinh viên sửa — nằm ở `AI-Audit-Report.md`.
+Bang audit theo mau cua Khoa - co verdict va phan sinh vien sua - nam o `AI-Audit-Report.md`.
 
 ---
 
-# Phiên `d724bcc4` — 45 lượt
+# Phien `01904af9` - 46 luot
 
-## Lượt 1 — 11/08/2026 08:28:41
+## Luot 1 - 11/08/2026 08:28:41
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 <ide_opened_file>The user opened the file /home/qt/projects/hw05/2026.HW05.Performance Testing_En.md in the IDE. This may or may not be related to the current task.</ide_opened_file>
 ```
 
-**Công cụ AI đã gọi:** 5 lần — `Read`, `Bash`, `AskUserQuestion`
+**Cong cu AI da goi:** 4 lan - `Read`, `Bash`, `AskUserQuestion`
 
 **Output AI:**
 
@@ -44,9 +44,9 @@ I'll read the HW05 spec and the audit template first.
 
 ---
 
-## Lượt 2 — 11/08/2026 08:31:08
+## Luot 2 - 11/08/2026 08:31:08
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 tôi chưa hiểu 3 câu hỏi của bạn
@@ -108,9 +108,9 @@ Cần tôi giải thích thêm chỗ nào không, hay trả lời luôn 3 câu?
 
 ---
 
-## Lượt 3 — 11/08/2026 08:32:07
+## Luot 3 - 11/08/2026 08:32:07
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 với câu 1: cái nào điểm cũng tương đương hay có cái nhiều điểm hơn, chọn cái nào có nhiều điểm hơn (nếu có) hoặc cái nào dễ hơn (nếu không )
@@ -150,9 +150,9 @@ Còn **câu 2** (ghép Load/Stress/Spike với read-heavy / auth-heavy / transac
 
 ---
 
-## Lượt 4 — 11/08/2026 08:33:02
+## Luot 4 - 11/08/2026 08:33:02
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 câu số 2 chưa hiểu
@@ -204,9 +204,9 @@ Bạn chọn phương án này, hay muốn đổi cặp nào?
 
 ---
 
-## Lượt 5 — 11/08/2026 08:35:52
+## Luot 5 - 11/08/2026 08:35:52
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 oke chốt, giải thích câu 3
@@ -241,9 +241,9 @@ Tôi nghiêng về **A**: tên repo tự đặt được, không phải giá tr�
 
 ---
 
-## Lượt 6 — 11/08/2026 08:36:56
+## Luot 6 - 11/08/2026 08:36:56
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 echo "# HW05-Software-Testing" >> README.md
@@ -255,7 +255,7 @@ git remote add origin https://github.com/dinosauce-285/HW05-Software-Testing.git
 git push -u origin main
 ```
 
-**Công cụ AI đã gọi:** 9 lần — `Bash`, `Write`
+**Cong cu AI da goi:** 9 lan - `Bash`, `Write`
 
 **Output AI:**
 
@@ -298,15 +298,15 @@ Còn 2 ô `<điền>`: link YouTube và self-assessed grade.
 
 ---
 
-## Lượt 7 — 11/08/2026 08:43:12
+## Luot 7 - 11/08/2026 08:43:12
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 clone luôn eshop về rồi set up và xoá cái thư mục git của nó để nó khỏi hiện trong source control
 ```
 
-**Công cụ AI đã gọi:** 21 lần — `Bash`, `Read`, `Edit`
+**Cong cu AI da goi:** 21 lan - `Bash`, `Read`, `Edit`
 
 **Output AI:**
 
@@ -359,20 +359,20 @@ Còn 5 phát hiện nữa (SQL injection ở `?search=` trả HTML khi lỗi, `p
 
 DB chỉ seed **5 sản phẩm và 2 user**. Không đủ để làm CSV data-driven đúng nghĩa (mục 6:89 bắt mỗi group một file CSV riêng) — nhất
 
-[... cắt bớt, xem transcript gốc ...]
+[... cat bot, xem transcript goc ...]
 ```
 
 ---
 
-## Lượt 8 — 11/08/2026 08:52:37
+## Luot 8 - 11/08/2026 08:52:37
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 check eshop và chọn enpoint của mình luôn để tôi gửi lên nhóm, đề xuất chọn endpoints nào dễ thực hiện. bài tập này có những task nào cần tương tác với nhóm
 ```
 
-**Công cụ AI đã gọi:** 2 lần — `Read`, `Bash`
+**Cong cu AI da goi:** 2 lan - `Read`, `Bash`
 
 **Output AI:**
 
@@ -427,32 +427,32 @@ Yếu tố quyết định độ khó khi bắn tải JMeter: **có cần token 
 
 Tôi cân nhắc 
 
-[... cắt bớt, xem transcript gốc ...]
+[... cat bot, xem transcript goc ...]
 ```
 
 ---
 
-## Lượt 9 — 11/08/2026 08:55:49
+## Luot 9 - 11/08/2026 08:55:49
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 oke bạn chọn cái nào chọn luôn để max 100 điểm liệt kê rõ
 ```
 
-**Output AI:** (chỉ gọi công cụ, không có phần văn bản)
+**Output AI:** (chi goi cong cu, khong co phan van ban)
 
 ---
 
-## Lượt 10 — 11/08/2026 09:01:21
+## Luot 10 - 11/08/2026 09:01:21
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 continue
 ```
 
-**Công cụ AI đã gọi:** 3 lần — `Edit`, `Bash`
+**Cong cu AI da goi:** 3 lan - `Edit`, `Bash`
 
 **Output AI:**
 
@@ -496,14 +496,14 @@ Nếu chọn `apply-coupon` / `register` cho nhẹ thì mất sạch 3 mồi nà
 
 **Commit:** `f1d4d1f docs(repo): lock endpoint selection and add 100-point delivery chec
 
-[... cắt bớt, xem transcript gốc ...]
+[... cat bot, xem transcript goc ...]
 ```
 
 ---
 
-## Lượt 11 — 11/08/2026 09:06:24
+## Luot 11 - 11/08/2026 09:06:24
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 gen cho tôi tin nhắn gửi lựa chọn của tôi cho nhóm
@@ -540,71 +540,27 @@ Nếu nhóm dùng kênh có render markdown (Discord, Slack) thì bọc cả kh�
 
 ---
 
-## Lượt 12 — 11/08/2026 09:10:00
+## Luot 12 - 11/08/2026 09:10:00
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 rồi chọn 3 cái đó làm đi, không có trùng đâu khỏi nhường
 ```
 
-**Công cụ AI đã gọi:** 38 lần — `Bash`, `Write`, `Edit`
+**Cong cu AI da goi:** 2 lan - `Bash`
 
 **Output AI:**
 
 ```text
 JMeter và Java đều chưa có. Kiểm tra cách cài:
-
-`sudo` cần mật khẩu nên tôi không cài hệ thống được. Cài bản portable vào `tools/` (không cần quyền root, gitignore luôn):
-
-JMeter 5.6.3 chạy được. Dựng khung thư mục + script env:
-
-Bước tiếp: dựng dữ liệu. DB chỉ có 5 sản phẩm + 2 user, không đủ cho CSV data-driven.
-
-152 sản phẩm, 212 tài khoản. Giờ sinh 3 file CSV — mỗi nhóm một file riêng theo mục 6:89:
-
-Kiểm chứng vài dòng CSV bằng API thật (để chắc seed đúng, không phải để lấy kỳ vọng từ SUT):
-
-Cả 5 khớp chính xác với giá trị tự tính. Và dấu nháy đơn xác nhận lỗi SQL injection → **500 + HTML**, không phải JSON.
-
-Giờ dựng plan Load. Trước hết ghi rõ tham số và lý do — R8 cấm đặt số đẹp không giải thích được:
-
-Chạy thử ngắn (5 thread / 15 giây) để verify XML parse được và assertion hoạt động — chưa phải lượt chạy thật:
-
-Chạy được. Kiểm 2 lỗi đó có đúng là dòng dấu nháy đơn không:
-
-Đúng như thiết kế — cả 2 lỗi là dòng `O'Neill` → **HTTP 500**, assertion bắt chính xác.
-
-Chạy lượt Load thật — 50 thread / ramp-up 60s / 300 giây:
-
-Xong. Dừng monitor và bóc số liệu từ `.jtl` thô:
-
-Số liệu tài nguyên sai — RSS 2.1 MB và CPU 0% cho một tiến trình Node phục vụ 45 req/s là bất khả thi. Monitor bắt nhầm tiến trình:
-
-Tìm ra: `pgrep -f "node server.js"` khớp nhầm **PID 44059** — chính là tiến trình bash bao ngoài, vì chuỗi `node server.js` nằm trong dòng lệnh của nó. Backend thật là **PID 44060, RSS 117 MB, CPU 2.2%**.
-
-Đây đúng là một lỗi do AI sinh script → phải ghi vào nhật ký R4. Sửa trước:
-
-PID đúng rồi (44060, RSS 117 MB). Nhưng còn một vấn đề nữa về **tính đúng của phép đo**: `ps %cpu` trả về trung bình CPU trên **toàn bộ đời sống tiến trình**, không phải mức tức thời — dùng số đó trong báo cáo là tự tạo ra một lỗi diễn giải. Sửa sang đọc delta từ `/proc`:
-
-CPU giờ phản ứng thật: **0-1% lúc rảnh → 29% lúc có tải**. Bản cũ dùng `ps %cpu` sẽ báo phẳng 2.1%. Ghi vào nhật ký:
-
-Kịch bản Load đã chạy xong và có bằng chứng hợp lệ. Tóm tắt tiến độ:
-
-## Đã dựng xong
-
-**Môi trường** — `sudo` cần mật khẩu nên tôi cài bản portable vào `tools/` (Temurin JRE 21 + JMeter 5.6.3), không đụng hệ thống. `source env.sh` là dùng được.
-
-**Dữ liệu** — DB gốc chỉ có 5 sản phẩm / 2 tài khoản, không đủ. Đã seed lên **152 sản phẩm + 212 tài khoản** và sinh 3 CSV riêng biệt: [products.csv](data/products.csv) (14 dòng), [credentials.csv](data/credentials.csv) (210), [orders.csv](data/orders.csv) (200). Kỳ vọng trong CSV tính từ danh mục tự sinh, **không lấy ngược từ phản hồi SUT** — đã kiểm
-
-[... cắt bớt, xem transcript gốc ...]
 ```
 
 ---
 
-## Lượt 13 — 11/08/2026 09:50:05
+## Luot 13 - 11/08/2026 09:50:05
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 <ide_opened_file>The user opened the file /home/qt/projects/hw05/env.sh in the IDE. This may or may not be related to the current task.</ide_opened_file>
@@ -661,14 +617,14 @@ JMeter có nhiều "listener" để xem kết quả. Ba plan phải dùng **ba l
 **6. Review và sửa những gì AI làm sai** (mục 6:92)
 Không chỉ liệt kê lỗi mà phải giải thích **vì sao AI trượ
 
-[... cắt bớt, xem transcript gốc ...]
+[... cat bot, xem transcript goc ...]
 ```
 
 ---
 
-## Lượt 14 — 13/08/2026 07:09:33
+## Luot 14 - 13/08/2026 07:09:33
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 Kịch bản	Endpoint	Trạng thái
@@ -679,7 +635,7 @@ Spike	POST /api/cart → POST /api/checkout	chưa
 bạn test như thế nào, dùng script ?
 ```
 
-**Công cụ AI đã gọi:** 8 lần — `Bash`, `Read`
+**Cong cu AI da goi:** 8 lan - `Bash`, `Read`
 
 **Output AI:**
 
@@ -738,20 +694,20 @@ Dòng đầu tiên trong `.jtl` trông như thế này — đây là dữ liệu
 ```
 480 GET tim kiem san pham | HTT
 
-[... cắt bớt, xem transcript gốc ...]
+[... cat bot, xem transcript goc ...]
 ```
 
 ---
 
-## Lượt 15 — 13/08/2026 07:13:27
+## Luot 15 - 13/08/2026 07:13:27
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 oke tôi hiểu, tiếp tục cho xong task 1
 ```
 
-**Công cụ AI đã gọi:** 57 lần — `ToolSearch`, `Read`, `TodoWrite`, `Bash`, `Write`, `Edit`
+**Cong cu AI da goi:** 57 lan - `ToolSearch`, `Read`, `TodoWrite`, `Bash`, `Write`, `Edit`
 
 **Output AI:**
 
@@ -802,20 +758,20 @@ Sửa R13 trong CLAUDE.md vì lệnh reset tôi ghi trước đó là sai:
 
 Stress xong. Sang Spike — kịch bản khó nhất vì cả hai endpoint đều 
 
-[... cắt bớt, xem transcript gốc ...]
+[... cat bot, xem transcript goc ...]
 ```
 
 ---
 
-## Lượt 16 — 13/08/2026 08:15:22
+## Luot 16 - 13/08/2026 08:15:22
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 xong chưa/
 ```
 
-**Công cụ AI đã gọi:** 9 lần — `Bash`, `Edit`, `Write`, `TodoWrite`
+**Cong cu AI da goi:** 9 lan - `Bash`, `Edit`, `Write`, `TodoWrite`
 
 **Output AI:**
 
@@ -868,14 +824,14 @@ Một điểm cần bạn quyết: file `.jtl` lớn nhất là **106 MB**, vư�
 2. **Hardware report** — `screenfetch` + bảng spec, hostname phải là `qt-ThinkBook-14-G5-IRH` để khớp HW04 (đề mục 11:151).
 3. **Tạo 13 GitHub Issue** — nội dung đã soạn sẵn trong [Bug-Report.md](submission/report/Bug-Report.md), 
 
-[... cắt bớt, xem transcript gốc ...]
+[... cat bot, xem transcript goc ...]
 ```
 
 ---
 
-## Lượt 17 — 13/08/2026 08:21:35
+## Luot 17 - 13/08/2026 08:21:35
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 Tạo 13 GitHub Issue — nội dung đã soạn sẵn trong Bug-Report.md, mỗi issue cần screenshot.
@@ -883,7 +839,7 @@ Tạo 13 GitHub Issue — nội dung đã soạn sẵn trong Bug-Report.md, mỗ
 mở playwright rôi tạo đi xon tự chụp ảnh cho tôi
 ```
 
-**Công cụ AI đã gọi:** 28 lần — `Bash`, `Write`, `Edit`, `Read`
+**Cong cu AI da goi:** 28 lan - `Bash`, `Write`, `Edit`, `Read`
 
 **Output AI:**
 
@@ -937,20 +893,20 @@ Mỗi issue có: vị trí dòng mã, lệnh tái hiện copy-paste chạy đư�
 | Transcript render | Tôi chạy `curl` **thật** vào backend, lấy nguyên văn output rồi render thành ảnh. In kèm lệnh gốc + hostname + thời điểm để ai cũng chạy lại kiểm chứng được | 10 |
 | Ảnh chụp dashboard | Mở trang HTML JMeter sinh ra bằng Chromium rồi c
 
-[... cắt bớt, xem transcript gốc ...]
+[... cat bot, xem transcript goc ...]
 ```
 
 ---
 
-## Lượt 18 — 13/08/2026 22:32:33
+## Luot 18 - 13/08/2026 22:32:33
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 oke còn những gì phải làm lịêt kê ra cho xong task 1
 ```
 
-**Công cụ AI đã gọi:** 1 lần — `Bash`
+**Cong cu AI da goi:** 1 lan - `Bash`
 
 **Output AI:**
 
@@ -1004,15 +960,15 @@ Tôi bắt tay viết `Main-Report.md` và bảng spec phần cứng luôn nhé?
 
 ---
 
-## Lượt 19 — 13/08/2026 22:33:48
+## Luot 19 - 13/08/2026 22:33:48
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 oke làm cái main-report
 ```
 
-**Công cụ AI đã gọi:** 7 lần — `Bash`, `Write`
+**Cong cu AI da goi:** 7 lan - `Bash`, `Write`
 
 **Output AI:**
 
@@ -1060,9 +1016,9 @@ Task 1 giờ chỉ còn **3 việc tay của bạn**: screenshot JMeter+htop cù
 
 ---
 
-## Lượt 20 — 13/08/2026 22:41:22
+## Luot 20 - 13/08/2026 22:41:22
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 tiếp theo task 2 yêu cầu gì
@@ -1124,20 +1080,20 @@ Cách làm cho nó hợp lệ:
 
 1. Chạy bước 1 trong một **phiên AI riêng, chỉ được nhìn bảng thống kê tóm tắt** — đúng tình huống thật khi người ta q
 
-[... cắt bớt, xem transcript gốc ...]
+[... cat bot, xem transcript goc ...]
 ```
 
 ---
 
-## Lượt 21 — 13/08/2026 22:43:27
+## Luot 21 - 13/08/2026 22:43:27
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 oke làm đi rồi tôi tự phân tích lại chứ tôi có kêu bạn tự làm tự verify đâu
 ```
 
-**Công cụ AI đã gọi:** 6 lần — `Bash`, `Agent`, `Write`
+**Cong cu AI da goi:** 6 lan - `Bash`, `Agent`, `Write`
 
 **Output AI:**
 
@@ -1175,15 +1131,15 @@ Có kèm 3 câu hỏi rà soát, trong đó câu quan trọng nhất là: *con s
 
 ---
 
-## Lượt 22 — 13/08/2026 22:54:43
+## Luot 22 - 13/08/2026 22:54:43
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 xong chưa
 ```
 
-**Công cụ AI đã gọi:** 4 lần — `ListAgents`, `Write`, `Bash`
+**Cong cu AI da goi:** 4 lan - `ListAgents`, `Write`, `Bash`
 
 **Output AI:**
 
@@ -1218,9 +1174,9 @@ Commit `8f98066`. Khi bạn điền xong bảng, gọi tôi nếu muốn tôi go
 
 ---
 
-## Lượt 23 — 13/08/2026 23:03:06
+## Luot 23 - 13/08/2026 23:03:06
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 còn gì của task 2
@@ -1270,9 +1226,9 @@ Cần tôi giải thích thêm cách đọc output của `jtl-stats.py`, hay đ�
 
 ---
 
-## Lượt 24 — 13/08/2026 23:16:56
+## Luot 24 - 13/08/2026 23:16:56
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 oke task 3 còn gi
@@ -1323,15 +1279,15 @@ Tôi viết Task 3 nhé? Dự kiến gồm: tài liệu đề xuất + flow char
 
 ---
 
-## Lượt 25 — 13/08/2026 23:17:49
+## Luot 25 - 13/08/2026 23:17:49
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 oke thực hiện task 3
 ```
 
-**Công cụ AI đã gọi:** 7 lần — `Bash`, `Write`, `Read`, `Edit`
+**Cong cu AI da goi:** 7 lan - `Bash`, `Write`, `Read`, `Edit`
 
 **Output AI:**
 
@@ -1379,20 +1335,20 @@ Tôi cũng ghi thẳng phần **giới hạn của chính mô hình** — quan t
 
 **Còn lại:** Task 2 bước 2–3 (của bạn), Agent Skill (10đ, `.claude/skills/` vẫn rỗng), AI Audit Report + AI Criti
 
-[... cắt bớt, xem transcript gốc ...]
+[... cat bot, xem transcript goc ...]
 ```
 
 ---
 
-## Lượt 26 — 17/08/2026 09:17:36
+## Luot 26 - 17/08/2026 09:17:36
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 oke giờ liệt ke các task còn lại để tôi xong cái bài tập này
 ```
 
-**Công cụ AI đã gọi:** 1 lần — `Bash`
+**Cong cu AI da goi:** 1 lan - `Bash`
 
 **Output AI:**
 
@@ -1451,14 +1407,14 @@ Rà toàn bộ. Còn **13 việc**, chia làm ba nhóm theo mức độ nguy hi�
 
 Một lưu ý: **`.claude/` chưa hề tồn tại**, nên R12 trong CLAUDE.md ("bồi skill dần từ scenario Load") đã không được thực hiện. Giờ dựng thì skill vẫn thật — quy trình đã chạy 8 lượt và có sẵn `jtl-stats.py`, `reset-db.sh`, `monitor.sh`, `render-mermaid.js` để chắt vào — nhưng phải nói thẳng là nó được đúc kết **sau khi** làm xong chứ không phải bồi dần trong
 
-[... cắt bớt, xem transcript gốc ...]
+[... cat bot, xem transcript goc ...]
 ```
 
 ---
 
-## Lượt 27 — 17/08/2026 09:19:28
+## Luot 27 - 17/08/2026 09:19:28
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 ủa nếu bước 1 có vài cái xong hết rồi hẵn xuất ra chứ giờ nó có một bản nhưng sau này phải bổ sung,
@@ -1494,9 +1450,9 @@ Làm Agent Skill luôn nhé?
 
 ---
 
-## Lượt 28 — 17/08/2026 09:21:02
+## Luot 28 - 17/08/2026 09:21:02
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 khoan đã giờ list ra tất cả task còn thiếu rồi show cho tôi 2 nhóm chính là làm ở cuối cùng và làm ngay, mỗi nhóm chính có 2 nhóm nhỏ là bạn làm hay tôi làm
@@ -1566,15 +1522,15 @@ Bắt đầu việc 1 nhé?
 
 ---
 
-## Lượt 29 — 17/08/2026 09:22:15
+## Luot 29 - 17/08/2026 09:22:15
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 xuất ra file để checklist dần, nhác trong file claude.md làm gì cũng phải checklist cho biết khi nào xong
 ```
 
-**Công cụ AI đã gọi:** 4 lần — `Write`, `Edit`, `Bash`
+**Cong cu AI da goi:** 4 lan - `Write`, `Edit`, `Bash`
 
 **Output AI:**
 
@@ -1619,9 +1575,9 @@ Giờ vào việc A1 — dựng Agent Skill nhé?
 
 ---
 
-## Lượt 30 — 17/08/2026 09:25:19
+## Luot 30 - 17/08/2026 09:25:19
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 [ ] Agent Skill — dựng .claude/skills/ 🟡 10đ (mục 7:112) → đang chặn video demo của sinh viên
@@ -1630,7 +1586,7 @@ Giờ vào việc A1 — dựng Agent Skill nhé?
 oke làm
 ```
 
-**Công cụ AI đã gọi:** 7 lần — `Write`, `Bash`
+**Cong cu AI da goi:** 7 lan - `Write`, `Bash`
 
 **Output AI:**
 
@@ -1684,15 +1640,15 @@ Cần tôi viết script gom sẵn để bạn chạy một lệnh là có đủ
 
 ---
 
-## Lượt 31 — 17/08/2026 09:32:11
+## Luot 31 - 17/08/2026 09:32:11
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 @Screenshot From 2026-08-17 09-31-40.png
 ```
 
-**Công cụ AI đã gọi:** 4 lần — `Bash`, `Read`, `AskUserQuestion`
+**Cong cu AI da goi:** 4 lan - `Bash`, `Read`, `AskUserQuestion`
 
 **Output AI:**
 
@@ -1706,15 +1662,15 @@ Trước khi sửa, một câu tôi không tự trả lời được:
 
 ---
 
-## Lượt 32 — 17/08/2026 09:33:38
+## Luot 32 - 17/08/2026 09:33:38
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 oke tôi đổi hostname lại là được
 ```
 
-**Công cụ AI đã gọi:** 1 lần — `Bash`
+**Cong cu AI da goi:** 1 lan - `Bash`
 
 **Output AI:**
 
@@ -1750,15 +1706,15 @@ Bốn việc đầu gộp được vào một buổi quay. Muốn tôi viết sc
 
 ---
 
-## Lượt 33 — 17/08/2026 09:34:53
+## Luot 33 - 17/08/2026 09:34:53
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 rồi ảnh đó để đâu trongthư mục ?
 ```
 
-**Công cụ AI đã gọi:** 6 lần — `Bash`, `Read`
+**Cong cu AI da goi:** 6 lan - `Bash`, `Read`
 
 **Output AI:**
 
@@ -1814,9 +1770,9 @@ Muốn tôi viết script dựng sẵn môi trường cho buổi quay không? N�
 
 ---
 
-## Lượt 34 — 17/08/2026 09:36:53
+## Luot 34 - 17/08/2026 09:36:53
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 [ ] Task 2 — bước 2: săn lỗi diễn giải, mỗi lỗi kèm giá trị đúng từ .jtl thô 🟡 (mục 6:103)
@@ -1826,7 +1782,7 @@ Muốn tôi viết script dựng sẵn môi trường cho buổi quay không? N�
 bạn có thể thực hiện luôn 3 tasks này, tôi theo dõi và đánh giá
 ```
 
-**Công cụ AI đã gọi:** 18 lần — `Bash`, `Write`, `Read`
+**Cong cu AI da goi:** 18 lan - `Bash`, `Write`, `Read`
 
 **Output AI:**
 
@@ -1883,14 +1839,14 @@ số mẫu > 1669 ms:  11 172 ( 1,451%)   ← thực ra là ~p98,5
 | Load | 13 483 | 2 ms | 2 ms ✓ |
 | Spike | 17 376 | 6 ms | 6 ms 
 
-[... cắt bớt, xem transcript gốc ...]
+[... cat bot, xem transcript goc ...]
 ```
 
 ---
 
-## Lượt 35 — 17/08/2026 09:49:32
+## Luot 35 - 17/08/2026 09:49:32
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 [ ] Screenshot JMeter + htop CHUNG MỘT KHUNG HÌNH 🔴 (mục 6:93, 11:150) → cả 3 kịch bản đều thiếu, phải chạy lại mới chụp được
@@ -1899,7 +1855,7 @@ số mẫu > 1669 ms:  11 172 ( 1,451%)   ← thực ra là ~p98,5
 cái ảnh thì bạn làm được mà, ngoài ra task kia thì đây là linux, tôi cho phép bạn chạy lệnh để chụp màn hình và bật htop
 ```
 
-**Công cụ AI đã gọi:** 20 lần — `Bash`, `Write`, `Read`
+**Cong cu AI da goi:** 20 lan - `Bash`, `Write`, `Read`
 
 **Output AI:**
 
@@ -1952,20 +1908,20 @@ Ba đường chụp màn hình thông thường đều bị chặn trên phiên 
 | GNOME Shell qua D-Bus | `AccessDenied: Screenshot is not allowed` |
 | `import -window root` | Wayland không có r
 
-[... cắt bớt, xem transcript gốc ...]
+[... cat bot, xem transcript goc ...]
 ```
 
 ---
 
-## Lượt 36 — 17/08/2026 10:04:58
+## Luot 36 - 17/08/2026 10:04:58
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 b1 có sẽ mấy cái làm được luôn mà không cần đợi tới cuối vì giờ chỉ chờ quay video, còn mấy cái gì sợ có thay đổi nữa thì đợi tới cuối
 ```
 
-**Công cụ AI đã gọi:** 11 lần — `Bash`, `Write`
+**Cong cu AI da goi:** 11 lan - `Bash`, `Write`
 
 **Output AI:**
 
@@ -2023,20 +1979,20 @@ Sai ở đâu → vì sao không tự bắt được → rút ra nguyên tắc g
 
 **Phía bạn còn 4:** 2 video, điền bảng tự đánh giá + link YouTube, xu
 
-[... cắt bớt, xem transcript gốc ...]
+[... cat bot, xem transcript goc ...]
 ```
 
 ---
 
-## Lượt 37 — 17/08/2026 10:12:16
+## Luot 37 - 17/08/2026 10:12:16
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 update lại checklist bỏ những cái đã xong cho tôi nhìn được những thứ còn thiếu dễ dàng
 ```
 
-**Công cụ AI đã gọi:** 7 lần — `Bash`, `Write`, `Read`
+**Cong cu AI da goi:** 7 lan - `Bash`, `Write`, `Read`
 
 **Output AI:**
 
@@ -2078,15 +2034,15 @@ Tiện thể sửa hai chỗ số liệu lệch: đếm bằng lệnh ra **35 xo
 
 ---
 
-## Lượt 38 — 17/08/2026 10:15:36
+## Luot 38 - 17/08/2026 10:15:36
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 cho bảng tự đánh giá full điểm, nói luôn video cần quay gì, cái video không phải demo skill á, demo skill tôi biết cách quay
 ```
 
-**Công cụ AI đã gọi:** 3 lần — `Bash`, `Write`
+**Cong cu AI da goi:** 3 lan - `Bash`, `Write`
 
 **Output AI:**
 
@@ -2133,15 +2089,15 @@ Cuối file có bảng soát 6 điều kiện trước khi upload, gồm cả nh
 
 ---
 
-## Lượt 39 — 17/08/2026 10:36:01
+## Luot 39 - 17/08/2026 10:36:01
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 giờ soạn cái submission cho đầy đủ trước , làm 1 file show tất cả những gì tôi phải nói (không phải gợi ý nói mà là full script) cho video, không cần soạn cho demo skill
 ```
 
-**Công cụ AI đã gọi:** 7 lần — `Bash`, `Write`
+**Cong cu AI da goi:** 7 lan - `Bash`, `Write`
 
 **Output AI:**
 
@@ -2188,15 +2144,15 @@ Cuối file có **thứ tự 8 bước** cho khâu cuối, trong đó `git-log.t
 
 ---
 
-## Lượt 40 — 17/08/2026 10:42:01
+## Luot 40 - 17/08/2026 10:42:01
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 bạn cứ để vào submission những thứ cần có chứ ai kêu bạn thêm bớt, dung lượng là việc của tôi, phải đảm bảo submission đủ
 ```
 
-**Công cụ AI đã gọi:** 4 lần — `Write`, `Bash`
+**Cong cu AI da goi:** 4 lan - `Write`, `Bash`
 
 **Output AI:**
 
@@ -2246,15 +2202,15 @@ Và ghi rõ lý do nộp dư: **8 `.jtl`** thay vì 3 vì Stress phải leo than
 
 ---
 
-## Lượt 41 — 17/08/2026 10:45:37
+## Luot 41 - 17/08/2026 10:45:37
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 <ide_opened_file>The user opened the file /home/qt/projects/hw05/submission/plans/23127262_Load_20260811.jmx in the IDE. This may or may not be related to the current task.</ide_opened_file>
 ```
 
-**Công cụ AI đã gọi:** 1 lần — `Bash`
+**Cong cu AI da goi:** 1 lan - `Bash`
 
 **Output AI:**
 
@@ -2302,9 +2258,9 @@ Tất cả ghi trong [submission/PACKAGING.md](submission/PACKAGING.md) mục 5.
 
 ---
 
-## Lượt 42 — 17/08/2026 16:08:08
+## Luot 42 - 17/08/2026 16:08:08
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 oke có 2 video là demo agent và video gì
@@ -2329,9 +2285,9 @@ Cả hai đều để **unlisted**, rồi dán link vào `submission/README.md` 
 
 ---
 
-## Lượt 43 — 17/08/2026 16:09:01
+## Luot 43 - 17/08/2026 16:09:01
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 tên của video đó là gì demo task 1 là sao, tôi cần nói cái tên
@@ -2382,15 +2338,15 @@ Sau khi upload xong, gửi tôi 2 link để tôi điền vào `submission/READM
 
 ---
 
-## Lượt 44 — 17/08/2026 16:11:17
+## Luot 44 - 17/08/2026 16:11:17
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 oke tôi sẽ làm gì khi quay video đó
 ```
 
-**Công cụ AI đã gọi:** 2 lần — `Bash`
+**Cong cu AI da goi:** 2 lan - `Bash`
 
 **Output AI:**
 
@@ -2400,15 +2356,15 @@ Chưa có phần mềm quay nào cài sẵn — chỉ có bộ quay tích hợp 
 
 ---
 
-## Lượt 45 — 17/08/2026 16:12:07
+## Luot 45 - 17/08/2026 16:12:07
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 bạn chỉ cần trình bày tôi demo task 1 như nào á
 ```
 
-**Công cụ AI đã gọi:** 9 lần — `Bash`
+**Cong cu AI da goi:** 13 lan - `Bash`
 
 **Output AI:**
 
@@ -2458,21 +2414,2529 @@ Bắt đầu 2 việc cuối. Trước hết soi cấu trúc transcript:
 Rõ rồi — prompt nằm trong block `text` đầu của list. Viết script trích:
 
 Thứ tự phiên đang sai — phiên bắt đầu 11/08 lại nằm cuối. Sắp lại theo mốc thời gian thật:
+
+Đúng thứ tự rồi. Cập nhật AI Audit Report cho khớp số lượt, rồi gom lại và commit:
+
+Giờ commit log — phải là lệnh cuối cùng:
+
+Xong cả hai. Checklist **41 xong / 14 còn**, đã push.
+
+## `AI-Prompt-Log.md` — 268 KB
+
+| | |
+|---|---|
+| Lượt tương tác | **100** |
+| Phiên làm việc | **4** (11/08 → 18/08) |
+| Nội dung mỗ
+
+[... cat bot, xem transcript goc ...]
 ```
 
 ---
 
-# Phiên `e3cb99c8` — 31 lượt
+## Luot 46 - 18/08/2026 10:23:13
 
-## Lượt 46 — 17/08/2026 16:13:36
+**Prompt (nguyen van):**
 
-**Prompt (nguyên văn):**
+```text
+<ide_opened_file>The user opened the file /home/qt/projects/hw05/submission/appendix/AI-Analysis-Raw.md in the IDE. This may or may not be related to the current task.</ide_opened_file>
+```
+
+**Cong cu AI da goi:** 4 lan - `Bash`
+
+**Output AI:**
+
+```text
+Rà xem có những ký tự nào không gõ được từ bàn phím:
+
+Rõ. Giữ nguyên văn ở chỗ bắt buộc, còn lại chuyển hết sang ký tự gõ được:
+
+Tôi vừa sửa nhầm 3 nhóm file không được đụng — tài liệu gốc của môn và file HTML do JMeter sinh. Khôi phục ngay:
+
+Đã khôi phục. Giờ sinh lại prompt log từ script để prompt nguyên văn không bị đụng:
+```
+
+---
+
+# Phien `d724bcc4` - 46 luot
+
+## Luot 47 - 11/08/2026 08:28:41
+
+**Prompt (nguyen van):**
+
+```text
+<ide_opened_file>The user opened the file /home/qt/projects/hw05/2026.HW05.Performance Testing_En.md in the IDE. This may or may not be related to the current task.</ide_opened_file>
+```
+
+**Cong cu AI da goi:** 5 lan - `Read`, `Bash`, `AskUserQuestion`
+
+**Output AI:**
+
+```text
+I'll read the HW05 spec and the audit template first.
+
+Đọc xong cả 3 file. Trước khi viết lại CLAUDE.md, có vài biến HW05 tôi không được phép đoán:
+```
+
+---
+
+## Luot 48 - 11/08/2026 08:31:08
+
+**Prompt (nguyen van):**
+
+```text
+tôi chưa hiểu 3 câu hỏi của bạn
+```
+
+**Output AI:**
+
+```text
+Xin lỗi, tôi hỏi tắt quá. Giải thích lại từng câu:
+
+---
+
+**Câu 1 — Dùng JMeter hay k6?**
+
+Đề (mục 8:119) cho chọn: *"JMeter (default) or k6 (bonus)"*. Đây là 2 công cụ đo hiệu năng khác nhau, phải chọn 1 trước khi tôi viết CLAUDE.md vì nó quyết định gần hết các quy tắc còn lại:
+
+| | JMeter | k6 |
+|---|---|---|
+| Cách viết test | GUI kéo thả, file `.jmx` (XML) | Code JavaScript |
+| File log thô | `.jtl` — **đúng tên đề đòi** (mục 11:149) | phải tự cấu hình xuất ra tương đương |
+| 3 "report view" (đề bắt buộc, mục 6:90) | có sẵn: View Results Tree / Summary Report / Aggregate Report | phải tự dựng 3 output khác nhau |
+| Điểm | mặc định | được cộng bonus |
+
+Nói ngắn: **JMeter = đi đúng đường ray đề vẽ sẵn. k6 = code sướng hơn nhưng phải tự chế mấy thứ đề đòi.**
+
+---
+
+**Câu 2 — Ghép scenario với endpoint group**
+
+Đề bắt 2 việc cùng lúc:
+
+- Mục 5:72 — chọn **3 nhóm endpoint** của backend EShop:
+  - *Read-heavy*: xem/tìm sản phẩm (`GET /api/products`) — chỉ đọc, nhẹ
+  - *Auth-heavy*: đăng nhập (`POST /api/auth/login`) — có cơ chế khoá tài khoản sau 3 lần sai
+  - *Transactional*: thêm giỏ hàng / đặt hàng — ghi vào DB, nặng nhất
+
+- Mục 6:88 — chạy **3 kiểu test**:
+  - *Load*: tải bình thường, đều, kéo dài → xem hệ thống chịu tải hàng ngày thế nào
+  - *Stress*: tăng dần tới lúc **gãy** → tìm ngưỡng chết
+  - *Spike*: bắn một cú **đột ngột** rồi rút → xem có phục hồi không
+
+Và **mỗi nhóm chỉ được ghép đúng 1 kiểu test** (3×3 nhưng chỉ chọn 3 cặp). Câu hỏi của tôi là: cặp nào với cặp nào?
+
+Tôi đề xuất **Load→Read, Stress→Auth, Spike→Transactional**, vì:
+- Read-heavy nhẹ và ổn định → hợp để đo tải nền dài hạn (Load)
+- Stress ép login tới gãy sẽ **kích hoạt lockout 3-lần-sai** — mà đề nhắc riêng ở mục 6:93 (*"When Stress/Spike runs trigger the 3-fail login lockout, reset it between runs and document the steps"*), tức là có sẵn nội dung để viết báo cáo
+- Spike bắn burst vào checkout = mô phỏng flash-sale, rất đời thực
+
+---
+
+**Câu 3 — Repo GitHub**
+
+Đề (mục 14:169) bắt nộp link repo public chứa test plan + data file. HW04 bạn dùng `github.com/dinosauce-285/HW04-Software-Testing`. HW05 thì tôi ghi URL nào vào bảng biến? Tạo repo mới tên `HW05-Performance-Testing`, hay để trống `<điền>` rồi bạn báo sau?
+
+---
+
+Cần tôi giải thích thêm chỗ nào không, hay trả lời luôn 3 câu?
+```
+
+---
+
+## Luot 49 - 11/08/2026 08:32:07
+
+**Prompt (nguyen van):**
+
+```text
+với câu 1: cái nào điểm cũng tương đương hay có cái nhiều điểm hơn, chọn cái nào có nhiều điểm hơn (nếu có) hoặc cái nào dễ hơn (nếu không )
+```
+
+**Output AI:**
+
+```text
+Kiểm tra lại thang điểm ở mục 15:183-191:
+
+| Mục | Điểm |
+|---|---|
+| Task 1 — Load / Stress / Spike | 20 + 20 + 20 |
+| Task 2 — AI analysis | 10 |
+| Task 3 — CPT proposal | 10 |
+| Agent Skills | 10 |
+| **Tổng** | **100** |
+
+**Không có dòng nào cộng điểm cho k6.** Chữ "bonus" ở mục 8:119 không được bảng điểm chống lưng, tổng vẫn chốt 100 — nên coi như điểm ngang nhau.
+
+Vậy chọn theo tiêu chí "cái nào dễ hơn" → **JMeter**, và không chỉ vì dễ mà vì ít rủi ro mất điểm:
+
+- Mục 11:149 (Anti-AI-Cheat, TA verify tận tay) ghi thẳng *"The raw `.jtl` log files, attached in full"* — `.jtl` là định dạng riêng của JMeter. k6 phải tự chế file tương đương rồi đi thuyết phục TA rằng nó "tương đương", trong khi mục 17:204 ghi *thiếu tài liệu bắt buộc → 0 điểm*. Đánh cược không đáng.
+- Mục 6:90 bắt 3 report view khác nhau — JMeter có sẵn View Results Tree / Summary Report / Aggregate Report, khai báo ngay trong file `.jmx`. k6 phải tự dựng 3 kiểu output rồi tự biện luận.
+- Chạy thì vẫn gọn, không cần đụng GUI:
+  ```bash
+  jmeter -n -t 23127262_Load_20260811.jmx -l results.jtl -e -o report/
+  ```
+  Một lệnh ra cả `.jtl` thô lẫn thư mục HTML report — đúng 2 thứ mục 14:171 đòi.
+
+→ **Chốt JMeter.** Nếu sau này dư thời gian, thêm 1 script k6 làm phụ lục cũng được, nhưng không tính vào 3 scenario chính.
+
+---
+
+Còn **câu 2** (ghép Load/Stress/Spike với read-heavy / auth-heavy / transactional) và **câu 3** (URL repo HW05) — bạn quyết giúp, hoặc bảo tôi lấy phương án tôi đề xuất ở tin nhắn trước.
+```
+
+---
+
+## Luot 50 - 11/08/2026 08:33:02
+
+**Prompt (nguyen van):**
+
+```text
+câu số 2 chưa hiểu
+```
+
+**Output AI:**
+
+```text
+Được, tôi diễn giải bằng ví dụ cụ thể.
+
+## Có 2 danh sách, phải bắt cặp với nhau
+
+**Danh sách 1 — 3 nhóm API của EShop** (đề mục 5:72-77). Đây là *bắn vào đâu*:
+
+| Nhóm | API cụ thể | Đặc điểm |
+|---|---|---|
+| Read-heavy | `GET /api/products` — xem danh sách / tìm sản phẩm | Chỉ đọc DB, nhẹ, chịu tải tốt |
+| Auth-heavy | `POST /api/auth/login` — đăng nhập | Có hash mật khẩu (tốn CPU) + **khoá tài khoản sau 3 lần sai** |
+| Transactional | `POST /api/orders` — đặt hàng | Ghi vào DB, nhiều bước, nặng nhất |
+
+**Danh sách 2 — 3 kiểu test** (đề mục 6:88). Đây là *bắn kiểu gì*:
+
+| Kiểu | Cách bắn | Trả lời câu hỏi |
+|---|---|---|
+| **Load** | 50 user đều đặn, chạy liên tục 10 phút | "Ngày thường hệ thống có ổn không?" |
+| **Stress** | 10 user → 50 → 100 → 200... tăng tới lúc **gãy** | "Chết ở mức nào?" |
+| **Spike** | 5 user đang chạy êm, **đột ngột nhảy lên 200 trong 10 giây** rồi tụt về 5 | "Bị sốc xong có hồi phục không?" |
+
+## Đề bắt ghép 1-1
+
+Mục 6:88: *"design and generate the three test plans: Load, Stress, and Spike, **each targeting one endpoint group**, so that the three groups are each covered by **exactly one** scenario"*
+
+Tức là mỗi kiểu test bắn vào đúng 1 nhóm API, không được trùng. Có 6 cách ghép, tôi hỏi bạn chọn cách nào.
+
+## Phương án tôi đề xuất
+
+| Kiểu test | → bắn vào | Vì sao |
+|---|---|---|
+| **Load** | Read-heavy (`GET /api/products`) | API nhẹ, chạy đều 10-15 phút không sập → đo được ngưỡng chịu đựng bằng số cụ thể (mục 6:94 đòi "maximum stable RPS") |
+| **Stress** | Auth-heavy (`POST /api/auth/login`) | Ép login tới gãy sẽ **kích hoạt lockout 3-lần-sai** — mà mục 6:93 nhắc riêng: *"When Stress/Spike runs trigger the 3-fail login lockout, reset it between runs and document the steps"*. Đề đã dọn sẵn nội dung để viết, không tận dụng thì phí |
+| **Spike** | Transactional (`POST /api/orders`) | Giống flash-sale đời thực: đang vắng, sale mở, 200 người bấm đặt hàng cùng lúc. Đây cũng là chỗ dễ lòi bug thật (mục 6:96 đòi log bug lên GitHub Issues) |
+
+Còn cách ghép nào cũng chạy được, nhưng cách này khớp nhất với những gì đề đã gợi ý sẵn.
+
+---
+
+Bạn chọn phương án này, hay muốn đổi cặp nào?
+```
+
+---
+
+## Luot 51 - 11/08/2026 08:35:52
+
+**Prompt (nguyen van):**
+
+```text
+oke chốt, giải thích câu 3
+```
+
+**Output AI:**
+
+```text
+Câu 3 đơn giản hơn nhiều.
+
+## Đề bắt nộp link repo GitHub
+
+Mục 14:169: *"The public GitHub repository link (test plans and data files)"* — tức là 3 file `.jmx` và các file CSV phải nằm trên một repo GitHub **public**, rồi dán link vào bài nộp.
+
+Ngoài ra mục 12:155-156 bắt commit từng bước và xuất git log ra file text.
+
+## Vấn đề
+
+Thư mục `/home/qt/projects/hw05` hiện **chưa phải git repo** (chưa có `.git`). HW04 bạn dùng `github.com/dinosauce-285/HW04-Software-Testing`.
+
+Nên tôi cần biết ghi URL nào vào bảng biến ở đầu CLAUDE.md — vì R2/R3 (commit từng bước, xuất git log) và mục 4 (danh mục file nộp) đều trỏ tới nó.
+
+## 2 lựa chọn
+
+| | Nghĩa là gì |
+|---|---|
+| **A. Repo mới** | Tôi ghi sẵn `https://github.com/dinosauce-285/HW05-Performance-Testing` vào CLAUDE.md, theo đúng pattern HW04. Bạn tạo repo trên GitHub lúc nào cũng được, tôi `git init` + set remote khi bắt đầu làm bài |
+| **B. Để `<điền>`** | Ghi placeholder. Khi nào cần dùng thật (commit đầu tiên, viết README) tôi sẽ hỏi lại — theo đúng quy tắc "không tự suy ra" của CLAUDE.md |
+
+Tôi nghiêng về **A**: tên repo tự đặt được, không phải giá trị bí mật, và có sẵn thì R2 chạy trơn ngay từ commit đầu. Nếu bạn muốn tên khác (`HW05-Performance`, `hw05-perf-testing`...) thì cứ báo tên.
+```
+
+---
+
+## Luot 52 - 11/08/2026 08:36:56
+
+**Prompt (nguyen van):**
+
+```text
+echo "# HW05-Software-Testing" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/dinosauce-285/HW05-Software-Testing.git
+git push -u origin main
+```
+
+**Cong cu AI da goi:** 9 lan - `Bash`, `Write`
+
+**Output AI:**
+
+```text
+Chốt xong 3 câu. Set up repo trước:
+
+Repo lên rồi. Giờ viết lại CLAUDE.md cho HW05:
+
+Xong. [CLAUDE.md](CLAUDE.md) đã viết lại cho HW05.
+
+**Repo:** `git init` + first commit + remote + push đều chạy được, đã lên `github.com/dinosauce-285/HW05-Software-Testing`. Commit thứ 2 (`74ede44 docs(repo): rewrite working rules for HW05 performance testing`) mới nằm ở local, chưa push.
+
+## Những gì thay đổi so với bản HW04
+
+**Bảng biến (mục 1)** — thêm 3 bảng con mà HW04 không có:
+- Ma trận scenario × endpoint group đã chốt, kèm cột "lý do ghép" vì đề mục 6:88 bắt *"briefly justify which group you paired with each scenario"*
+- Bảng phân listener (Summary / Aggregate / View Results Tree) — vì mục 6:90 cấm lặp loại
+- Cấu trúc thư mục `plans/ data/ results/{raw,html}/ evidence/{monitor,hardware}/`
+
+**Quy tắc** — R1-R12 giữ khung cũ nhưng đổi ruột, thêm R13:
+
+| Rule | Đổi gì |
+|---|---|
+| R1 | Bám đúng **mẫu 6 mục** của file `[AI-02]`, có bảng ánh xạ từng mục (bảng audit 5 cột, tổng kết %, kết luận 80-150 chữ, disclosure dán nguyên văn) |
+| R4 | Liệt sẵn 4 lỗi AI hay mắc ở bài hiệu năng: ramp-up phi thực tế, thiếu think-time, không assertion, bỏ qua lockout — đây là ví dụ đề nêu thẳng ở mục 6:92 |
+| R5 | HW04 là "lưu HTML report"; HW05 thành "thu đủ 4 bằng chứng": `.jtl` nguyên vẹn / thư mục HTML / screenshot JMeter+htop **cùng khung hình** / hardware report. Thêm ràng buộc **hostname phải khớp HW04** (mục 11:151) |
+| R8 | 3 bất biến → 5: CSV riêng từng group (không dùng chung), listener khác loại, tên file đúng `{StudentID}_{ScenarioType}_{YYYYMMDD}`, tham số giải thích được, có assertion |
+| R11 | Đổi hẳn nghĩa — thành **"mọi con số phải truy ngược được về `.jtl`"**, vì mục 6:103 chấm đúng chỗ này: chỉ ra AI đọc sai chỗ nào *kèm giá trị đúng từ log thô* |
+| R13 | Mới — reset lockout giữa các lượt chạy và **ghi lại chính xác lệnh đã dùng** (mục 6:93) |
+
+Bỏ R7 cũ (test case không automate được) → thành `Not-Run.md` cho scenario/tham số phải hạ.
+
+## Hai chỗ tôi đánh dấu [!] trong file
+
+1. **Endpoint path chưa verify** — `GET /api/products`, `POST /api/auth/login`, `POST /api/orders` là suy từ mô tả pool trong đề, chưa đối chiếu mã nguồn vì `sut/` chưa clone về. Phải đọc `backend/routes/*` trước khi viết `.jmx` đầu tiên.
+2. **Chưa đối chiếu trùng lặp với nhóm** — mục 5:78 cấm 2 thành viên test cùng endpoint.
+
+Còn 2 ô `<điền>`: link YouTube và self-assessed grade.
+```
+
+---
+
+## Luot 53 - 11/08/2026 08:43:12
+
+**Prompt (nguyen van):**
+
+```text
+clone luôn eshop về rồi set up và xoá cái thư mục git của nó để nó khỏi hiện trong source control
+```
+
+**Cong cu AI da goi:** 21 lan - `Bash`, `Read`, `Edit`
+
+**Output AI:**
+
+```text
+Clone SUT, gỡ `.git` của nó, và thêm vào `.gitignore` theo đúng quy ước ở CLAUDE.md mục 1:
+
+`sut/` đã ẩn khỏi source control. Giờ verify endpoint — đây là mục [!] còn treo:
+
+Ba giả định endpoint của tôi: **1 đúng, 2 sai**. Đọc kỹ phần login + checkout:
+
+Có mấy phát hiện quan trọng. Đọc nốt cart/checkout:
+
+Chạy thử backend để verify bằng thật, không tin đọc code:
+
+Xác nhận bug: **khoá sau 2 lần sai, không phải 3**. Verify nốt nhánh transactional:
+
+Kill server và cập nhật CLAUDE.md theo những gì vừa verify:
+
+Xong. `sut/` đã clone, gỡ `.git`, và gitignore — source control chỉ thấy 6 file tài liệu, không dính SUT.
+
+## Ba endpoint tôi đoán ở phiên trước: 1 đúng, 2 sai
+
+| Đoán ban đầu | Thực tế |
+|---|---|
+| `GET /api/products` | ✅ đúng |
+| `POST /api/auth/login` | ❌ thật ra là **`POST /api/login`** |
+| `POST /api/orders` | ❌ thật ra là **`POST /api/cart`** → **`POST /api/checkout`** |
+
+Đã gọi thật bằng `curl` trên backend đang chạy chứ không đọc code suy ra. Bảng trong CLAUDE.md đã sửa và gỡ dấu [!].
+
+## Khảo sát ra 8 điểm ảnh hưởng trực tiếp tới bài — 3 cái đáng chú ý nhất
+
+**1. Đề bài sai về chính SUT.** Mục 6:93 ghi *"3-fail login lockout"*, nhưng [server.js:54](sut/backend/server.js#L54) cộng `login_attempts + 2` mỗi lần sai trong khi ngưỡng khoá là `>= 3` — nên **lần sai thứ 2 đã khoá**. Verify thật:
+
+```
+FAIL #1 → 401
+FAIL #2 → 401
+login lại bằng mật khẩu ĐÚNG → 403 "Tài khoản đã bị khóa"
+```
+
+Khoá 180 giây, và check khoá đặt *trước* khi so mật khẩu. Đây là bug thật → `Bug-Report.md` + GitHub Issue (R6), và plan Stress phải tính theo mốc 2 chứ không phải 3.
+
+**2. Mật khẩu là plaintext**, không bcrypt ([server.js:46](sut/backend/server.js#L46)). AI phân tích log gần như chắc chắn sẽ giải thích latency login bằng "chi phí hash mật khẩu" — sai hoàn toàn. Đây là mồi sẵn cho phần săn lỗi diễn giải của Task 2 (mục 6:103).
+
+**3. Giỏ hàng nằm trong RAM và không bao giờ dọn** — biến `userCarts = {}` ở [server.js:14](sut/backend/server.js#L14). Bắn tải vào `POST /api/cart` là bộ nhớ phình đơn điệu, không bao giờ nhả. Đúng bằng chứng cho "memory ceiling" mà mục 6:94 đòi.
+
+Còn 5 phát hiện nữa (SQL injection ở `?search=` trả HTML khi lỗi, `price` thành string khi id chẵn, id không tồn tại trả 200 `{}`, checkout không kiểm giỏ/tồn kho) — đã ghi hết thành bảng trong CLAUDE.md mục 1.
+
+## Một vấn đề về dữ liệu cần xử lý trước khi viết `.jmx`
+
+DB chỉ seed **5 sản phẩm và 2 user**. Không đủ để làm CSV data-driven đúng nghĩa (mục 6:89 bắt mỗi group một file CSV riêng) — nhất
+
+[... cat bot, xem transcript goc ...]
+```
+
+---
+
+## Luot 54 - 11/08/2026 08:52:37
+
+**Prompt (nguyen van):**
+
+```text
+check eshop và chọn enpoint của mình luôn để tôi gửi lên nhóm, đề xuất chọn endpoints nào dễ thực hiện. bài tập này có những task nào cần tương tác với nhóm
+```
+
+**Cong cu AI da goi:** 2 lan - `Read`, `Bash`
+
+**Output AI:**
+
+```text
+Đọc nốt phần coupon và soát quyền của toàn bộ route để xếp hạng độ dễ:
+
+## Bài này cần tương tác với nhóm mấy chỗ? — Đúng **một** chỗ
+
+HW05 là **Individual Assignment** (mục 1:9). Rà hết đề + policies, chỉ có duy nhất một ràng buộc bắt buộc phải làm việc với nhóm:
+
+> **Mục 5:78** — *"ensure that your selection is **not duplicated** among the members of your group: no two members may test the same endpoint / workflow."*
+
+Hết. Không có peer review, không có chia task, không có báo cáo chung. Ba mục còn lại của Policies:27-29 (work allocation, task complexity, peer review) chỉ áp cho *project-related assignments* — HW05 không phải.
+
+Và một điều **cấm** liên quan tới nhóm: mục 17:205 — chép của nhau, **kể cả prompt**, là 0 điểm cả hai bên. Nên chỉ trao đổi *đã chọn endpoint nào*, tuyệt đối không chia sẻ file `.jmx`, CSV, hay prompt.
+
+---
+
+## Bản đồ endpoint — soát quyền toàn bộ 31 route
+
+Yếu tố quyết định độ khó khi bắn tải JMeter: **có cần token không** (phải thêm setUp Thread Group + JSON Extractor), **có phá dữ liệu không** (phải reset giữa các lượt), **có tự khoá không**.
+
+### Read-heavy
+
+| Endpoint | Auth | Độ khó | Ghi chú |
+|---|---|---|---|
+| `GET /api/products?search=` | không | **Dễ nhất** | CSV = từ khoá, muốn bao nhiêu dòng cũng được |
+| `GET /api/products/:id` | không | Dễ | CSV chỉ có 5 id, hơi mỏng |
+| `GET /api/orders/:id` | **không** ⚠️ | Dễ | Thiếu auth = lỗ IDOR, đọc được đơn người khác |
+| `GET /api/categories` | không | Quá dễ | Chỉ 3 dòng, **không nên** — Policies:28 ghi chọn việc quá đơn giản sẽ bị chặn trần điểm |
+
+### Auth-heavy
+
+| Endpoint | Auth | Độ khó | Ghi chú |
+|---|---|---|---|
+| `POST /api/login` | không | **Trung bình** | Vướng khoá tài khoản, nhưng đề *muốn* mình xử lý cái đó (mục 5:75) |
+| `POST /api/register` | không | Dễ | Không khoá, nhưng phình DB vô hạn |
+| `POST /api/forgot-password` → `reset-password` | không | Trung bình | Workflow 2 bước, không khoá |
+| `GET /api/users/me` | **có** | Trung bình | Cần token |
+
+### Transactional
+
+| Endpoint | Auth | Độ khó | Ghi chú |
+|---|---|---|---|
+| `POST /api/apply-coupon` | **không** ⚠️ | Dễ | Không cần token. Nhưng **chỉ tính toán, không ghi DB** → hơi khiên cưỡng khi gọi là "transactional" |
+| `POST /api/products` | **không** ⚠️ | Dễ | Thiếu auth = ai cũng tạo được sản phẩm. Ghi DB thật, nhưng thuộc Pool C admin |
+| `POST /api/cart` → `POST /api/checkout` | **có** | Trung bình | Chính là ví dụ đề nêu ở mục 5:77 |
+
+---
+
+## Đề xuất: giữ nguyên 3 lựa chọn đã chốt
+
+Tôi cân nhắc 
+
+[... cat bot, xem transcript goc ...]
+```
+
+---
+
+## Luot 55 - 11/08/2026 08:55:49
+
+**Prompt (nguyen van):**
+
+```text
+oke bạn chọn cái nào chọn luôn để max 100 điểm liệt kê rõ
+```
+
+**Output AI:** (chi goi cong cu, khong co phan van ban)
+
+---
+
+## Luot 56 - 11/08/2026 09:01:21
+
+**Prompt (nguyen van):**
+
+```text
+continue
+```
+
+**Cong cu AI da goi:** 3 lan - `Edit`, `Bash`
+
+**Output AI:**
+
+```text
+Chốt. Không đổi nữa — đây là bộ 3 endpoint chính thức:
+
+## Chốt — 3 endpoint chính thức
+
+| # | Nhóm | Endpoint | Scenario | Listener | CSV riêng | Tên file |
+|---|---|---|---|---|---|---|
+| 1 | Read-heavy | `GET /api/products` + `?search=` | **Load** | Summary Report | `data/products.csv` | `23127262_Load_YYYYMMDD.jmx` |
+| 2 | Auth-heavy | `POST /api/login` | **Stress** | Aggregate Report | `data/credentials.csv` | `23127262_Stress_YYYYMMDD.jmx` |
+| 3 | Transactional | `POST /api/cart` → `POST /api/checkout` | **Spike** | View Results Tree | `data/orders.csv` | `23127262_Spike_YYYYMMDD.jmx` |
+
+Không đổi sang bộ "không cần token" vì bộ này bám đúng ví dụ đề nêu ở mục 5:74-77 — mà 3 nhóm này ăn 60/100 điểm. Cái giá phải trả chỉ là một setUp Thread Group lấy `$.token` cho plan Spike.
+
+## Tại sao bộ này ăn được trọn 100
+
+Ba phát hiện lúc khảo sát SUT biến phần khó thành phần ghi điểm — mỗi cái nhắm đúng một mục chấm:
+
+| Phát hiện | Ăn điểm ở đâu |
+|---|---|
+| SUT khoá tài khoản sau **2** lần sai, đề ghi 3 | Mục 6:93 chấm riêng phần lockout + 1 bug thật cho GitHub Issue (mục 6:96) |
+| Mật khẩu **plaintext**, không bcrypt | Task 2 (10đ) — AI gần như chắc chắn đổ latency login cho "chi phí hash", mình bắt lỗi kèm số từ `.jtl` |
+| `userCarts` nằm trong RAM, **không bao giờ dọn** | Mục 6:94 đòi "memory ceiling" bằng số — bắn Spike vào `/api/cart` là ra ngay |
+
+Nếu chọn `apply-coupon` / `register` cho nhẹ thì mất sạch 3 mồi này.
+
+## Checklist 100 điểm
+
+Đã ghi thành mục 5 trong [CLAUDE.md](CLAUDE.md) để không rơi giữa chừng — 6 khối theo đúng 6 dòng thang điểm, cộng khối "thiếu là 0 điểm toàn bài":
+
+- **20đ Load** — 10 gạch đầu dòng, gồm cả **endurance 10-15 phút chạy trên chính endpoint read-heavy** (mục 6:94), kết luận bằng max stable RPS + trần RSS
+- **20đ Stress** — thêm 3 việc riêng: sinh sẵn nhiều tài khoản qua `POST /api/register`, nêu sai lệch 2-vs-3 lần khoá, ghi chính xác lệnh reset lockout
+- **20đ Spike** — thêm: setUp Thread Group lấy token, đo thời gian hồi phục sau spike, reset DB giữa lượt
+- **10đ Task 2** — mỗi lỗi diễn giải **bắt buộc kèm giá trị đúng trích từ `.jtl` thô**; đây là chỗ chấm chặt nhất
+- **10đ Task 3** — flow chart + đủ 3 khâu (theo dõi commit → quyết định chạy → cảnh báo p95) + bàn trade-off
+- **10đ Agent Skill** — bồi từ scenario Load, có video demo riêng
+
+Đã điền luôn `Self-assessed grade = 100` → file nộp `23127262_HW05_AI_Performance_100.zip`.
+
+**Commit:** `f1d4d1f docs(repo): lock endpoint selection and add 100-point delivery chec
+
+[... cat bot, xem transcript goc ...]
+```
+
+---
+
+## Luot 57 - 11/08/2026 09:06:24
+
+**Prompt (nguyen van):**
+
+```text
+gen cho tôi tin nhắn gửi lựa chọn của tôi cho nhóm
+```
+
+**Output AI:**
+
+```text
+```
+HW05 – Performance Testing | Lý Quốc Thạnh – 23127262
+
+Mình xin nhận 3 endpoint group sau (đề mục 5 yêu cầu không trùng giữa các thành viên):
+
+1. Read-heavy    — GET  /api/products  (kèm ?search=)        → kịch bản Load
+2. Auth-heavy    — POST /api/login                           → kịch bản Stress
+3. Transactional — POST /api/cart → POST /api/checkout       → kịch bản Spike
+
+Công cụ: JMeter (non-GUI).
+
+Nếu bạn nào đã nhận trùng cái nào thì báo mình, mình nhường và đổi sang:
+- Read-heavy    → GET  /api/products/:id
+- Auth-heavy    → POST /api/forgot-password → POST /api/reset-password
+- Transactional → POST /api/apply-coupon
+
+Mọi người chốt sớm giúp mình nhé, mình bắt đầu dựng test plan cuối tuần này.
+
+P/S: đề mục 17 ghi rõ chép của nhau — kể cả prompt — là 0 điểm cả hai bên,
+nên mình chỉ trao đổi phần "ai lấy endpoint nào" thôi, không share file
+.jmx / CSV / prompt nha.
+```
+
+Nếu nhóm dùng kênh có render markdown (Discord, Slack) thì bọc cả khối trên trong ba dấu ` để giữ thẳng hàng cột.
+```
+
+---
+
+## Luot 58 - 11/08/2026 09:10:00
+
+**Prompt (nguyen van):**
+
+```text
+rồi chọn 3 cái đó làm đi, không có trùng đâu khỏi nhường
+```
+
+**Cong cu AI da goi:** 38 lan - `Bash`, `Write`, `Edit`
+
+**Output AI:**
+
+```text
+JMeter và Java đều chưa có. Kiểm tra cách cài:
+
+`sudo` cần mật khẩu nên tôi không cài hệ thống được. Cài bản portable vào `tools/` (không cần quyền root, gitignore luôn):
+
+JMeter 5.6.3 chạy được. Dựng khung thư mục + script env:
+
+Bước tiếp: dựng dữ liệu. DB chỉ có 5 sản phẩm + 2 user, không đủ cho CSV data-driven.
+
+152 sản phẩm, 212 tài khoản. Giờ sinh 3 file CSV — mỗi nhóm một file riêng theo mục 6:89:
+
+Kiểm chứng vài dòng CSV bằng API thật (để chắc seed đúng, không phải để lấy kỳ vọng từ SUT):
+
+Cả 5 khớp chính xác với giá trị tự tính. Và dấu nháy đơn xác nhận lỗi SQL injection → **500 + HTML**, không phải JSON.
+
+Giờ dựng plan Load. Trước hết ghi rõ tham số và lý do — R8 cấm đặt số đẹp không giải thích được:
+
+Chạy thử ngắn (5 thread / 15 giây) để verify XML parse được và assertion hoạt động — chưa phải lượt chạy thật:
+
+Chạy được. Kiểm 2 lỗi đó có đúng là dòng dấu nháy đơn không:
+
+Đúng như thiết kế — cả 2 lỗi là dòng `O'Neill` → **HTTP 500**, assertion bắt chính xác.
+
+Chạy lượt Load thật — 50 thread / ramp-up 60s / 300 giây:
+
+Xong. Dừng monitor và bóc số liệu từ `.jtl` thô:
+
+Số liệu tài nguyên sai — RSS 2.1 MB và CPU 0% cho một tiến trình Node phục vụ 45 req/s là bất khả thi. Monitor bắt nhầm tiến trình:
+
+Tìm ra: `pgrep -f "node server.js"` khớp nhầm **PID 44059** — chính là tiến trình bash bao ngoài, vì chuỗi `node server.js` nằm trong dòng lệnh của nó. Backend thật là **PID 44060, RSS 117 MB, CPU 2.2%**.
+
+Đây đúng là một lỗi do AI sinh script → phải ghi vào nhật ký R4. Sửa trước:
+
+PID đúng rồi (44060, RSS 117 MB). Nhưng còn một vấn đề nữa về **tính đúng của phép đo**: `ps %cpu` trả về trung bình CPU trên **toàn bộ đời sống tiến trình**, không phải mức tức thời — dùng số đó trong báo cáo là tự tạo ra một lỗi diễn giải. Sửa sang đọc delta từ `/proc`:
+
+CPU giờ phản ứng thật: **0-1% lúc rảnh → 29% lúc có tải**. Bản cũ dùng `ps %cpu` sẽ báo phẳng 2.1%. Ghi vào nhật ký:
+
+Kịch bản Load đã chạy xong và có bằng chứng hợp lệ. Tóm tắt tiến độ:
+
+## Đã dựng xong
+
+**Môi trường** — `sudo` cần mật khẩu nên tôi cài bản portable vào `tools/` (Temurin JRE 21 + JMeter 5.6.3), không đụng hệ thống. `source env.sh` là dùng được.
+
+**Dữ liệu** — DB gốc chỉ có 5 sản phẩm / 2 tài khoản, không đủ. Đã seed lên **152 sản phẩm + 212 tài khoản** và sinh 3 CSV riêng biệt: [products.csv](data/products.csv) (14 dòng), [credentials.csv](data/credentials.csv) (210), [orders.csv](data/orders.csv) (200). Kỳ vọng trong CSV tính từ danh mục tự sinh, **không lấy ngược từ phản hồi SUT** — đã kiểm
+
+[... cat bot, xem transcript goc ...]
+```
+
+---
+
+## Luot 59 - 11/08/2026 09:50:05
+
+**Prompt (nguyen van):**
+
+```text
+<ide_opened_file>The user opened the file /home/qt/projects/hw05/env.sh in the IDE. This may or may not be related to the current task.</ide_opened_file>
+```
+
+**Output AI:**
+
+```text
+## HW05 là bài gì
+
+Đo **hiệu năng** của backend EShop: hệ thống chịu được bao nhiêu người dùng cùng lúc, phản hồi chậm đi từ mức nào, và gãy ở đâu. Bài **cá nhân**, dự kiến 10 giờ, nộp Moodle (mục 1:5-10).
+
+Khác với HW04: HW04 hỏi *"chức năng có đúng không"*, HW05 hỏi *"chức năng đó chịu tải được bao nhiêu"*. Không bắn vào giao diện web nữa mà bắn thẳng vào API cổng 3000.
+
+---
+
+## Bốn kiểu test — nền tảng cần hiểu trước
+
+| Kiểu | Cách bắn | Trả lời câu hỏi | Ví dụ trong bài mình |
+|---|---|---|---|
+| **Load** | Số user cố định, đều, kéo dài | Ngày thường có ổn không? | 50 user duyệt sản phẩm suốt 5 phút → đã chạy: 45 req/s, p95 = 2ms |
+| **Stress** | Tăng dần tới lúc **gãy** | Chết ở mức nào? | Đăng nhập: 10 → 50 → 100 → 200 user, xem tới đâu thì lỗi bung |
+| **Spike** | Đang êm thì **vọt đột ngột** rồi rút | Bị sốc xong có hồi phục không? | 5 user → 200 user trong 10 giây → về 5, mô phỏng flash-sale |
+| **Endurance / Soak** | Tải vừa phải nhưng **giữ lâu** (10-15 phút) | Chạy lâu có rò rỉ tài nguyên không? | Bắn đều rồi xem RSS có phình mãi không |
+
+Ba kiểu đầu là 3 kịch bản chính, mỗi kiểu ăn **20 điểm**. Endurance nằm trong Task 1, dùng để trả lời câu "ngưỡng phần cứng của mình là bao nhiêu".
+
+---
+
+## Task 1 — 60 điểm (mục 6:84-96)
+
+Đây là phần nặng nhất. Tám việc phải làm:
+
+**1. Thiết kế bằng AI, từng bước** (mục 6:88)
+Cấm một prompt kiểu *"chạy load test rồi bảo tôi hiệu năng có tốt không"*. Phải chia bước: chọn endpoint → chọn tham số → sinh CSV → sinh `.jmx` → review → chạy → phân tích. Bằng chứng chính là AI Audit Log.
+
+**2. Ghép 1-1 giữa kịch bản và nhóm endpoint** (mục 6:88)
+Ba nhóm — read-heavy, auth-heavy, transactional — mỗi nhóm đúng một kịch bản. Và phải **giải thích vì sao ghép như vậy**. Của mình:
+
+| Kịch bản | Endpoint | Trạng thái |
+|---|---|---|
+| Load | `GET /api/products` | ✅ đã chạy |
+| Stress | `POST /api/login` | chưa |
+| Spike | `POST /api/cart` → `POST /api/checkout` | chưa |
+
+**3. Mỗi nhóm một file CSV riêng** (mục 6:89)
+Câu chốt của đề: *"A single shared CSV is not sufficient"* — dùng chung một file là mất điểm. Đã có đủ 3 file.
+
+**4. Ba loại report view khác nhau** (mục 6:90)
+JMeter có nhiều "listener" để xem kết quả. Ba plan phải dùng **ba loại khác nhau**, không lặp: Summary Report / Aggregate Report / View Results Tree.
+
+**5. Tên file đúng khuôn** (mục 6:91) — `23127262_Load_20260811.jmx`. TA soi trực tiếp cái này.
+
+**6. Review và sửa những gì AI làm sai** (mục 6:92)
+Không chỉ liệt kê lỗi mà phải giải thích **vì sao AI trượ
+
+[... cat bot, xem transcript goc ...]
+```
+
+---
+
+## Luot 60 - 13/08/2026 07:09:33
+
+**Prompt (nguyen van):**
+
+```text
+Kịch bản	Endpoint	Trạng thái
+Load	GET /api/products	✅ đã chạy
+Stress	POST /api/login	chưa
+Spike	POST /api/cart → POST /api/checkout	chưa
+
+bạn test như thế nào, dùng script ?
+```
+
+**Cong cu AI da goi:** 8 lan - `Bash`, `Read`
+
+**Output AI:**
+
+```text
+Để tôi mở đúng những gì đã chạy ra cho bạn xem, thay vì kể lại:
+
+Câu hỏi đúng chỗ — phân biệt này quan trọng cho điểm. Để tôi mở các file ra:
+
+Hai câu này liên quan nhau, trả lời chung.
+
+## Không — phần bắn tải **không** dùng script
+
+Đề mục 6:90-91 chấm **test plan JMeter**, nên nếu tôi viết script tự gửi request thì sai yêu cầu. Thứ thực sự bắn tải là file `.jmx`, JMeter đọc nó và thực thi.
+
+| File | Vai trò | Có phải công cụ test không? |
+|---|---|---|
+| [plans/23127262_Load_20260811.jmx](plans/23127262_Load_20260811.jmx) | **Test plan** — JMeter đọc và bắn tải | ✅ Đây là thứ được chấm |
+| [scripts/seed-data.js](scripts/seed-data.js) | Tạo 152 sản phẩm + 212 tài khoản qua API, vì DB gốc chỉ có 5 sản phẩm / 2 user | ❌ Chỉ dựng dữ liệu trước khi test |
+| [scripts/gen-csv.js](scripts/gen-csv.js) | Sinh 3 file CSV từ dữ liệu vừa seed | ❌ Chỉ dựng dữ liệu |
+| [scripts/monitor.sh](scripts/monitor.sh) | Lấy mẫu CPU/RAM của process node mỗi giây trong lúc test | ❌ Chỉ ghi lại tài nguyên |
+| [env.sh](env.sh) | Nạp Java + JMeter bản portable trong `tools/` (máy không cài được vì sudo cần mật khẩu) | ❌ Chỉ cấu hình |
+
+Nội dung plan Load: 2 HTTP Sampler, **5 assertion** (3 Response + 2 Duration + 1 JSONPath), 1 Uniform Random Timer làm think-time, 1 listener. Tham số để ngoài: `${__P(threads,50)}`, `${__P(rampup,60)}`, `${__P(duration,300)}` — 50 luồng, ramp-up 60 giây, chạy 300 giây.
+
+## "Đã chạy" nghĩa là gì
+
+Nghĩa là lệnh này đã thực thi thật, backend đang chạy, và **13.483 request HTTP thật** đã bay vào cổng 3000:
+
+```bash
+jmeter -n -t plans/23127262_Load_20260811.jmx \
+       -l results/raw/load-20260811T023204Z.jtl \
+       -e -o results/html/load-20260811T023204Z/
+```
+
+Bằng chứng đang nằm trong repo, không phải tôi kể lại:
+
+| Thứ | Thực tế |
+|---|---|
+| File `.jtl` thô | 2.0 MB, **13.484 dòng**, mỗi dòng là 1 request có timestamp thật |
+| Thư mục HTML dashboard | `results/html/load-20260811T023204Z/` |
+| Thời lượng | timestamp đầu → cuối = **298.921 ms ≈ 4 phút 59 giây** |
+| Throughput | **45,11 req/s** |
+| p95 | **2 ms** |
+| Mẫu tài nguyên | `evidence/monitor/load-...-resource.csv` |
+
+Dòng đầu tiên trong `.jtl` trông như thế này — đây là dữ liệu máy sinh, không sửa tay được:
+
+```
+1786415538905,14,GET danh sach san pham,200,OK,Nguoi dung duyet san pham 1-1,text,true,,22283,155,1,1,http://localhost:3000/api/products,13,0,9
+```
+
+## Lượt chạy đó bắt được một bug thật
+
+**480 request lỗi HTTP 500**, tất cả cùng một nguyên nhân:
+
+```
+480 GET tim kiem san pham | HTT
+
+[... cat bot, xem transcript goc ...]
+```
+
+---
+
+## Luot 61 - 13/08/2026 07:13:27
+
+**Prompt (nguyen van):**
+
+```text
+oke tôi hiểu, tiếp tục cho xong task 1
+```
+
+**Cong cu AI da goi:** 57 lan - `ToolSearch`, `Read`, `TodoWrite`, `Bash`, `Write`, `Edit`
+
+**Output AI:**
+
+```text
+Tiếp Task 1. Còn Stress, Spike, và endurance. Đọc plan Load để tái dùng cấu trúc:
+
+DB đã bị reset về mặc định (5 sản phẩm / 2 user) — phải seed lại trước khi chạy. Kiểm tra script seed:
+
+Seed xong: 152 sản phẩm, 212 tài khoản. Kiểm tra ngày để đặt tên plan đúng quy ước:
+
+Chạy thử 20 giây trước để bắt lỗi cấu hình, chưa phải lượt chính thức:
+
+Lỗi 401 lẽ ra phải PASS vì `expect_code` là `401|403`. Bắt lỗi này trước khi chạy thật:
+
+Chưa chạm tới dòng probe (nằm ở dòng 201-210). Ép chạy đủ lâu để tái hiện:
+
+Tìm ra rồi — **tất cả assertion đều PASS** nhưng sample vẫn bị đánh `success=false`. JMeter mặc định coi mọi HTTP 4xx là lỗi, bất kể assertion nói gì. Với nhánh thăm dò lockout thì 401/403 là kết quả **mong đợi**, nên error rate của cả kịch bản sẽ sai:
+
+Nhánh probe đã đúng, nhưng giờ **nhánh hợp lệ trả 401** — kiểm tra ngay:
+
+DB bị xoá sạch lần nữa — và thủ phạm là chính lệnh chẩn đoán của tôi. Kiểm tra `database.js`:
+
+Đây là phát hiện quan trọng, không phải lỗi vặt:
+
+Reset script giữ nguyên 212 tài khoản. Smoke lại plan Stress:
+
+Plan chạy đúng thiết kế — và số liệu xác nhận đúng bug: **10 tài khoản × đúng 2 lần 401 rồi sang 403**. Commit rồi chạy thật:
+
+Commit bị gộp nhầm do tôi dùng `--amend`. Tách lại cho đúng R2:
+
+Giờ chạy lượt Stress chính thức — reset lockout trước, monitor chạy song song:
+
+Chạy xong nhưng **SUT không gãy** — 250 thread, 0% lỗi, max 22ms. Kiểm tra số liệu và tài nguyên:
+
+Backend mới dùng 72% CPU đỉnh, 121 MB RSS — chưa gãy. Throughput bị chặn bởi think-time (250 thread ÷ 0,4s ≈ 625/s), không phải bởi server. Phải leo thang mới tìm được điểm gãy thật:
+
+p95 tăng gấp hơn 3 lần (3ms → 10ms), CPU chạm 115% — đã tới vùng bão hoà nhưng vẫn 0 lỗi. Đẩy nốt một nấc để tìm điểm gãy, đồng thời theo dõi cả CPU của JMeter để biết ai mới là nút thắt:
+
+Đây rồi — đường cong gãy rõ ràng. Phân tích chi tiết:
+
+Hai điều cần làm rõ trước khi kết luận. Thứ nhất, 8758 "lỗi" mang mã HTTP 200 — đó là assertion độ trễ 2000ms bị vượt, tức là SLA gãy chứ không phải request hỏng. Thứ hai, phép đo CPU của JMeter trả 0% — nó tự bắt nhầm chính tiến trình vòng lặp, đúng loại lỗi PID đã gặp trước đây. Chạy lại một lượt ngắn tại vùng gãy để quy trách nút thắt cho đúng:
+
+Ghi nhật ký review-fix ngay lúc còn nhớ bối cảnh (R4):
+
+Sửa R13 trong CLAUDE.md vì lệnh reset tôi ghi trước đó là sai:
+
+234 MB `.jtl` — file 106 MB vượt giới hạn 100 MB của GitHub, và Policies:41 giới hạn 20 MB/file khi nộp. Xử lý ngay:
+
+Stress xong. Sang Spike — kịch bản khó nhất vì cả hai endpoint đều 
+
+[... cat bot, xem transcript goc ...]
+```
+
+---
+
+## Luot 62 - 13/08/2026 08:15:22
+
+**Prompt (nguyen van):**
+
+```text
+xong chưa/
+```
+
+**Cong cu AI da goi:** 9 lan - `Bash`, `Edit`, `Write`, `TodoWrite`
+
+**Output AI:**
+
+```text
+Chưa — soak còn khoảng 2,5 phút nữa (đã chạy 9 phút 28 giây / 12 phút).
+
+Số liệu tạm thời đang rất ổn định:
+
+| Chỉ số | Giá trị |
+|---|---|
+| Throughput | **943,7 req/s** giữ đều |
+| Độ trễ trung bình | 2 ms |
+| Max | 182 ms |
+| Tỉ lệ lỗi | 3,57% — **cố định**, đúng bằng tỉ lệ của từ khoá `O'Neill` (BUG-01), không phải do tải |
+
+Tỉ lệ lỗi đứng yên ở 3,57% suốt 9 phút là dấu hiệu tốt: không có lỗi nào phát sinh thêm do chạy lâu.
+
+Đợi nó chạy nốt rồi tôi rút ra max stable RPS + trần bộ nhớ và viết README, sẽ báo lại.
+
+Soak xong: **627 943 request trong 11 phút**. Phân tích độ ổn định theo thời gian — đây mới là thứ chứng minh "stable":
+
+Số liệu soak rất sạch. Cập nhật manifest và viết README:
+
+**Task 1 xong phần chạy được bằng máy.** Kết quả endurance:
+
+| Chỉ số | Giá trị |
+|---|---|
+| **Max stable RPS** | **997 req/s** giữ đều 10 phút liền — dao động 996,1–997,8, biên độ dưới 0,2% |
+| **Trần bộ nhớ** | **161 MB RSS** — leo từ 122 MB rồi **chững hẳn** từ phút thứ 8 |
+| Trần CPU | 100–109% của **một** nhân; máy 16 nhân còn thừa rất nhiều |
+| Tỉ lệ lỗi | 3,51–3,58% **không đổi theo thời gian** |
+
+Hai điều đáng giá rút ra: nút thắt là **một nhân CPU** chứ không phải bộ nhớ hay toàn máy; và RSS chững lại chứng tỏ đường **đọc không rò rỉ** — trái ngược hẳn đường **ghi**, nơi `userCarts` phình 75 → 103,6 MB rồi không về lại mốc cũ.
+
+Tổng kết ba kịch bản:
+
+| Kịch bản | Mẫu | p95 | Lỗi | Kết luận |
+|---|---|---|---|---|
+| Load | 13 483 | 2 ms | 3,56% | Tải ngày thường không gây áp lực |
+| Stress | 770 065 | 1 671 ms | 1,29% | Gãy ở ~1 626 người dùng đồng thời |
+| Spike | 17 376 | 6 ms | **0%** | Hấp thụ trọn cú vọt gấp 20 lần |
+
+8 lượt chạy, hơn 1,38 triệu request thật, `.jtl` thô giữ nguyên vẹn kèm checksum sha256 trong [MANIFEST.md](results/raw/MANIFEST.md).
+
+Một điểm cần bạn quyết: file `.jtl` lớn nhất là **106 MB**, vượt giới hạn 100 MB của GitHub nên tôi để chúng ngoài repo (Policies:41 cho phép split-and-zip khi nộp). Nếu bạn muốn chúng nằm trong repo thì phải chạy lại với thời lượng ngắn hơn — nói tôi biết.
+
+**Bốn việc còn lại của Task 1 chỉ bạn làm được:**
+
+1. **Screenshot JMeter + htop cùng một khung hình** — các lượt đã chạy không dựng lại ảnh được, phải chạy lại một lượt trong lúc bạn mở htop. Tôi chuẩn bị sẵn lệnh nếu bạn muốn.
+2. **Hardware report** — `screenfetch` + bảng spec, hostname phải là `qt-ThinkBook-14-G5-IRH` để khớp HW04 (đề mục 11:151).
+3. **Tạo 13 GitHub Issue** — nội dung đã soạn sẵn trong [Bug-Report.md](submission/report/Bug-Report.md), 
+
+[... cat bot, xem transcript goc ...]
+```
+
+---
+
+## Luot 63 - 13/08/2026 08:21:35
+
+**Prompt (nguyen van):**
+
+```text
+Tạo 13 GitHub Issue — nội dung đã soạn sẵn trong Bug-Report.md, mỗi issue cần screenshot.
+
+mở playwright rôi tạo đi xon tự chụp ảnh cho tôi
+```
+
+**Cong cu AI da goi:** 28 lan - `Bash`, `Write`, `Edit`, `Read`
+
+**Output AI:**
+
+```text
+Trước khi làm, kiểm tra công cụ sẵn có:
+
+Đủ công cụ: `gh` đã đăng nhập sẵn, browser Playwright còn trong cache từ HW04. Kiểm tra repo và package:
+
+Đủ điều kiện. Trước khi chạy, nói rõ tôi sẽ tạo loại ảnh nào để bạn không bị bất ngờ:
+
+- **Ảnh chụp thật màn hình dashboard HTML** của JMeter (mở bằng Chromium qua Playwright) — dùng cho các lỗi có bằng chứng là con số đo được
+- **Ảnh render lại transcript `curl` chạy thật** — tôi chạy lệnh thật vào backend, lấy nguyên văn output rồi render thành ảnh. Đây **không phải** ảnh chụp cửa sổ terminal của bạn; mỗi ảnh đều in kèm lệnh gốc để ai cũng chạy lại được
+
+Bắt đầu — dựng backend sạch rồi chạy tái hiện thật:
+
+Kiểm tra transcript có thật sự tái hiện được lỗi không, trước khi render ảnh:
+
+Transcript tái hiện đúng cả 10 lỗi. Giờ render sang ảnh:
+
+Bản Playwright trong cache đòi browser mới hơn. Dùng Google Chrome có sẵn trên máy thay vì tải về:
+
+Kiểm tra ảnh có đọc được không trước khi đính lên GitHub:
+
+Chữ có dấu bị lỗi dấu thanh — font monospace không dựng được tiếng Việt. Sửa: chỉ dùng monospace cho phần lệnh/output (toàn ASCII), phần tiếng Việt dùng font có hỗ trợ dấu:
+
+Chuẩn rồi. Kiểm tra một ảnh dashboard:
+
+Dashboard chụp rất rõ — thấy đủ tên file nguồn, 770 065 mẫu, 1,29% lỗi, p95 = 1670,95 ms. Còn PERF-01 (rò rỉ bộ nhớ) chưa có ảnh, dựng biểu đồ từ chính file đo tài nguyên:
+
+Biểu đồ nói rõ: 75 → 119,7 MB đỉnh → chỉ về 94 MB, **19 MB không bao giờ nhả lại**. Commit và push để ảnh có URL đính vào issue:
+
+Ảnh đã live trên GitHub. Giờ tạo 13 issue:
+
+13/13 tạo xong. Kiểm chứng ảnh có hiển thị thật trên GitHub:
+
+Cập nhật `Bug-Report.md` và README để số liệu khớp nhau (R6, R11):
+
+**Xong 13 issue** — https://github.com/dinosauce-285/HW05-Software-Testing/issues
+
+| # | Issue | Nhãn |
+|---|---|---|
+| 1–10 | BUG-01 … BUG-10 | `bug`, thêm `security` cho 4 lỗi bảo mật |
+| 11–13 | PERF-01 … PERF-03 | `performance` |
+
+Mỗi issue có: vị trí dòng mã, lệnh tái hiện copy-paste chạy được, kết quả thực tế vs kỳ vọng, và ảnh bằng chứng. Đã kiểm chứng ảnh tải được từ GitHub (HTTP 200).
+
+**Về ảnh — cần bạn biết rõ vì đây là chỗ dễ bị hiểu nhầm.** Tôi không chụp màn hình máy bạn. Ba loại ảnh, mỗi ảnh đều tự khai loại của nó ở chân ảnh:
+
+| Loại | Thực chất | Số lượng |
+|---|---|---|
+| Transcript render | Tôi chạy `curl` **thật** vào backend, lấy nguyên văn output rồi render thành ảnh. In kèm lệnh gốc + hostname + thời điểm để ai cũng chạy lại kiểm chứng được | 10 |
+| Ảnh chụp dashboard | Mở trang HTML JMeter sinh ra bằng Chromium rồi c
+
+[... cat bot, xem transcript goc ...]
+```
+
+---
+
+## Luot 64 - 13/08/2026 22:32:33
+
+**Prompt (nguyen van):**
+
+```text
+oke còn những gì phải làm lịêt kê ra cho xong task 1
+```
+
+**Cong cu AI da goi:** 1 lan - `Bash`
+
+**Output AI:**
+
+```text
+Rà lại từng gạch đầu dòng của đề mục 6:84-96. Task 1 còn **4 việc**:
+
+## Việc tôi làm được — 2 việc
+
+### 1. `Main-Report.md` — thiếu hẳn, và đây là điều kiện chặn
+
+Đề mục 6:82 bắt *"document your process in the main report"*, mục 14:168 liệt nó vào danh mục nộp, mục 17:204 ghi thiếu tài liệu bắt buộc là **0 điểm toàn bài**. Hiện có `Bug-Report`, `AI-Review-Fix-Log`, `Not-Run`, `README` — nhưng **chưa có báo cáo chính**.
+
+Nó phải chứa 5 thứ mà hiện đang nằm rải rác trong `CLAUDE.md` và các script, chưa gom vào chỗ TA đọc:
+
+| Nội dung | Đề đòi ở đâu | Hiện nằm ở đâu |
+|---|---|---|
+| Lý do ghép Load↔read-heavy, Stress↔auth-heavy, Spike↔transactional | 6:88 | `CLAUDE.md` |
+| Từng con số thread / ramp-up / think-time **và vì sao chọn số đó** | 6:88 | comment trong `.jmx` |
+| Quy trình reset lockout — **lệnh chính xác**, không nói chung chung | 6:93 | `scripts/reset-lockout.js` |
+| Ngưỡng endurance kèm số | 6:94 | `README.md` |
+| Tóm tắt AI sai gì và **vì sao** | 6:92 | `AI-Review-Fix-Log.md` |
+
+### 2. Bảng spec phần cứng
+
+Phần **bảng** thì tôi lấy được bằng lệnh (`hostname`, `lscpu`, `free`, `lsblk`, phiên bản OS/Java/JMeter). Chỉ phần **ảnh chụp** là của bạn.
+
+---
+
+## Việc chỉ bạn làm được — 2 việc
+
+### 3. Screenshot JMeter + htop **cùng một khung hình** ⬅️ quan trọng nhất
+
+Mục 6:93 và 11:150 đòi cái này, và mục 11 ghi rõ TA verify trực tiếp. **Cả 3 kịch bản đều đang thiếu.** Ảnh không dựng lại được từ lượt đã chạy — phải chạy lại thật trong lúc bạn chụp.
+
+Tôi chuẩn bị sẵn cho bạn: mở 2 cửa sổ cạnh nhau, một chạy `htop -p <pid backend>`, một chạy JMeter, rồi chụp cả màn hình. Nói tôi biết thì tôi viết script gom sẵn để bạn chỉ việc chạy một lệnh rồi bấm chụp — có thể tiện thể quay luôn video (việc 4) trong cùng lượt đó.
+
+### 4. Video ≥ 6 phút, giọng tiếng Việt của bạn
+
+Mục 6:95. Được cắt thành nhiều clip, mỗi kịch bản một clip. Điều kiện: JMeter và resource monitor **chung khung hình**.
+
+---
+
+## Không thuộc Task 1 nhưng còn nợ
+
+Task 2 (10đ), Task 3 (10đ), Agent Skill (10đ, `.claude/skills/` đang rỗng), AI Audit Report + AI Critique, `git-log.txt`, và bản PDF.
+
+---
+
+Tôi bắt tay viết `Main-Report.md` và bảng spec phần cứng luôn nhé? Đó là hai thứ chặn Task 1 mà không cần bạn động tay.
+```
+
+---
+
+## Luot 65 - 13/08/2026 22:33:48
+
+**Prompt (nguyen van):**
+
+```text
+oke làm cái main-report
+```
+
+**Cong cu AI da goi:** 7 lan - `Bash`, `Write`
+
+**Output AI:**
+
+```text
+Trước khi viết, kiểm lại hai con số tôi đã dùng trong Bug-Report — nghi có sai:
+
+Đúng là sai hai chỗ — RSS đỉnh thật là **119,7 MB** (tôi đọc nhầm một dòng mẫu chứ không lấy max), và số lần thêm giỏ là **8 767** chứ không phải 12 767. Sửa cả file lẫn issue:
+
+Giờ viết báo cáo chính. Gom số liệu chính xác của mọi lượt chạy để không viết sai (R11):
+
+Đo thời gian hồi phục của Spike — nền trước, trong, và sau cú vọt:
+
+Kết quả bất ngờ: trong lúc bị vọt, độ trễ nền lại **giảm** (3,0 → 1,84 ms), và hồi phục dưới 15 giây. Lấy nốt thông số máy rồi viết:
+
+Xong [Main-Report.md](submission/report/Main-Report.md) — 12 mục, phủ trọn Task 1.
+
+**Năm thứ đề bắt buộc mà trước đó nằm rải rác, giờ đã gom vào chỗ TA đọc:**
+
+| Nội dung | Mục | Đề đòi |
+|---|---|---|
+| Lý do ghép 3 kịch bản với 3 nhóm endpoint | 1 | 6:88 |
+| Từng tham số thread/ramp-up/think-time **và vì sao chọn số đó** | 5.1, 6.1, 7.1 | 6:88 |
+| Quy trình reset lockout — lệnh chính xác + output kiểm chứng | 6.2 | 6:93 |
+| Ngưỡng endurance bằng số | 8.3 | 6:94 |
+| AI sai gì và **vì sao sai** | 9 | 6:92 |
+
+**Hai số liệu tôi phát hiện mình viết sai và đã sửa** trước khi đưa vào báo cáo:
+
+- RSS đỉnh lượt Spike: **119,7 MB** chứ không phải 103,6 MB — trước đó tôi đọc một dòng mẫu thay vì lấy max
+- Số lần thêm giỏ: **8 767** chứ không phải 12 767
+
+Đã sửa đồng loạt ở `Bug-Report.md`, `README.md` và GitHub Issue #11 để ba nơi khớp nhau (R11).
+
+**Hai thứ đo được trong lúc viết báo cáo:**
+
+- **Thời gian hồi phục sau spike: dưới 15 giây.** Khung 15 giây đầu ngay sau cú vọt đã về 3,32 ms, tương đương mức nền 3,0 ms trước đó.
+- **Trong lúc bị vọt gấp 20 lần, độ trễ nền lại *giảm*** — từ ~3,0 ms xuống 1,84 ms. Tôi ghi nhận thẳng cùng lời giải thích ở mục 7.5 thay vì lờ đi: ở mức tải này SUT còn xa điểm bão hoà nên chi phí cố định mới là thứ chi phối, không phải tranh chấp tài nguyên.
+
+Phần kết luận nêu điều đáng nói nhất của bài: throughput 45,1 req/s của kịch bản Load trông như giới hạn của server, nhưng thực ra là giới hạn của think-time — **lệch hơn 20 lần** so với 997 req/s đo được ở soak. Đây chính là loại bẫy mà Task 2 sẽ đi săn.
+
+Commit `362dd59`, đã push.
+
+Task 1 giờ chỉ còn **3 việc tay của bạn**: screenshot JMeter+htop cùng khung hình, hardware report, và video ≥6 phút. Muốn tôi viết script gom sẵn để bạn chạy một lệnh là có đủ cả hai cửa sổ trong một khung, chụp/quay luôn một thể không?
+```
+
+---
+
+## Luot 66 - 13/08/2026 22:41:22
+
+**Prompt (nguyen van):**
+
+```text
+tiếp theo task 2 yêu cầu gì
+```
+
+**Output AI:**
+
+```text
+## Task 2 — 10 điểm (đề mục 6:98-104)
+
+Ba bước, **bắt buộc đúng thứ tự**. Điểm nằm gần hết ở bước 2.
+
+### Bước 1 — Cho AI phân tích (mục 6:102)
+
+> *"prompt an AI tool to analyse the `.jtl` logs and suggest performance thresholds"*
+
+Đưa file `.jtl` thô cho AI, bảo nó phân tích và đề xuất ngưỡng hiệu năng. Đây là **output của AI**, không phải của bạn — và phải giữ nguyên văn, kể cả chỗ nó sai.
+
+### Bước 2 — Săn chỗ AI đọc sai ⬅️ chấm chặt nhất
+
+> *"For each misinterpretation, cite the **correct value from your raw `.jtl` log** and explain the error"*
+
+Mỗi lỗi diễn giải phải có đủ **ba** thứ:
+
+| Thành phần | Nghĩa là |
+|---|---|
+| AI nói gì | Trích nguyên văn câu sai |
+| Giá trị đúng | Con số lấy từ `.jtl` thô **bằng lệnh**, kèm chính lệnh đó |
+| Vì sao sai | Giải thích cơ chế dẫn tới hiểu lầm |
+
+Thang điểm mục 15:188 ghi thẳng *"with correct values from raw logs"* — thiếu con số đối chứng là mất điểm, dù phần "AI sai" viết hay đến đâu.
+
+### Bước 3 — Phân loại đề xuất tối ưu (mục 6:104)
+
+> *"classify each as **feasible or hallucinated**, with reasoning"*
+
+Bảo AI đề xuất tối ưu (đề gợi ý: thêm index CSDL, connection pool, bật SQLite WAL), rồi tự phân loại từng cái là **làm được** hay **AI bịa**, kèm lý do.
+
+---
+
+## Mình đang có sẵn 4 cái bẫy rất ngon
+
+Đây là chỗ bài này có lợi thế — dữ liệu thật đã lộ ra mấy thứ mà AI gần như chắc chắn đọc sai:
+
+| Bẫy | AI sẽ nói gì | Sự thật đo được |
+|---|---|---|
+| **Throughput 45,1 req/s** ở kịch bản Load | "Server chỉ chịu được ~45 req/s" | Đó là giới hạn của **think-time**, không phải của server. Soak đo được **997 req/s** — lệch hơn 20 lần |
+| **Mật khẩu plaintext** | "Độ trễ login cao do chi phí băm bcrypt" | `server.js:46` so sánh chuỗi trần, **không hề băm**. Đây là mồi đề bài dựng sẵn |
+| **Error rate 1,29%** ở Stress | "Server trả lỗi khi quá tải" | 8 758/9 971 = **88%** là HTTP 200 thành công, chỉ vượt ngưỡng SLA 2000 ms |
+| **Error rate 3,57%** ở soak | "Tỉ lệ lỗi tăng do chạy lâu" | Đứng yên 3,51–3,58% suốt 11 phút, và 100% đến từ đúng một từ khoá `O'Neill` (BUG-01) |
+
+---
+
+## Một vướng mắc về phương pháp, cần nói thẳng
+
+Bước 1 và bước 2 đối kháng nhau: AI phân tích, rồi có người phải bắt lỗi AI. **Nếu tôi làm cả hai thì thành ra tôi tự chấm tôi** — lỗi sinh ra sẽ là lỗi tôi cố tình gài, không phải lỗi thật, và mục 2:21 đòi *"Human review... You are fully responsible"*.
+
+Cách làm cho nó hợp lệ:
+
+1. Chạy bước 1 trong một **phiên AI riêng, chỉ được nhìn bảng thống kê tóm tắt** — đúng tình huống thật khi người ta q
+
+[... cat bot, xem transcript goc ...]
+```
+
+---
+
+## Luot 67 - 13/08/2026 22:43:27
+
+**Prompt (nguyen van):**
+
+```text
+oke làm đi rồi tôi tự phân tích lại chứ tôi có kêu bạn tự làm tự verify đâu
+```
+
+**Cong cu AI da goi:** 6 lan - `Bash`, `Agent`, `Write`
+
+**Output AI:**
+
+```text
+Rõ. Tôi chỉ làm **bước 1** — sinh ra bản phân tích AI thật, chưa qua kiểm chứng. Việc săn lỗi là của bạn.
+
+Dựng môi trường cô lập để phiên AI kia không nhìn thấy kết luận của mình:
+
+Trong lúc nó chạy, tôi dựng bộ công cụ để **bạn** tự kiểm chứng — mọi con số phải lôi ra được từ `.jtl` thô bằng lệnh (mục 6:103):
+
+Bộ công cụ khớp chính xác với `statistics.json` do JMeter tự sinh (13483 mẫu, 480 lỗi, p95=2ms) — nghĩa là nó tính đúng. Giờ dựng khung để bạn điền phần săn lỗi:
+
+Đã chuẩn bị xong phần của tôi trong lúc phiên AI kia đang phân tích:
+
+**1. Bộ trích số liệu từ `.jtl` thô** — [scripts/jtl-stats.py](scripts/jtl-stats.py), 5 lệnh con:
+
+```bash
+python3 scripts/jtl-stats.py summary  <file.jtl>    # thống kê theo sampler
+python3 scripts/jtl-stats.py errors   <file.jtl>    # phân rã nguyên nhân lỗi
+python3 scripts/jtl-stats.py timeline <file.jtl>    # diễn biến theo thời gian
+python3 scripts/jtl-stats.py threads  <file.jtl>    # tải đồng thời ↔ độ trễ
+python3 scripts/jtl-stats.py steady   <file.jtl>    # throughput ở trạng thái ổn định
+```
+
+Nó tính thẳng từ log thô, **không** đọc `statistics.json` — vì mục 6:103 đòi con số phải truy về raw log. Đã đối chứng: kết quả trùng khít với bản JMeter tự sinh (13 483 mẫu, 480 lỗi, p95 = 2 ms), nên nó tính đúng.
+
+**2. Khung điền cho bạn** — [Task2-Misinterpretation-Hunt.md](submission/report/Task2-Misinterpretation-Hunt.md): bảng bước 2 (săn lỗi), bảng bước 3 (phân loại feasible/hallucinated), bảng tổng kết. Tôi để trống, không điền hộ.
+
+Có kèm 3 câu hỏi rà soát, trong đó câu quan trọng nhất là: *con số này là giới hạn của **hệ thống được đo**, hay giới hạn của **cách đo**?*
+
+**Về việc cô lập** — phiên AI phân tích chỉ được cấp 4 file `.jtl` và một mô tả trung lập (Node.js + SQLite, danh sách endpoint, cấu hình máy). Không có mã nguồn SUT, không có báo cáo chính, không biết gì về 13 lỗi đã tìm ra. Tôi ghi rõ cách cô lập này vào đầu file để TA thấy lỗi tìm được là lỗi thật chứ không phải dàn dựng.
+
+Đang chờ bản phân tích. Xong tôi lưu nguyên văn vào `AI-Analysis-Raw.md` và báo bạn.
+```
+
+---
+
+## Luot 68 - 13/08/2026 22:54:43
+
+**Prompt (nguyen van):**
+
+```text
+xong chưa
+```
+
+**Cong cu AI da goi:** 4 lan - `ListAgents`, `Write`, `Bash`
+
+**Output AI:**
+
+```text
+Chưa — phiên phân tích vẫn đang chạy, đã 9 phút. Hợp lý vì nó phải quét 2 file lớn (106 MB và 95 MB, tổng hơn 1,4 triệu dòng).
+
+Phần của tôi đã xong và commit rồi (`f1c66bf`): bộ trích số liệu `jtl-stats.py` và khung điền `Task2-Misinterpretation-Hunt.md`.
+
+Tôi sẽ báo ngay khi có bản phân tích, rồi lưu nguyên văn vào `AI-Analysis-Raw.md` — kể cả những chỗ nó viết sai, vì đó chính là nguyên liệu cho bước 2 của bạn.
+
+Bản phân tích đã xong sau ~10 phút. Lưu **nguyên văn**, không sửa một chữ:
+
+Xong bước 1. Bản phân tích lưu nguyên văn ở [AI-Analysis-Raw.md](submission/appendix/AI-Analysis-Raw.md) — 7 715 từ, không sửa một chữ, kèm prompt nguyên văn và mô tả đúng những gì phiên AI đó được cấp.
+
+**Cần báo trước để bạn khỏi mất thời gian sai hướng: đây không phải một bản phân tích dở.** Nó khá mạnh — tự tính lại percentile từ log thô, tự bóc tách 9 971 "lỗi" ra thành SLA-vi-phạm và timeout thật, và thậm chí tự suy ra được mật khẩu là plaintext từ chỗ độ trễ 1 ms ở tải thấp. Cái bẫy bcrypt mà tôi tưởng nó sẽ dính thì nó lại tránh được, còn quay ra cảnh báo người khác đừng dính.
+
+Nên việc săn lỗi sẽ khó hơn dự kiến. Bù lại, khi bạn tìm ra thì mỗi lỗi có sức nặng hơn hẳn.
+
+**Một điều tôi phải nói thẳng:** có vài chỗ số của nó **lệch với số trong Main-Report của tôi**. Ví dụ điểm gãy, thời gian hồi phục sau spike, và p95 của lượt Stress. Tôi **không** kết luận bên nào đúng — và bạn đừng mặc định là nó sai. Nó dùng phương pháp cắt dữ liệu khác tôi (theo mức đồng thời thực trong cột `allThreads`, và cửa sổ 1 giây thay vì 15 giây), mà cách đó có thể chính xác hơn cách tôi làm. Việc đối chiếu bằng lệnh sẽ cho ra câu trả lời, và **kết quả có thể là báo cáo của tôi mới là chỗ phải sửa**.
+
+Đó thực ra đúng tinh thần mục 6:103 — bắt lỗi diễn giải, bất kể lỗi của ai.
+
+**Bạn có sẵn để làm việc:**
+
+- Bản phân tích thô — [AI-Analysis-Raw.md](submission/appendix/AI-Analysis-Raw.md)
+- Khung điền 3 bảng — [Task2-Misinterpretation-Hunt.md](submission/report/Task2-Misinterpretation-Hunt.md)
+- Bộ trích số — `python3 scripts/jtl-stats.py {summary|errors|timeline|threads|steady} <file.jtl>`
+- 4 file `.jtl` thô trong `results/raw/`, và `sut/backend/server.js` — thứ mà phiên AI kia không được nhìn
+
+Commit `8f98066`. Khi bạn điền xong bảng, gọi tôi nếu muốn tôi gom kết quả vào báo cáo chính và cập nhật AI Audit Report.
+```
+
+---
+
+## Luot 69 - 13/08/2026 23:03:06
+
+**Prompt (nguyen van):**
+
+```text
+còn gì của task 2
+```
+
+**Output AI:**
+
+```text
+Task 2 còn **3 việc của bạn** và **1 việc của tôi sau đó**.
+
+## Của bạn
+
+### Bước 2 — Săn lỗi diễn giải (chỗ ăn điểm chính)
+
+Bảng trống ở [Task2-Misinterpretation-Hunt.md](submission/report/Task2-Misinterpretation-Hunt.md). Mỗi dòng cần đủ ba thành phần theo mục 6:103: AI nói gì → giá trị đúng kèm lệnh lấy ra → vì sao sai.
+
+Đề không quy định số lượng tối thiểu. Nhưng thang điểm mục 15:188 ghi rõ *"with correct values from raw logs"*, nên **chất lượng dẫn chứng quan trọng hơn số dòng** — 3 lỗi có số đối chứng chắc ăn hơn 8 lỗi nói chung chung.
+
+### Bước 3 — Phân loại 10 đề xuất tối ưu
+
+Phần 3 của bản phân tích có đúng **10 đề xuất**, AI đã tự xếp thành 3 nhóm:
+
+| Nhóm | Mã | Nội dung |
+|---|---|---|
+| A — làm ngay | A1, A2, A3 | prepared statement · backlog TCP + keep-alive · giới hạn vòng đời giỏ hàng |
+| B — nâng trần | B1, B2, B3, B4 | Node cluster · cache + ETag · SQLite WAL · connection reuse + index |
+| C — cân nhắc | C1, C2, C3 | băm mật khẩu · chuyển PostgreSQL · full-text search |
+
+Việc của bạn là gán **feasible / hallucinated** cho từng cái kèm lý do. Lưu ý cách AI tự xếp nhóm **không phải** là phân loại mà đề yêu cầu — nó xếp theo độ ưu tiên, còn đề hỏi cái nào làm được thật và cái nào nó bịa.
+
+### Bước 4 — Bảng tổng kết
+
+Đếm số nhận định đã kiểm, số đúng/sai, tỉ lệ feasible/hallucinated.
+
+## Của tôi, sau khi bạn xong
+
+Gom kết quả vào báo cáo chính (hiện đang có dòng ghi *"Task 2 sẽ được bổ sung khi hoàn thành"*), và thêm các artifact của Task 2 vào AI Audit Report theo mẫu 5 mục.
+
+---
+
+## Một lưu ý về cách chấm
+
+Nếu bước 2 tìm ra rằng chỗ sai nằm ở **báo cáo của tôi** chứ không phải ở bản phân tích AI, thì vẫn tính là làm đúng bài — mục 6:103 hỏi lỗi diễn giải metric, không hỏi "chứng minh AI ngu". Ngược lại, nếu bạn kết luận một nhận định nào đó của AI là đúng thì cũng nên ghi vào bảng tổng kết bước 4, vì tỉ lệ đúng/sai là một phần của kết quả.
+
+Cần tôi giải thích thêm cách đọc output của `jtl-stats.py`, hay để bạn tự chạy trước?
+```
+
+---
+
+## Luot 70 - 13/08/2026 23:16:56
+
+**Prompt (nguyen van):**
+
+```text
+oke task 3 còn gi
+```
+
+**Output AI:**
+
+```text
+Task 3 **chưa làm gì cả** — còn nguyên 10 điểm. Đề mục 6:106-108 đòi ba thứ:
+
+## 1. Mô hình kiểm thử hiệu năng liên tục — đủ 3 khâu
+
+> *"propose a continuous performance-testing model that **watches the SUT's commits**, **decides whether to run** performance tests, and **flags p95 regressions**"*
+
+| Khâu | Câu hỏi phải trả lời |
+|---|---|
+| Theo dõi commit | Bắt sự kiện gì? Commit nào cũng chạy, hay chỉ khi đụng vào file nào? |
+| Quyết định có chạy không | Tiêu chí nào? Chạy bộ nào — smoke 2 phút hay soak đầy đủ? |
+| Cảnh báo p95 xấu đi | So với mốc nào? Lệch bao nhiêu thì báo? Báo cho ai, chặn merge hay chỉ cảnh báo? |
+
+## 2. Flow chart — **bắt buộc**
+
+Đề ghi thẳng *"Include a **flow chart**"*. Thiếu là mất điểm, không phải trang trí.
+
+## 3. Bàn trade-off — chi phí và báo động giả
+
+> *"a discussion of the **trade-offs** (cost, false alarms)"*
+
+---
+
+## Chỗ bài này có lợi thế
+
+Phần lớn sinh viên sẽ viết Task 3 kiểu lý thuyết suông — "đặt ngưỡng p95, vượt thì cảnh báo". Mình có **số liệu thật để đặt ngưỡng có căn cứ**, và quan trọng hơn là **đo được nhiễu nền**:
+
+Lượt soak cho thấy p95 dao động **6 → 10 ms** giữa 5 đoạn của cùng một lượt chạy, cùng một code, cùng một máy. Nghĩa là **nếu đặt ngưỡng cảnh báo ở mức "p95 tăng 50%" thì hệ thống sẽ tự báo động giả với chính nó** dù chẳng ai đổi dòng code nào.
+
+Đó chính là câu trả lời định lượng cho phần trade-off "false alarms" mà đề hỏi — rút thẳng từ dữ liệu đo được chứ không phải nói chung chung.
+
+Thêm hai thứ nữa dùng được:
+
+- **Chi phí thật**: soak 11 phút, stress 6,5 phút, tổng 8 lượt chạy hết khoảng 45 phút máy. Con số này cho phép tính cụ thể "chạy full suite mỗi commit tốn bao nhiêu" thay vì phán bừa.
+- **Chỉ báo tốt hơn p95**: bản phân tích AI chỉ ra `Connect` p95 giữ nguyên 0–1 ms suốt từ 0 đến 1 700 luồng rồi nhảy thẳng lên 1 020 ms — một ngưỡng nhị phân sạch, gần như không có vùng xám. Nếu kiểm chứng được thì đây là chỉ báo ít báo động giả hơn hẳn p95. *(chưa verify — thuộc phần bạn đang review ở Task 2)*
+
+---
+
+Tôi viết Task 3 nhé? Dự kiến gồm: tài liệu đề xuất + flow chart vẽ bằng Mermaid (GitHub render trực tiếp, và xuất PNG được để nhét vào PDF). Bạn muốn flow chart kiểu Mermaid hay Excalidraw vẽ tay cho giống sơ đồ trình bày?
+```
+
+---
+
+## Luot 71 - 13/08/2026 23:17:49
+
+**Prompt (nguyen van):**
+
+```text
+oke thực hiện task 3
+```
+
+**Cong cu AI da goi:** 7 lan - `Bash`, `Write`, `Read`, `Edit`
+
+**Output AI:**
+
+```text
+Chốt Mermaid — GitHub render thẳng trong repo, và xuất PNG được để nhét vào PDF.
+
+Trước hết đo **nhiễu nền** thật, vì đó là căn cứ để đặt ngưỡng cảnh báo:
+
+Nhiễu nền đo được rất rõ: cùng một code, cùng một máy, cùng một mức tải mà **p95 dao động 6 → 11 ms (1,83 lần)**, trong khi **p50 đứng yên 2 ms suốt 10 phút**. Đây là căn cứ để thiết kế ngưỡng cảnh báo:
+
+Render flow chart ra PNG để nhét vào PDF, đồng thời kiểm cú pháp Mermaid có hợp lệ không:
+
+Flow chart render đúng, đọc được rõ. Nhúng ảnh vào tài liệu để bản PDF cũng hiện được:
+
+Xong Task 3: [Task3-Continuous-Performance-Testing.md](submission/report/Task3-Continuous-Performance-Testing.md) + flow chart Mermaid (render được trên GitHub, và có bản PNG cho PDF).
+
+Đủ ba thứ đề đòi ở mục 6:108: **flow chart**, **3 khâu**, **trade-off**.
+
+## Cách tôi tiếp cận khác một bản đề xuất thông thường
+
+Thay vì chọn ngưỡng rồi biện luận, tôi **đo nhiễu nền trước**. Lấy lượt soak — cùng một commit, cùng một máy, cùng một mức tải — rồi cắt theo từng phút:
+
+| Phút | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| p50 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 |
+| **p95** | 6 | 6 | 8 | 9 | **10** | **11** | 9 | 8 | 8 | 9 |
+
+**p95 dao động 1,83 lần khi không ai sửa một dòng code nào.** Con số đó quyết định gần như toàn bộ thiết kế:
+
+- Ngưỡng kiểu *"p95 tăng 20% thì báo động"* sẽ **tự kêu với chính nó** — phút 1 so phút 6 đã là +83%
+- Nên p95 **không thể** làm tín hiệu chính, dù đề gợi ý vậy. Tôi vẫn giữ p95 đúng yêu cầu nhưng nới ngưỡng lên 2,0 lần và đặt nó trong tín hiệu tổ hợp
+- **p50 mới là tín hiệu chính** — bất biến 2 ms suốt 10 phút, nhiễu gần bằng 0
+
+## Một cái bẫy mà số liệu bài này lộ ra
+
+Ngưỡng tuyệt đối kiểu *"error rate > 1% thì chặn merge"* sẽ **chặn mọi commit, vĩnh viễn** — vì SUT có sẵn 3,57% lỗi nền cố định từ BUG-01. Baseline bắt buộc phải là tương đối so với lượt chạy xanh gần nhất.
+
+## Chi phí tính bằng số thật
+
+Con số 45 phút cho full suite không phải ước lượng — đó là tổng thời lượng thật của 8 lượt chạy ở Task 1 (47,3 phút). Từ đó ra được: ~105 phút máy/ngày với đội 20 commit, tức khoảng **25 USD/tháng** trên GitHub Actions.
+
+Tôi cũng ghi thẳng phần **giới hạn của chính mô hình** — quan trọng nhất là nhiễu 1,83 lần đo trên laptop rảnh rỗi, còn CI runner dùng chung sẽ ồn hơn nhiều, nên phải đo lại nhiễu trên chính runner đó trước khi áp ngưỡng.
+
+---
+
+**Còn lại:** Task 2 bước 2–3 (của bạn), Agent Skill (10đ, `.claude/skills/` vẫn rỗng), AI Audit Report + AI Criti
+
+[... cat bot, xem transcript goc ...]
+```
+
+---
+
+## Luot 72 - 17/08/2026 09:17:36
+
+**Prompt (nguyen van):**
+
+```text
+oke giờ liệt ke các task còn lại để tôi xong cái bài tập này
+```
+
+**Cong cu AI da goi:** 1 lan - `Bash`
+
+**Output AI:**
+
+```text
+Rà toàn bộ. Còn **13 việc**, chia làm ba nhóm theo mức độ nguy hiểm.
+
+---
+
+## 🔴 Nhóm 1 — Thiếu là **0 điểm toàn bài** (mục 17:204)
+
+| # | Việc | Ai | Trạng thái |
+|---|---|---|---|
+| 1 | **AI Audit Report** theo mẫu 5 mục của Khoa | tôi | ⬜ chưa có file |
+| 2 | **AI Critique 200–300 chữ** | tôi | ⬜ chưa có file |
+| 3 | **AI-Prompt-Log** — tên công cụ / ngày giờ / prompt nguyên văn / output (mục 9:130-134) | tôi | ⬜ transcript 6,7 MB có sẵn, chưa trích xuất |
+| 4 | **git-log.txt** | tôi | ⬜ một lệnh |
+| 5 | **Screenshot JMeter + htop chung một khung hình** | **bạn** | ⬜ cả 3 kịch bản đều thiếu |
+| 6 | **Hardware report** — ảnh screenfetch + hostname khớp HW04 | **bạn** | ⬜ `evidence/hardware/` rỗng |
+| 7 | **Video Task 1 ≥ 6 phút**, giọng tiếng Việt | **bạn** | ⬜ |
+| 8 | **Bản PDF** của báo cáo chính, AI Audit, AI Critique | **bạn** | ⬜ |
+
+---
+
+## 🟡 Nhóm 2 — Điểm chưa lấy
+
+| # | Việc | Điểm | Ai | Ghi chú |
+|---|---|---|---|---|
+| 9 | **Agent Skill** — `.claude/` hiện **chưa tồn tại** | **10** | tôi | Kèm video demo riêng (mục 7:113) → phần video là của bạn |
+| 10 | **Task 2 bước 2, 3, 4** — săn lỗi + phân loại + tổng kết | **10** | **bạn** | Bước 1 đã xong |
+
+---
+
+## 🟢 Nhóm 3 — Hoàn thiện, không chặn nhưng nên làm
+
+| # | Việc | Ai |
+|---|---|---|
+| 11 | Gộp Task 2 + Task 3 vào Main-Report (hiện đang ghi *"sẽ bổ sung"*) | tôi — sau khi bạn xong việc 10 |
+| 12 | Bảng spec phần cứng (phần **bảng**, ảnh là của bạn) | tôi |
+| 13 | Điền bảng tự đánh giá + 2 link YouTube vào README | **bạn** |
+
+---
+
+## Đề xuất thứ tự làm
+
+**Bước 1 — tôi làm ngay, không cần chờ bạn:** việc 9 (Agent Skill), 3, 4, 12.
+
+**Bước 2 — bạn làm, gộp một buổi:** mở htop cạnh terminal, chạy lại 3 kịch bản, **vừa quay video vừa chụp screenshot** — giải quyết luôn việc 5, 6, 7. Quay thêm một clip dùng Agent Skill là xong việc 9.
+
+**Bước 3 — bạn làm:** việc 10 (Task 2 săn lỗi).
+
+**Bước 4 — tôi làm cuối:** việc 1, 2, 11 — vì AI Audit Report phải liệt kê *mọi* artifact, và AI Critique phải nhắc tới kết quả săn lỗi của bạn. Làm sớm thì phải viết lại.
+
+**Bước 5 — bạn chốt:** việc 13, 8, rồi đóng gói `23127262_HW05_AI_Performance_100.zip`.
+
+---
+
+Một lưu ý: **`.claude/` chưa hề tồn tại**, nên R12 trong CLAUDE.md ("bồi skill dần từ scenario Load") đã không được thực hiện. Giờ dựng thì skill vẫn thật — quy trình đã chạy 8 lượt và có sẵn `jtl-stats.py`, `reset-db.sh`, `monitor.sh`, `render-mermaid.js` để chắt vào — nhưng phải nói thẳng là nó được đúc kết **sau khi** làm xong chứ không phải bồi dần trong
+
+[... cat bot, xem transcript goc ...]
+```
+
+---
+
+## Luot 73 - 17/08/2026 09:19:28
+
+**Prompt (nguyen van):**
+
+```text
+ủa nếu bước 1 có vài cái xong hết rồi hẵn xuất ra chứ giờ nó có một bản nhưng sau này phải bổ sung,
+```
+
+**Output AI:**
+
+```text
+Đúng, tôi xếp sai thứ tự. Ba trong bốn việc ở bước 1 là loại **"xuất một lần lúc cuối"**, làm bây giờ là chắc chắn phải làm lại:
+
+| Việc | Vì sao phải để cuối |
+|---|---|
+| `git-log.txt` | Mỗi commit mới là file này lỗi thời. Còn ít nhất chục commit nữa |
+| AI-Prompt-Log | Trích từ transcript phiên làm việc — mà phiên vẫn đang chạy, càng nói chuyện càng dài ra |
+| AI Audit Report | Mẫu bắt **1 hàng / artifact**. Chưa có Agent Skill, chưa có kết quả Task 2 của bạn → viết giờ là thiếu hàng |
+| AI Critique | Phải nhắc tới chỗ AI sai mà **bạn** tìm ra ở Task 2. Chưa có thì viết ra chỉ là văn suông |
+
+## Xếp lại theo phụ thuộc
+
+**Làm ngay — chỉ 2 việc, và cả hai đều chặn việc của bạn:**
+
+| Việc | Vì sao phải làm trước |
+|---|---|
+| **Agent Skill** (10đ) | Bạn cần nó **tồn tại** mới quay được video demo. Đang chặn |
+| Bảng spec phần cứng | Để bạn biết cần chụp những thông tin gì trong ảnh screenfetch |
+
+**Rồi tới lượt bạn:** quay video + chụp screenshot (gộp một buổi), và Task 2 săn lỗi.
+
+**Cuối cùng tôi xuất một lượt:** AI-Prompt-Log → AI Audit Report → AI Critique → gộp Task 2/3 vào Main-Report → `git-log.txt`. Đúng thứ tự đó, vì cái sau ăn dữ liệu của cái trước, và `git-log.txt` phải là **lệnh cuối cùng** chạy trước khi bạn đóng gói.
+
+Làm Agent Skill luôn nhé?
+```
+
+---
+
+## Luot 74 - 17/08/2026 09:21:02
+
+**Prompt (nguyen van):**
+
+```text
+khoan đã giờ list ra tất cả task còn thiếu rồi show cho tôi 2 nhóm chính là làm ở cuối cùng và làm ngay, mỗi nhóm chính có 2 nhóm nhỏ là bạn làm hay tôi làm
+```
+
+**Output AI:**
+
+```text
+## NHÓM A — LÀM NGAY
+
+### A1 · Tôi làm
+
+| # | Việc | Điểm | Ghi chú |
+|---|---|---|---|
+| 1 | **Agent Skill** — dựng `.claude/skills/` | **10** | Đang chặn video demo của bạn |
+| 2 | Bảng spec phần cứng (`evidence/hardware/spec.md`) | — | Để bạn biết ảnh screenfetch cần thể hiện gì |
+
+### A2 · Bạn làm
+
+| # | Việc | Điểm | Ghi chú |
+|---|---|---|---|
+| 3 | **Task 2 — bước 2, 3, 4**: săn lỗi + phân loại feasible/hallucinated + tổng kết | **10** | Độc lập, làm được ngay |
+| 4 | **Screenshot JMeter + htop chung một khung hình** | 🔴 chặn | Cả 3 kịch bản đều thiếu — phải chạy lại để chụp |
+| 5 | **Ảnh hardware** — screenfetch/neofetch + `hostname` + `whoami` | 🔴 chặn | Hostname phải là `qt-ThinkBook-14-G5-IRH` để khớp HW04 |
+| 6 | **Video Task 1 ≥ 6 phút**, giọng tiếng Việt | 🔴 chặn | Gộp chung buổi với việc 4 và 5 |
+| 7 | **Video demo Agent Skill** | — | Chờ tôi xong việc 1 |
+
+---
+
+## NHÓM B — LÀM CUỐI
+
+### B1 · Tôi làm — đúng thứ tự này, cái sau ăn dữ liệu cái trước
+
+| # | Việc | Vì sao phải cuối |
+|---|---|---|
+| 8 | **AI-Prompt-Log** — trích transcript phiên làm việc | Phiên còn đang chạy, càng làm càng dài |
+| 9 | **AI Audit Report** (mẫu 5 mục) | 🔴 chặn · 1 hàng/artifact — phải có đủ Agent Skill và kết quả Task 2 mới liệt kê hết |
+| 10 | **AI Critique 200–300 chữ** | 🔴 chặn · Phải dẫn được chỗ AI sai mà **bạn** tìm ra ở việc 3 |
+| 11 | Gộp Task 2 + Task 3 vào Main-Report | Hiện đang ghi *"sẽ bổ sung sau"* |
+| 12 | Ghi xác nhận **không trùng endpoint với nhóm** vào báo cáo chính | Mục 5:78 — bạn đã chốt với nhóm, còn thiếu dòng ghi nhận |
+| 13 | **`git-log.txt`** | Phải là lệnh **cuối cùng** — mỗi commit mới là file này lỗi thời |
+
+### B2 · Bạn làm — sau khi tôi xong B1
+
+| # | Việc | Ghi chú |
+|---|---|---|
+| 14 | Điền **bảng tự đánh giá** + **2 link YouTube** vào README | Hiện còn `<điền>` |
+| 15 | **Xuất PDF**: Main-Report, AI Audit Report, AI Critique | 🔴 chặn · mục 2:23 |
+| 16 | **Đóng gói** `23127262_HW05_AI_Performance_100.zip` | 🔴 chặn · file lớn nhất 106 MB, cần split-and-zip |
+
+---
+
+## Tổng kết
+
+| | Tôi | Bạn |
+|---|---|---|
+| **Làm ngay** | 2 việc (10đ) | 5 việc (10đ) |
+| **Làm cuối** | 6 việc | 3 việc |
+| **Tổng** | **8** | **8** |
+
+**20 điểm còn treo:** Agent Skill (tôi) và Task 2 bước 2–4 (bạn) — hai việc này độc lập nhau, làm song song được.
+
+**8 mục 🔴** thiếu là 0 điểm toàn bài, trong đó **6 mục nằm ở phía bạn** (screenshot, hardware, video, PDF, zip) — đây mới là đường găng thật của bài, không phải phần code.
+
+Bắt đầu việc 1 nhé?
+```
+
+---
+
+## Luot 75 - 17/08/2026 09:22:15
+
+**Prompt (nguyen van):**
+
+```text
+xuất ra file để checklist dần, nhác trong file claude.md làm gì cũng phải checklist cho biết khi nào xong
+```
+
+**Cong cu AI da goi:** 4 lan - `Write`, `Edit`, `Bash`
+
+**Output AI:**
+
+```text
+Giờ thêm quy tắc vào CLAUDE.md để checklist không bị bỏ quên:
+
+Số đếm bằng lệnh không khớp bảng tôi viết tay — sửa lại, và phát hiện thêm một chỗ trong CLAUDE.md vẫn ghi lệnh reset nguy hiểm:
+
+Xong. [CHECKLIST.md](CHECKLIST.md) — **22 xong / 31 còn**, đếm bằng lệnh chứ không tự viết số.
+
+## Cấu trúc
+
+| Phần | Nội dung |
+|---|---|
+| **Tiến độ** | Bảng đếm + lệnh tự kiểm |
+| **ĐÃ XONG** | 22 mục đã tick, có cả số liệu chốt (997 req/s, 161 MB, 13 issue) |
+| **NHÓM A — làm ngay** | A1 Claude (2) · A2 bạn (7) |
+| **NHÓM B — làm cuối** | B1 Claude (6, đánh số theo thứ tự phụ thuộc) · B2 bạn (4) |
+| **Kiểm tra lần cuối** | 12 điều kiện chặn, soát trước khi nộp |
+
+Mỗi dòng có ký hiệu mức độ — 🔴 thiếu là 0 điểm toàn bài · 🟡 mất điểm mục đó · ⚪ hoàn thiện — và trích dẫn `mục:dòng` của đề để biết vì sao nó nằm đó.
+
+## Thêm R14 vào CLAUDE.md
+
+Bốn điều giờ thành tự động, không cần bạn nhắc:
+
+- Xong việc nào **tick ngay trong cùng phiên**, cùng lúc với commit — không gom cuối buổi
+- Phát sinh việc mới → thêm dòng ngay lúc phát hiện, kèm ký hiệu và trích dẫn đề
+- Cập nhật bảng tiến độ mỗi lần tick, **đếm lại bằng lệnh**
+- Bạn hỏi "còn gì phải làm" → tôi **đọc file** rồi trả lời, không liệt kê từ trí nhớ
+
+Và một điều chặn tôi tick khống: chỉ được `[x]` khi **file thật đã tồn tại** hoặc **lệnh đã chạy thật**.
+
+## Tiện thể sửa một lỗi nguy hiểm còn sót
+
+Bảng biến ở đầu CLAUDE.md vẫn ghi `Reset dữ liệu | node backend/database.js` — chính là lệnh xoá sạch DB (BUG-04) mà R13 đã cấm ở phía dưới. Hai chỗ trong cùng một file nói ngược nhau, và chỗ sai lại nằm ở bảng dễ đọc hơn. Đã đổi thành `reset-lockout.js` và `reset-db.sh`.
+
+Commit `bf99e9d`, đã push.
+
+Giờ vào việc A1 — dựng Agent Skill nhé?
+```
+
+---
+
+## Luot 76 - 17/08/2026 09:25:19
+
+**Prompt (nguyen van):**
+
+```text
+[ ] Agent Skill — dựng .claude/skills/ 🟡 10đ (mục 7:112) → đang chặn video demo của sinh viên
+[ ] Bảng spec phần cứng evidence/hardware/spec.md ⚪ → để biết ảnh screenfetch cần thể hiện gì
+
+oke làm
+```
+
+**Cong cu AI da goi:** 7 lan - `Write`, `Bash`
+
+**Output AI:**
+
+```text
+Bắt đầu A1. Dựng skill chắt từ đúng quy trình đã chạy 8 lượt:
+
+Giờ bảng spec phần cứng:
+
+Dòng "Hệ điều hành" trống do lỗi escape dấu nháy — vá lại:
+
+Kiểm tra skill có được nhận diện không, rồi tick checklist:
+
+Xong A1. Checklist: **24 xong / 29 còn** (đếm bằng lệnh).
+
+## Agent Skill — `.claude/skills/perf-test-endpoint/`
+
+| File | Từ | Nội dung |
+|---|---|---|
+| `SKILL.md` | 1 662 | Quy trình 7 bước, từ khảo sát endpoint tới phân tích log |
+| `references/jmx-template.md` | 883 | Khung XML copy dùng được + bẫy cú pháp |
+| `references/analysis-playbook.md` | 1 053 | 7 lỗi diễn giải thường gặp, mỗi lỗi kèm lệnh kiểm chứng |
+
+Điều làm nó khác một bản hướng dẫn chép từ tài liệu JMeter: **mọi cảnh báo trong đó đều là lỗi đã thực sự mắc phải trong 8 lượt chạy**, không phải phòng xa lý thuyết. Ví dụ:
+
+- Bẫy Ignore Status — 401/403 mong đợi bị JMeter tính là lỗi dù assertion pass
+- `ps -o %cpu` là trung bình cộng dồn từ lúc khởi động, không phải CPU tức thời
+- `pgrep -f` không neo hai đầu sẽ bắt nhầm tiến trình `bash` bao ngoài — kèm ghi chú rằng lỗi này **đã tái phát** sau khi ghi vào nhật ký
+- `vars` là biến cục bộ của luồng, `props` mới dùng chung — truyền token giữa Thread Group bắt buộc dùng `props`
+- Dấu phẩy cuối trong `${__groovy(...,)}` là bắt buộc
+
+Sổ tay phân tích cũng đúc kết đúng cái bẫy 22 lần: throughput 45 req/s của Load trông như trần server, thật ra là trần think-time — soak trên chính endpoint đó ra 997 req/s.
+
+## Bảng spec phần cứng — `evidence/hardware/spec.md`
+
+Có sẵn `hostname` = `qt-ThinkBook-14-G5-IRH` và `user` = `qt` để đối chiếu HW04 (mục 11:151), cùng CPU/RAM/đĩa/OS và phiên bản 6 công cụ.
+
+Tôi ghi thẳng một giới hạn vào đó: backend chạy trên **chính máy đo**, nên số liệu **không bao gồm độ trễ mạng** — cần nêu khi diễn giải.
+
+---
+
+## Giờ tới lượt bạn — nhóm A2, 7 việc
+
+Gộp được thành **một buổi**: mở htop cạnh terminal → chạy lại 3 kịch bản → vừa quay video vừa chụp screenshot → quay thêm clip dùng Agent Skill. Xong 4 việc cùng lúc, trong đó 3 việc là điều kiện chặn.
+
+Ảnh screenfetch cần thấy rõ `hostname`; đối chiếu với `evidence/hardware/spec.md` cho khớp.
+
+Còn Task 2 bước 2–4 thì làm lúc nào cũng được, độc lập hoàn toàn.
+
+Cần tôi viết script gom sẵn để bạn chạy một lệnh là có đủ backend + htop + JMeter cho buổi quay không?
+```
+
+---
+
+## Luot 77 - 17/08/2026 09:32:11
+
+**Prompt (nguyen van):**
+
+```text
+@Screenshot From 2026-08-17 09-31-40.png
+```
+
+**Cong cu AI da goi:** 4 lan - `Bash`, `Read`, `AskUserQuestion`
+
+**Output AI:**
+
+```text
+Phát hiện quan trọng: **hostname đã đổi**. Máy giờ là `ly-quoc-thanh`, không còn là `qt-ThinkBook-14-G5-IRH` như lúc tôi chạy các lượt test.
+
+Chỗ này ăn thẳng vào mục 11:151 nên phải xử lý triệt để. Rà ra 6 file + **14 ảnh bằng chứng có hostname in cứng trong ảnh** + **13 GitHub Issue có hostname ở chân bài**.
+
+Trước khi sửa, một câu tôi không tự trả lời được:
+```
+
+---
+
+## Luot 78 - 17/08/2026 09:33:38
+
+**Prompt (nguyen van):**
+
+```text
+oke tôi đổi hostname lại là được
+```
+
+**Cong cu AI da goi:** 1 lan - `Bash`
+
+**Output AI:**
+
+```text
+Khoan — hai câu trả lời đang ngược nhau, và chọn sai thì mất điể
+
+Chuẩn — `qt-ThinkBook-14-G5-IRH`, khớp đúng với mọi thứ đã có. Không phải sửa gì:
+
+| Chỗ | Hostname |
+|---|---|
+| Máy hiện tại | `qt-ThinkBook-14-G5-IRH` ✅ |
+| `evidence/hardware/spec.md` | khớp ✅ |
+| `Main-Report.md`, `README.md`, `Not-Run.md` | khớp ✅ |
+| 14 ảnh bằng chứng (in cứng trong ảnh) | khớp ✅ |
+| 13 GitHub Issue | khớp ✅ |
+
+Tránh được việc phải chụp lại 14 ảnh và sửa 13 issue.
+
+**Lúc chụp ảnh phần cứng nhớ chụp cả `hostname` và `whoami`** đúng như ảnh bạn vừa gửi — mục 11:151 nói TA đối chiếu chéo tên máy giữa các bài, nên đó là bằng chứng trực tiếp.
+
+Nhóm A phía tôi đã xong. Còn lại là 7 việc của bạn ở A2:
+
+| Việc | Mức |
+|---|---|
+| Screenshot JMeter + htop chung khung hình | 🔴 |
+| Ảnh hardware (screenfetch + hostname + whoami) | 🔴 |
+| Video Task 1 ≥ 6 phút | 🔴 |
+| Video demo Agent Skill | 🟡 |
+| Task 2 bước 2, 3, 4 | 🟡 10đ |
+
+Bốn việc đầu gộp được vào một buổi quay. Muốn tôi viết script dựng sẵn môi trường — chạy backend, mở htop bám đúng PID, và in sẵn lệnh JMeter — để bạn chỉ việc bấm quay không?
+```
+
+---
+
+## Luot 79 - 17/08/2026 09:34:53
+
+**Prompt (nguyen van):**
+
+```text
+rồi ảnh đó để đâu trongthư mục ?
+```
+
+**Cong cu AI da goi:** 6 lan - `Bash`, `Read`
+
+**Output AI:**
+
+```text
+Ảnh đang nằm ở `~/Pictures/Screenshots/`. Đây là chỗ cần đặt:
+
+| Loại ảnh | Thư mục | Tên gợi ý |
+|---|---|---|
+| **`hostname` + `whoami`** (ảnh bạn vừa chụp) | `evidence/hardware/` | `hostname-whoami.png` |
+| **screenfetch / neofetch** | `evidence/hardware/` | `screenfetch.png` |
+| **JMeter + htop chung khung hình** | `evidence/monitor/` | `load-jmeter-htop.png`<br>`stress-jmeter-htop.png`<br>`spike-jmeter-htop.png` |
+
+Ảnh `09-34-00` là cái có hostname đúng (`qt-ThinkBook-14-G5-IRH`) — chuyển vào luôn nhé?
+
+`screenfetch` chưa cài nhưng có **`fastfetch`** — bản thay thế hiện đại, cùng công dụng. Cập nhật `spec.md` để nhúng ảnh:
+
+Ảnh đã vào đúng chỗ: [evidence/hardware/hostname-whoami.png](evidence/hardware/hostname-whoami.png), và `spec.md` đã nhúng nó.
+
+## Quy ước thư mục cho ảnh
+
+```
+evidence/
+├── hardware/     ← ảnh phần cứng + spec.md
+│   ├── spec.md                 ✅ bảng thông số
+│   ├── hostname-whoami.png     ✅ vừa thêm
+│   └── fastfetch.png           ⬜ còn thiếu
+├── monitor/      ← ảnh JMeter + htop chung khung hình
+│   ├── load-jmeter-htop.png    ⬜
+│   ├── stress-jmeter-htop.png  ⬜
+│   └── spike-jmeter-htop.png   ⬜
+├── bugs/         ✅ 14 ảnh bằng chứng lỗi
+└── diagrams/     ✅ flow chart Task 3
+```
+
+## Còn một ảnh nữa cho phần phần cứng
+
+Máy không có `screenfetch` hay `neofetch`, nhưng có **`fastfetch`** — cùng công dụng, cùng kiểu hiển thị logo + thông số. Chạy rồi chụp:
+
+```bash
+fastfetch
+```
+
+Lưu thành `evidence/hardware/fastfetch.png`.
+
+Tôi đã ghi rõ trong `spec.md` lý do dùng `fastfetch` thay vì `screenfetch`, để TA không thắc mắc tại sao lệch với chữ trong đề.
+
+---
+
+Ba ảnh `*-jmeter-htop.png` là phần nặng nhất còn lại — phải chạy lại test mới chụp được, và nên quay video luôn trong cùng buổi đó.
+
+Muốn tôi viết script dựng sẵn môi trường cho buổi quay không? Nó sẽ: khởi động backend, seed dữ liệu, in ra PID để bạn trỏ `htop -p`, rồi in sẵn 3 lệnh JMeter để bạn copy từng cái — đảm bảo cả JMeter lẫn htop nằm chung một khung hình.
+```
+
+---
+
+## Luot 80 - 17/08/2026 09:36:53
+
+**Prompt (nguyen van):**
+
+```text
+[ ] Task 2 — bước 2: săn lỗi diễn giải, mỗi lỗi kèm giá trị đúng từ .jtl thô 🟡 (mục 6:103)
+[ ] Task 2 — bước 3: phân loại 10 đề xuất tối ưu feasible / hallucinated 🟡 (mục 6:104)
+[ ] Task 2 — bước 4: bảng tổng kết tỉ lệ đúng/sai 🟡
+
+bạn có thể thực hiện luôn 3 tasks này, tôi theo dõi và đánh giá
+```
+
+**Cong cu AI da goi:** 18 lan - `Bash`, `Write`, `Read`
+
+**Output AI:**
+
+```text
+Được. Tôi làm bước 2–3–4, và sẽ verify từng con số bằng lệnh chứ không khẳng định suông — kể cả khi kết quả cho thấy **báo cáo của tôi** mới là chỗ sai.
+
+Bắt đầu với con số nghi ngờ nhất: AI ghi p95 của Stress là **237 ms**, trong khi dashboard JMeter ghi **1 669 ms**:
+
+Bất ngờ: công cụ của tôi ra **237 ms**, khớp với AI. JMeter ra **1 669 ms**. Phải đếm trực tiếp mới biết bên nào đúng:
+
+Dứt khoát rồi: chỉ **4,945%** mẫu vượt 237 ms → **p95 = 237 ms là đúng**. Còn 1 669 ms chỉ có 1,45% mẫu vượt, tức đó là ~p98,5 chứ không phải p95.
+
+Nghĩa là **báo cáo của tôi sai**, và AI đúng. Truy nguyên nhân:
+
+**Tìm ra nguyên nhân gốc.** `jmeter.reportgenerator.statistic_window = 20000` — dashboard chỉ tính phân vị trên **20 000 mẫu cuối cùng**, không phải toàn lượt. Bằng chứng: p50 khớp chính xác **205 ms** ở đúng cửa sổ 20 000.
+
+Kiểm xem lượt nào bị ảnh hưởng:
+
+Xác nhận hoàn toàn: lượt ≤20 000 mẫu thì dashboard khớp raw (2=2, 6=6); lượt >20 000 thì lệch (7,1× và 1,5×).
+
+Giờ verify điểm gãy — tôi ghi 1 626, AI ghi 1 800:
+
+Verify của tôi tái hiện gần đúng bảng của AI. Và điểm gãy **1 800** có căn cứ mạnh hơn con số 1 626 của tôi — tại đó **ba** chỉ báo cùng vỡ: p95 nhảy 3 lần, lỗi tăng gấp 3, và `Connect` p95 nhảy từ 1 ms lên 1 020 ms.
+
+Verify tiếp cụm lockout và spike:
+
+Đủ dữ liệu. Viết kết quả:
+
+Giờ phải sửa 4 lỗi trong báo cáo của chính tôi (R11 — một con số đổi thì mọi nơi phải đổi):
+
+Cập nhật GitHub Issue #12 cho khớp, rồi tick checklist:
+
+Số đếm lệch với bảng — sửa theo đúng R14 (đếm bằng lệnh, không tin trí nhớ):
+
+Task 2 xong: [Task2-Misinterpretation-Hunt.md](submission/report/Task2-Misinterpretation-Hunt.md). Checklist **28 xong / 26 còn**.
+
+## Kết quả không như tôi dự đoán
+
+Tôi tưởng sẽ tìm được vài chỗ AI đọc sai metric. Thực tế **AI tính đúng 80%**, và phát hiện đắt giá nhất lại là chỗ **JMeter sai** — kéo theo 4 con số trong báo cáo của tôi phải sửa.
+
+### Lỗi lớn nhất: p95 trên dashboard sai gấp 7,1 lần
+
+Tôi ghi Stress p95 = **1 671 ms**, lấy từ `statistics.json`. AI ghi **237 ms**. Đếm trực tiếp:
+
+```
+số mẫu >  237 ms:  38 080 ( 4,945%)   ← đúng là p95
+số mẫu > 1669 ms:  11 172 ( 1,451%)   ← thực ra là ~p98,5
+```
+
+**Nguyên nhân gốc:** `jmeter.reportgenerator.statistic_window = 20000` — dashboard chỉ tính phân vị trên **20 000 mẫu cuối**, tức phần đuôi quá tải nhất. Bằng chứng chốt: p50 khớp chính xác **205 ms** ở đúng cửa sổ 20 000.
+
+| Lượt | Mẫu | p95 thô | p95 dashboard |
+|---|---|---|---|
+| Load | 13 483 | 2 ms | 2 ms ✓ |
+| Spike | 17 376 | 6 ms | 6 ms 
+
+[... cat bot, xem transcript goc ...]
+```
+
+---
+
+## Luot 81 - 17/08/2026 09:49:32
+
+**Prompt (nguyen van):**
+
+```text
+[ ] Screenshot JMeter + htop CHUNG MỘT KHUNG HÌNH 🔴 (mục 6:93, 11:150) → cả 3 kịch bản đều thiếu, phải chạy lại mới chụp được
+[ ] Ảnh hardware 🔴 (mục 6:93, 11:151) → ✅ hostname + whoami đã có: evidence/hardware/hostname-whoami.png → ⬜ còn thiếu ảnh fastfetch (máy không có screenfetch/neofetch), lưu thành evidence/hardware/fastfetch.png
+
+cái ảnh thì bạn làm được mà, ngoài ra task kia thì đây là linux, tôi cho phép bạn chạy lệnh để chụp màn hình và bật htop
+```
+
+**Cong cu AI da goi:** 20 lan - `Bash`, `Write`, `Read`
+
+**Output AI:**
+
+```text
+Được. Kiểm tra công cụ chụp màn hình khả dụng trên phiên Wayland này:
+
+Có `gnome-terminal`, `wmctrl`, và GNOME Shell Screenshot qua D-Bus. Không có `tmux` nên phải dùng hai cửa sổ đặt cạnh nhau. Thử cơ chế chụp trước:
+
+Cả hai đều bị chặn: GNOME 45+ cấm chụp qua D-Bus, còn `import` không truy cập được root window trên Wayland. Tìm đường khác:
+
+`Xvfb` có sẵn — đường khả thi: dựng một màn hình X ảo, chạy thật htop và JMeter trong đó rồi chụp. Kiểm nốt vài thứ:
+
+Đủ rồi: `screen` để chia đôi màn hình, `gnome-terminal` chạy trong `Xvfb`. Thử xem cơ chế có hoạt động không:
+
+Tôi vừa dính đúng cái bẫy đã ghi trong nhật ký: `pkill -f "Xvfb :99"` khớp trúng **chính shell của mình** vì dòng lệnh có chứa chuỗi đó — lần thứ ba của cùng một lỗi. Viết thành script riêng để tránh hẳn:
+
+Ảnh đen — `gnome-terminal` không vẽ được. Chẩn đoán:
+
+`gnome-terminal` khởi động service nhưng không tạo cửa sổ nào — nó vẫn ưu tiên Wayland. Ép dùng X11:
+
+Có cửa sổ rồi (mean=4055, không còn đen). Xem thử nội dung:
+
+Chạy được — thấy rõ `qt@qt-ThinkBook-14-G5-IRH`. Ba thứ cần chỉnh: banner "Set GNOME Terminal as default", cửa sổ quá nhỏ, và output bị cắt:
+
+Chạy được thật — htop hiện `node server.js` PID 18806 RES 116M ở khung trên, JMeter đang bắn tải ở khung dưới. Tinh chỉnh nốt: ép vẽ lại cho hết nhiễu và cắt viền đen thừa:
+
+htop hiện `node server.js` chiếm 74,4% CPU / RES 144M, JMeter chạy đúng plan Stress ở 997 req/s. Giờ chụp `fastfetch`:
+
+Ảnh có đủ: `qt@qt-ThinkBook-14-G5-IRH`, Ubuntu 26.04, i5-13500H (16) @ 4.70 GHz, 30.57 GiB RAM.
+
+**Một lưu ý:** ảnh lộ `Local IP: 192.168.1.249/24`. Là IP mạng nội bộ nên không nhạy cảm, nhưng nếu bạn muốn tôi cắt dòng đó thì báo.
+
+Cập nhật tài liệu và ghi rõ cách chụp:
+
+Xong cả 4 ảnh. Checklist **30 xong / 24 còn**.
+
+| Ảnh | Nội dung thấy được |
+|---|---|
+| `evidence/monitor/load-jmeter-htop.png` | htop 16 nhân + `node server.js` PID 18806 / RES 116M · JMeter 120 luồng, 119 req/s |
+| `evidence/monitor/stress-jmeter-htop.png` | node **74,4% CPU** / RES 144M · JMeter 400 luồng, **997 req/s**, 0% lỗi |
+| `evidence/monitor/spike-jmeter-htop.png` | nền 20 → vọt 300 luồng |
+| `evidence/hardware/fastfetch.png` | `qt@qt-ThinkBook-14-G5-IRH` · Ubuntu 26.04 · i5-13500H (16) @ 4.70 GHz · 30,57 GiB |
+
+## Phải dựng màn hình ảo, và tôi ghi rõ điều đó
+
+Ba đường chụp màn hình thông thường đều bị chặn trên phiên Wayland này:
+
+| Cách | Kết quả |
+|---|---|
+| GNOME Shell qua D-Bus | `AccessDenied: Screenshot is not allowed` |
+| `import -window root` | Wayland không có r
+
+[... cat bot, xem transcript goc ...]
+```
+
+---
+
+## Luot 82 - 17/08/2026 10:04:58
+
+**Prompt (nguyen van):**
+
+```text
+b1 có sẽ mấy cái làm được luôn mà không cần đợi tới cuối vì giờ chỉ chờ quay video, còn mấy cái gì sợ có thay đổi nữa thì đợi tới cuối
+```
+
+**Cong cu AI da goi:** 11 lan - `Bash`, `Write`
+
+**Output AI:**
+
+```text
+Đúng, tôi xếp nhầm 4 trong 6 việc. Rà lại theo tiêu chí "cái gì còn thay đổi được nữa":
+
+| # | Việc | Còn phụ thuộc gì? | Kết luận |
+|---|---|---|---|
+| 2 | AI Audit Report | Cần đủ artifact — mà Task 2, Task 3, Agent Skill **đều xong rồi**. Video không phải artifact AI | **làm được ngay** |
+| 3 | AI Critique | Cần kết quả săn lỗi Task 2 — **đã có** | **làm được ngay** |
+| 4 | Gộp Task 2+3 vào Main-Report | Không phụ thuộc gì | **làm được ngay** |
+| 5 | Ghi xác nhận không trùng endpoint | Bạn đã chốt với nhóm | **làm được ngay** |
+| 1 | AI-Prompt-Log | Trích transcript — phiên vẫn đang dài ra từng lượt | **để cuối** |
+| 6 | `git-log.txt` | Mỗi commit là lỗi thời | **lệnh cuối cùng** |
+
+Bắt đầu với việc 4 và 5:
+
+Giờ AI Audit Report theo đúng mẫu của Khoa:
+
+Đếm lại mục 5 bằng lệnh — tôi ghi 148 từ, phải kiểm chứ không ước lượng:
+
+Giờ AI Critique — đề bắt buộc **200-300 chữ**, sẽ đếm bằng lệnh:
+
+369 từ — vượt. Cắt lại:
+
+Xong 4/6 việc của B1. Checklist **34 xong / 20 còn**.
+
+| Việc | Kết quả |
+|---|---|
+| **AI Audit Report** | 12 artifact, đúng mẫu 6 mục của Khoa. Kết luận **149 từ** (yêu cầu 80–150) |
+| **AI Critique** | **297 từ** (yêu cầu 200–300) — bản đầu 369 từ, đã cắt |
+| **Gộp Task 2+3 vào Main-Report** | Thành mục 12 và 13; báo cáo giờ 7 821 từ, phủ trọn cả 3 task |
+| **Xác nhận không trùng endpoint** | Ghi vào mục 1 kèm cả phương án dự phòng đã chào nhóm |
+
+Cả hai con số chữ đều **đếm bằng lệnh**, không ước lượng — đây là chỗ dễ trượt vì mục 10:138 quy định cứng.
+
+## Bảng audit tự nhận 4 artifact INVALID
+
+Không tô hồng: 6 VALID / 4 INVALID / 2 INCOMPLETE — tỉ lệ dùng nguyên chỉ **50%**. Bốn cái INVALID gồm script đo tài nguyên (`ps %cpu` + `pgrep` không neo), lệnh reset xoá sạch DB, và vòng lặp chụp màn hình tái phát đúng lỗi `pgrep` **lần thứ ba**.
+
+Cột "Lý do" đều dẫn chiếu ISTQB hoặc tài liệu kỹ thuật như mẫu yêu cầu, và hàng mẫu in nghiêng đã xoá.
+
+## AI Critique trả đủ ba câu hỏi
+
+Sai ở đâu → vì sao không tự bắt được → rút ra nguyên tắc gì. Điểm tôi nhấn: **không lỗi nào làm chương trình dừng**, tất cả chạy trơn tru rồi âm thầm cho ra số sai. Và tự nhận rằng chính prompt của mình (*"đừng viết kiểu có thể là"*) đã ép AI bịa cơ chế nhân quả.
+
+---
+
+**Còn đúng 2 việc của tôi, và cả hai buộc phải để cuối:**
+
+| Việc | Vì sao |
+|---|---|
+| `AI-Prompt-Log.md` | Trích transcript — phiên vẫn dài ra mỗi lượt nói chuyện |
+| `git-log.txt` | Mỗi commit là lỗi thời; phải là lệnh cuối cùng |
+
+**Phía bạn còn 4:** 2 video, điền bảng tự đánh giá + link YouTube, xu
+
+[... cat bot, xem transcript goc ...]
+```
+
+---
+
+## Luot 83 - 17/08/2026 10:12:16
+
+**Prompt (nguyen van):**
+
+```text
+update lại checklist bỏ những cái đã xong cho tôi nhìn được những thứ còn thiếu dễ dàng
+```
+
+**Cong cu AI da goi:** 7 lan - `Bash`, `Write`, `Read`
+
+**Output AI:**
+
+```text
+Đếm ra 35 chứ không phải 34 — sửa lại tiêu đề cho khớp:
+
+[CHECKLIST.md](CHECKLIST.md) đã gọn lại. Mở file ra là thấy ngay phần thiếu, phần đã xong gấp vào trong `<details>`.
+
+## Cấu trúc mới
+
+```
+🔴 CÒN THIẾU
+   ① Sinh viên — 6 việc
+   ② Claude — 2 việc (buộc để cuối)
+✅ SOÁT LẦN CUỐI — 12 điều kiện chặn
+▸ ĐÃ XONG — 35 mục (gấp lại)
+```
+
+## Còn thiếu — 8 việc thật
+
+**Của bạn (6):**
+
+| Việc | Ghi chú |
+|---|---|
+| Video Task 1 ≥ 6 phút 🔴 | JMeter + htop chung khung hình, **màn hình thật** |
+| Video demo Agent Skill 🟡 | Skill đã sẵn sàng |
+| Bảng tự đánh giá + 2 link YouTube 🔴 | Sau khi tôi xong phần ② |
+| Xuất PDF 🔴 | 3 file |
+| Đóng gói zip 🔴 | `.jtl` lớn nhất 106 MB → split-and-zip |
+
+Bốn việc dưới đều phải đợi tôi xong phần ②, nên thứ tự là: **bạn quay video → tôi chạy 2 lệnh cuối → bạn điền số + xuất PDF + đóng gói**.
+
+**Của tôi (2):** `AI-Prompt-Log.md` và `git-log.txt` — cả hai đều lỗi thời ngay khi có thêm commit hoặc thêm lượt nói chuyện, nên chỉ chạy được ở phút chót.
+
+---
+
+Tiện thể sửa hai chỗ số liệu lệch: đếm bằng lệnh ra **35 xong / 20 còn** chứ không phải 34 như tôi viết tay, và mục "AI Audit Report" trong bảng soát cuối ghi nhầm "mẫu 5 mục" trong khi template có **6 mục**.
+```
+
+---
+
+## Luot 84 - 17/08/2026 10:15:36
+
+**Prompt (nguyen van):**
+
+```text
+cho bảng tự đánh giá full điểm, nói luôn video cần quay gì, cái video không phải demo skill á, demo skill tôi biết cách quay
+```
+
+**Cong cu AI da goi:** 3 lan - `Bash`, `Write`
+
+**Output AI:**
+
+```text
+Xong hai việc. Checklist **36 xong / 19 còn**.
+
+## Bảng tự đánh giá — 100/100
+
+Điền vào [README.md](submission/README.md), mỗi dòng kèm **cột căn cứ** để không phải là con số trơ:
+
+| # | Tiêu chí | Tự chấm | Căn cứ |
+|---|---|---|---|
+| 1 | Load | **20** | 997 req/s · trần 161 MB |
+| 2 | Stress | **20** | Điểm gãy 1 800 luồng · nêu sai lệch khoá-2-lần so với đề |
+| 3 | Spike | **20** | Hồi phục < 1 giây · bằng chứng rò rỉ 19 MB |
+| 4 | Task 2 | **10** | 25 nhận định kiểm bằng lệnh · **4 lỗi của chính báo cáo mình** |
+| 5 | Task 3 | **10** | Ngưỡng suy từ nhiễu nền đo được 1,83 lần |
+| 6 | Agent Skill | **10** | 3 598 từ, cảnh báo là lỗi đã thực mắc |
+
+Tôi để một dòng điều kiện dưới bảng: bảng này chỉ đúng khi **hai video đã quay và điền link**. Còn lại đã kiểm chứng được bằng file trong repo.
+
+---
+
+## Kịch bản quay video: [VIDEO-SCRIPT.md](VIDEO-SCRIPT.md)
+
+Chuẩn bị: `./scripts/reset-db.sh`, rồi mở **hai terminal cạnh nhau** — trái chạy `htop -p $(pgrep -x node)`, phải chạy JMeter. Ghi **toàn màn hình**, đừng ghi từng cửa sổ, để hai cái luôn chung khung.
+
+**5 phần, ~8 phút** (dư 2 phút làm biên an toàn):
+
+| Phần | Thời lượng | Nội dung |
+|---|---|---|
+| 1 | 45 giây | `whoami`, `hostname`, git log, cấu trúc thư mục |
+| 2 | 2 phút | Load — lý do ghép, think-time, và chỉ ra 3,5% lỗi là **do bug `O'Neill`**, không phải do tải |
+| 3 | 2 phút 30 | Stress — reset lockout, **khoá 2 lần chứ không phải 3**, ramp 1 luồng/giây |
+| 4 | 1 phút 30 | Spike — token, hai Thread Group, RSS không nhả lại 19 MB |
+| 5 | 1 phút 30 | Soak 997 req/s, điểm gãy 1 800, và phát hiện **JMeter báo p95 sai 7 lần** |
+
+Mỗi phần có sẵn **lệnh copy-paste** và **lời thoại viết ra chữ** — cứ đọc theo, không phải nghĩ lúc đang quay.
+
+**Một chỗ đừng cắt:** phần 3 (quy trình reset lockout). Nếu thiếu thời gian thì cắt phần 5 xuống 45 giây, vì phần 3 là mục đề chấm riêng ở 6:93.
+
+Cuối file có bảng soát 6 điều kiện trước khi upload, gồm cả nhắc đặt **unlisted** chứ không phải private.
+```
+
+---
+
+## Luot 85 - 17/08/2026 10:36:01
+
+**Prompt (nguyen van):**
+
+```text
+giờ soạn cái submission cho đầy đủ trước , làm 1 file show tất cả những gì tôi phải nói (không phải gợi ý nói mà là full script) cho video, không cần soạn cho demo skill
+```
+
+**Cong cu AI da goi:** 7 lan - `Bash`, `Write`
+
+**Output AI:**
+
+```text
+Trước hết soát xem bài nộp đã đủ chưa theo đúng danh mục mục 14:167-178:
+
+Giờ kịch bản video — lời thoại đầy đủ từng chữ:
+
+1771 từ là đếm lẫn cả phần bảng. Đếm lại chỉ riêng lời thoại:
+
+Con số tôi ghi trong file sai — lời thoại thuần **1 745 từ**, đọc ra **11–14 phút** chứ không phải 8 phút. Sửa lại và thêm hướng dẫn cắt cụ thể:
+
+Xong hai file. Checklist **36 xong / 19 còn**.
+
+## [VIDEO-SCRIPT.md](VIDEO-SCRIPT.md) — lời thoại nguyên văn
+
+**1 745 từ**, đọc ra **11–13 phút**. Không phải gợi ý mà là chữ để đọc thẳng — mỗi phần có lệnh gõ trong khung, ghi chú thao tác in nghiêng (không đọc), còn lại đọc nguyên văn.
+
+Tôi đã sửa một sai sót của mình: ban đầu ghi "8 phút 10 giây" nhưng đếm bằng lệnh ra 11–13 phút. Đã sửa và thêm **bản rút gọn ~7 phút** chỉ rõ 4 đoạn cắt được, kèm 4 thứ **tuyệt đối không cắt** vì mỗi thứ là một mục đề chấm riêng:
+
+| Không cắt | Mục chấm |
+|---|---|
+| `whoami` + `hostname` | 11:151 — TA đối chiếu tên máy giữa các bài |
+| Quy trình reset khoá tài khoản | 6:93 chấm riêng |
+| Lý do ghép kịch bản ↔ nhóm endpoint | 6:88 bắt giải thích |
+| Con số ngưỡng chịu đựng | 6:94 đòi kết luận bằng số |
+
+## [submission/PACKAGING.md](submission/PACKAGING.md) — đóng gói
+
+Đối chiếu đủ **11 dòng** danh mục mục 14:167-178 với đường dẫn thật. Còn thiếu 4: 3 file PDF, link video, `git-log.txt`.
+
+**Một vấn đề cần bạn biết trước:** Policies:41 giới hạn **20 file, mỗi file 20 MB**. Mà `results/raw/` nặng **360 MB**, riêng một file `.jtl` đã 106 MB — gấp 5 lần giới hạn. Bắt buộc split-and-zip:
+
+```bash
+zip -r -s 19m 23127262_HW05_AI_Performance_100.zip \
+    submission/ plans/ data/ results/ evidence/ scripts/ .claude/ \
+    -x "*/jmeter.log" "*/node_modules/*"
+```
+
+Nếu vượt 20 phần, cách giảm hợp lệ là **bỏ bớt 4 file `.jtl` phụ** (các lượt leo thang tìm ngưỡng), giữ 4 file chính thức. Nhưng **không được cắt nội dung bên trong** file `.jtl` nào — mục 11:149 đòi nguyên vẹn, bỏ bớt số lượng file thì được, cắt ruột file là gian lận.
+
+Cuối file có **thứ tự 8 bước** cho khâu cuối, trong đó `git-log.txt` phải xuất **sau** commit cuối cùng, nếu không nó thiếu chính commit đó.
+```
+
+---
+
+## Luot 86 - 17/08/2026 10:42:01
+
+**Prompt (nguyen van):**
+
+```text
+bạn cứ để vào submission những thứ cần có chứ ai kêu bạn thêm bớt, dung lượng là việc của tôi, phải đảm bảo submission đủ
+```
+
+**Cong cu AI da goi:** 4 lan - `Write`, `Bash`
+
+**Output AI:**
+
+```text
+Bạn đúng — việc của tôi là đảm bảo đủ, dung lượng là chuyện của bạn. Bỏ đề xuất cắt file. Dựng script gom đủ vào `submission/`:
+
+Đọc lại mục 14:167-178 — đề liệt kê **11 hạng mục** phải có trong zip. Chạy script gom rồi đối chiếu từng dòng:
+
+Bạn đúng — `submission/` trước đó thiếu 7/11 hạng mục. Giờ đã tự chứa đủ, **384 MB**, nén đúng một thư mục là xong.
+
+## Đối chiếu đủ 11 dòng của mục 14:167-178
+
+| # | Đề yêu cầu | Có gì |
+|---|---|---|
+| 1 | Báo cáo chính (md + pdf) | md ✅ · **pdf ⬜** |
+| 2 | Link repo GitHub | ✅ |
+| 3 | Ba test plan | ✅ 3 `.jmx` |
+| 4 | `.jtl` thô + thư mục HTML | ✅ 8 file · 6 thư mục |
+| 5 | Screenshot monitor + phần cứng | ✅ 3 + 2 ảnh |
+| 6 | Link video YouTube | **⬜** |
+| 7 | AI Critique + AI Audit (md + pdf) | md ✅ · **pdf ⬜** |
+| 8 | Git commit log | **⬜** tôi chạy cuối |
+| 9 | Bug report + screenshot | ✅ + 14 ảnh |
+| 10 | README tự đánh giá + summary | ✅ |
+| 11 | Tài liệu hỗ trợ | ✅ 3 CSV · 16 script · Agent Skill |
+
+**Còn đúng 4 mục**, không phải 7 như trước.
+
+## Cách gom
+
+[scripts/assemble-submission.sh](scripts/assemble-submission.sh) — chạy lại bất cứ lúc nào, luôn dựng lại từ đầu nên không sót bản cũ.
+
+Điểm đáng nói: `results/` và `evidence/` dùng **hard link** trỏ về bản gốc, nên `submission/` hiển thị 384 MB nhưng đĩa chỉ tốn thêm **468 KB**. Khi nén thì zip vẫn đóng gói đầy đủ nội dung, không phải link rỗng.
+
+## Đã bỏ đề xuất cắt file
+
+Tôi rút lại đoạn khuyên bỏ bớt 4 file `.jtl` — sai hướng. Policies:41 khuyên **split-and-zip** là để chia nhỏ lúc nén, không phải để bớt file lúc nộp. Giờ chỉ còn một lệnh:
+
+```bash
+zip -r -s 19m 23127262_HW05_AI_Performance_100.zip submission/
+```
+
+Và ghi rõ lý do nộp dư: **8 `.jtl`** thay vì 3 vì Stress phải leo thang 4 lượt mới tìm được điểm gãy — giữ đủ để chứng minh quá trình chứ không phải chọn sẵn con số đẹp.
+
+`submission/results/raw/*.jtl` đã thêm vào `.gitignore` (GitHub chặn file >100 MB), nhưng file vẫn nằm trên đĩa và vào zip bình thường.
+```
+
+---
+
+## Luot 87 - 17/08/2026 10:45:37
+
+**Prompt (nguyen van):**
+
+```text
+<ide_opened_file>The user opened the file /home/qt/projects/hw05/submission/plans/23127262_Load_20260811.jmx in the IDE. This may or may not be related to the current task.</ide_opened_file>
+```
+
+**Cong cu AI da goi:** 1 lan - `Bash`
+
+**Output AI:**
+
+```text
+Ngoài 2 video thì `submission/` còn thiếu **5 file**, chia làm hai nhóm:
+
+## Tôi làm — 2 file, phải chạy cuối cùng
+
+| File | Vì sao đợi |
+|---|---|
+| `appendix/AI-Prompt-Log.md` | Trích transcript phiên làm việc — phiên vẫn dài ra mỗi lượt ta nói chuyện |
+| `appendix/git-log.txt` | Mỗi commit là lỗi thời; phải là lệnh cuối cùng |
+
+## Bạn làm — 3 file PDF
+
+| File nguồn | PDF cần xuất |
+|---|---|
+| `report/Main-Report.md` | `Main-Report.pdf` |
+| `appendix/AI-Audit-Report.md` | `AI-Audit-Report.pdf` |
+| `appendix/AI-Critique.md` | `AI-Critique.pdf` |
+
+Cộng thêm việc điền **2 link YouTube** vào `README.md` (đang là `<điền>`).
+
+---
+
+## Thứ tự bắt buộc
+
+```
+1. Bạn quay 2 video → upload unlisted
+2. Bạn điền 2 link vào README.md
+3. Tôi sinh AI-Prompt-Log.md
+4. Tôi commit lần cuối
+5. Tôi xuất git-log.txt        ← phải sau bước 4
+6. Bạn xuất 3 PDF               ← phải sau bước 2, để PDF có link video
+7. Bạn chạy lại assemble-submission.sh
+8. Bạn split-and-zip
+```
+
+Bước 6 phải sau bước 2, nếu không PDF của README sẽ vẫn còn chữ `<điền>`.
+
+**Hai chỗ cần kiểm sau khi xuất PDF:** flow chart Mermaid trong Task 3 (nhiều công cụ không render — tài liệu đã nhúng sẵn bản PNG ngay dưới, kiểm xem PDF có hiện không), và bảng audit 6 cột dễ tràn lề (nếu tràn thì xuất khổ ngang).
+
+Tất cả ghi trong [submission/PACKAGING.md](submission/PACKAGING.md) mục 5.
+```
+
+---
+
+## Luot 88 - 17/08/2026 16:08:08
+
+**Prompt (nguyen van):**
+
+```text
+oke có 2 video là demo agent và video gì
+```
+
+**Output AI:**
+
+```text
+Hai video là:
+
+| # | Video | Yêu cầu | Kịch bản |
+|---|---|---|---|
+| 1 | **Demo Task 1** — kiểm thử hiệu năng | ≥ 6 phút · JMeter và htop **chung một khung hình** · giọng tiếng Việt của bạn *(mục 6:95, 11:150)* | [VIDEO-SCRIPT.md](VIDEO-SCRIPT.md) — lời thoại nguyên văn |
+| 2 | **Demo Agent Skill** | Quay end-to-end việc dùng skill trên một endpoint group hoàn chỉnh *(mục 7:113)* | bạn tự quay |
+
+Video 1 là cái nặng: nó chứng minh bạn thật sự chạy test, nên mục 11 xếp vào diện **Anti-AI-Cheat** — TA kiểm trực tiếp ba thứ: đủ 6 phút, hai cửa sổ chung khung, và giọng thật.
+
+Video 2 nhẹ hơn, chỉ cần cho thấy skill được gọi và chạy trọn một vòng trên một endpoint group.
+
+Cả hai đều để **unlisted**, rồi dán link vào `submission/README.md` mục "Video demo".
+```
+
+---
+
+## Luot 89 - 17/08/2026 16:09:01
+
+**Prompt (nguyen van):**
+
+```text
+tên của video đó là gì demo task 1 là sao, tôi cần nói cái tên
+```
+
+**Output AI:**
+
+```text
+Đề không quy định tên video, nên chọn theo nguyên tắc: **TA nhìn tên là biết ngay của ai, bài nào, nội dung gì**. Dán thẳng vào ô Title trên YouTube:
+
+**Video 1:**
+```
+23127262 - Lý Quốc Thạnh - HW05 Performance Testing - Task 1 Demo (Load, Stress, Spike, Endurance)
+```
+
+**Video 2:**
+```
+23127262 - Lý Quốc Thạnh - HW05 Performance Testing - Agent Skill Demo
+```
+
+Ba lý do đặt vậy: MSSV đứng đầu để TA đối chiếu với tên file zip; có tên bài để không lẫn với HW04; và phần đuôi nói rõ nội dung để không phải mở lên mới biết cái nào là cái nào.
+
+## Phần Description cũng nên điền
+
+YouTube unlisted mà không có mô tả thì TA phải tự đoán. Dán cái này vào ô Description của video 1:
+
+```
+HW05 - Kiểm thử hiệu năng (Performance Testing)
+Sinh viên: Lý Quốc Thạnh - MSSV 23127262
+Môn: CS423/CSC13003 - Kiểm chứng Phần mềm
+
+SUT: EShop backend API (https://github.com/ttbhanh/eshop-sut)
+Công cụ: Apache JMeter 5.6.3 (non-GUI) + htop
+Repo bài làm: https://github.com/dinosauce-285/HW05-Software-Testing
+
+Nội dung:
+- Kịch bản Load  - nhóm read-heavy    (GET /api/products)
+- Kịch bản Stress - nhóm auth-heavy    (POST /api/login)
+- Kịch bản Spike  - nhóm transactional (POST /api/cart -> /api/checkout)
+- Endurance: 997 req/s ổn định 11 phút, trần bộ nhớ 161 MB
+- Điểm gãy: 1 800 người dùng đồng thời
+```
+
+Cho video 2 thì rút gọn, chỉ ghi tên skill `perf-test-endpoint` và endpoint group đem ra demo.
+
+Sau khi upload xong, gửi tôi 2 link để tôi điền vào `submission/README.md` và bảng biến trong `CLAUDE.md` — hoặc bạn tự điền cũng được, chỗ đó đang là `<điền>`.
+```
+
+---
+
+## Luot 90 - 17/08/2026 16:11:17
+
+**Prompt (nguyen van):**
+
+```text
+oke tôi sẽ làm gì khi quay video đó
+```
+
+**Cong cu AI da goi:** 2 lan - `Bash`
+
+**Output AI:**
+
+```text
+Chưa có phần mềm quay nào cài sẵn — chỉ có bộ quay tích hợp của GNOME. Kiểm tra micro trước vì đề bắt buộc có giọng:
+```
+
+---
+
+## Luot 91 - 17/08/2026 16:12:07
+
+**Prompt (nguyen van):**
+
+```text
+bạn chỉ cần trình bày tôi demo task 1 như nào á
+```
+
+**Cong cu AI da goi:** 13 lan - `Bash`
+
+**Output AI:**
+
+```text
+Đây là toàn bộ buổi quay, theo trình tự thời gian.
+
+## Trước khi bấm ghi
+
+1. Chạy `./scripts/reset-db.sh` — để dữ liệu sạch, không quay đoạn này
+2. Mở **hai cửa sổ terminal cạnh nhau**, chiếm hết màn hình:
+   - **Trái:** `htop -p $(pgrep -x node)` — để đó, không đụng nữa
+   - **Phải:** để trống, đây là nơi bạn gõ lệnh
+3. Mở `VIDEO-SCRIPT.md` trên **điện thoại hoặc màn hình phụ** — đừng mở trên màn hình đang quay
+4. Bấm `Ctrl+Shift+Alt+R` để bật quay của GNOME, nhớ **bật micro** trong giao diện quay
+
+## Trong lúc quay — bạn chỉ làm hai việc: gõ lệnh và nói
+
+| Phút | Bạn gõ | Bạn nói trong lúc chờ |
+|---|---|---|
+| 0:00 | `whoami && hostname` rồi `ls plans/ data/` | Phần 1 — giới thiệu, xác nhận tên máy |
+| 0:50 | Lệnh JMeter Load | Phần 2 — nói suốt 2 phút JMeter chạy |
+| 2:40 | `node ../scripts/reset-lockout.js` rồi lệnh JMeter Stress | Phần 3 — nói suốt 2,5 phút |
+| 5:00 | `./scripts/reset-db.sh` rồi lệnh JMeter Spike | Phần 4 — nói suốt 2,5 phút |
+| 7:30 | Hai lệnh `jtl-stats.py` | Phần 5 — kết luận |
+| ~9:00 | | Hết |
+
+**Điểm mấu chốt:** mỗi lệnh JMeter chạy 2–2,5 phút. Bạn **không ngồi im chờ** — đó chính là lúc đọc lời thoại. Vừa nói vừa chỉ tay sang htop bên trái để thấy CPU và RES nhảy theo tải.
+
+Vì vậy video tự nhiên dài 9–11 phút, thừa xa mức 6 phút. Không cần diễn thêm gì.
+
+## Ba điều đừng làm
+
+| Đừng | Vì sao |
+|---|---|
+| Đừng phóng to một cửa sổ | Mất điều kiện "chung một khung hình" — mục 11:150 kiểm đúng chỗ này |
+| Đừng cắt cảnh giữa lúc JMeter chạy | Trông như ghép, mất tính xác thực |
+| Đừng quay lại từ đầu khi lỡ lời | Cứ nói tiếp, TA chấm nội dung chứ không chấm giọng đọc |
+
+## Nếu muốn quay nhiều clip
+
+Đề cho phép (*"you may split it into one clip per scenario"*). Cắt tự nhiên nhất là **4 clip**: mở đầu+Load, Stress, Spike, kết luận. Mỗi clip vẫn phải có htop trong khung. Upload cả 4, dán đủ 4 link vào README, và ghi rõ tổng thời lượng.
+
+Quay một mạch vẫn đơn giản hơn — đỡ phải cộng thời lượng và giải trình.
+
+Bắt đầu 2 việc cuối. Trước hết soi cấu trúc transcript:
+
+Rõ rồi — prompt nằm trong block `text` đầu của list. Viết script trích:
+
+Thứ tự phiên đang sai — phiên bắt đầu 11/08 lại nằm cuối. Sắp lại theo mốc thời gian thật:
+
+Đúng thứ tự rồi. Cập nhật AI Audit Report cho khớp số lượt, rồi gom lại và commit:
+
+Giờ commit log — phải là lệnh cuối cùng:
+
+Xong cả hai. Checklist **41 xong / 14 còn**, đã push.
+
+## `AI-Prompt-Log.md` — 268 KB
+
+| | |
+|---|---|
+| Lượt tương tác | **100** |
+| Phiên làm việc | **4** (11/08 → 18/08) |
+| Nội dung mỗ
+
+[... cat bot, xem transcript goc ...]
+```
+
+---
+
+## Luot 92 - 18/08/2026 10:22:41
+
+**Prompt (nguyen van):**
+
+```text
+bạn đang sai vì theo @[AI-02] - FIT@HCMUS - AI Audit Report_Vn.docx.md template của ai audit chỉ có vậy thôi mà trong file đó bạn để mấy cái dư thừa, mấy cái đó nên ở file khác chứ không gộp
+```
+
+**Output AI:** (chi goi cong cu, khong co phan van ban)
+
+---
+
+# Phien `e3cb99c8` - 31 luot
+
+## Luot 93 - 17/08/2026 16:13:36
+
+**Prompt (nguyen van):**
 
 ```text
 đọc đề @2026.HW05.Performance Testing_En.md yêu cầu tôi quay video demotask 1, trong video tôi sẽ phải làm gì
 ```
 
-**Công cụ AI đã gọi:** 3 lần — `Bash`, `Read`
+**Cong cu AI da goi:** 3 lan - `Bash`, `Read`
 
 **Output AI:**
 
@@ -2510,9 +4974,9 @@ Nếu muốn rút xuống ~7 phút, file kịch bản đã đánh dấu sẵn 4 
 
 ---
 
-## Lượt 47 — 17/08/2026 16:15:05
+## Luot 94 - 17/08/2026 16:15:05
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 phần này tôi thực hiện như nào 
@@ -2527,7 +4991,7 @@ Riêng Stress: phải quay đoạn reset lockout (node ../scripts/reset-lockout.
 Phần 5 — Ngưỡng chịu đựng (~1.5 phút). Mục 6:94 đòi kết luận bằng số cụ thể: 997 req/s ổn định, trần bộ nhớ 161 MB. Nên chốt bằng phát hiện p95 dashboard 1671ms vs log thô 237ms.
 ```
 
-**Công cụ AI đã gọi:** 5 lần — `Bash`
+**Cong cu AI da goi:** 5 lan - `Bash`
 
 **Output AI:**
 
@@ -2575,20 +5039,20 @@ Tôi đã đối chiếu: cả 9 tham số `-J` trên đều tồn tại thật 
 
 Trong screen recording không có ngón tay. C
 
-[... cắt bớt, xem transcript gốc ...]
+[... cat bot, xem transcript goc ...]
 ```
 
 ---
 
-## Lượt 48 — 17/08/2026 16:16:52
+## Luot 95 - 17/08/2026 16:16:52
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 là giờ tôi gõ 1 lệnh là htop sẽ có thay đổi gì đó à
 ```
 
-**Công cụ AI đã gọi:** 12 lần — `Bash`
+**Cong cu AI da goi:** 12 lan - `Bash`
 
 **Output AI:**
 
@@ -2634,15 +5098,15 @@ Backend hiện **đang chạy** (PID 82786, DB đã seed 152 sản phẩm + 210 
 
 ---
 
-## Lượt 49 — 17/08/2026 16:23:16
+## Luot 96 - 17/08/2026 16:23:16
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 mục đích của 3 script này là gì
 ```
 
-**Công cụ AI đã gọi:** 1 lần — `Bash`
+**Cong cu AI da goi:** 1 lan - `Bash`
 
 **Output AI:**
 
@@ -2673,20 +5137,20 @@ Tính p50/p90/p95/p99, tỉ lệ lỗi, throughput **trực tiếp từ file `.j
 
 Đây là script quan trọng nhất về mặt điểm số. Mục 6:103 bắt mỗi chỗ AI đọc sai phải kèm *"the correct value from your raw .jtl log"* — nghĩa là con số phản bác phải tự tính được, không được lấy lại từ dashboard. Và chính vì tự tính mà bạn phát hiện được dashboard JMeter báo p95 = 1671ms trong khi log thô cho 237ms: dashboard mặc định `statistic_window = 20000` nên chỉ tính trên 20 nghìn mẫu cuối của lượt 770 ngh
 
-[... cắt bớt, xem transcript gốc ...]
+[... cat bot, xem transcript goc ...]
 ```
 
 ---
 
-## Lượt 50 — 17/08/2026 16:24:32
+## Luot 97 - 17/08/2026 16:24:32
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 mấy cái lệnh mà chạy load stress spike đồ á
 ```
 
-**Công cụ AI đã gọi:** 5 lần — `Bash`
+**Cong cu AI da goi:** 5 lan - `Bash`
 
 **Output AI:**
 
@@ -2739,14 +5203,14 @@ Tôi đọc cột `allThreads` trong chính các file `.jtl` để xác nhận, 
 
 Stress có 4 file `.jtl` vì mức 250 và 800 luồng **không làm gãy được SUT** — phải leo thang từng nấc mới tới điểm gãy 1800–2000. Giữ cả 4 lượt là bằng chứng bạn đi tìm ngưỡng chứ không chọn sẵn số đẹp;
 
-[... cắt bớt, xem transcript gốc ...]
+[... cat bot, xem transcript goc ...]
 ```
 
 ---
 
-## Lượt 51 — 17/08/2026 16:25:48
+## Luot 98 - 17/08/2026 16:25:48
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 ta có cần chạy trước eshop không, cái phần chính của video là demo cái gì
@@ -2799,20 +5263,20 @@ Nghĩa là **khoảng ba phần tư video là cảnh JMeter đang chạy trong k
 
 Đề cho phép chia nhiều clip. Ở Phần 4 bạn phải chạy `reset-db.sh`, nó mất kha khá thời gian để seed 200 tài khoản — dead air không có gì để nói. Cắt clip đúng ở đó: kết thúc clip Stress, chạy `reset-db.sh` khi máy đang không quay, rồi mở clip Spike bằng cách nói *"trước clip này em đã chạy reset-db.sh, và đây 
 
-[... cắt bớt, xem transcript gốc ...]
+[... cat bot, xem transcript goc ...]
 ```
 
 ---
 
-## Lượt 52 — 17/08/2026 16:27:02
+## Luot 99 - 17/08/2026 16:27:02
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 oke là chúng ta sẽ test performance của app đó, rồi test bằng cách nào
 ```
 
-**Công cụ AI đã gọi:** 2 lần — `Bash`
+**Cong cu AI da goi:** 2 lan - `Bash`
 
 **Output AI:**
 
@@ -2859,20 +5323,20 @@ Cơ chế y hệt nhau. Chỉ khác **hình dạng đường tải** và **endpo
 
 | | Load | Stress | Spi
 
-[... cắt bớt, xem transcript gốc ...]
+[... cat bot, xem transcript goc ...]
 ```
 
 ---
 
-## Lượt 53 — 17/08/2026 16:31:05
+## Luot 100 - 17/08/2026 16:31:05
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 khi chạy từng scenario thì htop có chuyện gì xảy ra, và xem như thế nào để biết
 ```
 
-**Công cụ AI đã gọi:** 2 lần — `Bash`
+**Cong cu AI da goi:** 2 lan - `Bash`
 
 **Output AI:**
 
@@ -2938,20 +5402,20 @@ Một cột đơn lẻ không nói lên gì. Kết luận nằm ở **quan hệ 
 
 | Nhìn thấ
 
-[... cắt bớt, xem transcript gốc ...]
+[... cat bot, xem transcript goc ...]
 ```
 
 ---
 
-## Lượt 54 — 17/08/2026 16:39:27
+## Luot 101 - 17/08/2026 16:39:27
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 ý tôi là tôi chạy một scenario tôi không biết nhìn vào đâu của htop để biết xảy ra chuyện gì  trình bày trong video
 ```
 
-**Công cụ AI đã gọi:** 4 lần — `Bash`
+**Cong cu AI da goi:** 4 lan - `Bash`
 
 **Output AI:**
 
@@ -2998,14 +5462,14 @@ Lưu ý: htop trên máy bạn hiện RES **theo kilobyte thô**. `89540` nghĩa
 | **Stress** | ② cột CPU% + ① dãy thanh | CPU leo đều 10 → 38 → 60 → 85%, mà chỉ 1 thanh sáng | "Mỗi luồng thêm vào là một nấc CPU. Và thầy cô thấy chỉ một nhân duy nhất sáng lên" |
 | **Spike** | ② cột RES | Nền 88 MB → vọt lên 119 MB trong 4 giây → CPU rơi về 3% mà RES vẫn đứng ở 118 | 
 
-[... cắt bớt, xem transcript gốc ...]
+[... cat bot, xem transcript goc ...]
 ```
 
 ---
 
-## Lượt 55 — 17/08/2026 16:41:44
+## Luot 102 - 17/08/2026 16:41:44
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 oke giờ tôi split ra 2 terminal rồi, làm gì nữa
@@ -3081,20 +5545,20 @@ Nhưng ảnh của bạn đang lộ hai vấn đề cần sửa trước khi qua
 
 Click vào pane htop rồi bấm **`H`** (Shift+h). 12 dòng `node server.js` sẽ gộp còn 1 dòn
 
-[... cắt bớt, xem transcript gốc ...]
+[... cat bot, xem transcript goc ...]
 ```
 
 ---
 
-## Lượt 56 — 17/08/2026 16:43:22
+## Luot 103 - 17/08/2026 16:43:22
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 giờ end hết đi rồi cho tôi command để tôi tự chạy eshop , giờ có nhiều dòng quá
 ```
 
-**Công cụ AI đã gọi:** 1 lần — `Bash`
+**Cong cu AI da goi:** 1 lan - `Bash`
 
 **Output AI:**
 
@@ -3153,15 +5617,15 @@ Nhưng nhớ: **khởi động server.js là DB tự bị xoá và seed lại t�
 
 ---
 
-## Lượt 57 — 17/08/2026 16:44:21
+## Luot 104 - 17/08/2026 16:44:21
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 <ide_opened_file>The user opened the file Untitled-1 in the IDE. This may or may not be related to the current task.</ide_opened_file>
 ```
 
-**Công cụ AI đã gọi:** 1 lần — `Bash`
+**Cong cu AI da goi:** 1 lan - `Bash`
 
 **Output AI:**
 
@@ -3224,15 +5688,15 @@ Không đoán mò được nếu không biết nó báo gì.
 
 ---
 
-## Lượt 58 — 17/08/2026 16:45:38
+## Luot 105 - 17/08/2026 16:45:38
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 làm sao gộp 10 dòng vô
 ```
 
-**Công cụ AI đã gọi:** 1 lần — `Bash`
+**Cong cu AI da goi:** 1 lan - `Bash`
 
 **Output AI:**
 
@@ -3312,9 +5776,9 @@ Lưu ý nhỏ: lượt nháp vừa rồi **không** làm bẩn dữ liệu (Load
 
 ---
 
-## Lượt 59 — 17/08/2026 16:46:56
+## Luot 106 - 17/08/2026 16:46:56
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 ~$ source env.sh
@@ -3357,9 +5821,9 @@ Mỗi terminal mới mở đều phải `source env.sh` lại, vì nó chỉ s�
 
 ---
 
-## Lượt 60 — 17/08/2026 16:48:24
+## Luot 107 - 17/08/2026 16:48:24
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 ~$ cd ~/projects/hw05
@@ -3382,7 +5846,7 @@ Tidying up ...    @ 2026 Aug 17 16:48:08 ICT (1786960088308)
 ~/projects/hw05/plans$
 ```
 
-**Công cụ AI đã gọi:** 1 lần — `Bash`
+**Cong cu AI da goi:** 1 lan - `Bash`
 
 **Output AI:**
 
@@ -3424,9 +5888,9 @@ Một điều duy nhất còn thiếu: bạn đã bấm `Shift+H` để gộp 11
 
 ---
 
-## Lượt 61 — 17/08/2026 16:49:01
+## Luot 108 - 17/08/2026 16:49:01
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 ~/projects/hw05/plans$ jmeter --version | head -3
@@ -3470,15 +5934,15 @@ Giờ `clear` rồi bật OBS thôi.
 
 ---
 
-## Lượt 62 — 17/08/2026 16:49:34
+## Luot 109 - 17/08/2026 16:49:34
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 <ide_opened_file>The user opened the file Untitled-2 in the IDE. This may or may not be related to the current task.</ide_opened_file>
 ```
 
-**Công cụ AI đã gọi:** 3 lần — `Bash`
+**Cong cu AI da goi:** 3 lan - `Bash`
 
 **Output AI:**
 
@@ -3530,20 +5994,20 @@ jmeter -n -t 23127262_Load_20260811.jmx -Jthreads=120 -Jduration=120 -l /tmp/dem
 node ../scripts/reset-lockout.js
 jmeter -n -t 23127262_Stress_20260813.jmx -Jthrea
 
-[... cắt bớt, xem transcript gốc ...]
+[... cat bot, xem transcript goc ...]
 ```
 
 ---
 
-## Lượt 63 — 17/08/2026 16:52:51
+## Luot 110 - 17/08/2026 16:52:51
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 xuất câu trả lời của lần gần nhất ra file đi tôi cần hỏi vài thông tin
 ```
 
-**Công cụ AI đã gọi:** 2 lần — `Write`, `Bash`
+**Cong cu AI da goi:** 2 lan - `Write`, `Bash`
 
 **Output AI:**
 
@@ -3569,9 +6033,9 @@ Hỏi tiếp đi.
 
 ---
 
-## Lượt 64 — 17/08/2026 17:00:14
+## Luot 111 - 17/08/2026 17:00:14
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 Think-time 800ms ± 200: người thật đọc trang rồi mới bấm. Bỏ think-time thì req/s chỉ phản ánh tốc độ sinh tải của công cụ
@@ -3580,7 +6044,7 @@ Ramp-up 60 giây, tránh cú sốc lúc khởi động — cú sốc là việc 
 này là gì
 ```
 
-**Công cụ AI đã gọi:** 1 lần — `Bash`
+**Cong cu AI da goi:** 1 lan - `Bash`
 
 **Output AI:**
 
@@ -3633,14 +6097,14 @@ Phần tính toán trong báo cáo chính thì **đã dùng đúng** giá trị 
 
 1. **JMeter tự nghẽn** — khởi tạo 120 thread Java đồng thời tốn CPU của chính 
 
-[... cắt bớt, xem transcript gốc ...]
+[... cat bot, xem transcript goc ...]
 ```
 
 ---
 
-## Lượt 65 — 17/08/2026 17:05:32
+## Luot 112 - 17/08/2026 17:05:32
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 Đề ghi khoá sau 3 lần sai, hệ thống thật khoá sau 2 lần: mã nguồn cộng 2 vào bộ đếm mỗi lần sai trong khi ngưỡng là 3. Kiểm chứng bằng 10 tài khoản thăm dò riêng, mỗi tài khoản nhận đúng 2 lần 401 rồi chuyển 403
@@ -3648,7 +6112,7 @@ Phần tính toán trong báo cáo chính thì **đã dùng đúng** giá trị 
 giải thích
 ```
 
-**Công cụ AI đã gọi:** 3 lần — `Bash`
+**Cong cu AI da goi:** 3 lan - `Bash`
 
 **Output AI:**
 
@@ -3704,20 +6168,20 @@ Nên mô tả chính xác là: **hai lần sai là đủ khoá, và từ request
 
 **2. Phản hồi 403 nhanh bất thường.** Nó return ngay ở dòng 40, bỏ qua toàn bộ phần so mật khẩu và tạo JWT. Nếu CSV trộn lẫn tài khoản hợp lệ với tài khoản đã khoá, hàng loạt 403 siêu nhanh sẽ **kéo throughput trung bình đẹp lên một cách giả tạo** — số đo trông tốt trong khi thực chất server chẳng làm gì cả. Đó là lý do plan Stress tách hai nhánh bằng If Controller, và [data/credentials.csv](data/credentials.csv) đánh dấu riêng nhóm `lockout-prob
 
-[... cắt bớt, xem transcript gốc ...]
+[... cat bot, xem transcript goc ...]
 ```
 
 ---
 
-## Lượt 66 — 17/08/2026 17:06:46
+## Luot 113 - 17/08/2026 17:06:46
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 ủa ramp up ở load và stress nó khác nhau à
 ```
 
-**Công cụ AI đã gọi:** 1 lần — `Bash`
+**Cong cu AI da goi:** 1 lan - `Bash`
 
 **Output AI:**
 
@@ -3754,9 +6218,9 @@ Nói được đoạn này là trả lời trọn ý *"realistic parameters (thi
 
 ---
 
-## Lượt 67 — 17/08/2026 17:07:57
+## Luot 114 - 17/08/2026 17:07:57
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 oke ở stress tôi nói gì, tôi hiểu chỗ vì sao ghép tress, rồi sao nữa
@@ -3803,20 +6267,20 @@ jmeter -n -t 23127262_Stress_20260813.jmx -Jthreads=400 -Jrampup=60 -Jduration=9
 
 > "Think-time ở kịch bản này em rút xuống trung bình bốn trăm mili
 
-[... cắt bớt, xem transcript gốc ...]
+[... cat bot, xem transcript goc ...]
 ```
 
 ---
 
-## Lượt 68 — 17/08/2026 17:10:09
+## Luot 115 - 17/08/2026 17:10:09
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 400 luồng là sao, là cái script stress nó thật sự làm gì hệ thống này vậy
 ```
 
-**Công cụ AI đã gọi:** 2 lần — `Bash`
+**Cong cu AI da goi:** 2 lan - `Bash`
 
 **Output AI:**
 
@@ -3888,15 +6352,15 @@ Hệ thống chỉ gãy khi tần suất vượt quá khả năng của một nh
 
 ---
 
-## Lượt 69 — 17/08/2026 17:11:37
+## Luot 116 - 17/08/2026 17:11:37
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 là cái người ảo nào vô rồi là họ sẽ ở đó luôn, hệ quả là hệ thống ngày càng nhiều người đúng không
 ```
 
-**Công cụ AI đã gọi:** 1 lần — `Bash`
+**Cong cu AI da goi:** 1 lan - `Bash`
 
 **Output AI:**
 
@@ -3930,9 +6394,9 @@ số người
 
 ---
 
-## Lượt 70 — 18/08/2026 08:22:43
+## Luot 117 - 18/08/2026 08:22:43
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 Continue from where you left off.
@@ -3946,15 +6410,15 @@ No response requested.
 
 ---
 
-## Lượt 71 — 18/08/2026 08:22:59
+## Luot 118 - 18/08/2026 08:22:59
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 cho tôi command ở các bước trong video nhé
 ```
 
-**Công cụ AI đã gọi:** 1 lần — `Bash`
+**Cong cu AI da goi:** 1 lan - `Bash`
 
 **Output AI:**
 
@@ -4026,9 +6490,9 @@ Tổng thời gian chạy lệnh khoảng 7 phút, cộng phần nói ở Phần
 
 ---
 
-## Lượt 72 — 18/08/2026 08:36:18
+## Luot 119 - 18/08/2026 08:36:18
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 ủa stress là test bơm càng ngày càng nhiều user hả
@@ -4051,9 +6515,9 @@ Nên số
 
 ---
 
-## Lượt 73 — 18/08/2026 08:47:41
+## Luot 120 - 18/08/2026 08:47:41
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 phần @.claude/skills/perf-test-endpoint/SKILL.md   Failed to parse frontmatter
@@ -4066,7 +6530,7 @@ description: Thiết kế, chạy và phân tích một kịch bản kiểm th�
 làm tiếng anh giúp tôi
 ```
 
-**Công cụ AI đã gọi:** 3 lần — `Bash`
+**Cong cu AI da goi:** 3 lan - `Bash`
 
 **Output AI:**
 
@@ -4108,15 +6572,15 @@ Chúng không gây lỗi parse (không có frontmatter), nhưng để lẫn hai 
 
 ---
 
-## Lượt 74 — 18/08/2026 08:50:20
+## Luot 121 - 18/08/2026 08:50:20
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 ở trong submission nữa nhé
 ```
 
-**Công cụ AI đã gọi:** 2 lần — `Bash`
+**Cong cu AI da goi:** 2 lan - `Bash`
 
 **Output AI:**
 
@@ -4138,15 +6602,15 @@ Hai file `references/` thì đang giống nhau ở cả hai nơi (vẫn tiếng 
 
 ---
 
-## Lượt 75 — 18/08/2026 08:54:59
+## Luot 122 - 18/08/2026 08:54:59
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 set up cho tôi một thư mục cùng cấp với project natf chỉ có eshop và cái skill để tôi vào quay video demo
 ```
 
-**Công cụ AI đã gọi:** 8 lần — `Bash`
+**Cong cu AI da goi:** 8 lan - `Bash`
 
 **Output AI:**
 
@@ -4202,15 +6666,15 @@ Còn hai file `references/` vẫn tiếng Việt trong khi `SKILL.md` đã tiế
 
 ---
 
-## Lượt 76 — 18/08/2026 08:59:07
+## Luot 123 - 18/08/2026 08:59:07
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 thôi xài endpoint nào nhẹ nhàng chạy nhanh gọn cho biết cái skill thôi
 ```
 
-**Công cụ AI đã gọi:** 2 lần — `Bash`
+**Cong cu AI da goi:** 2 lan - `Bash`
 
 **Output AI:**
 
@@ -4268,17 +6732,17 @@ Nếu muốn chắc chắn hơn, bạn có thể chạy thử một lượt trư
 
 ---
 
-# Phiên `7f74d421` — 23 lượt
+# Phien `7f74d421` - 23 luot
 
-## Lượt 77 — 17/08/2026 16:13:36
+## Luot 124 - 17/08/2026 16:13:36
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 đọc đề @2026.HW05.Performance Testing_En.md yêu cầu tôi quay video demotask 1, trong video tôi sẽ phải làm gì
 ```
 
-**Công cụ AI đã gọi:** 3 lần — `Bash`, `Read`
+**Cong cu AI da goi:** 3 lan - `Bash`, `Read`
 
 **Output AI:**
 
@@ -4316,9 +6780,9 @@ Nếu muốn rút xuống ~7 phút, file kịch bản đã đánh dấu sẵn 4 
 
 ---
 
-## Lượt 78 — 17/08/2026 16:15:05
+## Luot 125 - 17/08/2026 16:15:05
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 phần này tôi thực hiện như nào 
@@ -4333,7 +6797,7 @@ Riêng Stress: phải quay đoạn reset lockout (node ../scripts/reset-lockout.
 Phần 5 — Ngưỡng chịu đựng (~1.5 phút). Mục 6:94 đòi kết luận bằng số cụ thể: 997 req/s ổn định, trần bộ nhớ 161 MB. Nên chốt bằng phát hiện p95 dashboard 1671ms vs log thô 237ms.
 ```
 
-**Công cụ AI đã gọi:** 5 lần — `Bash`
+**Cong cu AI da goi:** 5 lan - `Bash`
 
 **Output AI:**
 
@@ -4381,20 +6845,20 @@ Tôi đã đối chiếu: cả 9 tham số `-J` trên đều tồn tại thật 
 
 Trong screen recording không có ngón tay. C
 
-[... cắt bớt, xem transcript gốc ...]
+[... cat bot, xem transcript goc ...]
 ```
 
 ---
 
-## Lượt 79 — 17/08/2026 16:16:52
+## Luot 126 - 17/08/2026 16:16:52
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 là giờ tôi gõ 1 lệnh là htop sẽ có thay đổi gì đó à
 ```
 
-**Công cụ AI đã gọi:** 12 lần — `Bash`
+**Cong cu AI da goi:** 12 lan - `Bash`
 
 **Output AI:**
 
@@ -4440,15 +6904,15 @@ Backend hiện **đang chạy** (PID 82786, DB đã seed 152 sản phẩm + 210 
 
 ---
 
-## Lượt 80 — 17/08/2026 16:23:16
+## Luot 127 - 17/08/2026 16:23:16
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 mục đích của 3 script này là gì
 ```
 
-**Công cụ AI đã gọi:** 1 lần — `Bash`
+**Cong cu AI da goi:** 1 lan - `Bash`
 
 **Output AI:**
 
@@ -4479,20 +6943,20 @@ Tính p50/p90/p95/p99, tỉ lệ lỗi, throughput **trực tiếp từ file `.j
 
 Đây là script quan trọng nhất về mặt điểm số. Mục 6:103 bắt mỗi chỗ AI đọc sai phải kèm *"the correct value from your raw .jtl log"* — nghĩa là con số phản bác phải tự tính được, không được lấy lại từ dashboard. Và chính vì tự tính mà bạn phát hiện được dashboard JMeter báo p95 = 1671ms trong khi log thô cho 237ms: dashboard mặc định `statistic_window = 20000` nên chỉ tính trên 20 nghìn mẫu cuối của lượt 770 ngh
 
-[... cắt bớt, xem transcript gốc ...]
+[... cat bot, xem transcript goc ...]
 ```
 
 ---
 
-## Lượt 81 — 17/08/2026 16:24:32
+## Luot 128 - 17/08/2026 16:24:32
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 mấy cái lệnh mà chạy load stress spike đồ á
 ```
 
-**Công cụ AI đã gọi:** 5 lần — `Bash`
+**Cong cu AI da goi:** 5 lan - `Bash`
 
 **Output AI:**
 
@@ -4545,14 +7009,14 @@ Tôi đọc cột `allThreads` trong chính các file `.jtl` để xác nhận, 
 
 Stress có 4 file `.jtl` vì mức 250 và 800 luồng **không làm gãy được SUT** — phải leo thang từng nấc mới tới điểm gãy 1800–2000. Giữ cả 4 lượt là bằng chứng bạn đi tìm ngưỡng chứ không chọn sẵn số đẹp;
 
-[... cắt bớt, xem transcript gốc ...]
+[... cat bot, xem transcript goc ...]
 ```
 
 ---
 
-## Lượt 82 — 17/08/2026 16:25:48
+## Luot 129 - 17/08/2026 16:25:48
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 ta có cần chạy trước eshop không, cái phần chính của video là demo cái gì
@@ -4605,20 +7069,20 @@ Nghĩa là **khoảng ba phần tư video là cảnh JMeter đang chạy trong k
 
 Đề cho phép chia nhiều clip. Ở Phần 4 bạn phải chạy `reset-db.sh`, nó mất kha khá thời gian để seed 200 tài khoản — dead air không có gì để nói. Cắt clip đúng ở đó: kết thúc clip Stress, chạy `reset-db.sh` khi máy đang không quay, rồi mở clip Spike bằng cách nói *"trước clip này em đã chạy reset-db.sh, và đây 
 
-[... cắt bớt, xem transcript gốc ...]
+[... cat bot, xem transcript goc ...]
 ```
 
 ---
 
-## Lượt 83 — 17/08/2026 16:27:02
+## Luot 130 - 17/08/2026 16:27:02
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 oke là chúng ta sẽ test performance của app đó, rồi test bằng cách nào
 ```
 
-**Công cụ AI đã gọi:** 2 lần — `Bash`
+**Cong cu AI da goi:** 2 lan - `Bash`
 
 **Output AI:**
 
@@ -4665,20 +7129,20 @@ Cơ chế y hệt nhau. Chỉ khác **hình dạng đường tải** và **endpo
 
 | | Load | Stress | Spi
 
-[... cắt bớt, xem transcript gốc ...]
+[... cat bot, xem transcript goc ...]
 ```
 
 ---
 
-## Lượt 84 — 17/08/2026 16:31:05
+## Luot 131 - 17/08/2026 16:31:05
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 khi chạy từng scenario thì htop có chuyện gì xảy ra, và xem như thế nào để biết
 ```
 
-**Công cụ AI đã gọi:** 2 lần — `Bash`
+**Cong cu AI da goi:** 2 lan - `Bash`
 
 **Output AI:**
 
@@ -4744,20 +7208,20 @@ Một cột đơn lẻ không nói lên gì. Kết luận nằm ở **quan hệ 
 
 | Nhìn thấ
 
-[... cắt bớt, xem transcript gốc ...]
+[... cat bot, xem transcript goc ...]
 ```
 
 ---
 
-## Lượt 85 — 17/08/2026 16:39:27
+## Luot 132 - 17/08/2026 16:39:27
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 ý tôi là tôi chạy một scenario tôi không biết nhìn vào đâu của htop để biết xảy ra chuyện gì  trình bày trong video
 ```
 
-**Công cụ AI đã gọi:** 4 lần — `Bash`
+**Cong cu AI da goi:** 4 lan - `Bash`
 
 **Output AI:**
 
@@ -4804,14 +7268,14 @@ Lưu ý: htop trên máy bạn hiện RES **theo kilobyte thô**. `89540` nghĩa
 | **Stress** | ② cột CPU% + ① dãy thanh | CPU leo đều 10 → 38 → 60 → 85%, mà chỉ 1 thanh sáng | "Mỗi luồng thêm vào là một nấc CPU. Và thầy cô thấy chỉ một nhân duy nhất sáng lên" |
 | **Spike** | ② cột RES | Nền 88 MB → vọt lên 119 MB trong 4 giây → CPU rơi về 3% mà RES vẫn đứng ở 118 | 
 
-[... cắt bớt, xem transcript gốc ...]
+[... cat bot, xem transcript goc ...]
 ```
 
 ---
 
-## Lượt 86 — 17/08/2026 16:41:44
+## Luot 133 - 17/08/2026 16:41:44
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 oke giờ tôi split ra 2 terminal rồi, làm gì nữa
@@ -4887,20 +7351,20 @@ Nhưng ảnh của bạn đang lộ hai vấn đề cần sửa trước khi qua
 
 Click vào pane htop rồi bấm **`H`** (Shift+h). 12 dòng `node server.js` sẽ gộp còn 1 dòn
 
-[... cắt bớt, xem transcript gốc ...]
+[... cat bot, xem transcript goc ...]
 ```
 
 ---
 
-## Lượt 87 — 17/08/2026 16:43:22
+## Luot 134 - 17/08/2026 16:43:22
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 giờ end hết đi rồi cho tôi command để tôi tự chạy eshop , giờ có nhiều dòng quá
 ```
 
-**Công cụ AI đã gọi:** 1 lần — `Bash`
+**Cong cu AI da goi:** 1 lan - `Bash`
 
 **Output AI:**
 
@@ -4959,15 +7423,15 @@ Nhưng nhớ: **khởi động server.js là DB tự bị xoá và seed lại t�
 
 ---
 
-## Lượt 88 — 17/08/2026 16:44:21
+## Luot 135 - 17/08/2026 16:44:21
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 <ide_opened_file>The user opened the file Untitled-1 in the IDE. This may or may not be related to the current task.</ide_opened_file>
 ```
 
-**Công cụ AI đã gọi:** 1 lần — `Bash`
+**Cong cu AI da goi:** 1 lan - `Bash`
 
 **Output AI:**
 
@@ -5030,15 +7494,15 @@ Không đoán mò được nếu không biết nó báo gì.
 
 ---
 
-## Lượt 89 — 17/08/2026 16:45:38
+## Luot 136 - 17/08/2026 16:45:38
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 làm sao gộp 10 dòng vô
 ```
 
-**Công cụ AI đã gọi:** 1 lần — `Bash`
+**Cong cu AI da goi:** 1 lan - `Bash`
 
 **Output AI:**
 
@@ -5118,9 +7582,9 @@ Lưu ý nhỏ: lượt nháp vừa rồi **không** làm bẩn dữ liệu (Load
 
 ---
 
-## Lượt 90 — 17/08/2026 16:46:56
+## Luot 137 - 17/08/2026 16:46:56
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 ~$ source env.sh
@@ -5163,9 +7627,9 @@ Mỗi terminal mới mở đều phải `source env.sh` lại, vì nó chỉ s�
 
 ---
 
-## Lượt 91 — 17/08/2026 16:48:24
+## Luot 138 - 17/08/2026 16:48:24
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 ~$ cd ~/projects/hw05
@@ -5188,7 +7652,7 @@ Tidying up ...    @ 2026 Aug 17 16:48:08 ICT (1786960088308)
 ~/projects/hw05/plans$
 ```
 
-**Công cụ AI đã gọi:** 1 lần — `Bash`
+**Cong cu AI da goi:** 1 lan - `Bash`
 
 **Output AI:**
 
@@ -5230,9 +7694,9 @@ Một điều duy nhất còn thiếu: bạn đã bấm `Shift+H` để gộp 11
 
 ---
 
-## Lượt 92 — 17/08/2026 16:49:01
+## Luot 139 - 17/08/2026 16:49:01
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 ~/projects/hw05/plans$ jmeter --version | head -3
@@ -5276,15 +7740,15 @@ Giờ `clear` rồi bật OBS thôi.
 
 ---
 
-## Lượt 93 — 17/08/2026 16:49:34
+## Luot 140 - 17/08/2026 16:49:34
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 <ide_opened_file>The user opened the file Untitled-2 in the IDE. This may or may not be related to the current task.</ide_opened_file>
 ```
 
-**Công cụ AI đã gọi:** 3 lần — `Bash`
+**Cong cu AI da goi:** 3 lan - `Bash`
 
 **Output AI:**
 
@@ -5336,20 +7800,20 @@ jmeter -n -t 23127262_Load_20260811.jmx -Jthreads=120 -Jduration=120 -l /tmp/dem
 node ../scripts/reset-lockout.js
 jmeter -n -t 23127262_Stress_20260813.jmx -Jthrea
 
-[... cắt bớt, xem transcript gốc ...]
+[... cat bot, xem transcript goc ...]
 ```
 
 ---
 
-## Lượt 94 — 17/08/2026 16:52:51
+## Luot 141 - 17/08/2026 16:52:51
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 xuất câu trả lời của lần gần nhất ra file đi tôi cần hỏi vài thông tin
 ```
 
-**Công cụ AI đã gọi:** 2 lần — `Write`, `Bash`
+**Cong cu AI da goi:** 2 lan - `Write`, `Bash`
 
 **Output AI:**
 
@@ -5375,9 +7839,9 @@ Hỏi tiếp đi.
 
 ---
 
-## Lượt 95 — 17/08/2026 17:00:14
+## Luot 142 - 17/08/2026 17:00:14
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 Think-time 800ms ± 200: người thật đọc trang rồi mới bấm. Bỏ think-time thì req/s chỉ phản ánh tốc độ sinh tải của công cụ
@@ -5386,7 +7850,7 @@ Ramp-up 60 giây, tránh cú sốc lúc khởi động — cú sốc là việc 
 này là gì
 ```
 
-**Công cụ AI đã gọi:** 1 lần — `Bash`
+**Cong cu AI da goi:** 1 lan - `Bash`
 
 **Output AI:**
 
@@ -5439,14 +7903,14 @@ Phần tính toán trong báo cáo chính thì **đã dùng đúng** giá trị 
 
 1. **JMeter tự nghẽn** — khởi tạo 120 thread Java đồng thời tốn CPU của chính 
 
-[... cắt bớt, xem transcript gốc ...]
+[... cat bot, xem transcript goc ...]
 ```
 
 ---
 
-## Lượt 96 — 17/08/2026 17:05:32
+## Luot 143 - 17/08/2026 17:05:32
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 Đề ghi khoá sau 3 lần sai, hệ thống thật khoá sau 2 lần: mã nguồn cộng 2 vào bộ đếm mỗi lần sai trong khi ngưỡng là 3. Kiểm chứng bằng 10 tài khoản thăm dò riêng, mỗi tài khoản nhận đúng 2 lần 401 rồi chuyển 403
@@ -5454,7 +7918,7 @@ Phần tính toán trong báo cáo chính thì **đã dùng đúng** giá trị 
 giải thích
 ```
 
-**Công cụ AI đã gọi:** 3 lần — `Bash`
+**Cong cu AI da goi:** 3 lan - `Bash`
 
 **Output AI:**
 
@@ -5510,20 +7974,20 @@ Nên mô tả chính xác là: **hai lần sai là đủ khoá, và từ request
 
 **2. Phản hồi 403 nhanh bất thường.** Nó return ngay ở dòng 40, bỏ qua toàn bộ phần so mật khẩu và tạo JWT. Nếu CSV trộn lẫn tài khoản hợp lệ với tài khoản đã khoá, hàng loạt 403 siêu nhanh sẽ **kéo throughput trung bình đẹp lên một cách giả tạo** — số đo trông tốt trong khi thực chất server chẳng làm gì cả. Đó là lý do plan Stress tách hai nhánh bằng If Controller, và [data/credentials.csv](data/credentials.csv) đánh dấu riêng nhóm `lockout-prob
 
-[... cắt bớt, xem transcript gốc ...]
+[... cat bot, xem transcript goc ...]
 ```
 
 ---
 
-## Lượt 97 — 17/08/2026 17:06:46
+## Luot 144 - 17/08/2026 17:06:46
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 ủa ramp up ở load và stress nó khác nhau à
 ```
 
-**Công cụ AI đã gọi:** 1 lần — `Bash`
+**Cong cu AI da goi:** 1 lan - `Bash`
 
 **Output AI:**
 
@@ -5560,9 +8024,9 @@ Nói được đoạn này là trả lời trọn ý *"realistic parameters (thi
 
 ---
 
-## Lượt 98 — 17/08/2026 17:07:57
+## Luot 145 - 17/08/2026 17:07:57
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 oke ở stress tôi nói gì, tôi hiểu chỗ vì sao ghép tress, rồi sao nữa
@@ -5609,20 +8073,20 @@ jmeter -n -t 23127262_Stress_20260813.jmx -Jthreads=400 -Jrampup=60 -Jduration=9
 
 > "Think-time ở kịch bản này em rút xuống trung bình bốn trăm mili
 
-[... cắt bớt, xem transcript gốc ...]
+[... cat bot, xem transcript goc ...]
 ```
 
 ---
 
-## Lượt 99 — 17/08/2026 17:09:59
+## Luot 146 - 17/08/2026 17:09:59
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 400 luồng là sao, là cái script test nó thật sự làm gì hệ thống này vậy
 ```
 
-**Công cụ AI đã gọi:** 1 lần — `Bash`
+**Cong cu AI da goi:** 1 lan - `Bash`
 
 **Output AI:**
 
@@ -5678,16 +8142,16 @@ Bước 3 đáng chú ý: mật khẩu so sánh dạng **plaintext**, không has
 
 Nên sau Stress ch
 
-[... cắt bớt, xem transcript gốc ...]
+[... cat bot, xem transcript goc ...]
 ```
 
 ---
 
-# Phiên `39b69a48` — 1 lượt
+# Phien `39b69a48` - 1 luot
 
-## Lượt 100 — 18/08/2026 10:14:03
+## Luot 147 - 18/08/2026 10:14:03
 
-**Prompt (nguyên văn):**
+**Prompt (nguyen van):**
 
 ```text
 https://youtu.be/joK1eGwLyxc: demo skill
@@ -5696,7 +8160,7 @@ https://youtu.be/xsII4iS_Y6s: demo task 1
 đọc đề @___2026.Homework.Policies.md , @2026.HW05.Performance Testing_En.md  và check submission nha
 ```
 
-**Công cụ AI đã gọi:** 25 lần — `Read`, `Bash`, `Edit`, `AskUserQuestion`
+**Cong cu AI da goi:** 25 lan - `Read`, `Bash`, `Edit`, `AskUserQuestion`
 
 **Output AI:**
 

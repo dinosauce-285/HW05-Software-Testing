@@ -1,14 +1,14 @@
-# Kịch bản quay video Task 1 — bản đọc nguyên văn
+# Kịch bản quay video Task 1 - bản đọc nguyên văn
 
-*(HW05 mục 6:95 + mục 11:150 — file làm việc, không nộp)*
+*(HW05 mục 6:95 + mục 11:150 - file làm việc, không nộp)*
 
-> **Cách dùng:** phần in thường là **lời đọc nguyên văn** — cứ đọc đúng như vậy.
+> **Cách dùng:** phần in thường là **lời đọc nguyên văn** - cứ đọc đúng như vậy.
 > Phần trong khung xám là **lệnh gõ**. Phần in nghiêng đầu mỗi mục là **ghi chú thao tác**, không đọc.
 
-**Lời thoại: 1 745 từ** → đọc ở tốc độ bình thường (130–150 từ/phút) ra **11–13 phút**, chưa kể
+**Lời thoại: 1 745 từ** -> đọc ở tốc độ bình thường (130-150 từ/phút) ra **11-13 phút**, chưa kể
 thời gian chờ JMeter chạy. Dư khá nhiều so với mức tối thiểu 6 phút.
 
-Nếu muốn gọn hơn, xem mục **"Bản rút gọn ~7 phút"** ở cuối file — đã đánh dấu sẵn đoạn nào cắt được.
+Nếu muốn gọn hơn, xem mục **"Bản rút gọn ~7 phút"** ở cuối file - đã đánh dấu sẵn đoạn nào cắt được.
 
 ---
 
@@ -16,9 +16,9 @@ Nếu muốn gọn hơn, xem mục **"Bản rút gọn ~7 phút"** ở cuối fi
 
 | Điều kiện | Trích đề |
 |---|---|
-| Tổng **≥ 6 phút** | mục 6:95 — được cắt nhiều clip |
-| JMeter và htop **chung một khung hình** | mục 11:150 — TA kiểm trực tiếp, không được cắt cảnh qua lại |
-| **Giọng tiếng Việt của chính mình** | mục 6:95 — không dùng giọng máy |
+| Tổng **>= 6 phút** | mục 6:95 - được cắt nhiều clip |
+| JMeter và htop **chung một khung hình** | mục 11:150 - TA kiểm trực tiếp, không được cắt cảnh qua lại |
+| **Giọng tiếng Việt của chính mình** | mục 6:95 - không dùng giọng máy |
 
 Upload YouTube ở chế độ **unlisted**.
 
@@ -36,17 +36,17 @@ cd ~/projects/hw05
 *Mở hai cửa sổ terminal cạnh nhau, cùng nằm trong một khung hình:*
 
 ```
-┌─────────────────────────────┬─────────────────────────────┐
-│ TRÁI — htop                 │ PHẢI — gõ lệnh              │
-│ htop -p $(pgrep -x node)    │ (nơi chạy JMeter)           │
-└─────────────────────────────┴─────────────────────────────┘
++-----------------------------+-----------------------------+
+| TRÁI - htop                 | PHẢI - gõ lệnh              |
+| htop -p $(pgrep -x node)    | (nơi chạy JMeter)           |
+`-----------------------------+-----------------------------+
 ```
 
 *Ghi **toàn màn hình**, không ghi từng cửa sổ riêng. Bật micro.*
 
 ---
 
-# PHẦN 1 — Mở đầu · 50 giây
+# PHẦN 1 - Mở đầu - 50 giây
 
 *Gõ ở cửa sổ phải:*
 
@@ -68,7 +68,7 @@ ls plans/ data/
 ```
 
 Em dùng Apache JMeter phiên bản 5.6.3, chạy ở chế độ non-GUI. Thư mục `plans` có ba test plan cho
-ba kịch bản Load, Stress và Spike. Thư mục `data` có ba file CSV riêng biệt — mỗi nhóm endpoint một
+ba kịch bản Load, Stress và Spike. Thư mục `data` có ba file CSV riêng biệt - mỗi nhóm endpoint một
 file, đúng như đề yêu cầu là không được dùng chung một file cho cả ba.
 
 Cửa sổ bên trái là `htop` đang theo dõi tiến trình backend. Trong suốt video, mỗi lần em chạy tải
@@ -77,7 +77,7 @@ khung hình.
 
 ---
 
-# PHẦN 2 — Kịch bản Load · 1 phút 50
+# PHẦN 2 - Kịch bản Load - 1 phút 50
 
 *Gõ:*
 
@@ -107,7 +107,7 @@ là việc của kịch bản Spike, không phải của Load.
 
 Bên trái, `htop` đang bám đúng tiến trình `node server.js`. Thầy cô thấy cột CPU và cột RES thay
 đổi theo tải. Em đo tài nguyên bằng cách đọc trực tiếp `utime` và `stime` từ `/proc`, chứ không
-dùng `ps` với tham số `%cpu` — vì con số của `ps` là trung bình cộng dồn từ lúc tiến trình khởi
+dùng `ps` với tham số `%cpu` - vì con số của `ps` là trung bình cộng dồn từ lúc tiến trình khởi
 động, nên nó bị pha loãng bởi khoảng thời gian máy rảnh trước đó và cho ra số thấp hơn thực tế rất
 nhiều.
 
@@ -124,7 +124,7 @@ thái 200 thì sẽ bỏ sót hoàn toàn.
 
 ---
 
-# PHẦN 3 — Kịch bản Stress · 2 phút 20
+# PHẦN 3 - Kịch bản Stress - 2 phút 20
 
 *Gõ:*
 
@@ -134,7 +134,7 @@ node ../scripts/reset-lockout.js
 
 Kịch bản thứ hai là Stress, bắn vào `POST /api/login`, tức nhóm auth-heavy.
 
-Em ghép Stress với nhóm này vì khi ép tới điểm gãy, hệ thống sẽ kích hoạt cơ chế khoá tài khoản —
+Em ghép Stress với nhóm này vì khi ép tới điểm gãy, hệ thống sẽ kích hoạt cơ chế khoá tài khoản -
 đúng thứ mà đề yêu cầu mô tả quy trình reset giữa các lượt chạy.
 
 Lệnh em vừa chạy là `reset-lockout.js`. Em xin lưu ý một điểm quan trọng: **tuyệt đối không được
@@ -167,17 +167,17 @@ phải phỏng đoán.
 
 Thầy cô thấy CPU của tiến trình `node` đang lên. Ở lượt chạy chính thức với hai nghìn luồng, nó
 chạm một trăm ba mươi hai phần trăm, trong khi `loadavg` của toàn máy chỉ khoảng mười hai phần trăm
-trên mười sáu luồng CPU. Nghĩa là nút thắt nằm ở **một nhân CPU duy nhất**, do Node chạy đơn luồng —
+trên mười sáu luồng CPU. Nghĩa là nút thắt nằm ở **một nhân CPU duy nhất**, do Node chạy đơn luồng -
 không phải do phần cứng yếu, cũng không phải do công cụ đo.
 
 Điểm gãy đo được là **một nghìn tám trăm người dùng đồng thời**. Tại đúng mốc đó có ba chỉ báo vỡ
 cùng lúc: p95 nhảy từ 399 lên 1228 mili giây, tỉ lệ lỗi tăng từ 0,63 lên 1,94 phần trăm, và thời
-gian bắt tay TCP nhảy từ một mili giây lên một nghìn hai mươi. Chỉ báo thứ ba là rõ nhất — nó cho
+gian bắt tay TCP nhảy từ một mili giây lên một nghìn hai mươi. Chỉ báo thứ ba là rõ nhất - nó cho
 thấy hàng đợi kết nối của socket đã tràn, chứ không phải hệ thống xử lý chậm đi.
 
 ---
 
-# PHẦN 4 — Kịch bản Spike · 1 phút 40
+# PHẦN 4 - Kịch bản Spike - 1 phút 40
 
 *Gõ:*
 
@@ -202,7 +202,7 @@ Thread Group đăng nhập trước năm mươi tài khoản, dùng JSON Extract
 properties. Các luồng chính lấy token theo chỉ số luồng.
 
 Em không đăng nhập lại trong mỗi vòng lặp, vì làm vậy thì mỗi giao dịch phải gánh thêm một request
-đăng nhập, và số liệu của nhóm transactional sẽ bị trộn với nhóm auth — hai nhóm mà đề yêu cầu tách
+đăng nhập, và số liệu của nhóm transactional sẽ bị trộn với nhóm auth - hai nhóm mà đề yêu cầu tách
 bạch.
 
 Về hình dạng spike: nền hai mươi luồng chạy suốt, đến giây thứ ba mươi thì vọt lên ba trăm luồng
@@ -222,7 +222,7 @@ khi đặt hàng thành công.
 
 ---
 
-# PHẦN 5 — Ngưỡng chịu đựng và phát hiện đáng giá nhất · 1 phút 30
+# PHẦN 5 - Ngưỡng chịu đựng và phát hiện đáng giá nhất - 1 phút 30
 
 *Gõ:*
 
@@ -234,13 +234,13 @@ Cuối cùng là ngưỡng chịu đựng của phần cứng, đo bằng một 
 người dùng đồng thời.
 
 Kết quả: **997 request mỗi giây**, giữ đều suốt mười phút với biên độ dao động dưới không phẩy hai
-phần trăm. Trần bộ nhớ là **161 megabyte** — RES tăng từ 122 rồi chững hẳn từ phút thứ tám, nghĩa
+phần trăm. Trần bộ nhớ là **161 megabyte** - RES tăng từ 122 rồi chững hẳn từ phút thứ tám, nghĩa
 là đường đọc không rò rỉ bộ nhớ. Đối lập hoàn toàn với đường ghi mà em vừa trình bày ở kịch bản
 Spike.
 
 Em xin nói thêm một chi tiết về con số 997 này. Ở kịch bản Load lúc nãy, throughput đo được chỉ
 khoảng bốn mươi lăm request mỗi giây. Nếu lấy con số đó làm năng lực của hệ thống thì sai hoàn toàn
-— đó là giới hạn của think-time trong kịch bản, không phải giới hạn của server. Hai con số lệch
+- đó là giới hạn của think-time trong kịch bản, không phải giới hạn của server. Hai con số lệch
 nhau hơn hai mươi lần.
 
 *Gõ:*
@@ -256,7 +256,7 @@ Dashboard HTML do JMeter sinh ra báo p95 của lượt Stress là **1671 mili g
 tính lại từ file log thô, giá trị thật chỉ là **237**. Sai lệch bảy phẩy một lần.
 
 Nguyên nhân là JMeter mặc định đặt tham số `statistic_window` bằng hai mươi nghìn, nghĩa là dashboard
-chỉ tính phân vị trên hai mươi nghìn mẫu cuối cùng — mà lượt đó có tới bảy trăm bảy mươi nghìn mẫu,
+chỉ tính phân vị trên hai mươi nghìn mẫu cuối cùng - mà lượt đó có tới bảy trăm bảy mươi nghìn mẫu,
 nên nó chỉ phản ánh phần đuôi quá tải nhất. Em kiểm chứng bằng cách đếm trực tiếp: chỉ có bốn phẩy
 chín phần trăm số mẫu vượt 237 mili giây, đúng bằng định nghĩa của p95.
 
@@ -269,7 +269,7 @@ thay vì lặng lẽ thay số.
 
 ## Soát trước khi upload
 
-- [ ] Tổng thời lượng **≥ 6 phút**
+- [ ] Tổng thời lượng **>= 6 phút**
 - [ ] Mọi cảnh JMeter đang chạy đều **thấy được htop trong cùng khung hình**
 - [ ] Giọng tiếng Việt của chính mình xuyên suốt
 - [ ] Có đoạn thấy rõ `hostname` = `qt-ThinkBook-14-G5-IRH`
@@ -278,7 +278,7 @@ thay vì lặng lẽ thay số.
 
 ## Bản rút gọn ~7 phút
 
-Bản đầy đủ dài 11–13 phút. Muốn xuống khoảng 7 phút thì bỏ đúng bốn đoạn sau — đều là phần bổ trợ,
+Bản đầy đủ dài 11-13 phút. Muốn xuống khoảng 7 phút thì bỏ đúng bốn đoạn sau - đều là phần bổ trợ,
 không phải mục đề chấm:
 
 | Bỏ đoạn | Ở phần | Bắt đầu bằng | Tiết kiệm |
@@ -292,7 +292,7 @@ không phải mục đề chấm:
 
 | Giữ lại | Vì sao |
 |---|---|
-| Đoạn `whoami` + `hostname` ở Phần 1 | mục 11:151 — TA đối chiếu tên máy giữa các bài |
+| Đoạn `whoami` + `hostname` ở Phần 1 | mục 11:151 - TA đối chiếu tên máy giữa các bài |
 | Toàn bộ đoạn reset khoá tài khoản ở Phần 3 | mục 6:93 chấm riêng quy trình reset |
 | Lý do ghép mỗi kịch bản với mỗi nhóm endpoint | mục 6:88 bắt giải thích |
 | Con số ngưỡng chịu đựng ở Phần 5 | mục 6:94 đòi kết luận bằng số cụ thể |

@@ -72,28 +72,28 @@ sessions.sort(key=lambda x: x[1][0]["raw"])
 
 total = sum(len(t) for _, t in sessions)
 lines = [
-    "# AI Prompt Log — nhật ký tương tác nguyên văn",
+    "# AI Prompt Log - nhat ky tuong tac nguyen van",
     "",
-    "*(HW05 mục 9:130-134 — \"include the following information for each interaction: "
-    "Name of the AI tool · Date and time · Your prompt · The AI output\")*",
+    "*(HW05 muc 9:130-134 - \"include the following information for each interaction: "
+    "Name of the AI tool / Date and time / Your prompt / The AI output\")*",
     "",
     "| Mục | Giá trị |",
     "|---|---|",
-    "| **Công cụ AI** | Claude Opus 5 (`claude-opus-5`) qua Claude Code CLI |",
-    "| **Sinh viên** | Lý Quốc Thạnh — 23127262 |",
-    "| **Bài tập** | HW05 — Performance Testing |",
-    f"| **Tổng số lượt tương tác** | **{total}** |",
-    f"| **Số phiên làm việc** | {len(sessions)} |",
-    "| **Múi giờ** | UTC+7 (giờ Việt Nam) |",
+    "| **Cong cu AI** | Claude Opus 5 (`claude-opus-5`) qua Claude Code CLI |",
+    "| **Sinh vien** | Ly Quoc Thanh - 23127262 |",
+    "| **Bai tap** | HW05 - Performance Testing |",
+    f"| **Tong so luot tuong tac** | **{total}** |",
+    f"| **So phien lam viec** | {len(sessions)} |",
+    "| **Mui gio** | UTC+7 (gio Viet Nam) |",
     "",
-    "**Nguồn:** trích tự động bằng `scripts/extract-prompt-log.py` từ transcript",
+    "**Nguon:** trich tu dong bang `scripts/extract-prompt-log.py` tu transcript",
     "`~/.claude/projects/-home-qt-projects-hw05/*.jsonl`.",
     "",
-    "**Prompt giữ nguyên văn 100%**, không sửa, không paraphrase — kể cả lỗi chính tả và câu cụt.",
-    f"Output của AI cắt ở {MAX_OUT} ký tự mỗi lượt cho gọn; chỗ nào bị cắt đều ghi rõ. Bản đầy đủ nằm",
-    "trong transcript gốc và trong chính các artifact đã nộp.",
+    "**Prompt giu nguyen van 100%**, khong sua, khong paraphrase - ke ca loi chinh ta va cau cut.",
+    f"Output cua AI cat o {MAX_OUT} ky tu moi luot cho gon; cho nao bi cat deu ghi ro. Ban day du nam",
+    "trong transcript goc va trong chinh cac artifact da nop.",
     "",
-    "Bảng audit theo mẫu của Khoa — có verdict và phần sinh viên sửa — nằm ở `AI-Audit-Report.md`.",
+    "Bang audit theo mau cua Khoa - co verdict va phan sinh vien sua - nam o `AI-Audit-Report.md`.",
     "",
     "---",
     "",
@@ -101,13 +101,13 @@ lines = [
 
 idx = 0
 for sid, turns in sessions:
-    lines += [f"# Phiên `{sid}` — {len(turns)} lượt", ""]
+    lines += [f"# Phien `{sid}` - {len(turns)} luot", ""]
     for t in turns:
         idx += 1
         lines += [
-            f"## Lượt {idx} — {t['time']}",
+            f"## Luot {idx} - {t['time']}",
             "",
-            "**Prompt (nguyên văn):**",
+            "**Prompt (nguyen van):**",
             "",
             "```text",
             t["prompt"],
@@ -119,21 +119,21 @@ for sid, turns in sessions:
             for x in t["tools"]:
                 if x not in seen:
                     seen.add(x); order.append(x)
-            lines += [f"**Công cụ AI đã gọi:** {len(t['tools'])} lần — "
+            lines += [f"**Cong cu AI da goi:** {len(t['tools'])} lan - "
                       + ", ".join(f"`{x}`" for x in order), ""]
         out = "\n\n".join(t["out"]).strip()
         if out:
             cut = len(out) > MAX_OUT
             lines += ["**Output AI:**", "", "```text",
-                      out[:MAX_OUT] + ("\n\n[... cắt bớt, xem transcript gốc ...]" if cut else ""),
+                      out[:MAX_OUT] + ("\n\n[... cat bot, xem transcript goc ...]" if cut else ""),
                       "```", ""]
         else:
-            lines += ["**Output AI:** (chỉ gọi công cụ, không có phần văn bản)", ""]
+            lines += ["**Output AI:** (chi goi cong cu, khong co phan van ban)", ""]
         lines += ["---", ""]
 
 os.makedirs(os.path.dirname(OUT), exist_ok=True)
 with open(OUT, "w", encoding="utf-8") as fh:
     fh.write("\n".join(lines))
 
-print(f"Đã trích {total} lượt tương tác từ {len(sessions)} phiên")
+print(f"Da trich {total} luot tuong tac tu {len(sessions)} phien")
 print(f"-> {os.path.relpath(OUT)}  ({os.path.getsize(OUT)/1024:.0f} KB)")

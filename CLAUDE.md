@@ -22,7 +22,7 @@
 | Tài khoản user | `test@eshop.com` / `Test1234!` |
 | Ngôn ngữ báo cáo | Tiếng Việt; tên test plan / file theo quy ước tiếng Anh của đề |
 | Định dạng test data | **CSV** - `data/*.csv`, nạp bằng CSV Data Set Config của JMeter |
-| YouTube Task 1 (demo ≥6 phút) | `https://youtu.be/xsII4iS_Y6s` (unlisted) |
+| YouTube Task 1 (demo >=6 phút) | `https://youtu.be/xsII4iS_Y6s` (unlisted) |
 | YouTube Agent Skill | `https://youtu.be/joK1eGwLyxc` (unlisted) |
 | Self-assessed grade | `100` -> file nộp `23127262_HW05_AI_Performance_100.zip` |
 
@@ -89,19 +89,19 @@ Tài khoản seed: `admin@eshop.com` / `Admin123!` (role admin), `test@eshop.com
 
 ```
 hw05/
-├── plans/          # *.jmx theo quy ước tên trên
-├── data/           # products.csv | credentials.csv | orders.csv - mỗi group một file riêng
-├── results/
-│   ├── raw/        # *.jtl thô, nộp NGUYÊN VẸN (mục 11:149)
-│   └── html/       # <scenario>-<ISO-timestamp>/ - dashboard sinh bởi -e -o
-├── evidence/
-│   ├── monitor/    # screenshot JMeter + htop CÙNG KHUNG HÌNH
-│   └── hardware/   # screenfetch/dxdiag + bảng spec
-├── submission/
-│   ├── report/     # Main-Report.md | Bug-Report.md | AI-Review-Fix-Log.md | Not-Run.md
-│   ├── appendix/   # AI-Audit-Report.md | AI-Prompt-Log.md | AI-Critique.md | git-log.txt
-│   └── README.md   # bảng tự đánh giá + test summary (mục 14:177)
-└── .claude/skills/ # Agent Skill (mục 7:112)
+|-- plans/          # *.jmx theo quy ước tên trên
+|-- data/           # products.csv | credentials.csv | orders.csv - mỗi group một file riêng
+|-- results/
+|   |-- raw/        # *.jtl thô, nộp NGUYÊN VẸN (mục 11:149)
+|   `-- html/       # <scenario>-<ISO-timestamp>/ - dashboard sinh bởi -e -o
+|-- evidence/
+|   |-- monitor/    # screenshot JMeter + htop CÙNG KHUNG HÌNH
+|   `-- hardware/   # screenfetch/dxdiag + bảng spec
+|-- submission/
+|   |-- report/     # Main-Report.md | Bug-Report.md | AI-Review-Fix-Log.md | Not-Run.md
+|   |-- appendix/   # AI-Audit-Report.md | AI-Prompt-Log.md | AI-Critique.md | git-log.txt
+|   `-- README.md   # bảng tự đánh giá + test summary (mục 14:177)
+`-- .claude/skills/ # Agent Skill (mục 7:112)
 ```
 
 Chọn JMeter vì đề gọi là default (mục 8:119) và ba thứ đề đòi - `.jtl` thô, 3 listener khác loại, thư mục HTML report - đều là native. Chữ "bonus" của k6 ở mục 8:119 **không có dòng nào chống lưng trong thang điểm mục 15**, tổng vẫn chốt 100. Đổi sang k6 thì phải viết lại R5 và R8.
@@ -273,7 +273,7 @@ Plan auth-heavy sẽ tự làm khoá tài khoản. Mỗi lần chạy xong:
    ```
    Hoặc chờ hết 180 giây - nhưng chờ thì phải ghi rõ đã chờ, vì nó ăn vào thời lượng chạy.
 
-   ⚠️ **TUYỆT ĐỐI KHÔNG dùng `node sut/backend/database.js` để reset**, và cũng không
+   ! **TUYỆT ĐỐI KHÔNG dùng `node sut/backend/database.js` để reset**, và cũng không
    `require('./database')` để đọc DB. File đó gọi `initDatabase()` ngay khi import
    (`database.js:117`), mà hàm này mở đầu bằng **6 lệnh `DROP TABLE`** (`database.js:15-20`)
    -> mất sạch 200 tài khoản + 147 sản phẩm do `scripts/seed-data.js` tạo.
@@ -295,7 +295,7 @@ Ba việc bắt buộc, tự động, không cần được nhắc:
 
 1. **Xong một mục -> tick ngay `[x]` trong cùng phiên**, cùng lúc với commit. Không gom cuối buổi.
 2. **Phát sinh việc mới -> thêm dòng vào checklist ngay lúc phát hiện**, kèm ký hiệu mức độ
-   (🔴 thiếu là 0 điểm toàn bài / 🟡 mất điểm mục đó / ⚪ hoàn thiện) và trích dẫn mục:dòng của đề.
+   ([!] thiếu là 0 điểm toàn bài / [~] mất điểm mục đó / [.] hoàn thiện) và trích dẫn mục:dòng của đề.
 3. **Cập nhật bảng Tiến độ ở đầu file** mỗi lần tick - đếm lại bằng lệnh, không tin trí nhớ:
    ```bash
    grep -c '^- \[x\]' CHECKLIST.md && grep -c '^- \[ \]' CHECKLIST.md
@@ -337,7 +337,7 @@ Không làm hộ, không tự nhắc mỗi phiên. Chỉ trả lời khi đượ
 
 **Task 3 (10đ, G9.6 Disrupt)** - mô hình continuous performance testing: theo dõi commit của SUT -> quyết định có chạy test không -> cảnh báo khi p95 xấu đi. Bắt buộc có **flow chart** + bàn **trade-off (chi phí, báo động giả)** (mục 6:108).
 
-**Video Task 1** - unlisted YouTube, **tổng ≥6 phút** (được cắt thành nhiều clip, mỗi scenario một clip), thuyết minh **tiếng Việt bằng giọng của mình**, và **JMeter với resource monitor phải nằm chung một khung hình** (mục 6:95 / mục 11:150).
+**Video Task 1** - unlisted YouTube, **tổng >=6 phút** (được cắt thành nhiều clip, mỗi scenario một clip), thuyết minh **tiếng Việt bằng giọng của mình**, và **JMeter với resource monitor phải nằm chung một khung hình** (mục 6:95 / mục 11:150).
 
 **Agent Skill (10đ)** - nộp kèm video demo riêng, quay end-to-end việc dùng skill trên một endpoint group hoàn chỉnh (mục 7:113).
 
