@@ -5,7 +5,7 @@
 
 **Ký hiệu:** 🔴 thiếu là **0 điểm toàn bài** (mục 17:204) · 🟡 mất điểm ở mục tương ứng · ⚪ hoàn thiện
 
-**Cập nhật:** 18/08/2026 · **39 xong / 16 còn**
+**Cập nhật:** 18/08/2026 · **41 xong / 14 còn**
 
 ```bash
 grep -c '^- \[x\]' CHECKLIST.md && grep -c '^- \[ \]' CHECKLIST.md
@@ -33,12 +33,12 @@ grep -c '^- \[x\]' CHECKLIST.md && grep -c '^- \[ \]' CHECKLIST.md
       → **hướng dẫn đầy đủ: `submission/PACKAGING.md`** — lệnh split-and-zip, cấu trúc, thứ tự thao tác
       → Policies:41 giới hạn **20 file, mỗi file 20 MB** mà `results/raw/` nặng 360 MB
 
-## ② Claude — 2 việc, buộc phải làm cuối cùng
+## ② Claude — ✅ xong cả 2
 
-- [ ] **`AI-Prompt-Log.md`** — trích transcript phiên làm việc 🔴 *(mục 9:130-134)*
-      → phiên vẫn dài ra mỗi lượt, trích sớm là thiếu
-- [ ] **`git-log.txt`** 🔴 *(mục 12:156)*
-      → **lệnh cuối cùng**, chạy sau commit cuối
+- [x] **`AI-Prompt-Log.md`** 🔴 *(mục 9:130-134)*
+      → 100 lượt tương tác / 4 phiên (11/08–18/08), prompt nguyên văn, 264 KB
+      → trích tự động bằng `scripts/extract-prompt-log.py`
+- [x] **`git-log.txt`** 🔴 *(mục 12:156)* → 40 commit, 11/08–18/08
 
 ---
 
@@ -62,7 +62,7 @@ Mỗi dòng là một điều kiện ở mục 17:204. Chạy hết rồi mới 
 ---
 
 <details>
-<summary><b>ĐÃ XONG — 36 mục (bấm để mở)</b></summary>
+<summary><b>ĐÃ XONG — 41 mục (bấm để mở)</b></summary>
 
 ## Task 1 — Kiểm thử (60đ)
 

@@ -1,0 +1,54 @@
+# Git commit log — HW05 Performance Testing
+# Sinh viên: Lý Quốc Thạnh — MSSV 23127262
+# Repo: https://github.com/dinosauce-285/HW05-Software-Testing
+# Tổng số commit: 40   ·   Khoảng thời gian: 2026-08-11 .. 2026-08-18
+# Xuất lúc: 2026-08-18T10:21:41+07:00
+#
+# Đề mục 12:155 yêu cầu commit riêng cho từng bước của quy trình.
+# Định dạng: <hash> | <ngày giờ ISO> | <message>
+# Quy ước message: Conventional Commits, không kèm trailer Co-Authored-By
+# (bài nộp đứng tên sinh viên; việc dùng AI khai ở AI-Audit-Report.md).
+#
+# Lưu ý: file này xuất TRƯỚC commit cuối cùng chứa chính nó, nên commit đó
+# không xuất hiện ở đây — xem lịch sử trên GitHub để đối chiếu đầy đủ.
+
+6aed1b6 | 2026-08-18 10:21:22 +0700 | docs(appendix): extract verbatim ai interaction log from session transcripts
+9f123c2 | 2026-08-18 08:50:50 +0700 | chore(repo): sync english skill guide into submission folder
+eaa6108 | 2026-08-18 08:49:21 +0700 | fix(skill): quote description and translate skill guide to english
+1130160 | 2026-08-18 08:25:15 +0700 | docs(report): add ordered command list for each video section
+769fc9b | 2026-08-17 16:54:08 +0700 | docs(report): add per-scenario recording cheat sheet with measured htop values
+470d7fa | 2026-08-17 10:44:22 +0700 | chore(repo): assemble every required deliverable into the submission folder
+f6ac32b | 2026-08-17 10:40:24 +0700 | docs(report): add packaging guide and full narration script for demo video
+b2a6b08 | 2026-08-17 10:17:48 +0700 | docs(report): self-assess full marks and script the task 1 demo video
+74dd39f | 2026-08-17 10:14:30 +0700 | docs(repo): sync checklist counters with command output
+3658096 | 2026-08-17 10:14:13 +0700 | docs(repo): restructure checklist to surface remaining work first
+1f2e589 | 2026-08-17 10:10:18 +0700 | docs(appendix): add ai audit report and critique with verified word counts
+57e5783 | 2026-08-17 10:03:24 +0700 | test(config): capture jmeter and htop in one frame via virtual x display
+2b49170 | 2026-08-17 09:47:54 +0700 | docs(repo): correct checklist progress counters
+88df0fd | 2026-08-17 09:47:31 +0700 | docs(analysis): hunt ai misinterpretations and correct four of my own metrics
+ef54a40 | 2026-08-17 09:36:14 +0700 | docs(report): add hostname evidence screenshot to hardware report
+fdb1301 | 2026-08-17 09:30:10 +0700 | feat(skill): distil performance testing workflow into reusable agent skill
+79e8afc | 2026-08-17 09:24:11 +0700 | docs(repo): add progress checklist and make it the single source of truth
+232b04d | 2026-08-13 23:22:54 +0700 | docs(cpt): propose continuous performance testing model with measured noise floor
+fd17a5d | 2026-08-13 23:00:19 +0700 | docs(analysis): correct word count reference in review scaffold
+8f98066 | 2026-08-13 23:00:07 +0700 | docs(analysis): capture unreviewed ai analysis of all four raw logs
+f1c66bf | 2026-08-13 22:46:48 +0700 | feat(analysis): add raw jtl metric extractor and task 2 review scaffold
+362dd59 | 2026-08-13 22:40:22 +0700 | docs(report): write main report covering task 1 end to end
+1207284 | 2026-08-13 08:31:10 +0700 | docs(report): file 13 github issues and cross-link them from the bug report
+9bb7d22 | 2026-08-13 08:27:34 +0700 | docs(report): capture reproducible evidence images for every logged issue
+d7eb510 | 2026-08-13 08:19:13 +0700 | test(soak): sustain 997 rps for 11 minutes and pin memory ceiling at 161 mb
+1f72445 | 2026-08-13 08:07:15 +0700 | docs(report): log 10 functional bugs and 3 performance issues with measured evidence
+0e6ea98 | 2026-08-13 08:00:07 +0700 | test(spike): add transactional plan with token pool and run 20x burst
+8625da6 | 2026-08-13 07:49:49 +0700 | test(stress): run auth-heavy scenario to breaking point at 1626 concurrent users
+96c2834 | 2026-08-13 07:21:37 +0700 | test(stress): add auth-heavy plan with lockout-aware branching
+a84ec82 | 2026-08-13 07:21:37 +0700 | chore(config): add lockout reset that preserves seeded data
+97f96d9 | 2026-08-11 09:38:01 +0700 | test(load): run read-heavy scenario 50 threads over 5 minutes with resource evidence
+ea2aed4 | 2026-08-11 09:32:04 +0700 | fix(config): measure instantaneous cpu from proc stat deltas
+9462041 | 2026-08-11 09:30:15 +0700 | fix(config): anchor backend pid match in resource monitor
+9a3e2bf | 2026-08-11 09:22:22 +0700 | test(load): add read-heavy load plan with five assertion types
+29ec34b | 2026-08-11 09:18:39 +0700 | feat(data): seed 152 products and 212 accounts, generate per-group csv inputs
+6d3c7be | 2026-08-11 09:15:30 +0700 | chore(config): add portable jmeter runtime env and scaffold directories
+f1d4d1f | 2026-08-11 09:02:39 +0700 | docs(repo): lock endpoint selection and add 100-point delivery checklist
+80c37cc | 2026-08-11 08:50:39 +0700 | docs(repo): pin verified SUT endpoints and behaviour findings
+74ede44 | 2026-08-11 08:41:04 +0700 | docs(repo): rewrite working rules for HW05 performance testing
+bf32b78 | 2026-08-11 08:38:19 +0700 | first commit
