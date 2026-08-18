@@ -147,3 +147,68 @@ số 119,7 → 94 phải nói rõ **"ở lượt chính thức"**, đừng chỉ
 
 Ba cột cần nhìn: **CPU%** (theo 1 nhân, >100% là bình thường), **RES** (RAM thật), **TIME+** (nhảy =
 đang làm việc). Bỏ qua **VIRT** và **MEM%**.
+
+---
+
+# Danh sách lệnh theo thứ tự quay
+
+## Chuẩn bị — chưa bật OBS
+
+Pane TRÁI:
+```bash
+htop -d 10
+```
+rồi `F4` → gõ `node server.js` → `Enter` → `Shift+H` (còn đúng 1 dòng).
+
+Pane PHẢI:
+```bash
+cd ~/projects/hw05
+./scripts/reset-db.sh
+source env.sh
+clear
+```
+
+## Phần 1 — mở đầu (~50s)
+
+```bash
+whoami && hostname
+ls plans/ data/
+```
+
+## Phần 2 — Load (~2:10)
+
+```bash
+cd plans
+jmeter -n -t 23127262_Load_20260811.jmx -Jthreads=120 -Jduration=120 -l /tmp/demo-load.jtl
+```
+
+## Phần 3 — Stress (~2:40)
+
+```bash
+node ../scripts/reset-lockout.js
+jmeter -n -t 23127262_Stress_20260813.jmx -Jthreads=400 -Jrampup=60 -Jduration=90 -l /tmp/demo-stress.jtl
+```
+
+## Phần 4 — Spike (~2:15)
+
+```bash
+cd .. && ./scripts/reset-db.sh && cd plans
+jmeter -n -t 23127262_Spike_20260813.jmx -Jbase=20 -Jbaseduration=120 -Jspike=300 -Jspikeduration=30 -Jspikedelay=30 -l /tmp/demo-spike.jtl
+```
+
+Nên **cắt clip ngay trước lệnh này**: `reset-db.sh` mất khá lâu để seed 200 tài khoản, quay vào
+là dead air. Chạy khi không ghi, rồi mở clip mới bằng cách cuộn lên cho thấy output `Don hang: 0`.
+
+## Phần 5 — ngưỡng chịu đựng (~1:30, chạy tức thì)
+
+```bash
+cd ..
+python3 scripts/jtl-stats.py steady results/raw/soak-20260813T010601Z.jtl 60
+python3 scripts/jtl-stats.py summary results/raw/stress-20260813T003655Z.jtl
+```
+
+## Lưu ý xuyên suốt
+
+- Terminal mới mở phải `source env.sh` lại (từ `~/projects/hw05`), nếu không sẽ báo `jmeter: command not found`
+- Sau `reset-db.sh` thì PID backend đổi — bộ lọc `F4` của htop tự bắt tiến trình mới, không phải làm lại
+- Lượt demo ghi ra `/tmp/`, **không có `-e -o`** → không đụng tới bộ bằng chứng đã nộp trong `results/`
