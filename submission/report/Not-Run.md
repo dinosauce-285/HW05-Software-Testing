@@ -1,5 +1,7 @@
 # Những phần không chạy được / phải điều chỉnh - và lý do
 
+**Sinh viên:** Lý Quốc Thạnh - 23127262
+
 Ghi tại thời điểm phát sinh, không dựng lại cuối bài.
 
 ---

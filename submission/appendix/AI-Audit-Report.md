@@ -20,7 +20,7 @@
 
 **Khai báo:** *"Tôi có dùng công cụ AI cho các tác vụ dưới đây."*
 
-Toàn bộ **100 lượt tương tác** qua **4 phiên làm việc** (11/08 - 18/08/2026) được trích nguyên văn
+Toàn bộ **147 lượt tương tác** qua **5 phiên làm việc** (11/08 - 18/08/2026) được trích nguyên văn
 sang `AI-Prompt-Log.md` - mỗi lượt có ngày giờ, prompt không sửa một chữ, danh sách công cụ đã gọi,
 và output của AI. Trích tự động bằng `scripts/extract-prompt-log.py` từ transcript gốc của
 Claude Code, đúng cách đề khuyến khích ở mục 9:136.

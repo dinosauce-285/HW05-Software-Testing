@@ -2,6 +2,8 @@
 
 Mỗi dòng được ghi **ngay tại thời điểm phát hiện và sửa**, không dựng lại vào cuối bài - cột "Vì sao AI trượt" không tái tạo được sau khi đã quên bối cảnh.
 
+**Sinh viên:** Lý Quốc Thạnh - 23127262
+
 Công cụ AI: **Claude Opus 5** (Claude Code CLI).
 
 ---
