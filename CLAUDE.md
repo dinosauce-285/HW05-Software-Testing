@@ -22,8 +22,8 @@
 | Tài khoản user | `test@eshop.com` / `Test1234!` |
 | Ngôn ngữ báo cáo | Tiếng Việt; tên test plan / file theo quy ước tiếng Anh của đề |
 | Định dạng test data | **CSV** - `data/*.csv`, nạp bằng CSV Data Set Config của JMeter |
-| YouTube Task 1 (demo ≥6 phút) | `<điền>` (unlisted) |
-| YouTube Agent Skill | `<điền>` (unlisted) |
+| YouTube Task 1 (demo ≥6 phút) | `https://youtu.be/xsII4iS_Y6s` (unlisted) |
+| YouTube Agent Skill | `https://youtu.be/joK1eGwLyxc` (unlisted) |
 | Self-assessed grade | `100` -> file nộp `23127262_HW05_AI_Performance_100.zip` |
 
 Khi còn `<điền>` mà cần dùng -> **hỏi**, không tự suy ra, không dùng giá trị ví dụ.

@@ -66,8 +66,8 @@ không bao giờ được dọn (PERF-01).
 
 | | |
 |---|---|
-| Video Task 1 (≥ 6 phút) | `<điền>` ⬜ |
-| Video Agent Skill | `<điền>` ⬜ |
+| Video Task 1 (≥ 6 phút) | https://youtu.be/xsII4iS_Y6s ✅ |
+| Video Agent Skill | https://youtu.be/joK1eGwLyxc ✅ |
 
 ---
 
@@ -85,9 +85,8 @@ không bao giờ được dọn (PERF-01).
 | 6 | Agent Skills | 10 | **10** | `.claude/skills/perf-test-endpoint/` — 3 598 từ, mọi cảnh báo là lỗi đã thực sự mắc phải · kèm video demo |
 | | **Tổng** | **100** | **100** | |
 
-> **Điều kiện để bảng này đúng:** hai video (Task 1 ≥ 6 phút và demo Agent Skill) phải được quay và
-> điền link vào mục "Video demo" ở trên. Mọi hạng mục còn lại đã hoàn tất và kiểm chứng được bằng
-> file trong repo.
+> Hai video (Task 1 ≥ 6 phút và demo Agent Skill) đã quay và điền link ở mục "Video demo" trên.
+> Mọi hạng mục còn lại đã hoàn tất và kiểm chứng được bằng file trong repo.
 
 ---
 
@@ -102,14 +101,14 @@ hw05/
 │   ├── raw/        *.jtl thô + MANIFEST.md (checksum sha256)
 │   └── html/       dashboard HTML mỗi lượt chạy
 ├── evidence/
-│   ├── monitor/    CSV lấy mẫu CPU/RSS của tiến trình backend
+│   ├── monitor/    CSV lấy mẫu CPU/RSS + 3 screenshot JMeter&htop cùng khung hình
 │   ├── bugs/       14 ảnh bằng chứng đính vào GitHub Issue
 │   ├── diagrams/   flow chart Task 3 (PNG)
-│   └── hardware/   ⬜ screenfetch + bảng spec
+│   └── hardware/   fastfetch + hostname-whoami + bảng spec
 └── submission/
     ├── report/     Main-Report | Bug-Report | AI-Review-Fix-Log | Not-Run
     │                Task2-Misinterpretation-Hunt | Task3-Continuous-Performance-Testing
-    └── appendix/   ⬜ AI-Audit-Report | AI-Prompt-Log | AI-Critique | git-log.txt
+    └── appendix/   AI-Audit-Report | AI-Critique done · ⬜ AI-Prompt-Log | git-log.txt (trích cuối cùng)
 ```
 
 ---
@@ -133,16 +132,21 @@ tài khoản giữa các lượt chạy Stress.
 
 ## 5. Còn phải làm
 
+*(nguồn đầy đủ và cập nhật nhất: `CHECKLIST.md` ở gốc repo — R14)*
+
 | Hạng mục | Trạng thái |
 |---|---|
 | Task 1 — 3 kịch bản + endurance | ✅ |
-| Screenshot JMeter + htop cùng khung hình | ⬜ phải chạy lại một lượt để chụp |
-| Hardware report + hostname khớp HW04 | ⬜ |
+| Screenshot JMeter + htop cùng khung hình | ✅ |
+| Hardware report + hostname khớp HW04 | ✅ |
 | GitHub Issues cho 13 lỗi + ảnh bằng chứng | ✅ |
-| Task 2 — bước 1 (AI phân tích) | ✅ |
-| Task 2 — bước 2, 3 (săn lỗi + phân loại) | ⬜ sinh viên tự làm |
+| Task 2 — bước 1, 2, 3 (AI phân tích + săn lỗi + phân loại) | ✅ |
 | Task 3 — Continuous Performance Testing + flow chart | ✅ |
-| Agent Skill + video demo | ⬜ |
-| Main-Report (Task 1) | ✅ — Task 2/3 bổ sung sau |
-| AI Audit Report + AI Critique | ⬜ |
-| Video Task 1 ≥ 6 phút | ⬜ |
+| Agent Skill + video demo | ✅ |
+| Main-Report (Task 1 + 2 + 3) | ✅ |
+| AI Audit Report + AI Critique | ✅ |
+| Video Task 1 ≥ 6 phút | ✅ |
+| `AI-Prompt-Log.md` (trích transcript) | ⬜ — làm ở cuối phiên (R1) |
+| `git-log.txt` | ⬜ — xuất sau commit cuối cùng (R3) |
+| Xuất PDF (Main-Report / AI-Audit-Report / AI-Critique) | ⬜ sinh viên tự làm |
+| Đóng gói zip `23127262_HW05_AI_Performance_100.zip` | ⬜ sinh viên tự làm — xem `PACKAGING.md` |
