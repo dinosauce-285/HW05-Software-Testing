@@ -1,110 +1,114 @@
 ---
 name: perf-test-endpoint
-description: Thiết kế, chạy và phân tích một kịch bản kiểm thử hiệu năng JMeter (Load / Stress / Spike / Soak) cho một endpoint group. Dùng khi cần đo hiệu năng một API mới, tìm điểm gãy, xác định ngưỡng chịu đựng, hoặc phân tích file .jtl. Bao trọn quy trình: khảo sát endpoint → sinh dữ liệu → dựng test plan → smoke → chạy thật kèm đo tài nguyên → phân tích log thô → dựng bằng chứng.
+description: "Design, run and analyse a JMeter performance scenario (Load / Stress / Spike / Soak) for one endpoint group. Use when measuring a new API's performance, hunting for the break point, establishing an endurance threshold, or analysing a .jtl file. Covers the whole pipeline — probe the endpoint, generate data, build the test plan, smoke it, run it with resource monitoring, analyse the raw log, collect evidence."
 ---
 
-# Kiểm thử hiệu năng một endpoint group
+# Performance-testing one endpoint group
 
-Quy trình 7 bước, đúc kết từ 8 lượt chạy thật trên EShop backend (HW05). Mỗi cảnh báo trong
-tài liệu này tương ứng với một lỗi đã thực sự mắc phải và đã sửa — không phải phòng xa lý thuyết.
+A 7-step procedure distilled from 8 real runs against the EShop backend (HW05). Every warning in
+this document maps to a mistake actually made and fixed — none of them are theoretical.
 
-**Nguyên tắc bao trùm:** không có con số nào được phép xuất hiện trong báo cáo nếu không lôi ra
-được từ `.jtl` thô bằng lệnh.
+**Overriding principle:** no number may appear in a report unless it can be pulled out of the raw
+`.jtl` with a command.
 
 ---
 
-## Bước 1 — Khảo sát endpoint bằng request thật
+## Step 1 — Probe the endpoint with real requests
 
-**Không đọc mã nguồn rồi suy ra.** Gọi thật, xem thật.
+**Do not read the source and infer.** Call it, look at what comes back.
 
 ```bash
 curl -s -w '\n<- HTTP %{http_code}  Content-Type: %{content_type}\n' <endpoint>
 ```
 
-Bốn câu phải trả lời được trước khi viết dòng `.jmx` đầu tiên:
+Four questions must be answered before the first line of `.jmx` is written:
 
-| Câu hỏi | Vì sao quan trọng |
+| Question | Why it matters |
 |---|---|
-| Endpoint có cần token không? | Cần thì plan phải có setUp Thread Group lấy token — xem bước 4 |
-| Body và tên field chính xác? | AI bịa tên field rất nhiều. Chỉ `curl` mới xác nhận được |
-| Có cơ chế trạng thái không? (khoá tài khoản, rate limit, session) | Quyết định có phải reset giữa các lượt không |
-| Lỗi thì trả gì? JSON hay HTML? | Assertion phải kiểm đúng thứ đó |
+| Does the endpoint need a token? | If yes, the plan needs a setUp Thread Group — see step 4 |
+| What is the exact body and field naming? | AI invents field names constantly. Only `curl` confirms them |
+| Is there stateful behaviour? (account lockout, rate limit, session) | Decides whether a reset between runs is mandatory |
+| What does an error return — JSON or HTML? | The assertion must check that exact thing |
 
-⚠️ **Tài liệu của SUT có thể sai.** Đọc mã nguồn để đối chiếu, nhưng lấy kết quả `curl` làm chuẩn.
-
----
-
-## Bước 2 — Sinh dữ liệu nền
-
-Dữ liệu seed sẵn của SUT gần như luôn **không đủ** cho kiểm thử data-driven.
-
-**Nguyên tắc vàng:** sinh dữ liệu theo cấu trúc biết trước, để **suy ra được kỳ vọng của assertion
-từ chính cấu trúc đó** — không suy ngược từ phản hồi của SUT. Suy ngược thì assertion luôn đúng và
-mất sạch tác dụng.
-
-Ví dụ: sinh danh mục theo tổ hợp `7 thương hiệu × 3 thế hệ × 7 biến thể` → biết trước từ khoá
-`iPhone` phải trả về đúng 21 kết quả → cột `expect_min_count` trong CSV có căn cứ.
+⚠️ **The SUT's own documentation may be wrong.** Read the source to cross-check, but treat the
+`curl` result as the source of truth.
 
 ---
 
-## Bước 3 — Sinh CSV, mỗi endpoint group một file riêng
+## Step 2 — Generate baseline data
 
-Cột `expect_*` cho phép assertion đọc kỳ vọng **từ dữ liệu** thay vì hard-code trong plan:
+A SUT's seeded data is almost never enough for data-driven testing.
+
+**Golden rule:** generate data with a structure known in advance, so that **assertion expectations
+derive from that structure** — never from the SUT's own response. Deriving them backwards from the
+response makes every assertion pass by construction and strips them of all value.
+
+Example: generate a catalogue as `7 brands × 3 generations × 7 variants` → the search term `iPhone`
+must return exactly 21 results → the `expect_min_count` column in the CSV now has a basis.
+
+---
+
+## Step 3 — Generate the CSV, one file per endpoint group
+
+An `expect_*` column lets the assertion read its expectation **from the data** instead of
+hard-coding it in the plan:
 
 ```csv
 search_term,expect_min_count,expect_code,note
-iPhone,21,200,tu khoa khop
-O'Neill,0,200,dau nhay don - du kien lo loi SQL injection
+iPhone,21,200,matching keyword
+O'Neill,0,200,single quote - expected to expose SQL injection
 ```
 
-**Luôn chèn vài dòng dữ liệu độc**: dấu nháy đơn, chuỗi rỗng, ký tự Unicode, giá trị vượt biên.
-Chính dòng `O'Neill` ở trên đã phát hiện lỗ SQL injection trong SUT.
+**Always include a few poison rows**: a single quote, an empty string, Unicode characters, an
+out-of-range value. It was the `O'Neill` row above that exposed the SQL injection hole in the SUT.
 
 ---
 
-## Bước 4 — Dựng test plan `.jmx`
+## Step 4 — Build the `.jmx` test plan
 
-Đọc `references/jmx-template.md` để lấy khung XML và danh sách bẫy.
+Read `references/jmx-template.md` for the XML skeleton and the list of traps.
 
-### Năm bất biến, kiểm ở mọi lần đụng vào plan
+### Five invariants, checked every single time the plan is touched
 
-| Bất biến | Vì sao |
+| Invariant | Why |
 |---|---|
-| Mỗi endpoint group một **CSV riêng** | Dùng chung một file là sai yêu cầu data-driven |
-| Ba plan dùng **ba listener khác loại** | Summary Report / Aggregate Report / View Results Tree |
-| Tên file `{StudentID}_{Scenario}_{YYYYMMDD}` | Ngày **tạo plan**, không phải ngày nộp |
-| Think-time và ramp-up **giải thích được bằng lời** | "AI đề xuất 100 thread" không phải lý do |
-| **≥ 3 loại assertion khác nhau**, không chỉ kiểm mã 200 | Lỗi 500 vẫn "nhanh" nếu chỉ đo thời gian |
+| Each endpoint group gets its **own CSV** | Sharing one file across groups fails the data-driven requirement |
+| The three plans use **three different listener types** | Summary Report / Aggregate Report / View Results Tree |
+| Filename `{StudentID}_{Scenario}_{YYYYMMDD}` | The date the plan was **created**, not the submission date |
+| Think-time and ramp-up **defensible in words** | "The AI suggested 100 threads" is not a reason |
+| **≥ 3 distinct assertion types**, not just a 200 check | A 500 still looks "fast" if you only measure time |
 
-### Tham số theo từng loại kịch bản
+### Parameters per scenario type
 
-| Kịch bản | Thread | Ramp-up | Think-time | Mẹo |
+| Scenario | Threads | Ramp-up | Think-time | Notes |
 |---|---|---|---|---|
-| **Load** | Mức "ngày thường" | Dài, đều | 800 ms ± 200 | Cao hơn thì thành stress |
-| **Stress** | Cao, tăng tuyến tính | **1 thread/giây** | 300 ms ± 100 | Ramp 1/giây biến trục thời gian thành trục tải — giây thứ N có đúng N người dùng |
-| **Spike** | Nền thấp + cú vọt gấp 10-30 lần | Cú vọt ramp **≤ 5 giây** | 1000 ms ± 300 | **Hai Thread Group tách biệt**, nếu gộp thì không đo được hồi phục |
-| **Soak** | ~80% mức bão hoà | Ngắn | như Load | 10-15 phút, cần đo cả RSS |
+| **Load** | Everyday level | Long, even | 800 ms ± 200 | Any higher and it becomes a stress test |
+| **Stress** | High, linearly increasing | Constant rate; ramp-up seconds = thread count gives exactly 1 user/second | 300 ms ± 100 | A constant ramp rate turns the time axis into a load axis, so the break point reads off as a number instead of a guess |
+| **Spike** | Low baseline + a 10–30× burst | Burst ramp **≤ 5 seconds** | 1000 ms ± 300 | **Two separate Thread Groups** — merged into one, recovery cannot be measured |
+| **Soak** | ~80% of the saturation level | Short | Same as Load | 10–15 minutes, and RSS must be sampled too |
 
-### Ba bẫy đã mắc phải
+### Three traps already walked into
 
-**Bẫy 1 — Phản hồi lỗi mong đợi bị tính là lỗi.** Nếu kịch bản có nhánh negative (401/403/404 là
-kết quả **đúng**), JMeter vẫn đánh sample là thất bại vì mặc định coi mọi 4xx là lỗi — assertion
-pass cũng không ghi đè được. Phải bật **Ignore Status** (`Assertion.assume_success = true`) **chỉ
-trên nhánh đó**, giữ `false` ở nhánh chính.
+**Trap 1 — Expected error responses counted as failures.** When a scenario has a negative branch
+(401/403/404 is the *correct* outcome), JMeter still marks the sample failed, because it treats any
+4xx as an error by default — a passing assertion does not override that. Enable **Ignore Status**
+(`Assertion.assume_success = true`) **on that branch only**, leaving it `false` on the main branch.
 
-**Bẫy 2 — Trộn nhánh nhanh giả tạo vào luồng chính.** Ví dụ phản hồi "tài khoản đã khoá" trả rất
-nhanh vì bỏ qua bước so mật khẩu. Trộn chung sẽ kéo throughput đẹp lên một cách giả tạo. Tách bằng
-**If Controller** theo cột nhãn trong CSV, hai sampler riêng.
+**Trap 2 — Mixing an artificially fast branch into the main flow.** For example, an "account locked"
+response returns very fast because it skips the password comparison entirely. Mixed in, it inflates
+average throughput to something flattering and meaningless. Split it with an **If Controller** keyed
+on a label column in the CSV, with two separate samplers.
 
-**Bẫy 3 — Đăng nhập lại trong mỗi vòng lặp.** Làm vậy thì số liệu nhóm transactional bị trộn với
-nhóm auth. Dùng **setUp Thread Group** lấy sẵn N token vào properties, luồng chính lấy theo
-`ctx.getThreadNum() % N`.
+**Trap 3 — Logging in inside every loop iteration.** That mixes the transactional group's numbers
+with the auth group's. Use a **setUp Thread Group** to collect N tokens into properties, and have the
+main threads pick one by `ctx.getThreadNum() % N`.
 
 ---
 
-## Bước 5 — Smoke trước, chạy thật sau
+## Step 5 — Smoke first, run for real second
 
-**Luôn** chạy thử quy mô nhỏ trước. Một plan sai cấu hình mà chạy thẳng 10 phút là mất 10 phút.
+**Always** do a small-scale trial run first. A misconfigured plan run straight at 10 minutes costs
+10 minutes.
 
 ```bash
 source env.sh
@@ -113,10 +117,10 @@ cd plans && jmeter -n -t <plan>.jmx -Jthreads=6 -Jrampup=3 -Jduration=15 \
 awk -F',' 'NR>1{print $3", HTTP "$4", success="$8}' /tmp/smoke.jtl | sort | uniq -c
 ```
 
-Kiểm ba điều: mọi sampler có chạy không · mã phản hồi có đúng kỳ vọng không · có sample nào
-`success=false` ngoài ý muốn không.
+Check three things: did every sampler actually run · are the response codes the expected ones · is
+any sample `success=false` unintentionally.
 
-Muốn xem **assertion nào** trượt thì chạy lại với output XML:
+To see **which assertion** failed, re-run with XML output:
 
 ```bash
 jmeter -n -t <plan>.jmx ... \
@@ -126,17 +130,17 @@ jmeter -n -t <plan>.jmx ... \
 
 ---
 
-## Bước 6 — Chạy thật kèm đo tài nguyên
+## Step 6 — The real run, with resource monitoring
 
 ```bash
-# 1. đưa hệ thống về trạng thái sạch
-./scripts/reset-db.sh              # hoặc reset-lockout.js nếu chỉ cần mở khoá
+# 1. return the system to a clean state
+./scripts/reset-db.sh              # or reset-lockout.js when only the lock needs clearing
 
-# 2. bật đo tài nguyên nền
+# 2. start resource sampling in the background
 TS=$(date -u +%Y%m%dT%H%M%SZ)
 ./scripts/monitor.sh "evidence/monitor/<scenario>-${TS}-resource.csv" 1 &
 
-# 3. chạy — một lệnh ra cả log thô lẫn dashboard
+# 3. run — one command produces both the raw log and the dashboard
 source env.sh && cd plans && jmeter -n -t <plan>.jmx \
   -l "../results/raw/<scenario>-${TS}.jtl" \
   -e -o "../results/html/<scenario>-${TS}/"
@@ -144,63 +148,65 @@ source env.sh && cd plans && jmeter -n -t <plan>.jmx \
 pkill -f monitor.sh
 ```
 
-Thư mục `-o` phải **chưa tồn tại** → mỗi lượt tự nhiên có thư mục riêng, không ghi đè.
+The `-o` directory must **not already exist** → every run naturally gets its own folder and nothing
+is ever overwritten.
 
-### Hai lỗi đo lường đã mắc phải
+### Two measurement mistakes already made
 
-**Đo CPU bằng `ps -o %cpu` là sai.** Đó là trung bình cộng dồn **từ lúc tiến trình khởi động**, nên
-một đợt bắn tải 5 phút bị pha loãng bởi thời gian rảnh trước đó — cột CPU sẽ đứng phẳng ở một con số
-vô nghĩa. Phải đọc `utime + stime` từ `/proc/<pid>/stat` và lấy hiệu giữa hai lần lấy mẫu.
+**Measuring CPU with `ps -o %cpu` is wrong.** That value is a cumulative average **since process
+start**, so a 5-minute load burst gets diluted by all the idle time before it — the CPU column sits
+flat at a meaningless number. Read `utime + stime` from `/proc/<pid>/stat` and take the delta between
+two samples.
 
-**`pgrep -f "node server.js"` không neo hai đầu sẽ bắt nhầm tiến trình `bash` bao ngoài** — dòng
-lệnh của nó có chứa chính chuỗi đó. Dùng `pgrep -f '^node server\.js$'`, và thêm chốt chặn từ chối
-PID nào có RSS nhỏ bất thường.
+**`pgrep -f "node server.js"` without anchors matches the wrapping `bash` process** — its own command
+line contains that very string. Use `pgrep -f '^node server\.js$'`, and add a guard that rejects any
+PID whose RSS is implausibly small.
 
-⚠️ Lỗi này **tái phát** ở một script khác sau khi đã ghi vào nhật ký. Đọc lại nhật ký trước khi viết
-bất kỳ lệnh `pgrep` nào.
+⚠️ This mistake **recurred** in a different script after it had already been written down. Re-read
+the log before writing any `pgrep` command.
 
-### Thu đủ bằng chứng ngay lúc đó, không dựng lại sau
+### Collect the full evidence set at that moment, never reconstruct it later
 
-`.jtl` thô · thư mục HTML · **screenshot công cụ và resource monitor CÙNG MỘT KHUNG HÌNH** ·
-báo cáo phần cứng. Lượt chạy đã kết thúc thì không chụp lại được.
+Raw `.jtl` · HTML directory · **a screenshot of the tool and the resource monitor IN THE SAME
+FRAME** · hardware report. Once the run is over, it cannot be re-photographed.
 
 ---
 
-## Bước 7 — Phân tích log thô
+## Step 7 — Analyse the raw log
 
-Đọc `references/analysis-playbook.md` để lấy danh sách lỗi diễn giải thường gặp.
+Read `references/analysis-playbook.md` for the catalogue of common misinterpretations.
 
 ```bash
-python3 scripts/jtl-stats.py summary  <file.jtl>          # thống kê theo sampler
-python3 scripts/jtl-stats.py errors   <file.jtl>          # phân rã nguyên nhân lỗi
-python3 scripts/jtl-stats.py timeline <file.jtl> [giây]   # diễn biến theo thời gian
-python3 scripts/jtl-stats.py threads  <file.jtl> [giây]   # tải đồng thời ↔ độ trễ
-python3 scripts/jtl-stats.py steady   <file.jtl> [giây]   # throughput trạng thái ổn định
+python3 scripts/jtl-stats.py summary  <file.jtl>          # per-sampler statistics
+python3 scripts/jtl-stats.py errors   <file.jtl>          # error cause breakdown
+python3 scripts/jtl-stats.py timeline <file.jtl> [secs]   # behaviour over time
+python3 scripts/jtl-stats.py threads  <file.jtl> [secs]   # concurrency ↔ latency
+python3 scripts/jtl-stats.py steady   <file.jtl> [secs]   # steady-state throughput
 ```
 
-**Luôn tính từ `.jtl` thô, không đọc `statistics.json`** do JMeter sinh — vì con số trong báo cáo
-phải truy ngược được về log gốc.
+**Always compute from the raw `.jtl`, never from the `statistics.json`** JMeter generates — every
+number in the report must trace back to the original log.
 
-### Ba câu hỏi bắt buộc với mỗi con số
+### Three mandatory questions for every number
 
-1. Chạy lệnh ra có đúng con số đó không?
-2. Nguyên nhân được quy có kiểm chứng được không, hay chỉ là suy đoán nghe hợp lý?
-3. **Đây là giới hạn của hệ thống được đo, hay giới hạn của cách đo?**
+1. Does running the command actually produce that number?
+2. Is the attributed cause verifiable, or just a plausible-sounding guess?
+3. **Is this a limit of the system under test, or a limit of the measurement?**
 
-Câu 3 là chỗ sai nhiều nhất. Ví dụ thật: kịch bản Load đo được 45 req/s — nhưng đó là giới hạn của
-**think-time** (50 luồng ÷ 1,6 giây mỗi vòng), không phải của server. Soak trên cùng endpoint đó
-đo được **997 req/s**, lệch hơn 20 lần.
+Question 3 is where most errors live. A real example: the Load scenario measured 45 req/s — but that
+was the ceiling imposed by **think-time** (50 threads ÷ 1.6 s per iteration), not by the server. A
+soak run against the same endpoint reached **997 req/s**, a gap of more than 20×.
 
 ---
 
-## Danh sách kiểm cuối
+## Final checklist
 
-- [ ] Endpoint đã gọi thật bằng `curl`, không suy từ code
-- [ ] CSV riêng cho endpoint group này, có cột `expect_*` và vài dòng dữ liệu độc
-- [ ] Plan có ≥ 3 loại assertion, think-time và ramp-up giải thích được bằng lời
-- [ ] Đã smoke trước khi chạy thật
-- [ ] Đã reset trạng thái trước lượt chạy
-- [ ] `.jtl` thô + thư mục HTML + CSV tài nguyên đủ cả ba
-- [ ] Screenshot công cụ + resource monitor chung một khung hình
-- [ ] Mọi con số trong báo cáo lôi ra được bằng lệnh từ `.jtl` thô
-- [ ] Đã phân biệt rõ **lỗi chức năng** với **vấn đề hiệu năng**
+- [ ] Endpoint called for real with `curl`, not inferred from source
+- [ ] Dedicated CSV for this endpoint group, with `expect_*` columns and a few poison rows
+- [ ] Plan has ≥ 3 assertion types; think-time and ramp-up defensible in words
+- [ ] Smoke run completed before the real run
+- [ ] State reset before the run
+- [ ] Raw `.jtl` + HTML directory + resource CSV, all three present
+- [ ] Screenshot of the tool and the resource monitor in one frame
+- [ ] Every number in the report retrievable by command from the raw `.jtl`
+- [ ] **Functional bugs** clearly separated from **performance issues**
